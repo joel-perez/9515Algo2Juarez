@@ -1,6 +1,6 @@
 # 9515Algo2Juarez
 
-![Celulas](https://github.com/joel-perez/9515Algo2Juarez/master/img/logo_fiuba.png)
+![FIUBA](https://raw.githubusercontent.com/joel-perez/9515Algo2Juarez/master/img/logo_fiuba.png)
 
 Algoritmos y Programación II - Juarez - 2do Cuatrimestre 2019
 
@@ -24,18 +24,22 @@ Las células cambian el estado de gravedad con el paso del tiempo: del estado X 
 Una vez en estado Z comienza el contagio a sus células vecinas, convirtiendo a todas ellas en estado X.
 Si la célula Z no tiene vecinas a quien contagiar, termina la serie de contagios (ver imagen).
 
-![Celulas](https://github.com/joel-perez/9515Algo2Juarez/master/img/grafo_celulas.png)
+![Celulas](https://raw.githubusercontent.com/joel-perez/9515Algo2Juarez/master/img/grafo_celulas.png)
 
 Algunas de las características de las células son:
--Tamaño (dato tenido en cuenta en el TP N 1)
--Cantidad de enzimas.
--Cantidad de proteínas.
--Material genético: Indica el ADN, o ácido desoxirribonucleico.
--Organismo unicelular: Indica si la célula forma parte de un organismo pluricelular o no.
+
+- Tamaño (dato tenido en cuenta en el TP N 1)
+- Cantidad de enzimas.
+- Cantidad de proteínas.
+- Material genético: Indica el ADN, o ácido desoxirribonucleico.
+- Organismo unicelular: Indica si la célula forma parte de un organismo pluricelular o no.
+
 Adicionalmente, las células X e Y tienen como característica adicional:
--%Inflamación
+
+- %Inflamación
+
 Y las células Z (Además de las características de las X e Y):
--%Mutación
+- %Mutación
 
 Un organismo infectado puede sobrevivir con algunas de estas células infectadas, pero si en algún momento la proporción de células Z en el organismo supera a la proporción de células sanas, el proceso se torna irreversible.
 
@@ -45,41 +49,25 @@ Utilizando lo último en nanotecnología, han ideado una nave miniatura a la cua
 Uno capaz de destruir células que se aplica cuando el NanoBot entra en contacto con alguna célula de la red. Lamentablemente, si esta munición se aplica a células sanas, también las destruye.
 Otro, capaz de replicar células con el objetivo de aumentar la proporción de células sanas en el organismo. Esta munición tampoco distingue entre células Z y células sanas, y en consecuencia si se dispara contra una célula Z, esta también se replica.
 
-Al suero destructivo lo llamaremos suero A y al constructivo suero B (tal como
-se mencionaron en el TP N1). Cuando una dosis de suero A se aplica a una célula,
-genera un proceso de debilitación en la misma. Si la célula era de tipo Z, esta pasa a ser
-del tipo que denominamos Y, y si era de tipo Y, pasa a ser de tipo X. Finalmente si es de
-tipo X y le aplicamos una dosis de suero A, la célula se destruye por completo. Así,
-mediante sucesivos impactos de esta munición, es posible destruir una célula Z.
-Lamentablemente, si aplicamos el suero A a una célula sana, la misma se destruye
-inmediatamente.
+Al suero destructivo lo llamaremos suero A y al constructivo suero B (tal como se mencionaron en el TP N1). Cuando una dosis de suero A se aplica a una célula, genera un proceso de debilitación en la misma.
+Si la célula era de tipo Z, esta pasa a ser del tipo que denominamos Y, y si era de tipo Y, pasa a ser de tipo X.
+Finalmente si es de tipo X y le aplicamos una dosis de suero A, la célula se destruye por completo.
+Así, mediante sucesivos impactos de esta munición, es posible destruir una célula Z.
+Lamentablemente, si aplicamos el suero A a una célula sana, la misma se destruye inmediatamente.
 
-Por otro lado, si una célula es impactada por el suero B, la misma pasa al tipo
-siguiente en gravedad. Si la célula es ya sana, entonces la célula realiza un proceso de
-mitosis, convirtiéndose en dos células sanas, pero si aplicamos incorrectamente este
-suero a una célula enferma, empeora su tipo (si era X, pasa a Y; si era Y pasa a Z; y si
-era Z, se duplica).
+Por otro lado, si una célula es impactada por el suero B, la misma pasa al tipo siguiente en gravedad.
+Si la célula es ya sana, entonces la célula realiza un proceso de mitosis, convirtiéndose en dos células sanas, pero si aplicamos incorrectamente este suero a una célula enferma, empeora su tipo (si era X, pasa a Y; si era Y pasa a Z; y si era Z, se duplica).
 
-Ambos sueros pueden aplicarse mediante el armamento con el que cuenta el
-NanoBot, pero la cantidad de dosis está limitada a 15 disparos para cada suero. Una
-vez utilizadas todas las dosis se debe esperar un tiempo determinado para que
-automáticamente se generen nuevas dosis a ser utilizadas.
+Ambos sueros pueden aplicarse mediante el armamento con el que cuenta el NanoBot, pero la cantidad de dosis está limitada a 15 disparos para cada suero.
+Una vez utilizadas todas las dosis se debe esperar un tiempo determinado para que automáticamente se generen nuevas dosis a ser utilizadas.
 
-El cuerpo humano es un organismo extraordinario y los infectólogos han
-notado que algunos organismos han comenzado a desarrollar anticuerpos, capaces de
-revertir el proceso de la influenza convirtiendo directamente a las células Z en células
-sanas nuevamente. Estos anticuerpos son generados cada tanto y a intervalos de
-tiempo irregulares. Además, los anticuerpos no poseen inteligencia como para
-encontrar células Z por si solos, sino que se transportan por el organismo en forma
-errática hasta dar con alguna de estas células malignas. Al contacto con una de ellas, el
-anticuerpo es consumido por la misma, la cual se convierte automáticamente en una
-célula sana. Con el fin de utilizar el NanoBot para guiar a los anticuerpos hacia las
-células Z, el grupo de ingenieros ha agregado al NanoBot un nuevo instrumental capaz
-de atrapar los anticuerpos y arrastrarlos con la nave hasta donde se desee. Los
-anticuerpos pueden luego desprenderse del NanoBot para permitirles continuar con su
-camino. Afortunadamente, al desprender de la nave a un anticuerpo, este sigue en la
-misma dirección que traía la misma y a la misma velocidad, con lo cual podemos
-utilizar el NanoBot para "dirigir" los anticuerpos hacia las células Z.
+El cuerpo humano es un organismo extraordinario y los infectólogos han notado que algunos organismos han comenzado a desarrollar anticuerpos, capaces de revertir el proceso de la influenza convirtiendo directamente a las células Z en células sanas nuevamente.
+Estos anticuerpos son generados cada tanto y a intervalos de tiempo irregulares.
+Además, los anticuerpos no poseen inteligencia como para encontrar células Z por si solos, sino que se transportan por el organismo en forma errática hasta dar con alguna de estas células malignas.
+Al contacto con una de ellas, el anticuerpo es consumido por la misma, la cual se convierte automáticamente en una célula sana.
+Con el fin de utilizar el NanoBot para guiar a los anticuerpos hacia las células Z, el grupo de ingenieros ha agregado al NanoBot un nuevo instrumental capaz de atrapar los anticuerpos y arrastrarlos con la nave hasta donde se desee.
+Los anticuerpos pueden luego desprenderse del NanoBot para permitirles continuar con su camino.
+Afortunadamente, al desprender de la nave a un anticuerpo, este sigue en la misma dirección que traía la misma y a la misma velocidad, con lo cual podemos utilizar el NanoBot para "dirigir" los anticuerpos hacia las células Z.
 
 # Datos de entrada
 
