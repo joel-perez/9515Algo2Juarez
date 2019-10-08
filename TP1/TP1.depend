@@ -1,0 +1,74 @@
+# depslib dependency file v1.0
+1568296814 source:c:\cloud\mega\uba\fiuba\95 computacion\95.15 algoritmos y programación ii\trabajos practicos\2019 b\git\tp1\tp1\main.cpp
+	"main.h"
+
+1568127484 c:\cloud\mega\uba\fiuba\95 computacion\95.15 algoritmos y programación ii\trabajos practicos\2019 b\git\tp1\tp1\main.h
+	<iostream>
+	"consola.h"
+	"archivo.h"
+	"ResumenElementos.h"
+
+1568127424 c:\cloud\mega\uba\fiuba\95 computacion\95.15 algoritmos y programación ii\trabajos practicos\2019 b\git\tp1\tp1\consola.h
+	<iostream>
+	"consola.h"
+	"constantes.h"
+	"texto.h"
+	"conversiones.h"
+	"ResumenElementos.h"
+
+1568592764 source:c:\cloud\mega\uba\fiuba\95 computacion\95.15 algoritmos y programación ii\trabajos practicos\2019 b\git\tp1\tp1\consola.cpp
+	"consola.h"
+
+1568126829 c:\cloud\mega\uba\fiuba\95 computacion\95.15 algoritmos y programación ii\trabajos practicos\2019 b\git\tp1\tp1\archivo.h
+	<iostream>
+	<string>
+	<cstddef>
+	<cstdlib>
+	<fstream>
+	<sstream>
+	"archivo.h"
+	"constantes.h"
+	"texto.h"
+	"conversiones.h"
+	"ResumenElementos.h"
+	"tipocelula.h"
+
+1568299936 source:c:\cloud\mega\uba\fiuba\95 computacion\95.15 algoritmos y programación ii\trabajos practicos\2019 b\git\tp1\tp1\archivo.cpp
+	"archivo.h"
+
+1568299992 c:\cloud\mega\uba\fiuba\95 computacion\95.15 algoritmos y programación ii\trabajos practicos\2019 b\git\tp1\tp1\constantes.h
+	<string>
+
+1568173652 source:c:\cloud\mega\uba\fiuba\95 computacion\95.15 algoritmos y programación ii\trabajos practicos\2019 b\git\tp1\tp1\resumenelementos.cpp
+	"ResumenElementos.h"
+
+1568173927 c:\cloud\mega\uba\fiuba\95 computacion\95.15 algoritmos y programación ii\trabajos practicos\2019 b\git\tp1\tp1\resumenelementos.h
+	<iostream>
+	<string>
+	"tipocelula.h"
+	"tipodosis.h"
+
+1567997347 c:\cloud\mega\uba\fiuba\95 computacion\95.15 algoritmos y programación ii\trabajos practicos\2019 b\git\tp1\tp1\resumenelementos.cpp
+	"ResumenElementos.h"
+
+1568126867 source:c:\cloud\mega\uba\fiuba\95 computacion\95.15 algoritmos y programación ii\trabajos practicos\2019 b\git\tp1\tp1\texto.cpp
+	"texto.h"
+
+1568126871 c:\cloud\mega\uba\fiuba\95 computacion\95.15 algoritmos y programación ii\trabajos practicos\2019 b\git\tp1\tp1\texto.h
+	<iostream>
+	<string>
+	<sstream>
+
+1568173384 c:\cloud\mega\uba\fiuba\95 computacion\95.15 algoritmos y programación ii\trabajos practicos\2019 b\git\tp1\tp1\tipocelula.h
+
+1568173591 source:c:\cloud\mega\uba\fiuba\95 computacion\95.15 algoritmos y programación ii\trabajos practicos\2019 b\git\tp1\tp1\conversiones.cpp
+	"conversiones.h"
+
+1568126660 c:\cloud\mega\uba\fiuba\95 computacion\95.15 algoritmos y programación ii\trabajos practicos\2019 b\git\tp1\tp1\conversiones.h
+	<string>
+	"tipocelula.h"
+	"tipodosis.h"
+	"constantes.h"
+
+1568173375 c:\cloud\mega\uba\fiuba\95 computacion\95.15 algoritmos y programación ii\trabajos practicos\2019 b\git\tp1\tp1\tipodosis.h
+

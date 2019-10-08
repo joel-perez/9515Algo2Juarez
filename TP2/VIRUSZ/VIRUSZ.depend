@@ -1,0 +1,11 @@
+# depslib dependency file v1.0
+1570563932 source:c:\cloud\mega\uba\fiuba\95 computacion\95.15 algoritmos y programación ii\trabajos practicos\2019 b joel - candela - juan - pablo\gitpublico\tp2\virusz\main.cpp
+	<iostream>
+	<fstream>
+	<string>
+	<cstdlib>
+	"tejido.h"
+
+1570563932 c:\cloud\mega\uba\fiuba\95 computacion\95.15 algoritmos y programación ii\trabajos practicos\2019 b joel - candela - juan - pablo\gitpublico\tp2\virusz\tejido.h
+	<string>
+
