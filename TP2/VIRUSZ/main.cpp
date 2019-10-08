@@ -6,16 +6,19 @@
 
 using namespace std;
 
-void leer_archivo (){
+void leer_archivo ()
+{
     ifstream estado;
     estado.open ("estado.txt");
-    if (!estado){
+    if (!estado)
+    {
         cout << "ERROR! no se pudo abrir el archivo" << endl;
         return;
     }
 }
 
-int main() {
+int main()
+{
     leer_archivo();
     return 0;
 }

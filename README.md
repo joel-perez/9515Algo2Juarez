@@ -31,7 +31,7 @@ Algunas de las características de las células son:
 - Tamaño (dato tenido en cuenta en el TP N 1)
 - Cantidad de enzimas.
 - Cantidad de proteínas.
-- Material genético: Indica el ADN, o ácido desoxirribonucleico (sera RIBONUCLEICO?).
+- Material genético: Indica el ADN, o ácido desoxirribonucleico *(sera RIBONUCLEICO?)*.
 - Organismo unicelular: Indica si la célula forma parte de un organismo pluricelular o no.
 
 Adicionalmente, las células X e Y tienen como característica adicional:

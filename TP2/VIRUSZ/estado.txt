@@ -1,0 +1,10 @@
+celula X 10.5 10.3
+celula S 100.2 10.4
+celula Y 200 25.3
+anticuerpo 500.32 452.4
+celula Z 340.2 354.5
+celula X 504.13 235.6
+dosis A 20
+anticuerpo 765.4 467.8
+dosis B 10
+dosis A 10
