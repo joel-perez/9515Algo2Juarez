@@ -1,0 +1,11 @@
+class Tejido
+
+   vector con los elementos (100)
+   alto
+   ancho
+   indice (posicion actual del vector)
+   const maxElementos (100)
+   
+   agregarElemento: agrega la celula y aumenta el indice en 1 mas, si se pasa de 100 (lanzar excepcion o avisar)
+   mostrarElementos: 
+   mostrarElemento:  muestra todos los datos de un elmenento en particular (parametro indice)
