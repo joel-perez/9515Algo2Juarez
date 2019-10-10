@@ -1,42 +1,38 @@
 #ifndef TEJIDO_H
 #define TEJIDO_H
-#include <string>
 
-using namespace std;
+const int MAX = 100;
 
 class Tejido {
-
-  private:
-    int cantidad_celula_X;
-    int cantidad_celula_Y;
-    int cantidad_celula_Z;
-    int cantidad_celula_S;
-    int cantidad_anticuerpos;
-    int cantidad_dosis_A;
-    int cantidad_dosis_B;
-//    Elemento *elementos[];
-
-  public:
-    Tejido ();
-    Tejido (int x, int y, int z, int s, int anticuerpos, int a, int b);
-
-    void asignar_cantidad_X ();
-    void asignar_cantidad_Y ();
-    void asignar_cantidad_Z ();
-    void asignar_cantidad_S ();
-    void asignar_cantidad_anticuerpos ();
-    void asignar_cant_dosis_A ();
-    void asignar_cant_dosis_B ();
-
-    int obtener_cantidad_X ();
-    int obtener_cantidad_Y ();
-    int obtener_cantidad_Z ();
-    int obtener_cantidad_S ();
-    int obtener_cantidad_anticuerpos ();
-    int obtener_cant_dosis_A ();
-    int obtener_cant_dosis_B ();
-
-    int contar_celulas (string str);
-    int sumar_dosis (string str);
+    //Atributos
+    private:
+        int indice;
+        Elemento *elementos[MAX];
+    //Metodos
+    public:
+        // Constructor
+        // PRE: -
+        // POST: crea un tejido vacío
+        Tejido();
+        // Agregar elemento
+        // PRE: vector no esta lleno
+        // POST: agrega e al tejido e incrementa el indice
+        void agregar_elemento(Elemento *e);
+        // Cargar vector
+        // PRE: -
+        // POST: llena el vector con los elementos extraidos
+        //       del archivo
+        void cargar_vector();
+        // Mostrar elemento
+        // PRE: 1 <= i <= indice
+        // POST: imprime por pantalla todos los detalles del elemento
+        //       en la posicion pos (la primera es la 1)
+        void mostrar_elemento(int pos);
+        // Mostrar todos los elementos
+        // PRE: -
+        // POST: recorre el vector e imprime los datos basicos
+        //       (nombre y posicion) de todos los elementos
+        void mostrar_todos();
 };
+
 #endif
