@@ -1,13 +1,15 @@
 #ifndef TEJIDO_H
 #define TEJIDO_H
 
-const int MAX = 100;
+#include <sstream>
+#include "constantes.h"
+#include "elemento.h"
 
 class Tejido {
     //Atributos
     private:
         int indice;
-        Elemento *elementos[MAX];
+        Elemento *elementos[MAX_ELEMENTOS];
     //Metodos
     public:
         // Constructor

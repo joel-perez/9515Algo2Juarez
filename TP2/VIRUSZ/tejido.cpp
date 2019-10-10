@@ -7,7 +7,8 @@ using namespace std;
 
 Tejido::Tejido() {
     indice = 0;
-    elementos = 0;
+    for (int i = 0; i < MAX_ELEMENTOS; i++)
+        elementos[i] = 0;
 }
 
 void Tejido::agregar_elemento(Elemento *e) {
@@ -31,19 +32,18 @@ void Tejido::cargar_vector() {
 
         if (tipoElemento == TIPO_ELEMENTO_CELULA) {
             ss >> tipoCelula;
-            resultado->AgregarCelula(ObtenerTipoCelulaDesdeString(tipoCelula));
+            agregar_elemento(nuevo); // TODO: Esto lo tenemos que completar...
         }
         else if (tipoElemento == TIPO_ELEMENTO_ANTICUERPO) {
-            resultado->AgregarAnticuerpo();
+            agregar_elemento(nuevo); // TODO: Esto lo tenemos que completar...
         }
         else if (tipoElemento == TIPO_ELEMENTO_DOSIS) {
             ss >> tipoDosis;
             ss >> cantidadDosis;
-            resultado->AgregarDosis(ObtenerTipoDosisDesdeString(tipoDosis), cantidadDosis);
+            agregar_elemento(nuevo); // TODO: Esto lo tenemos que completar...
         }
     }
     entrada.close();
-    return resultado;
 }
 
 void Tejido::mostrar_elemento(int pos) {

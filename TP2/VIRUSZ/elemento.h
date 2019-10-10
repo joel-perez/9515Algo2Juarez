@@ -1,6 +1,7 @@
 #ifndef ELEMENTO_H
 #define ELEMENTO_H
 
+#include <string>
 
 class Elemento
 {
@@ -11,6 +12,8 @@ class Elemento
     public:
         Elemento();
         virtual ~Elemento();
+        std::string resumen_datos();
+        std::string detalles_datos();
 
     protected:
         //TODO: Ver si aca van las variables que pusimos en private.
