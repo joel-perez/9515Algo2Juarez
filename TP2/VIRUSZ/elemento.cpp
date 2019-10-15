@@ -1,4 +1,5 @@
 #include "elemento.h"
+using namespace std;
 
 Elemento::Elemento() {
     //ctor
