@@ -11,21 +11,21 @@ Celula::Celula() {
     es_pluricelular = false;
 }
 
-string Elemento::resumen_datos(){
+string Celula::resumen_datos(){
     return "Tipo: " + tipo +
             "\nPosicion X: " + int_to_string(posicion_x) +
             "\nPosicion Y: " + int_to_string(posicion_y) +
             "\n";
 }
 
-string Elemento::detalles_datos(){
+string Celula::detalles_datos(){
     string material_genetico;
     string pluricelularidad;
-    if (material_genetico_es_adn())
+    if (material_genetico_es_adn)
         material_genetico = "ADN";
     else
         material_genetico = "ARN";
-    if (es_pluricelular())
+    if (es_pluricelular)
         pluricelularidad = "Pluricelular";
     else
         pluricelularidad = "Unicelular";

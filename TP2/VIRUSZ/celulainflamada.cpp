@@ -16,11 +16,11 @@ string Elemento::resumen_datos(){
 string Elemento::detalles_datos(){
     string material_genetico;
     string pluricelularidad;
-    if (material_genetico_es_adn())
+    if (material_genetico_es_adn)
         material_genetico = "ADN";
     else
         material_genetico = "ARN";
-    if (es_pluricelular())
+    if (es_pluricelular)
         pluricelularidad = "Pluricelular";
     else
         pluricelularidad = "Unicelular";
