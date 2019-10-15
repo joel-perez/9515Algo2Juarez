@@ -11,6 +11,11 @@
 std::string int_to_string(int number);
 
 /*
+ * Convierte un valor float a un string.
+ */
+std::string float_to_string(float number);
+
+/*
  * Devuelve un string mostrando el texto original, y ademas le agrega un
  * relleno de cant caracteres cuyo valor es pad.
  */
