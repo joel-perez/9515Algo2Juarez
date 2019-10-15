@@ -57,6 +57,8 @@
 		<Unit filename="suero.h" />
 		<Unit filename="tejido.cpp" />
 		<Unit filename="tejido.h" />
+		<Unit filename="texto.cpp" />
+		<Unit filename="texto.h" />
 		<Extensions>
 			<code_completion />
 			<debugger />
