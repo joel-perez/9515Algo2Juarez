@@ -1,11 +1,9 @@
 #include "anticuerpo.h"
 
-Anticuerpo::Anticuerpo()
-{
+Anticuerpo::Anticuerpo() {
     //ctor
 }
 
-Anticuerpo::~Anticuerpo()
-{
+Anticuerpo::~Anticuerpo() {
     //dtor
 }

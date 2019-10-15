@@ -1,7 +1,6 @@
 #include "celula.h"
 
-Celula::Celula()
-{
+Celula::Celula() {
     tamanio_x = 0;
     tamanio_y = 0;
     cantidad_enzimas = 0;
@@ -10,7 +9,6 @@ Celula::Celula()
     es_pluricelular = false;
 }
 
-Celula::~Celula()
-{
+Celula::~Celula() {
     //dtor
 }

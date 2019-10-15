@@ -1,12 +1,10 @@
 #include "elemento.h"
 
-Elemento::Elemento()
-{
+Elemento::Elemento() {
     //ctor
 }
 
-Elemento::~Elemento()
-{
+Elemento::~Elemento() {
     //dtor
 }
 

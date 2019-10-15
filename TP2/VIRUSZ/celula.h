@@ -4,8 +4,7 @@
 #include "elemento.h"
 
 
-class Celula : public Elemento
-{
+class Celula : public Elemento {
     public:
         Celula();
         virtual ~Celula();

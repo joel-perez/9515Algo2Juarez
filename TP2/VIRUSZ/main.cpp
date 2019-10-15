@@ -7,8 +7,7 @@
 using namespace std;
 
 /*
-void leer_archivo ()
-{
+void leer_archivo () {
     ifstream estado;
     estado.open ("estado.txt");
     if (!estado)
@@ -19,8 +18,7 @@ void leer_archivo ()
 }
 */
 
-int main()
-{
+int main() {
     //leer_archivo();
     Tejido* tejido = new Tejido;
     tejido->cargar_vector();

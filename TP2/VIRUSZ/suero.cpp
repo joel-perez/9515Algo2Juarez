@@ -1,11 +1,9 @@
 #include "suero.h"
 
-Suero::Suero()
-{
+Suero::Suero() {
     //ctor
 }
 
-Suero::~Suero()
-{
+Suero::~Suero() {
     //dtor
 }

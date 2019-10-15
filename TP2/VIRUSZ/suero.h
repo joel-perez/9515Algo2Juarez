@@ -4,8 +4,7 @@
 #include "elemento.h"
 
 
-class Suero : public Elemento
-{
+class Suero : public Elemento {
 
     private:
         int cantidadDosis;
