@@ -1,8 +1,4 @@
-#include <iostream>
-#include <fstream>
-#include <string>
-#include <cstdlib>
-#include "tejido.h"
+#include "main.h"
 
 using namespace std;
 

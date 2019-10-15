@@ -1,7 +1,13 @@
 #ifndef TEJIDO_H
 #define TEJIDO_H
 
+#include <fstream>
+#include <iostream>
 #include <sstream>
+#include <string>
+#include "celula.h"
+#include "celulainflamada.h"
+#include "celulamutada.h"
 #include "constantes.h"
 #include "elemento.h"
 

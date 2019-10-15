@@ -53,6 +53,7 @@
 		<Unit filename="elemento.h" />
 		<Unit filename="estado.txt" />
 		<Unit filename="main.cpp" />
+		<Unit filename="main.h" />
 		<Unit filename="suero.cpp" />
 		<Unit filename="suero.h" />
 		<Unit filename="tejido.cpp" />

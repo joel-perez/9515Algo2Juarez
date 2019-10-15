@@ -1,6 +1,3 @@
-#include <iostream>
-#include <fstream>
-#include <string>
 #include "tejido.h"
 
 using namespace std;
@@ -19,29 +16,29 @@ void Tejido::agregar_elemento(Elemento *e) {
 //void Tejido::
 
 void Tejido::cargar_vector() {
-    Elemento* nuevo = new Elemento;
+    Elemento* nuevo = new Elemento; //Esta linea va a volar cuando terminemos los casos de anticuerpo y dosis...
     ifstream entrada;
     entrada.open(ARCHIVO_DATOS.c_str());
 
     string linea;
     while (getline(entrada, linea)) {
         stringstream ss(linea);
-        string tipoElemento;
-        string tipoCelula;
-        string tipoDosis;
-        int cantidadDosis;
-        getline(ss, tipoElemento, CARACTER_SEPARADOR);
+        string tipo_elemento;
+        string tipo_celula;
+        string tipo_dosis;
+        int cantidad_dosis;
+        getline(ss, tipo_elemento, CARACTER_SEPARADOR);
 
-        if (tipoElemento == TIPO_ELEMENTO_CELULA) {
-            ss >> tipoCelula;
+        if (tipo_elemento == TIPO_ELEMENTO_CELULA) {
+            ss >> tipo_celula;
             agregar_elemento(obtener_celula_desde_string(tipo_celula));
         }
-        else if (tipoElemento == TIPO_ELEMENTO_ANTICUERPO) {
+        else if (tipo_elemento == TIPO_ELEMENTO_ANTICUERPO) {
             agregar_elemento(nuevo); // TODO: Esto lo tenemos que completar...
         }
-        else if (tipoElemento == TIPO_ELEMENTO_DOSIS) {
-            ss >> tipoDosis;
-            ss >> cantidadDosis;
+        else if (tipo_elemento == TIPO_ELEMENTO_DOSIS) {
+            ss >> tipo_dosis;
+            ss >> cantidad_dosis;
             agregar_elemento(nuevo); // TODO: Esto lo tenemos que completar...
         }
     }
@@ -58,7 +55,7 @@ Celula* Tejido::obtener_celula_desde_string(string tipo_celula) {
     else if (tipo_celula == TIPO_CELULA_Z)
         return new CelulaMutada();
     else
-        return new Elemento(); //TODO: Ver si esto esta bien... es en caso que no se haya podido determinar el tipo de celula.
+        return new Celula(); // Los demas casos van a ir con un constructor con parametros, este va a ir vacio...
 }
 
 void Tejido::mostrar_elemento(int pos) {

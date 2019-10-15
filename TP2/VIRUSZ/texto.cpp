@@ -3,15 +3,15 @@
 using namespace std;
 
 string int_to_string(int number){
-    std::ostringstream convert;
-    convert << number;
-    return convert.str();
+    ostringstream oss;
+    oss << number;
+    return oss.str();
 }
 
 string float_to_string(float number){
-    std::ostringstream ss;
-    ss << number;
-    std::string s(ss.str());
+    ostringstream oss;
+    oss << number;
+    return oss.str();
 }
 
 string rellenar_derecha(string str, unsigned int cant, char pad) {
