@@ -25,11 +25,14 @@ class Tejido {
         // POST: llena el vector con los elementos extraidos
         //       del archivo
         void cargar_vector();
+        // Obtener celula desde string
+        // PRE: -
+        // POST: Devuelve una celula en base al string recibido
+        Celula* obtener_celula_desde_string(std::string tipo_celula);
         // Mostrar elemento
         // PRE: 1 <= i <= indice
         // POST: imprime por pantalla todos los detalles del elemento
         //       en la posicion pos (la primera es la 1)
-        Celula* obtener_celula_desde_string(std::string tipo_celula);
         void mostrar_elemento(int pos);
         // Mostrar todos los elementos
         // PRE: -
