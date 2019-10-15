@@ -29,6 +29,7 @@ class Tejido {
         // PRE: 1 <= i <= indice
         // POST: imprime por pantalla todos los detalles del elemento
         //       en la posicion pos (la primera es la 1)
+        Celula* obtener_celula_desde_string(std::string tipo_celula);
         void mostrar_elemento(int pos);
         // Mostrar todos los elementos
         // PRE: -

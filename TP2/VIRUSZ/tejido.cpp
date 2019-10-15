@@ -48,8 +48,7 @@ void Tejido::cargar_vector() {
     entrada.close();
 }
 
-Celula* Tejido::obtener_celula_desde_string(string tipo_celula)
-{
+Celula* Tejido::obtener_celula_desde_string(string tipo_celula) {
     if (tipo_celula == TIPO_CELULA_S)
         return new Celula();
     else if (tipo_celula == TIPO_CELULA_X)
