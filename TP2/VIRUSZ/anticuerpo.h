@@ -7,6 +7,8 @@ class Anticuerpo : public Elemento
 {
     public:
         Anticuerpo();
+        std::string resumen_datos();
+        std::string detalles_datos();
         virtual ~Anticuerpo();
 
     protected:

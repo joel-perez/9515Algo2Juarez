@@ -10,6 +10,8 @@ private:
     float porcentajeMutacion;
 public:
     CelulaMutada();
+    std::string resumen_datos();
+    std::string detalles_datos();
     virtual ~CelulaMutada();
 
 protected:

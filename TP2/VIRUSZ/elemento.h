@@ -2,6 +2,7 @@
 #define ELEMENTO_H
 
 #include <string>
+#include "texto.h"
 
 class Elemento
 {
@@ -12,9 +13,9 @@ class Elemento
 
     public:
         Elemento();
-        virtual ~Elemento();
-        std::string resumen_datos();
+        virtual std::string resumen_datos();
         virtual std::string detalles_datos();
+        virtual ~Elemento();
 
     protected:
         //TODO: Ver si aca van las variables que pusimos en private.

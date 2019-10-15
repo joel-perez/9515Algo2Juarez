@@ -4,10 +4,11 @@
 #include "elemento.h"
 
 
-class Celula : public Elemento
-{
+class Celula : public Elemento {
     public:
         Celula();
+        std::string resumen_datos();
+        std::string detalles_datos();
         virtual ~Celula();
 
     protected:

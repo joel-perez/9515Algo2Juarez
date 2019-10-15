@@ -13,6 +13,8 @@ class Suero : public Elemento
 
     public:
         Suero();
+        std::string resumen_datos();
+        std::string detalles_datos();
         virtual ~Suero();
 
     protected:

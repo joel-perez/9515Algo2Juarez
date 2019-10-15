@@ -10,6 +10,8 @@ private:
     float porcentajeInflamacion;
 public:
     CelulaInflamada();
+    std::string resumen_datos();
+    std::string detalles_datos();
     virtual ~CelulaInflamada();
 
 protected:

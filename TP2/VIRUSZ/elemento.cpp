@@ -11,9 +11,15 @@ Elemento::~Elemento()
 }
 
 std::string Elemento::resumen_datos(){
-    return ""; //TODO: Esto lo vamos a completar...
+    return "Tipo: " + tipo +
+            "\nPosicion X: " + posicion_x +
+            "\nPosicion Y: " + posicion_y +
+            "\n"
 }
 
-virtual std::string Elemento::detalles_datos(){
-    return ""; //TODO: Esto lo vamos a completar...
+std::string Elemento::detalles_datos(){
+    return "Tipo: " + tipo +
+            "\nPosicion X: " + posicion_x +
+            "\nPosicion Y: " + posicion_y +
+            "\n"
 }
