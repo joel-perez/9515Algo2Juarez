@@ -6,14 +6,15 @@
 class Elemento
 {
     private:
-        int posicionX;
-        int posicionY;
+        int posicion_x;
+        int posicion_y;
+        std::string tipo;
 
     public:
         Elemento();
         virtual ~Elemento();
         std::string resumen_datos();
-        std::string detalles_datos();
+        virtual std::string detalles_datos();
 
     protected:
         //TODO: Ver si aca van las variables que pusimos en private.

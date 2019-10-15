@@ -13,6 +13,12 @@ class Celula : public Elemento
     protected:
 
     private:
+        int tamanio_x;
+        int tamanio_y;
+        int cantidad_enzimas;
+        int cantidad_proteinas;
+        bool material_genetico_es_adn;
+        bool es_pluricelular;
 };
 
 #endif // CELULA_H

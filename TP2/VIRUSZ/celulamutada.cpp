@@ -1,8 +1,8 @@
 #include "celulamutada.h"
 
-CelulaMutada::CelulaMutada()
+CelulaMutada::CelulaMutada()//:CelulaInflamada(porcentajeInflamacion)
 {
-    //ctor
+    porcentajeMutacion = 0;
 }
 
 CelulaMutada::~CelulaMutada()

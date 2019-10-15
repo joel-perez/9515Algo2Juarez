@@ -35,6 +35,10 @@ class Tejido {
         // POST: recorre el vector e imprime los datos basicos
         //       (nombre y posicion) de todos los elementos
         void mostrar_todos();
+        // Destructor
+        // PRE: -
+        // POST: elimina el Tejido
+        ~Tejido();
 };
 
 #endif

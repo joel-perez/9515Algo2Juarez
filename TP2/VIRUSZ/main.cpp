@@ -6,6 +6,7 @@
 
 using namespace std;
 
+/*
 void leer_archivo ()
 {
     ifstream estado;
@@ -16,9 +17,15 @@ void leer_archivo ()
         return;
     }
 }
+*/
 
 int main()
 {
-    leer_archivo();
+    //leer_archivo();
+    Tejido* tejido = new Tejido;
+    tejido->cargar_vector();
+
+    delete tejido;
+
     return 0;
 }

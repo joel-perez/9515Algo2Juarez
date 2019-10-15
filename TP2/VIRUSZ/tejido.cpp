@@ -16,6 +16,8 @@ void Tejido::agregar_elemento(Elemento *e) {
     indice++;
 }
 
+void Tejido::
+
 void Tejido::cargar_vector() {
     Elemento* nuevo = new Elemento;
     ifstream entrada;
@@ -54,4 +56,9 @@ void Tejido::mostrar_todos() {
     for (int i=0; i<indice; i++) {
         cout << elementos[i]->detalles_datos() << endl;
     }
+}
+
+Tejido::~Tejido() {
+    for(int i=0;i<indice;i++)
+        delete elementos[i];
 }

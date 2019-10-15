@@ -1,8 +1,8 @@
 #include "celulainflamada.h"
 
-CelulaInflamada::CelulaInflamada()
+CelulaInflamada::CelulaInflamada()//:Celula()
 {
-    //ctor
+    porcentajeInflamacion = 0;
 }
 
 CelulaInflamada::~CelulaInflamada()

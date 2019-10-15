@@ -14,6 +14,6 @@ std::string Elemento::resumen_datos(){
     return ""; //TODO: Esto lo vamos a completar...
 }
 
-std::string Elemento::detalles_datos(){
+virtual std::string Elemento::detalles_datos(){
     return ""; //TODO: Esto lo vamos a completar...
 }
