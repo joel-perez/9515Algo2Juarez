@@ -6,8 +6,8 @@
 
 class Elemento {
     protected:
-        int posicion_x;
-        int posicion_y;
+        float posicion_x;
+        float posicion_y;
         std::string tipo;
 
     public:

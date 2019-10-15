@@ -5,15 +5,13 @@
 
 
 class CelulaMutada : public CelulaInflamada {
-private:
-    float porcentaje_mutacion;
-public:
-    CelulaMutada();
-    std::string resumen_datos();
-    std::string detalles_datos();
-    virtual ~CelulaMutada();
-
-protected:
+    private:
+        float porcentaje_mutacion;
+    public:
+        CelulaMutada();
+        std::string resumen_datos();
+        std::string detalles_datos();
+        virtual ~CelulaMutada();
 };
 
 #endif // CELULAMUTADA_H

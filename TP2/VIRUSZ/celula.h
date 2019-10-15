@@ -12,8 +12,6 @@ class Celula : public Elemento {
         virtual ~Celula();
 
     protected:
-
-    private:
         int tamanio_x;
         int tamanio_y;
         int cantidad_enzimas;

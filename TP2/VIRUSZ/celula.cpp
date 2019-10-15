@@ -13,8 +13,8 @@ Celula::Celula() {
 
 string Celula::resumen_datos(){
     return "Tipo: " + tipo +
-            "\nPosicion X: " + int_to_string(posicion_x) +
-            "\nPosicion Y: " + int_to_string(posicion_y) +
+            "\nPosicion X: " + float_to_string(posicion_x) +
+            "\nPosicion Y: " + float_to_string(posicion_y) +
             "\n";
 }
 
@@ -30,8 +30,8 @@ string Celula::detalles_datos(){
     else
         pluricelularidad = "Unicelular";
     return "Tipo: " + tipo +
-            "\nPosicion X: " + int_to_string(posicion_x) +
-            "\nPosicion Y: " + int_to_string(posicion_y) +
+            "\nPosicion X: " + float_to_string(posicion_x) +
+            "\nPosicion Y: " + float_to_string(posicion_y) +
             "\nAncho: " + int_to_string(tamanio_x) +
             "\nAlto: " + int_to_string(tamanio_y) +
             "\nCantidad de enzimas: " + int_to_string(cantidad_enzimas) +

@@ -1,21 +1,23 @@
 #include "suero.h"
 
+using namespace std;
+
 Suero::Suero() {
-    //ctor
+    cantidad_dosis = 0;
 }
 
-std::string Elemento::resumen_datos(){
+string Suero::resumen_datos(){
     return "Tipo: " + tipo +
-            "\nPosicion X: " + posicion_x +
-            "\nPosicion Y: " + posicion_y +
-            "\n"
+            "\nPosicion X: " + float_to_string(posicion_x) +
+            "\nPosicion Y: " + float_to_string(posicion_y) +
+            "\n";
 }
 
-std::string Elemento::detalles_datos(){
+string Suero::detalles_datos(){
     return "Tipo: " + tipo +
-            "\nPosicion X: " + posicion_x +
-            "\nPosicion Y: " + posicion_y +
-            "\n"
+            "\nPosicion X: " + float_to_string(posicion_x) +
+            "\nPosicion Y: " + float_to_string(posicion_y) +
+            "\nCantidad de dosis: " + int_to_string(cantidad_dosis);
 }
 
 Suero::~Suero() {

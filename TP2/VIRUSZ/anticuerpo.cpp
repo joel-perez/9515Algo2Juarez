@@ -1,20 +1,22 @@
 #include "anticuerpo.h"
 
+using namespace std;
+
 Anticuerpo::Anticuerpo() {
     //ctor
 }
 
-std::string Elemento::resumen_datos(){
+string Anticuerpo::resumen_datos(){
     return "Tipo: " + tipo +
-            "\nPosicion X: " + int_to_string(posicion_x) +
-            "\nPosicion Y: " + int_to_string(posicion_y) +
+            "\nPosicion X: " + float_to_string(posicion_x) +
+            "\nPosicion Y: " + float_to_string(posicion_y) +
             "\n";
 }
 
-std::string Elemento::detalles_datos(){
+string Anticuerpo::detalles_datos(){
     return "Tipo: " + tipo +
-            "\nPosicion X: " + int_to_string(posicion_x) +
-            "\nPosicion Y: " + int_to_string(posicion_y) +
+            "\nPosicion X: " + float_to_string(posicion_x) +
+            "\nPosicion Y: " + float_to_string(posicion_y) +
             "\n";
 }
 

@@ -5,15 +5,13 @@
 
 
 class CelulaInflamada : public Celula {
-private:
-    float porcentaje_inflamacion;
-public:
-    CelulaInflamada();
-    std::string resumen_datos();
-    std::string detalles_datos();
-    virtual ~CelulaInflamada();
-
-protected:
+    protected:
+        float porcentaje_inflamacion;
+    public:
+        CelulaInflamada();
+        std::string resumen_datos();
+        std::string detalles_datos();
+        virtual ~CelulaInflamada();
 };
 
 #endif // CELULAINFLAMADA_H

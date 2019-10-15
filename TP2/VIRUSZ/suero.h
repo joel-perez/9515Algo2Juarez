@@ -7,8 +7,7 @@
 class Suero : public Elemento {
 
     private:
-        int cantidadDosis;
-        //TipoDosis tipoDosis; // enum
+        int cantidad_dosis;
 
     public:
         Suero();

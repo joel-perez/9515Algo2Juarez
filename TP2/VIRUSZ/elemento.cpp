@@ -8,16 +8,16 @@ Elemento::~Elemento() {
     //dtor
 }
 
-std::string Elemento::resumen_datos(){
+string Elemento::resumen_datos(){
     return "Tipo: " + tipo +
-            "\nPosicion X: " + posicion_x +
-            "\nPosicion Y: " + posicion_y +
-            "\n"
+            "\nPosicion X: " + float_to_string(posicion_x) +
+            "\nPosicion Y: " + float_to_string(posicion_y) +
+            "\n";
 }
 
-std::string Elemento::detalles_datos(){
+string Elemento::detalles_datos(){
     return "Tipo: " + tipo +
-            "\nPosicion X: " + posicion_x +
-            "\nPosicion Y: " + posicion_y +
-            "\n"
+            "\nPosicion X: " + float_to_string(posicion_x) +
+            "\nPosicion Y: " + float_to_string(posicion_y) +
+            "\n";
 }
