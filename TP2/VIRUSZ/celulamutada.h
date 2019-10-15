@@ -6,7 +6,7 @@
 
 class CelulaMutada : public CelulaInflamada {
 private:
-    float porcentajeMutacion;
+    float porcentaje_mutacion;
 public:
     CelulaMutada();
     std::string resumen_datos();
