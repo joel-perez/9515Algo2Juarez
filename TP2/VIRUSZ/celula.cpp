@@ -1,9 +1,13 @@
 #include "celula.h"
 
+<<<<<<< HEAD
 using namespace std;
 
 Celula::Celula()
 {
+=======
+Celula::Celula() {
+>>>>>>> d7b957c2f43eb8aa054b0134ce4ca4162215b1e3
     tamanio_x = 0;
     tamanio_y = 0;
     cantidad_enzimas = 0;
@@ -12,6 +16,7 @@ Celula::Celula()
     es_pluricelular = false;
 }
 
+<<<<<<< HEAD
 string Elemento::resumen_datos(){
     return "Tipo: " + tipo +
             "\nPosicion X: " + posicion_x +
@@ -34,5 +39,8 @@ string Elemento::detalles_datos(){
 
 Celula::~Celula()
 {
+=======
+Celula::~Celula() {
+>>>>>>> d7b957c2f43eb8aa054b0134ce4ca4162215b1e3
     //dtor
 }

@@ -4,8 +4,7 @@
 #include <string>
 #include "texto.h"
 
-class Elemento
-{
+class Elemento {
     private:
         int posicion_x;
         int posicion_y;

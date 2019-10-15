@@ -3,8 +3,7 @@
 
 #include "elemento.h"
 
-class Anticuerpo : public Elemento
-{
+class Anticuerpo : public Elemento {
     public:
         Anticuerpo();
         std::string resumen_datos();

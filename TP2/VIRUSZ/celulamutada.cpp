@@ -1,7 +1,6 @@
 #include "celulamutada.h"
 
-CelulaMutada::CelulaMutada()//:CelulaInflamada(porcentajeInflamacion)
-{
+CelulaMutada::CelulaMutada()/*:CelulaInflamada(porcentajeInflamacion) */{
     porcentajeMutacion = 0;
 }
 

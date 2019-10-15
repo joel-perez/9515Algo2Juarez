@@ -4,8 +4,7 @@
 #include "celula.h"
 
 
-class CelulaInflamada : public Celula
-{
+class CelulaInflamada : public Celula {
 private:
     float porcentajeInflamacion;
 public:
