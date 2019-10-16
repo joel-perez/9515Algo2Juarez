@@ -15,7 +15,7 @@
 					<Add option="-g" />
 				</Compiler>
 				<ExtraCommands>
-					<Add after='cp -r &quot;estado.txt&quot; &quot;$(TARGET_OUTPUT_DIR)&quot;' />
+					<Add after='cp -r &quot;estado.txt&quot; &quot;$(TARGET_OUTPUT_DIR)estado.txt&quot;' />
 					<Mode after="always" />
 				</ExtraCommands>
 			</Target>
@@ -31,7 +31,7 @@
 					<Add option="-s" />
 				</Linker>
 				<ExtraCommands>
-					<Add after='cp -r &quot;estado.txt&quot; &quot;$(TARGET_OUTPUT_DIR)&quot;' />
+					<Add after='cp -r &quot;estado.txt&quot; &quot;$(TARGET_OUTPUT_DIR)estado.txt&quot;' />
 					<Mode after="always" />
 				</ExtraCommands>
 			</Target>
