@@ -4,6 +4,8 @@
 #include <string>
 #include "texto.h"
 
+enum TipoDosis {A,B};
+
 class Elemento {
     protected:
         std::string tipo;
@@ -12,9 +14,9 @@ class Elemento {
 
     public:
         Elemento();
+        Elemento(string tipo, float posicion_x, float posicion_y);
         virtual std::string resumen_datos();
         virtual std::string detalles_datos();
-        virtual ~Elemento();
 };
 
 #endif // ELEMENTO_H

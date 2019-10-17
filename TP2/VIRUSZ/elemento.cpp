@@ -7,6 +7,12 @@ Elemento::Elemento() {
     posicion_y = 0;
 }
 
+Elemento::Elemento(string tipo, float posicion_x, float posicion_y) {
+    this->tipo = tipo;
+    this->posicion_x = posicion_x;
+    this->posicion_y = posicion_y;
+}
+
 string Elemento::resumen_datos(){
     return "Tipo: " + tipo +
             "\nPosicion X: " + float_to_string(posicion_x) +
@@ -19,8 +25,4 @@ string Elemento::detalles_datos(){
             "\nPosicion X: " + float_to_string(posicion_x) +
             "\nPosicion Y: " + float_to_string(posicion_y) +
             "\n";
-}
-
-Elemento::~Elemento() {
-    //dtor
 }

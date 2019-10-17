@@ -3,23 +3,28 @@
 using namespace std;
 
 Celula::Celula() {
-    tamanio_x = 0;
-    tamanio_y = 0;
     cantidad_enzimas = 0;
     cantidad_proteinas = 0;
     material_genetico_es_adn = false;
     es_pluricelular = false;
 }
 
-Celula::Celula(int cantidad_enzimas, int cantidad_proteinas, bool material_genetico_es_adn, bool es_pluricelular):
-Elemento(string tipo, float posicion_x, float posicion_y) {
-    this->tipo = tipo;
-    this->posicion_x = posicion_x;
-    this->posicion_y = posicion_y;
+Celula::Celula(string tipo, float posicion_x, float posicion_y,
+               int cantidad_enzimas, int cantidad_proteinas,
+               bool material_genetico_es_adn, bool es_pluricelular)
+:Elemento(tipo, posicion_x, posicion_y); {
     this->cantidad_enzimas = cantidad_enzimas;
     this->cantidad_proteinas = cantidad_proteinas;
     this->material_genetico_es_adn = material_genetico_es_adn;
     this->es_pluricelular = es_pluricelular;
+}
+
+Celula::Celula(string tipo, float posicion_x, float posicion_y)
+:Elemento(tipo, posicion_x, posicion_y); {
+    this->cantidad_enzimas = 0;
+    this->cantidad_proteinas = 0;
+    this->material_genetico_es_adn = false;
+    this->es_pluricelular = false;
 }
 
 string Celula::resumen_datos(){
@@ -49,8 +54,4 @@ string Celula::detalles_datos(){
             "\nCantidad de proteinas: " + int_to_string(cantidad_proteinas) +
             "\nTipo de material genetico: " + material_genetico +
             "\nPluricelularidad: " + pluricelularidad + "\n";
-}
-
-Celula::~Celula() {
-    //dtor
 }

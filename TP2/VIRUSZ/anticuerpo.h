@@ -6,13 +6,10 @@
 class Anticuerpo : public Elemento {
     public:
         Anticuerpo();
+        Anticuerpo::Anticuerpo(string tipo, float posicion_x, float posicion_y):
+        Elemento(tipo, posicion_x, posicion_y);
         std::string resumen_datos();
         std::string detalles_datos();
-        virtual ~Anticuerpo();
-
-    protected:
-
-    private:
 };
 
 #endif // ANTICUERPO_H
