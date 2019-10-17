@@ -27,8 +27,8 @@ string CelulaMutada::detalles_datos(){
     return "Tipo: " + tipo +
             "\nPosicion X: " + float_to_string(posicion_x) +
             "\nPosicion Y: " + float_to_string(posicion_y) +
-            "\nAncho: " + int_to_string(tamanio_x) +
-            "\nAlto: " + int_to_string(tamanio_y) +
+            "\nAncho: " + int_to_string(TAMANIO_CELULA) +
+            "\nAlto: " + int_to_string(TAMANIO_CELULA) +
             "\nCantidad de enzimas: " + int_to_string(cantidad_enzimas) +
             "\nCantidad de proteinas: " + int_to_string(cantidad_proteinas) +
             "\nTipo de material genetico: " + material_genetico +

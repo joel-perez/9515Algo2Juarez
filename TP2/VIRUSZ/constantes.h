@@ -15,5 +15,6 @@ const std::string TIPO_CELULA_Z = "Z";
 const std::string TIPO_ELEMENTO_DOSIS = "dosis";
 const std::string TIPO_DOSIS_A = "A";
 const std::string TIPO_DOSIS_B = "B";
+const int TAMANIO_CELULA = 60;
 
 #endif // CONSTANTES_H_INCLUDED

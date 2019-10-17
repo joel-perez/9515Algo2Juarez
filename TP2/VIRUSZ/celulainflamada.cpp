@@ -2,8 +2,13 @@
 
 using namespace std;
 
-CelulaInflamada::CelulaInflamada()/*:Celula() */{
+CelulaInflamada::CelulaInflamada(){
     porcentaje_inflamacion = 0;
+}
+
+CelulaInflamada::CelulaInflamada(float porcentaje_inflamacion):
+Celula(int cantidad_enzimas, int cantidad_proteinas, bool material_genetico_es_adn, bool es_pluricelular) {
+
 }
 
 string CelulaInflamada::resumen_datos(){
@@ -27,8 +32,8 @@ string CelulaInflamada::detalles_datos(){
     return "Tipo: " + tipo +
             "\nPosicion X: " + float_to_string(posicion_x) +
             "\nPosicion Y: " + float_to_string(posicion_y) +
-            "\nAncho: " + int_to_string(tamanio_x) +
-            "\nAlto: " + int_to_string(tamanio_y) +
+            "\nAncho: " + int_to_string(TAMANIO_CELULA) +
+            "\nAlto: " + int_to_string(TAMANIO_CELULA) +
             "\nCantidad de enzimas: " + int_to_string(cantidad_enzimas) +
             "\nCantidad de proteinas: " + int_to_string(cantidad_proteinas) +
             "\nTipo de material genetico: " + material_genetico +

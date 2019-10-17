@@ -58,6 +58,10 @@ Celula* Tejido::obtener_celula_desde_string(string tipo_celula) {
         return new Celula(); // Los demas casos van a ir con un constructor con parametros, este va a ir vacio...
 }
 
+Anticuerpo* Tejido::obtener_anticuerpo_desde_string(string anticuerpo) {
+    return new Anticuerpo();
+}
+
 void Tejido::mostrar_elemento(int pos) {
     cout << elementos[pos-1]->resumen_datos() << endl;
 }

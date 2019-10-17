@@ -12,8 +12,7 @@ class Celula : public Elemento {
         virtual ~Celula();
 
     protected:
-        int tamanio_x;
-        int tamanio_y;
+        // int tamanio;
         int cantidad_enzimas;
         int cantidad_proteinas;
         bool material_genetico_es_adn;

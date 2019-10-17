@@ -3,7 +3,7 @@
 using namespace std;
 
 Anticuerpo::Anticuerpo() {
-    //ctor
+    tipo
 }
 
 string Anticuerpo::resumen_datos(){
