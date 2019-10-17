@@ -9,6 +9,7 @@ class CelulaMutada : public CelulaInflamada {
         float porcentaje_mutacion;
     public:
         CelulaMutada();
+        CelulaMutada(float porcentaje_mutacion);
         std::string resumen_datos();
         std::string detalles_datos();
         virtual ~CelulaMutada();

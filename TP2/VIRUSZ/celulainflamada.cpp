@@ -6,10 +6,6 @@ CelulaInflamada::CelulaInflamada(){
     porcentaje_inflamacion = 0;
 }
 
-CelulaInflamada::CelulaInflamada(float porcentaje_inflamacion):
-Celula(int cantidad_enzimas, int cantidad_proteinas, bool material_genetico_es_adn, bool es_pluricelular) {
-
-}
 
 string CelulaInflamada::resumen_datos(){
     return "Tipo: " + tipo +

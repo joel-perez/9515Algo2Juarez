@@ -6,6 +6,10 @@ CelulaMutada::CelulaMutada(){
     porcentaje_mutacion = 0;
 }
 
+CelulaMutada :: CelulaMutada (float porcentaje_mutacion){
+    this -> porcentaje_mutacion = porcentaje_mutacion;
+}
+
 string CelulaMutada::resumen_datos(){
     return "Tipo: " + tipo +
             "\nPosicion X: " + float_to_string(posicion_x) +
