@@ -9,6 +9,7 @@ class CelulaInflamada : public Celula {
         float porcentaje_inflamacion;
     public:
         CelulaInflamada();
+        CelulaInflamada(float porcentaje_inflamacion);
         std::string resumen_datos();
         std::string detalles_datos();
         virtual ~CelulaInflamada();
