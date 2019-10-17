@@ -6,6 +6,9 @@ CelulaInflamada::CelulaInflamada(){
     porcentaje_inflamacion = 0;
 }
 
+CelulaInflamada :: CelulaInflamada (float porcentaje_inflamacion){
+    this -> porcentaje_inflamacion = porcentaje_inflamacion;
+}
 
 string CelulaInflamada::resumen_datos(){
     return "Tipo: " + tipo +
