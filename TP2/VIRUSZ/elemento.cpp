@@ -2,11 +2,9 @@
 using namespace std;
 
 Elemento::Elemento() {
-    //ctor
-}
-
-Elemento::~Elemento() {
-    //dtor
+    tipo = "";
+    posicion_x = 0;
+    posicion_y = 0;
 }
 
 string Elemento::resumen_datos(){
@@ -21,4 +19,8 @@ string Elemento::detalles_datos(){
             "\nPosicion X: " + float_to_string(posicion_x) +
             "\nPosicion Y: " + float_to_string(posicion_y) +
             "\n";
+}
+
+Elemento::~Elemento() {
+    //dtor
 }

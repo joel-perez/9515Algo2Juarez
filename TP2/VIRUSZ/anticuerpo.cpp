@@ -3,7 +3,9 @@
 using namespace std;
 
 Anticuerpo::Anticuerpo() {
-    tipo
+    tipo = "";
+    posicion_x = 0;
+    posicion_y = 0;
 }
 
 string Anticuerpo::resumen_datos(){
