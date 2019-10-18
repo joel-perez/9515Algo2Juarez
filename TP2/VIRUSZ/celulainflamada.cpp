@@ -10,13 +10,13 @@ CelulaInflamada::CelulaInflamada(string tipo, float posicion_x, float posicion_y
                int cantidad_enzimas, int cantidad_proteinas,
                bool material_genetico_es_adn, bool es_pluricelular,
                float porcentaje_inflamacion)
-:Celula(tipo, posicion_x, posicion_y, cantidad_enzimas,
-        cantidad_proteinas, material_genetico_es_adn, es_pluricelular); {
+:Celula::Celula(tipo, posicion_x, posicion_y, cantidad_enzimas,
+        cantidad_proteinas, material_genetico_es_adn, es_pluricelular) {
     this->porcentaje_inflamacion = porcentaje_inflamacion;
 }
 
 CelulaInflamada::CelulaInflamada(string tipo, float posicion_x, float posicion_y)
-:Celula(tipo, posicion_x, posicion_y); {
+:Celula::Celula(tipo, posicion_x, posicion_y) {
     this->cantidad_enzimas = 0;
     this->cantidad_proteinas = 0;
     this->material_genetico_es_adn = false;

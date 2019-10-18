@@ -5,6 +5,7 @@
 #include <iostream>
 #include <sstream>
 #include <string>
+#include "anticuerpo.h"
 #include "celula.h"
 #include "celulainflamada.h"
 #include "celulamutada.h"
@@ -35,6 +36,10 @@ class Tejido {
         // PRE: -
         // POST: Devuelve una celula en base al string recibido
         Celula* obtener_celula_desde_string(std::string tipo_celula);
+        // Obtener anticuerpo desde string
+        // PRE: -
+        // POST: Devuelve un anticuerpo en base al string recibido
+        Anticuerpo* obtener_anticuerpo_desde_string(std::string anticuerpo);
         // Mostrar elemento
         // PRE: 1 <= i <= indice
         // POST: imprime por pantalla todos los detalles del elemento

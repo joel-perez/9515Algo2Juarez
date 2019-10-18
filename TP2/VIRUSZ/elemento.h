@@ -14,9 +14,10 @@ class Elemento {
 
     public:
         Elemento();
-        Elemento(string tipo, float posicion_x, float posicion_y);
+        Elemento(std::string tipo, float posicion_x, float posicion_y);
         virtual std::string resumen_datos();
         virtual std::string detalles_datos();
+        virtual ~Elemento();
 };
 
 #endif // ELEMENTO_H

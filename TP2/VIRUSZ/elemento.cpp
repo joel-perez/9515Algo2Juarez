@@ -26,3 +26,7 @@ string Elemento::detalles_datos(){
             "\nPosicion Y: " + float_to_string(posicion_y) +
             "\n";
 }
+
+Elemento::~Elemento(){
+    // Agrego el destructor porque me estaba dando undefined reference to Elemento::~Elemento() varias veces...
+}

@@ -12,7 +12,7 @@ Celula::Celula() {
 Celula::Celula(string tipo, float posicion_x, float posicion_y,
                int cantidad_enzimas, int cantidad_proteinas,
                bool material_genetico_es_adn, bool es_pluricelular)
-:Elemento(tipo, posicion_x, posicion_y); {
+:Elemento::Elemento(tipo, posicion_x, posicion_y) {
     this->cantidad_enzimas = cantidad_enzimas;
     this->cantidad_proteinas = cantidad_proteinas;
     this->material_genetico_es_adn = material_genetico_es_adn;
@@ -20,7 +20,7 @@ Celula::Celula(string tipo, float posicion_x, float posicion_y,
 }
 
 Celula::Celula(string tipo, float posicion_x, float posicion_y)
-:Elemento(tipo, posicion_x, posicion_y); {
+:Elemento::Elemento(tipo, posicion_x, posicion_y) {
     this->cantidad_enzimas = 0;
     this->cantidad_proteinas = 0;
     this->material_genetico_es_adn = false;
