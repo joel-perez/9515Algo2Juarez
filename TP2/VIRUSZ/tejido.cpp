@@ -47,7 +47,7 @@ void Tejido::cargar_vector() {
 
 Celula* Tejido::obtener_celula_desde_string(string tipo_celula) {
     if (tipo_celula == TIPO_CELULA_S)
-        return new Celula();
+        return new Celula(tipo_celula, 0, 0); //TODO: Llenar con los datos correctos, esto es solo para probar...
     else if (tipo_celula == TIPO_CELULA_X)
         return new CelulaInflamada();
     else if (tipo_celula == TIPO_CELULA_Y)

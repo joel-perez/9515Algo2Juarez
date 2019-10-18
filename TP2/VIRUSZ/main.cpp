@@ -19,6 +19,8 @@ int main() {
     Tejido* tejido = new Tejido;
     tejido->cargar_vector();
 
+    tejido->mostrar_todos();
+
     delete tejido;
 
     return 0;
