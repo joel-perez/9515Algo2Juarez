@@ -20,7 +20,8 @@ int main() {
     tejido->cargar_vector();
     cout << "Seleccione una opcion:" << endl
          << "1 - Mostrar listado de todos los elementos cargados." << endl
-         << "2 - Mostrar un elemento en particular." << endl;
+         << "2 - Mostrar detalle de un elemento en particular." << endl
+         << "3 - Salir." << endl << endl;
     tejido->mostrar_todos();
 
     delete tejido;

@@ -72,7 +72,7 @@ void Tejido::mostrar_elemento(int pos) {
 
 void Tejido::mostrar_todos() {
     for (int i=0; i<indice; i++) {
-        cout << "Numero:" << i + 1 << endl
+        cout << "Numero: " << i + 1 << endl
              << elementos[i]->resumen_datos() << endl;
     }
 }
