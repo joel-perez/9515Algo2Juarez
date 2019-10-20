@@ -26,12 +26,16 @@ void Tejido::cargar_vector() {
         string tipo_elemento;
         string tipo_celula;
         string tipo_dosis;
+        float posicion_x;
+        float posicion_y;
         int cantidad_dosis;
         getline(ss, tipo_elemento, CARACTER_SEPARADOR);
 
         if (tipo_elemento == TIPO_ELEMENTO_CELULA) {
             ss >> tipo_celula;
-            agregar_elemento(obtener_celula_desde_string(tipo_celula));
+            ss >> posicion_x;
+            ss >> posicion_y;
+            agregar_elemento(obtener_celula_desde_string(tipo_celula, posicion_x, posicion_y));
         }
         else if (tipo_elemento == TIPO_ELEMENTO_ANTICUERPO) {
             agregar_elemento(nuevo); // TODO: Esto lo tenemos que completar...
@@ -45,17 +49,17 @@ void Tejido::cargar_vector() {
     entrada.close();
 }
 
-Celula* Tejido::obtener_celula_desde_string(string tipo_celula) {
+Celula* Tejido::obtener_celula_desde_string(string tipo_celula, float posicion_x, float posicion_y) {
     if (tipo_celula == TIPO_CELULA_S)
-        return new Celula(tipo_celula, 0, 0); //TODO: Llenar con los datos correctos, esto es solo para probar...
+        return new Celula(tipo_celula, posicion_x, posicion_y);
     else if (tipo_celula == TIPO_CELULA_X)
-        return new CelulaInflamada();
+        return new CelulaInflamada(tipo_celula, posicion_x, posicion_y);
     else if (tipo_celula == TIPO_CELULA_Y)
-        return new CelulaInflamada();
+        return new CelulaInflamada(tipo_celula, posicion_x, posicion_y);
     else if (tipo_celula == TIPO_CELULA_Z)
-        return new CelulaMutada();
+        return new CelulaMutada(tipo_celula, posicion_x, posicion_y);
     else
-        return new Celula(); // Los demas casos van a ir con un constructor con parametros, este va a ir vacio...
+        return new Celula();
 }
 
 Anticuerpo* Tejido::obtener_anticuerpo_desde_string(string anticuerpo) {
@@ -63,12 +67,13 @@ Anticuerpo* Tejido::obtener_anticuerpo_desde_string(string anticuerpo) {
 }
 
 void Tejido::mostrar_elemento(int pos) {
-    cout << elementos[pos-1]->resumen_datos() << endl;
+    cout << elementos[pos-1]->detalles_datos() << endl;
 }
 
 void Tejido::mostrar_todos() {
     for (int i=0; i<indice; i++) {
-        cout << elementos[i]->detalles_datos() << endl;
+        cout << "Numero:" << i + 1 << endl
+             << elementos[i]->resumen_datos() << endl;
     }
 }
 

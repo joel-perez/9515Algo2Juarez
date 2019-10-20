@@ -35,7 +35,7 @@ class Tejido {
         // Obtener celula desde string
         // PRE: -
         // POST: Devuelve una celula en base al string recibido
-        Celula* obtener_celula_desde_string(std::string tipo_celula);
+        Celula* obtener_celula_desde_string(std::string tipo_celula, float posicion_x, float posicion_y);
         // Obtener anticuerpo desde string
         // PRE: -
         // POST: Devuelve un anticuerpo en base al string recibido

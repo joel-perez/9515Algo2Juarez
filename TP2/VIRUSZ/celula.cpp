@@ -3,6 +3,9 @@
 using namespace std;
 
 Celula::Celula() {
+    tipo = TIPO_CELULA_DESCONOCIDO;
+    posicion_x = 0;
+    posicion_y = 0;
     cantidad_enzimas = 0;
     cantidad_proteinas = 0;
     material_genetico_es_adn = false;

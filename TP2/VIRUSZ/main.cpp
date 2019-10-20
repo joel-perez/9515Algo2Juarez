@@ -18,7 +18,9 @@ int main() {
     //leer_archivo();
     Tejido* tejido = new Tejido;
     tejido->cargar_vector();
-
+    cout << "Seleccione una opcion:" << endl
+         << "1 - Mostrar listado de todos los elementos cargados." << endl
+         << "2 - Mostrar un elemento en particular." << endl;
     tejido->mostrar_todos();
 
     delete tejido;
