@@ -40,7 +40,7 @@ void Tejido::cargar_vector() {
         else if (tipo_elemento == TIPO_ELEMENTO_ANTICUERPO) {
             ss >> posicion_x;
             ss >> posicion_y;
-            agregar_elemento(obtener_anticuerpo_desde_string(tipo_elemento,posicion_x, posicion_y)); // TODO: Esto lo tenemos que completar...
+            agregar_elemento(obtener_anticuerpo_desde_string(tipo_elemento,posicion_x, posicion_y));
         }
         else if (tipo_elemento == TIPO_ELEMENTO_DOSIS) {
             ss >> tipo_dosis;
