@@ -38,7 +38,9 @@ void Tejido::cargar_vector() {
             agregar_elemento(obtener_celula_desde_string(tipo_celula, posicion_x, posicion_y));
         }
         else if (tipo_elemento == TIPO_ELEMENTO_ANTICUERPO) {
-            agregar_elemento(nuevo); // TODO: Esto lo tenemos que completar...
+            ss >> posicion_x;
+            ss >> posicion_y;
+            agregar_elemento(obtener_anticuerpo_desde_string(tipo_elemento,posicion_x, posicion_y)); // TODO: Esto lo tenemos que completar...
         }
         else if (tipo_elemento == TIPO_ELEMENTO_DOSIS) {
             ss >> tipo_dosis;
@@ -62,8 +64,11 @@ Celula* Tejido::obtener_celula_desde_string(string tipo_celula, float posicion_x
         return new Celula();
 }
 
-Anticuerpo* Tejido::obtener_anticuerpo_desde_string(string anticuerpo) {
-    return new Anticuerpo();
+Anticuerpo* Tejido::obtener_anticuerpo_desde_string(string anticuerpo, float posicion_x, float posicion_y) {
+    if (anticuerpo == TIPO_ELEMENTO_ANTICUERPO)
+        return new Anticuerpo(anticuerpo, posicion_x, posicion_y);
+    else
+        return new Anticuerpo();
 }
 
 void Tejido::mostrar_elemento(int pos) {

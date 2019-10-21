@@ -39,7 +39,7 @@ class Tejido {
         // Obtener anticuerpo desde string
         // PRE: -
         // POST: Devuelve un anticuerpo en base al string recibido
-        Anticuerpo* obtener_anticuerpo_desde_string(std::string anticuerpo);
+        Anticuerpo* obtener_anticuerpo_desde_string(std::string tipo, float posicion_x, float posicion_y);
         // Mostrar elemento
         // PRE: 1 <= i <= indice
         // POST: imprime por pantalla todos los detalles del elemento
