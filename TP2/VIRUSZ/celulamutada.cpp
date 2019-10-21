@@ -26,7 +26,7 @@ CelulaMutada::CelulaMutada(string tipo, float posicion_x, float posicion_y)
 }
 
 string CelulaMutada::resumen_datos(){
-    return "Tipo: " + tipo +
+    return "Tipo: " + TIPO_ELEMENTO_CELULA + CARACTER_SEPARADOR + tipo +
             "\nPosicion X: " + float_to_string(posicion_x) +
             "\nPosicion Y: " + float_to_string(posicion_y) +
             "\n";
@@ -43,7 +43,7 @@ string CelulaMutada::detalles_datos(){
         pluricelularidad = "Pluricelular";
     else
         pluricelularidad = "Unicelular";
-    return "Tipo: " + tipo +
+    return "Tipo: " + TIPO_ELEMENTO_CELULA + CARACTER_SEPARADOR + tipo +
             "\nPosicion X: " + float_to_string(posicion_x) +
             "\nPosicion Y: " + float_to_string(posicion_y) +
             "\nAncho: " + int_to_string(TAMANIO_CELULA) +
