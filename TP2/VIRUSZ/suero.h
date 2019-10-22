@@ -2,7 +2,9 @@
 #define SUERO_H
 
 #include <string>
+#include "conversiones.h"
 #include "elemento.h"
+#include "tipodosis.h"
 
 class Suero : public Elemento {
 

@@ -20,17 +20,17 @@ void mostrar_bienvenida() {
 
 void menu_principal(Tejido* tejido) {
     int accion_seleccionada = 0;
-	while (accion_seleccionada != 3) {
+	while (accion_seleccionada != ACCION_SALIR) {
     cout << "Seleccione una opcion:" << endl
          << "1 - Mostrar listado de todos los elementos cargados." << endl
          << "2 - Mostrar detalle de un elemento en particular." << endl
          << "3 - Salir." << endl << endl;
          accion_seleccionada = solicitar_valor(1, 3);
          switch (accion_seleccionada){
-            case 1:
+            case ACCION_MOSTRAR_TODOS:
                 tejido->mostrar_todos();
             break;
-            case 2:
+            case ACCION_MOSTRAR_UN_ELEMENTO:
                 int cantidad_elementos = tejido->obtener_cantidad_elementos();
                 cout << "Ingrese un numero de elemento entre 1 y " << cantidad_elementos << endl;
                 int indice_elemento_seleccionado = solicitar_valor(1, cantidad_elementos);

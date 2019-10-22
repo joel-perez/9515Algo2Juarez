@@ -4,8 +4,6 @@
 #include <string>
 #include "texto.h"
 
-enum TipoDosis {A,B};
-
 class Elemento {
     protected:
         std::string tipo;

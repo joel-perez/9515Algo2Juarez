@@ -13,7 +13,7 @@ Elemento(tipo, posicion_x, posicion_y) {
 }
 
 string Suero::resumen_datos(){
-    return "Tipo: " + tipo +
+    return "Tipo: " + obtener_string_desde_tipo_dosis(tipo_dosis) +
             "\nPosicion X: " + float_to_string(posicion_x) +
             "\nPosicion Y: " + float_to_string(posicion_y) +
             "\n";
