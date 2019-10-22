@@ -13,10 +13,7 @@ void Tejido::agregar_elemento(Elemento *e) {
     indice++;
 }
 
-//void Tejido::
-
 void Tejido::cargar_vector() {
-    Elemento* nuevo = new Elemento; //Esta linea va a volar cuando terminemos los casos de anticuerpo y dosis...
     ifstream entrada;
     entrada.open(ARCHIVO_DATOS.c_str());
 
@@ -45,7 +42,7 @@ void Tejido::cargar_vector() {
         else if (tipo_elemento == TIPO_ELEMENTO_DOSIS) {
             ss >> tipo_dosis;
             ss >> cantidad_dosis;
-            agregar_elemento(nuevo); // TODO: Esto lo tenemos que completar...
+            agregar_elemento(obtener_dosis_desde_string(tipo_dosis, cantidad_dosis));
         }
     }
     entrada.close();
@@ -66,6 +63,10 @@ Celula* Tejido::obtener_celula_desde_string(string tipo_celula, float posicion_x
 
 Anticuerpo* Tejido::obtener_anticuerpo_desde_string(string anticuerpo, float posicion_x, float posicion_y) {
     return new Anticuerpo(anticuerpo, posicion_x, posicion_y);
+}
+
+Suero* Tejido::obtener_dosis_desde_string(string tipo_dosis, int cantidad_dosis) {
+    return new Suero(TIPO_ELEMENTO_DOSIS, 0, 0, obtener_tipo_dosis_desde_string(tipo_dosis), cantidad_dosis);
 }
 
 void Tejido::mostrar_elemento(int pos) {

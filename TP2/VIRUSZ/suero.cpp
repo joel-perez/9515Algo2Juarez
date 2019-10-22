@@ -13,14 +13,14 @@ Elemento(tipo, posicion_x, posicion_y) {
 }
 
 string Suero::resumen_datos(){
-    return "Tipo: " + obtener_string_desde_tipo_dosis(tipo_dosis) +
+    return "Tipo: " + tipo + CARACTER_SEPARADOR + obtener_string_desde_tipo_dosis(tipo_dosis) +
             "\nPosicion X: " + float_to_string(posicion_x) +
             "\nPosicion Y: " + float_to_string(posicion_y) +
             "\n";
 }
 
 string Suero::detalles_datos(){
-    return "Tipo: " + tipo +
+    return "Tipo: " + tipo + CARACTER_SEPARADOR + obtener_string_desde_tipo_dosis(tipo_dosis) +
             "\nPosicion X: " + float_to_string(posicion_x) +
             "\nPosicion Y: " + float_to_string(posicion_y) +
             "\nCantidad de dosis: " + int_to_string(cantidad_dosis);

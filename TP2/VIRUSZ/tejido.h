@@ -10,7 +10,9 @@
 #include "celulainflamada.h"
 #include "celulamutada.h"
 #include "constantes.h"
+#include "conversiones.h"
 #include "elemento.h"
+#include "suero.h"
 
 class Tejido {
     //Atributos
@@ -40,6 +42,10 @@ class Tejido {
         // PRE: -
         // POST: Devuelve un anticuerpo en base al string recibido
         Anticuerpo* obtener_anticuerpo_desde_string(std::string tipo, float posicion_x, float posicion_y);
+        // Obtener Dosis desde String
+        // PRE: -
+        // POST: Devuelve una dosis en base al tipo_dosis recibido y su cantidad correspondiente.
+        Suero* obtener_dosis_desde_string(std::string tipo_dosis, int cantidad_dosis);
         // Mostrar elemento
         // PRE: 1 <= i <= indice
         // POST: imprime por pantalla todos los detalles del elemento
