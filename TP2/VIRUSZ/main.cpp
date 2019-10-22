@@ -3,7 +3,7 @@
 using namespace std;
 
 int main() {
-    mostrarBienvenida();
+    mostrar_bienvenida();
     Tejido* tejido = new Tejido;
     tejido->cargar_vector();
     menu_principal(tejido);
@@ -11,7 +11,7 @@ int main() {
     return 0;
 }
 
-void mostrarBienvenida() {
+void mostrar_bienvenida() {
     cout << "Algoritmos y Programacion II" << endl
          << "Trabajo Practico Grupal Nro 2: Virus Z" << endl
          << "Grupo: Sobrecargados!" << endl

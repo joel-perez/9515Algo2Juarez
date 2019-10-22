@@ -11,7 +11,7 @@
 /*
  * Muestra la pantalla de bienvenida a la aplicacion.
  */
-void mostrarBienvenida();
+void mostrar_bienvenida();
 
 /*
  * Muestra el menu principal de la aplicacion.
