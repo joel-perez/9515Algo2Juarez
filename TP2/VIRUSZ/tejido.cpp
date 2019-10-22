@@ -70,7 +70,7 @@ Suero* Tejido::obtener_dosis_desde_string(string tipo_dosis, int cantidad_dosis)
 }
 
 void Tejido::mostrar_elemento(int pos) {
-    cout << elementos[pos-1]->detalles_datos() << endl;
+    cout << elementos[pos-1]->detalles_datos() << endl << endl;
 }
 
 void Tejido::mostrar_todos() {
