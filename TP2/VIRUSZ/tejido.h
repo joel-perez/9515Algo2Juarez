@@ -50,6 +50,10 @@ class Tejido {
         // POST: recorre el vector e imprime los datos basicos
         //       (nombre y posicion) de todos los elementos
         void mostrar_todos();
+        // Obtener Cantidad Elementos
+        // PRE: -
+        // POST: Devuelve la cantidad de elementos que hay cargados en el vector.
+        int obtener_cantidad_elementos();
         // Destructor
         // PRE: -
         // POST: elimina el Tejido

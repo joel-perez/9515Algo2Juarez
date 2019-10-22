@@ -79,6 +79,10 @@ void Tejido::mostrar_todos() {
     }
 }
 
+int Tejido::obtener_cantidad_elementos() {
+    return indice;
+}
+
 Tejido::~Tejido() {
     for(int i=0;i<indice;i++)
         delete elementos[i];
