@@ -65,10 +65,7 @@ Celula* Tejido::obtener_celula_desde_string(string tipo_celula, float posicion_x
 }
 
 Anticuerpo* Tejido::obtener_anticuerpo_desde_string(string anticuerpo, float posicion_x, float posicion_y) {
-    if (anticuerpo == TIPO_ELEMENTO_ANTICUERPO)
-        return new Anticuerpo(anticuerpo, posicion_x, posicion_y);
-    else
-        return new Anticuerpo();
+    return new Anticuerpo(anticuerpo, posicion_x, posicion_y);
 }
 
 void Tejido::mostrar_elemento(int pos) {
