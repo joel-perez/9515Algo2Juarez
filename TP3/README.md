@@ -11,6 +11,7 @@ Algoritmos y Programación II - Juarez - 2do Cuatrimestre 2019
 Desarrollar un programa que, basándose en los Trabajos Practicos 1 y 2, cree los objetos de entrada, los visualice dentro del entorno de juego y permita el uso del simulador Nanobot.
 
 # Descripción
+
 # El simulador NanoBot
 
 Los NanoBots se manejan a control remoto y son realmente un recurso escaso, con lo cual necesitamos maximizar la eficiencia de los mismos. Para ello, es menester contar con un grupo de excelentes pilotos a distancia y por lo tanto se requiere un mecanismo de entrenamiento. Es por eso que nuestro objetivo es desarrollar un simulador en el cual los pilotos puedan entrenarse en el uso de estas nuevas tecnologías. La aplicación a desarrollar debe simular el entorno de un organismo infectado previamente descripto en los TPs 1 y 2 y debe permitir al jugador manejar un NanoBot con todas las funcionalidades mencionadas sobre el mismo. El manejo del juego debe ser a través del teclado, respetando la siguiente configuración de teclas:
@@ -30,12 +31,15 @@ Son requerimientos obligatorios los siguientes:
 La implementación a entregar debe cumplir como mínimo con todos los requerimientos obligatorios planteados arriba. Adicionalmente, se pueden agregar las siguientes funcionalidades:
 
 # Dos jugadores:
+
 Agregar al juego la opción de jugar de a dos.
 
-#Minas de suero:
+# Minas de suero:
+
 El NanoBot puede dejar minas explosivas con suero (A o B). Estas minas podrían activarse y afectar a todas las células que estén dentro de un cierto radio de alcance. La explosión gráfica de las dosis ya está implementada con las teclas A y B.
 
 # Varios niveles de dificultad:
+
 Al ganar el juego, en lugar de terminar el mismo, se puede pasar a nuevos niveles que sean más difíciles que el anterior.
 
 # Implementación base
@@ -64,7 +68,7 @@ NombreGrupo-TP3
 
 Deberá contener los archivos fuente y la documentación.
 
-#La fecha de entrega vence el día lunes 18/11/2019 a las 23.55hs.
+# La fecha de entrega vence el día lunes 18/11/2019 a las 23.55hs.
 
 Se evaluará: funcionalidad, eficiencia, algoritmo utilizado, buenas prácticas de programación (como nombres, sangrías, etc.), modularización, comentarios.
 
