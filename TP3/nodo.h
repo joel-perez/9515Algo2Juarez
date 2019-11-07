@@ -1,37 +1,32 @@
-#ifndef NODO_H
-#define NODO_H
-#include "elemento.h"
-#include <iostream>
-typedef Elemento Dato;
-class Nodo {
-    private:
-        Dato dato;
-        Nodo* psig;
-    // Dato a almacenar
-    // Puntero a otro nodo
-    public:
-        // Constructor con parametro
-        // PRE: Ninguna
-        // POST: Crea un nodo con el dato d
-        //       y el puntero a NULL
-        Nodo(Dato d);
-        // Setea el dato (lo cambia)
-        // PRE: el nodo tiene que estar creado
-        // POST: El nodo queda con el dato d
-        void set_dato(Dato d);
-        // Obtener el dato
-        // PRE: nodo creado
-        // POST: devuelve el dato que contiene el nodo
-        Dato get_dato();
-        // Setear el puntero al siguiente nodo
-        // PRE: nodo creado
-        // POST: el puntero al siguiente nodo apuntará a ps
-        void set_siguiente(Nodo* ps);
-        // Obtener el puntero al nodo siguiente
-        // PRE: nodo creado
-        // POST: Devuelve el puntero al siguiente nodo
-        //       Si es el último devuelve NULL
-        Nodo* get_siguiente();
+#ifndef NODO_H_
+#define NODO_H_
+
+template <class T> class Nodo {
+  private:
+    T dato;
+    Nodo<T>* siguiente;
+  public:
+    // post: el Nodo resulta inicializado con el dato dado y sin un Nodo siguiente.
+    Nodo(T dato) {
+      this->dato = dato;
+      this->siguiente = NULL;
+    }
+    //post: devuelve el valor del dato.
+    T obtener_dato() {
+      return this->dato;
+    }
+    //post: cambia el valor del dato.
+    void cambiar_dato(T nuevoDato) {
+      this->dato = nuevoDato;
+    }
+    //post: devuelve el siguiente Nodo.
+    Nodo<T>* obtener_siguiente() {
+      return this->siguiente;
+    }
+    //post: cambia el siguiente Nodo por nuevo_siguiente.
+    void cambiar_siguiente(Nodo<T>* nuevo_siguiente) {
+      this->siguiente = nuevo_siguiente;
+    }
 };
 
 #endif
