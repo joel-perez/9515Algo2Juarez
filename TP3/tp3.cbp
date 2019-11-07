@@ -32,12 +32,32 @@
 			<Add option="-Wall" />
 			<Add option="-fexceptions" />
 		</Compiler>
+		<Unit filename="anticuerpo.cpp" />
+		<Unit filename="anticuerpo.h" />
+		<Unit filename="celula.cpp" />
+		<Unit filename="celula.h" />
+		<Unit filename="celulainflamada.cpp" />
+		<Unit filename="celulainflamada.h" />
+		<Unit filename="celulamutada.cpp" />
+		<Unit filename="celulamutada.h" />
+		<Unit filename="constantes.h" />
+		<Unit filename="conversiones.cpp" />
+		<Unit filename="conversiones.h" />
+		<Unit filename="elemento.cpp" />
+		<Unit filename="elemento.h" />
 		<Unit filename="lista.cpp" />
 		<Unit filename="lista.h" />
 		<Unit filename="listaDeListas.h" />
 		<Unit filename="main.cpp" />
 		<Unit filename="nodo.cpp" />
 		<Unit filename="nodo.h" />
+		<Unit filename="suero.cpp" />
+		<Unit filename="suero.h" />
+		<Unit filename="tejido.cpp" />
+		<Unit filename="tejido.h" />
+		<Unit filename="texto.cpp" />
+		<Unit filename="texto.h" />
+		<Unit filename="tipodosis.h" />
 		<Extensions>
 			<code_completion />
 			<debugger />
