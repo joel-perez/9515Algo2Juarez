@@ -1,6 +1,6 @@
 #ifndef NODO_H
 #define NODO_H
-
+#include "elemento.h"
 #include <iostream>
 typedef Elemento Dato;
 class Nodo {

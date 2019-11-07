@@ -1,0 +1,100 @@
+# depslib dependency file v1.0
+1573142762 source:/home/juan_karabin/Escritorio/9515Algo2Juarez/TP3/anticuerpo.cpp
+	"anticuerpo.h"
+
+1573142762 /home/juan_karabin/Escritorio/9515Algo2Juarez/TP3/anticuerpo.h
+	<string>
+	"elemento.h"
+
+1573142762 /home/juan_karabin/Escritorio/9515Algo2Juarez/TP3/elemento.h
+	<string>
+	"texto.h"
+
+1573142762 /home/juan_karabin/Escritorio/9515Algo2Juarez/TP3/texto.h
+	<iostream>
+	<string>
+	<sstream>
+
+1573142762 source:/home/juan_karabin/Escritorio/9515Algo2Juarez/TP3/celula.cpp
+	"celula.h"
+
+1573142762 /home/juan_karabin/Escritorio/9515Algo2Juarez/TP3/celula.h
+	<string>
+	"constantes.h"
+	"elemento.h"
+
+1573142762 /home/juan_karabin/Escritorio/9515Algo2Juarez/TP3/constantes.h
+	<string>
+
+1573142762 source:/home/juan_karabin/Escritorio/9515Algo2Juarez/TP3/celulainflamada.cpp
+	"celulainflamada.h"
+
+1573142762 /home/juan_karabin/Escritorio/9515Algo2Juarez/TP3/celulainflamada.h
+	<string>
+	"celula.h"
+
+1573142762 source:/home/juan_karabin/Escritorio/9515Algo2Juarez/TP3/celulamutada.cpp
+	"celulamutada.h"
+
+1573142762 /home/juan_karabin/Escritorio/9515Algo2Juarez/TP3/celulamutada.h
+	<string>
+	"celulainflamada.h"
+
+1573142762 source:/home/juan_karabin/Escritorio/9515Algo2Juarez/TP3/conversiones.cpp
+	"conversiones.h"
+
+1573142762 /home/juan_karabin/Escritorio/9515Algo2Juarez/TP3/conversiones.h
+	<string>
+	"constantes.h"
+	"tipodosis.h"
+
+1573142762 /home/juan_karabin/Escritorio/9515Algo2Juarez/TP3/tipodosis.h
+
+1573142762 source:/home/juan_karabin/Escritorio/9515Algo2Juarez/TP3/elemento.cpp
+	"elemento.h"
+
+1573142762 source:/home/juan_karabin/Escritorio/9515Algo2Juarez/TP3/lista.cpp
+	"lista.h"
+
+1573142762 /home/juan_karabin/Escritorio/9515Algo2Juarez/TP3/lista.h
+	"nodo.h"
+
+1573145109 /home/juan_karabin/Escritorio/9515Algo2Juarez/TP3/nodo.h
+	"elemento.h"
+	<iostream>
+
+1573142762 source:/home/juan_karabin/Escritorio/9515Algo2Juarez/TP3/main.cpp
+	<iostream>
+
+1573142762 source:/home/juan_karabin/Escritorio/9515Algo2Juarez/TP3/nodo.cpp
+	"nodo.h"
+
+1573142762 source:/home/juan_karabin/Escritorio/9515Algo2Juarez/TP3/suero.cpp
+	"suero.h"
+
+1573142762 /home/juan_karabin/Escritorio/9515Algo2Juarez/TP3/suero.h
+	<string>
+	"conversiones.h"
+	"elemento.h"
+	"tipodosis.h"
+
+1573142762 source:/home/juan_karabin/Escritorio/9515Algo2Juarez/TP3/tejido.cpp
+	"tejido.h"
+
+1573142762 /home/juan_karabin/Escritorio/9515Algo2Juarez/TP3/tejido.h
+	<fstream>
+	<iostream>
+	<sstream>
+	<string>
+	"anticuerpo.h"
+	"celula.h"
+	"celulainflamada.h"
+	"celulamutada.h"
+	"constantes.h"
+	"conversiones.h"
+	"elemento.h"
+	"suero.h"
+
+1573142762 source:/home/juan_karabin/Escritorio/9515Algo2Juarez/TP3/texto.cpp
+	"texto.h"
+
