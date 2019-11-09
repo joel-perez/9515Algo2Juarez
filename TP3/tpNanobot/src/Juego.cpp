@@ -12,6 +12,8 @@ const int SCREEN_FPS = 30;
 bool Juego::iniciar(const char *title, int xpos, int ypos, int flags) {
 
     entorno.iniciar(title,xpos,ypos,flags);
+
+    return false; //TODO: Ver que hay que devolver...
 }
 
 
