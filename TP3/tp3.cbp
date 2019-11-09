@@ -45,11 +45,9 @@
 		<Unit filename="conversiones.h" />
 		<Unit filename="elemento.cpp" />
 		<Unit filename="elemento.h" />
-		<Unit filename="lista.cpp" />
 		<Unit filename="lista.h" />
 		<Unit filename="listaDeListas.h" />
 		<Unit filename="main.cpp" />
-		<Unit filename="nodo.cpp" />
 		<Unit filename="nodo.h" />
 		<Unit filename="suero.cpp" />
 		<Unit filename="suero.h" />
