@@ -1,4 +1,4 @@
-
+#include "fixwinoldcpp.h"
 #include <iostream>
 #include "Juego.h"
 
