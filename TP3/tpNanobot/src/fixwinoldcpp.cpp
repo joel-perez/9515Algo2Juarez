@@ -1,5 +1,7 @@
 #include "fixwinoldcpp.h"
 
+#ifdef _WIN32
+
 using namespace std;
 
 string to_string(int number) {
@@ -7,3 +9,5 @@ string to_string(int number) {
     oss << number;
     return oss.str();
 }
+
+#endif
