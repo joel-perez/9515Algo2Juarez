@@ -44,6 +44,7 @@
 		<Unit filename="include/InputTable.h" />
 		<Unit filename="include/Juego.h" />
 		<Unit filename="include/Textura.h" />
+		<Unit filename="include/fixwinoldcpp.h" />
 		<Unit filename="main.cpp" />
 		<Unit filename="src/Entorno.cpp" />
 		<Unit filename="src/FPSManager.cpp" />
@@ -51,9 +52,11 @@
 		<Unit filename="src/InputManager.cpp" />
 		<Unit filename="src/Juego.cpp" />
 		<Unit filename="src/Textura.cpp" />
+		<Unit filename="src/fixwinoldcpp.cpp" />
 		<Extensions>
 			<code_completion />
 			<debugger />
+			<envvars />
 		</Extensions>
 	</Project>
 </CodeBlocks_project_file>
