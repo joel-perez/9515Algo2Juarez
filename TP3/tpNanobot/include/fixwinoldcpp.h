@@ -16,8 +16,16 @@
 
 #include <cstddef>
 
+#ifndef to_string
 std::string to_string(int number);
+#endif
 
 #endif
 
 #endif // FIXWINOLDCPP_H_INCLUDED
+
+
+
+//#define puts _puts
+//#include <stdio.h>
+//#undef puts
