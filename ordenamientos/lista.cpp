@@ -227,6 +227,10 @@ void Lista::mergesort(Nodo** puntero_cabecera) {
     *puntero_cabecera = unir_ordenadas(a, b);
 }
 
+void Lista::mergesort() {
+    mergesort(&primero);
+}
+
 Lista::~Lista() {
 
    while (this->primero != NULL) {

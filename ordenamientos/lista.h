@@ -79,8 +79,11 @@ class Lista {
     // post: toma dos listas ordenadas ascendentemente, las une y devuelve un puntero a la nueva lista.
     Nodo* unir_ordenadas(Nodo* a, Nodo* b);
 
-    // post: ordena la lista modificando los punteros.
+    // post: ordena la lista modificando los punteros, recibiendo como parametro un puntero cabecera.
     void mergesort(Nodo** puntero_cabecera);
+
+    // post: ordena la lista modificando los punteros.
+    void mergesort();
 
     // post: libera los recursos asociados a la Lista.
     ~Lista();

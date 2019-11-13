@@ -14,14 +14,11 @@ int main()
         l1->agregar(nuevo);
     }
 
-    Nodo *primero = l1->obtener_primero();
-
     cout << "Lista sin ordenar: " << endl;
     l1->mostrar();
 
-    l1->mergesort(&primero);
+    l1->mergesort();
 
     cout << "Lista ordenada: " << endl;
     l1->mostrar();
-
 }
