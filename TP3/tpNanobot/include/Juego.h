@@ -1,7 +1,3 @@
-//
-// Created by caropistillo
-//
-
 #ifndef JUEGO_H
 #define JUEGO_H
 
@@ -14,9 +10,7 @@
 #include "InputManager.h"
 #include "Entorno.h"
 
-
 using namespace std;
-
 
 class Juego {
 private:
@@ -32,6 +26,5 @@ public:
     void manejarEventos();
     void limpiar();
 };
-
 
 #endif //JUEGO_H

@@ -1,7 +1,3 @@
-//
-// Created by caropistillo
-//
-
 #include "FPSManager.h"
 
 FPSManager::FPSManager(int screenFPS) {

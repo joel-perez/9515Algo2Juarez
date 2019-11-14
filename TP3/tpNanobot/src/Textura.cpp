@@ -1,9 +1,4 @@
-//
-// Created by caropistillo
-//
-
 #include "Textura.h"
-#include<iostream>
 
 using namespace std;
 

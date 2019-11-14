@@ -1,12 +1,8 @@
-//
-// Created by caropistillo
-//
-
-
 #ifndef INPUTMANAGER_H_
 #define INPUTMANAGER_H_
 
 #include "fixwinoldcpp.h"
+#include <iostream>
 #include "SDL2/SDL.h"
 #include "InputTable.h"
 

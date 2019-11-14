@@ -1,9 +1,4 @@
-//
-// Created by caropistillo
-//
-
 #include "InputManager.h"
-#include <iostream>
 
 InputManager* InputManager::instance = nullptr;
 

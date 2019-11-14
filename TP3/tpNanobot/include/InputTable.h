@@ -1,8 +1,3 @@
-//
-// Created by caropistillo
-//
-
-
 #ifndef INPUTTABLE_H_INCLUDED
 #define INPUTTABLE_H_INCLUDED
 

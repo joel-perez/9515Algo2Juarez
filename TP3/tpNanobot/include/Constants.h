@@ -19,7 +19,7 @@
 #define DOSIS_WIDTH         178
 #define DOSIS_HEIGHT        152
 #define FONDO_PATH          "images/fondo.png"
-#define CELULA_S_PATH    "images/celulaSana.png"
+#define CELULA_S_PATH       "images/celulaSana.png"
 #define CELULA_X_PATH       "images/celulaX.png"
 #define CELULA_Y_PATH       "images/celulaY.png"
 #define CELULA_Z_PATH       "images/celulaZ.png"
@@ -28,5 +28,6 @@
 #define DOSIS_PATH          "images/dosis/alpha-"
 
 const std::string PATHS[7] = {FONDO_PATH,NANOBOT_PATH,CELULA_S_PATH,CELULA_X_PATH,CELULA_Y_PATH,CELULA_Z_PATH,ANTICUERPO_PATH};
+const int SCREEN_FPS = 30;
 
 #endif // CONSTANTS_H_INCLUDED
