@@ -1,10 +1,6 @@
 #include "Entorno.h"
 
-#include<iostream>
 using namespace std;
-
-#include "Constants.h"
-
 
 Entorno::Entorno()
 {

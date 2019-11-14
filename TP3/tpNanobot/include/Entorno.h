@@ -1,6 +1,8 @@
 #ifndef ENTORNO_H
 #define ENTORNO_H
 
+#include <iostream>
+#include "Constants.h"
 #include "Textura.h"
 #include "SDL2/SDL.h"
 #include "SDL2/SDL_image.h"

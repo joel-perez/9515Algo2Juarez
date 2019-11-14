@@ -1,7 +1,7 @@
 #ifndef IMAGE_LOADER_H
 #define IMAGE_LOADER_H
 
-#include "fixwinoldcpp.h"
+#include "conversiones.h"
 #include <SDL2/SDL.h>
 #include <SDL2/SDL_image.h>
 #include "Textura.h"

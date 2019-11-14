@@ -37,6 +37,7 @@
 		<Linker>
 			<Add option="-lSDL2 -lSDL2_image" />
 		</Linker>
+		<Unit filename="include/conversiones.h" />
 		<Unit filename="include/Entorno.h" />
 		<Unit filename="include/FPSManager.h" />
 		<Unit filename="include/ImageLoader.h" />
@@ -52,7 +53,7 @@
 		<Unit filename="src/InputManager.cpp" />
 		<Unit filename="src/Juego.cpp" />
 		<Unit filename="src/Textura.cpp" />
-		<Unit filename="src/fixwinoldcpp.cpp" />
+		<Unit filename="src/conversiones.cpp" />
 		<Extensions>
 			<code_completion />
 			<debugger />
