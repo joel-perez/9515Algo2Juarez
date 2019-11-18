@@ -61,6 +61,7 @@
 		<Unit filename="lista.h" />
 		<Unit filename="listaDeListas.h" />
 		<Unit filename="main.cpp" />
+		<Unit filename="main.h" />
 		<Unit filename="nodo.h" />
 		<Unit filename="suero.cpp" />
 		<Unit filename="suero.h" />
