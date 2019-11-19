@@ -93,7 +93,7 @@ void Entorno::renderizarTodo()
     SDL_SetRenderDrawColor(renderer, 0xFF, 0xFF, 0xFF, 0xFF);
     SDL_RenderClear(renderer); // clear the renderer to the draw color
     renderizar(FONDO, 0, 0);
-    renderizar(NANOBOT, 0, SCREEN_HEIGHT - NANOBOT_HEIGHT);
+    renderizar(NANOBOT, nanobot_pos_x, nanobot_pos_y);
 
     //Prepara el Draw para dibujar una linea negra
     SDL_SetRenderDrawColor(renderer, 0, 0, 0, SDL_ALPHA_OPAQUE);

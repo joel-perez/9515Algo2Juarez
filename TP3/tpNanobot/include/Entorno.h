@@ -34,6 +34,9 @@ class Entorno
         bool dosisAExplotando();
         bool dosisBExplotando();
 
+    float nanobot_pos_x = 0;                              // TODO: Mejorar esto...
+    float nanobot_pos_y = SCREEN_HEIGHT - NANOBOT_HEIGHT; // TODO: Mejorar esto...
+
 };
 
 #endif // ENTORNO_H

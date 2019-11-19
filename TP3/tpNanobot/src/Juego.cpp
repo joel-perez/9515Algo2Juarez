@@ -75,4 +75,25 @@ void Juego::manejarEventos() {
     }
 
     //Your code here
+    if(inputManager->isKeyDown(KEY_ESCAPE)) {
+        SDL_Quit();
+        exit(0);
+    }
+    if(inputManager->isKeyDown(KEY_UP) && entorno.nanobot_pos_y >= 0) {
+        entorno.nanobot_pos_y -= 10;
+        loguear_evento("nanobot arriba.");            // TODO: Eliminar esto cuando terminemos las pruebas...
+    }
+    if(inputManager->isKeyDown(KEY_DOWN) && entorno.nanobot_pos_y <= SCREEN_HEIGHT - NANOBOT_HEIGHT) {
+        entorno.nanobot_pos_y += 10;
+        loguear_evento("nanobot abajo.");             // TODO: Eliminar esto cuando terminemos las pruebas...
+    }
+    if(inputManager->isKeyDown(KEY_LEFT) && entorno.nanobot_pos_x >= 0) {
+        entorno.nanobot_pos_x -= 10;
+        loguear_evento("nanobot izquierda.");         // TODO: Eliminar esto cuando terminemos las pruebas...
+    }
+    if(inputManager->isKeyDown(KEY_RIGHT) && entorno.nanobot_pos_x <= SCREEN_WIDTH - NANOBOT_WIDTH) {
+        entorno.nanobot_pos_x += 10;
+        loguear_evento("nanobot derecha.");           // TODO: Eliminar esto cuando terminemos las pruebas...
+    }
+
 }
