@@ -27,3 +27,9 @@ string obtener_string_desde_tipo_dosis(TipoDosis tipo_dosis)
         break;
     }
 }
+
+string int_to_string(int number) {
+    std::ostringstream oss;
+    oss << number;
+    return oss.str();
+}

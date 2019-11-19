@@ -1,6 +1,9 @@
 #ifndef CONVERSIONES_H_INCLUDED
 #define CONVERSIONES_H_INCLUDED
 
+#include <cstdlib>
+#include <iostream>
+#include <sstream>
 #include <string>
 #include "constantes.h"
 #include "tipodosis.h"
@@ -16,5 +19,9 @@ TipoDosis obtener_tipo_dosis_desde_string(std::string tipo_dosis);
  */
 std::string obtener_string_desde_tipo_dosis(TipoDosis tipo_dosis);
 
+/*
+ * Devuelve un string en base al int pasado como parametro.
+ */
+std::string int_to_string(int number);
 
 #endif // CONVERSIONES_H_INCLUDED
