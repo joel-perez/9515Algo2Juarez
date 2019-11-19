@@ -65,12 +65,12 @@ void Juego::manejarEventos() {
         running = false;
 
     if(inputManager->isKeyDown(KEY_A) || entorno.dosisAExplotando()) {
-        entorno.explotarDosis(A);
+        entorno.explotarDosis(DosisA);
         loguear_evento("entorno.explotarDosis(A);"); // TODO: Eliminar esto cuando terminemos las pruebas...
     }
 
     if(inputManager->isKeyDown(KEY_B) || entorno.dosisBExplotando()) {
-        entorno.explotarDosis(B);
+        entorno.explotarDosis(DosisB);
         loguear_evento("entorno.explotarDosis(B);"); // TODO: Eliminar esto cuando terminemos las pruebas...
     }
 

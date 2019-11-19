@@ -6,5 +6,6 @@
 #endif
 
 #include <iostream>
+#include "Juego.h"
 
 #endif // MAIN_H_INCLUDED

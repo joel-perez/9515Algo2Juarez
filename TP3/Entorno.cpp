@@ -116,14 +116,14 @@ void Entorno::limpiar()
 void Entorno::explotarDosis(dosis dosis)
 {
     switch(dosis) {
-    case A:
+    case DosisA:
         if(estadoDosisA <= LAST_DOSIS_SPRITE)
         {
             this->loaderA->loadSprite(DOSIS_PATH, estadoDosisA, renderer, &texturas[DOSIS_A]);
             ++estadoDosisA;
         }
         break;
-    case B:
+    case DosisB:
         if(estadoDosisB <= LAST_DOSIS_SPRITE)
         {
             this->loaderB->loadSprite(DOSIS_PATH, estadoDosisB, renderer, &texturas[DOSIS_B]);

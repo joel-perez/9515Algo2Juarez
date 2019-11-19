@@ -45,6 +45,19 @@
 		<Linker>
 			<Add option="-lSDL2 -lSDL2_image" />
 		</Linker>
+		<Unit filename="Entorno.cpp" />
+		<Unit filename="Entorno.h" />
+		<Unit filename="FPSManager.cpp" />
+		<Unit filename="FPSManager.h" />
+		<Unit filename="ImageLoader.cpp" />
+		<Unit filename="ImageLoader.h" />
+		<Unit filename="InputManager.cpp" />
+		<Unit filename="InputManager.h" />
+		<Unit filename="InputTable.h" />
+		<Unit filename="Juego.cpp" />
+		<Unit filename="Juego.h" />
+		<Unit filename="Textura.cpp" />
+		<Unit filename="Textura.h" />
 		<Unit filename="anticuerpo.cpp" />
 		<Unit filename="anticuerpo.h" />
 		<Unit filename="celula.cpp" />

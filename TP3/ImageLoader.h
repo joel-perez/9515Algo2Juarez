@@ -2,6 +2,7 @@
 #define IMAGE_LOADER_H
 
 #include "conversiones.h"
+#include "texto.h"
 #include <SDL2/SDL.h>
 #include <SDL2/SDL_image.h>
 #include "Textura.h"
