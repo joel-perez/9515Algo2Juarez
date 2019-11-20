@@ -1,0 +1,7 @@
+# depslib dependency file v1.0
+1574268430 source:/home/juank/Escritorio/FIUBA/ALGO II /Quicksort/main.cpp
+	"quicksort.h"
+	<iostream>
+
+1574268362 /home/juank/Escritorio/FIUBA/ALGO II /Quicksort/quicksort.h
+
