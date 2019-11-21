@@ -3,9 +3,10 @@
 
 #include <iostream>
 #include <string>
-#include "Lista.h"
+#include "lista.h"
 #include "Vertice.h"
-#include "Texto.h"
+#include "texto.h"
+#include "constantes.h"
 
 class Grafo {
 

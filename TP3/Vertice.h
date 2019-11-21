@@ -4,7 +4,7 @@
 #include <iostream>
 #include <string>
 #include "Arista.h"
-#include "Lista.h"
+#include "lista.h"
 
 class Vertice {
 private:
