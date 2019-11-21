@@ -1,6 +1,4 @@
-#include <bits/stdc++.h>
-#include "quicksort.h"
-
+#include <iostream>
 using namespace std;
 
 // Funcion para intercambiar dos elementos
@@ -61,3 +59,17 @@ void imprimirarreglo(int arreglo[], int size)
         cout << arreglo[i] << " ";
     cout << endl;
 }
+
+// MAIN
+int main()
+{
+    int arreglo[] = {10, 7, 8, 9, 1, 5};
+    int n = sizeof(arreglo) / sizeof(arreglo[0]);
+    cout << "arreglo sin ordenar: \n";
+    imprimirarreglo(arreglo, n);
+    quickSort(arreglo, 0, n-1);
+    cout << "arreglo ordenado: \n";
+    imprimirarreglo(arreglo, n);
+    return 0;
+}
+
