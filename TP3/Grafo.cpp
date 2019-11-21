@@ -26,23 +26,24 @@ void Grafo::insertar_nodo(string nombreVertice) {
 Vertice* Grafo::existe_nodo(string nombre) {
 	Vertice* vertice = NULL;
 	bool encontrado = false;
-	this->vertices->iniciarCursor();
-	while (this->vertices->avanzarCursor() && !encontrado) {
-		encontrado = (texto.mayusculas(this->vertices->obtenerCursor()->obtenerNombre()) == texto.mayusculas(nombre));
+	this->vertices->iniciar_cursor();
+	while (this->vertices->avanzar_cursor() && !encontrado) {
+		//encontrado = (texto.mayusculas(this->vertices->obtenerCursor()->obtenerNombre()) == texto.mayusculas(nombre));
+		encontrado = (this->vertices->obtener_cursor()->obtenerNombre() == nombre);
 		if (encontrado) {
-			vertice = vertices->obtenerCursor();
+			vertice = vertices->obtener_cursor();
 		}
 	}
 	return vertice;
 }
 
-void Grafo::insertar_arista(string nombreOrigen, string nombreDestino) {
-	Vertice* origen = this->existe_nodo(nombreOrigen);
-	Vertice* destino = this->existe_nodo(nombreDestino);
+void Grafo::insertar_arista(string nombre_origen, string nombre_destino) {
+	Vertice* origen = this->existe_nodo(nombre_origen);
+	Vertice* destino = this->existe_nodo(nombre_destino);
 
 	if (origen != NULL && destino != NULL) {
-		Arista* nuevaArista = new Arista(destino);
-		origen->agregarArista(nuevaArista);
+		Arista* nueva_arista = new Arista(destino);
+		origen->agregarArista(nueva_arista);
 	}
 }
 
@@ -53,9 +54,9 @@ void Grafo::eliminar_nodo(string nombre) {
 }
 
 Grafo::~Grafo() {
-	this->vertices->iniciarCursor();
-	while (vertices->avanzarCursor()) {
-		delete this->vertices->obtenerCursor();
+	this->vertices->iniciar_cursor();
+	while (vertices->avanzar_cursor()) {
+		delete this->vertices->obtener_cursor();
 	}
 	delete vertices;
 }

@@ -1,11 +1,7 @@
-//
-// Created by caropistillo
-//
-
 #ifndef TEXTURA_H
 #define TEXTURA_H
 
-#include "fixwinoldcpp.h"
+#include <cstdlib>
 #include <SDL2/SDL.h>
 #include <SDL2/SDL_image.h>
 #include <iostream>

@@ -45,10 +45,14 @@
 		<Linker>
 			<Add option="-lSDL2 -lSDL2_image" />
 		</Linker>
+		<Unit filename="Arista.cpp" />
+		<Unit filename="Arista.h" />
 		<Unit filename="Entorno.cpp" />
 		<Unit filename="Entorno.h" />
 		<Unit filename="FPSManager.cpp" />
 		<Unit filename="FPSManager.h" />
+		<Unit filename="Grafo.cpp" />
+		<Unit filename="Grafo.h" />
 		<Unit filename="ImageLoader.cpp" />
 		<Unit filename="ImageLoader.h" />
 		<Unit filename="InputManager.cpp" />
@@ -58,6 +62,8 @@
 		<Unit filename="Juego.h" />
 		<Unit filename="Textura.cpp" />
 		<Unit filename="Textura.h" />
+		<Unit filename="Vertice.cpp" />
+		<Unit filename="Vertice.h" />
 		<Unit filename="anticuerpo.cpp" />
 		<Unit filename="anticuerpo.h" />
 		<Unit filename="celula.cpp" />

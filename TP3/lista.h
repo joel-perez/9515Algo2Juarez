@@ -17,8 +17,7 @@ template<class T> class Lista {
     bool esta_vacia();
     //post: devuelve la cantidad de elementos que tiene la Lista.
     unsigned int contar_elementos();
-    //post: agrega el elemento al final de la Lista, en la posición:
-    contar_elementos() + 1.
+    //post: agrega el elemento al final de la Lista, en la posición: contar_elementos() + 1.
     void agregar(T elemento);
     //pre : posición pertenece al intervalo: [1, contar_elementos() + 1]
     //post: agrega el elemento en la posición indicada.
@@ -67,7 +66,7 @@ template<class T> Lista<T>::Lista(Lista<T>& otra_lista) {
    this->cursor = NULL;
 
    /* copia los elementos de otraLista */
-   this->agregar(otraLista);
+   this->agregar(otra_lista);
 }
 
 template<class T> bool Lista<T>::esta_vacia() {

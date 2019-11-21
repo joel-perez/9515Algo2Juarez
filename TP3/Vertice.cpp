@@ -28,9 +28,9 @@ void Vertice::agregarArista(Arista* nuevaArista) {
 }
 
 Vertice::~Vertice() {
-	this->adyacentes->iniciarCursor();
-	while (this->adyacentes->avanzarCursor()) {
-		delete this->adyacentes->obtenerCursor();
+	this->adyacentes->iniciar_cursor();
+	while (this->adyacentes->avanzar_cursor()) {
+		delete this->adyacentes->obtener_cursor();
 	}
 	delete adyacentes;
 }
