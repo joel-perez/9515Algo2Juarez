@@ -1,64 +1,67 @@
 #include <iostream>
-#include "radixsort.h"
+
 using namespace std;
 
-//Funcion para obtener el maximo valor del arreglo
-int maxValorDelArreglo(int arr[], int n)
+// To heapify a subtree rooted with node i which is
+// an index in arr[]. n is size of heap
+void heapify(int arr[], int n, int i)
 {
-    int mx = arr[0];
-    for (int i = 1; i < n; i++)
-        if (arr[i] > mx)
-            mx = arr[i];
-    return mx;
-}
+    int largest = i; // Initialize largest as root
+    int l = 2*i + 1; // left = 2*i + 1
+    int r = 2*i + 2; // right = 2*i + 2
 
-//Funcion que cuenta elementos del arreglo acorde a un digito
-//representado por exp
-void conteo(int arr[], int n, int exp)
-{
-    int vectorDeSalida[n]; // vector de salida
-    int i, count[10] = {0};
+    // If left child is larger than root
+    if (l < n && arr[l] > arr[largest])
+        largest = l;
 
-    // Store count of occurrences in count[]
-    for (i = 0; i < n; i++)
-        count[ (arr[i]/exp)%10 ]++;
+    // If right child is larger than largest so far
+    if (r < n && arr[r] > arr[largest])
+        largest = r;
 
-    // Change count[i] so that count[i] now contains actual
-    //  position of this digit in vectorDeSalida[]
-    for (i = 1; i < 10; i++)
-        count[i] += count[i - 1];
-
-    //Construye el vector de salida
-    for (i = n-1; i >= 0; i--)
+    // If largest is not root
+    if (largest != i)
     {
-        vectorDeSalida[count[ (arr[i]/exp)%10 ] - 1] = arr[i];
-        count[ (arr[i]/exp)%10 ]--;
+        swap(arr[i], arr[largest]);
+
+        // Recursively heapify the affected sub-tree
+        heapify(arr, n, largest);
     }
-
-    //Copia el vector de salida a arr[],
-    //arr[] ahora contiene elementos ordenados acorde al digito actual
-    for (i = 0; i < n; i++)
-        arr[i] = vectorDeSalida[i];
 }
 
-
-//Funcion principal que ordena un arreglo de tamanio n
-//usando Radix Sort
-void radixsort(int arr[], int n)
+// main function to do heap sort
+void heapSort(int arr[], int n)
 {
-    //Encuentra el valor maximo para saber cuantos digitos tiene
-    int m = maxValorDelArreglo(arr, n);
+    // Build heap (rearrange array)
+    for (int i = n / 2 - 1; i >= 0; i--)
+        heapify(arr, n, i);
 
-    //Realiza el conteo para cada digito. exp es pasado como parametro
-    //exp es 10^i
-    //i es el digito actual
-    for (int exp = 1; m/exp > 0; exp *= 10)
-        conteo(arr, n, exp);
+    // One by one extract an element from heap 
+    for (int i=n-1; i>=0; i--)
+    {
+        // Move current root to end
+        swap(arr[0], arr[i]);
+
+        // call max heapify on the reduced heap
+        heapify(arr, i, 0);
+    }
 }
 
-//Funcion para imprimir un arreglo
-void imprimirArreglo(int arr[], int n)
+/* A utility function to print array of size n */
+void printArray(int arr[], int n)
 {
-    for (int i = 0; i < n; i++)
+    for (int i=0; i<n; ++i)
         cout << arr[i] << " ";
+    cout << "\n";
+}
+
+// Driver program
+int main()
+{
+    int arr[] = {12, 11, 13, 5, 6, 7};
+    int n = sizeof(arr)/sizeof(arr[0]);
+
+    heapSort(arr, n);
+
+    cout << "Sorted array is \n";
+    printArray(arr, n);
 }
