@@ -6,9 +6,11 @@ Grafo::Grafo() {
 	this->vertices = new Lista<Vertice*>();
 	this->tam = 0;
 }
+
 Lista<Vertice*>* Grafo::obtener_vertices() {
 	return this->vertices;
 }
+
 unsigned int Grafo::obtener_tam() {
 	return this->tam;
 }
@@ -26,9 +28,7 @@ Vertice* Grafo::existe_nodo(string nombre) {
 	bool encontrado = false;
 	this->vertices->iniciarCursor();
 	while (this->vertices->avanzarCursor() && !encontrado) {
-		encontrado = (texto.mayusculas(
-				this->vertices->obtenerCursor()->obtenerNombre())
-				== texto.mayusculas(nombre));
+		encontrado = (texto.mayusculas(this->vertices->obtenerCursor()->obtenerNombre()) == texto.mayusculas(nombre));
 		if (encontrado) {
 			vertice = vertices->obtenerCursor();
 		}
@@ -36,23 +36,20 @@ Vertice* Grafo::existe_nodo(string nombre) {
 	return vertice;
 }
 
-void Grafo::insertar_arista(string nombreOrigen, string nombreDestino,
-		unsigned int peso, unsigned int precio, string cultivo) {
+void Grafo::insertar_arista(string nombreOrigen, string nombreDestino) {
 	Vertice* origen = this->existe_nodo(nombreOrigen);
 	Vertice* destino = this->existe_nodo(nombreDestino);
 
 	if (origen != NULL && destino != NULL) {
-		Arista* nuevaArista = new Arista(destino, peso, cultivo);
+		Arista* nuevaArista = new Arista(destino);
 		origen->agregarArista(nuevaArista);
-		destino->ingresarDatosEnvio(precio, cultivo);
 	}
 }
 
 void Grafo::eliminar_nodo(string nombre) {
 	Vertice* eliminar = this->existe_nodo(nombre);
-	if (eliminar != NULL) {
+	if (eliminar != NULL)
 		delete eliminar;
-	}
 }
 
 Grafo::~Grafo() {

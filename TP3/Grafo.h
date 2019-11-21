@@ -12,7 +12,6 @@ class Grafo {
 private:
 	Lista<Vertice*>* vertices;
 	unsigned int tam;
-	Texto texto;
 
 public:
 	/*
@@ -39,8 +38,7 @@ public:
 	 * nodos origen y destino de la arista.
 	 * POST: el grafo queda modificado por el agregado de la nueva arista.
 	 */
-	void insertar_arista(std::string origen, std::string destino,
-			unsigned int peso, unsigned int precio, std::string cultivo);
+	void insertar_arista(std::string origen, std::string destino);
 
 	/*
 	 * PRE: que el grafo exista  y que el nodo a eliminar este en el y no tenga aristas incidentes en el.
@@ -56,7 +54,7 @@ public:
 
 	/*
 	 * PRE: que el grafo exista.
-	 * POST: ---�
+	 * POST: ---
 	 */
 	bool existe_arista(Vertice* origen, Vertice* destino);
 

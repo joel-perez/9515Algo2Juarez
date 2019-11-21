@@ -1,9 +1,11 @@
 #ifndef VERTICE_H_
 #define VERTICE_H_
+
 #include <iostream>
 #include <string>
 #include "Arista.h"
 #include "Lista.h"
+
 class Vertice {
 private:
 	std::string nombre;
