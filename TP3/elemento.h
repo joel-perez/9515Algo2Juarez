@@ -15,6 +15,9 @@ class Elemento {
         Elemento(std::string tipo, float posicion_x, float posicion_y);
         virtual std::string resumen_datos();
         virtual std::string detalles_datos();
+        virtual float obtener_posicion_x();
+        virtual float obtener_posicion_y();
+        virtual std::string obtener_tipo();
         virtual ~Elemento();
 };
 

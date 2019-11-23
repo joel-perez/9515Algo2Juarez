@@ -1,5 +1,6 @@
 #ifndef ARISTA_H
 #define ARISTA_H_
+
 #include <iostream>
 
 class Vertice;

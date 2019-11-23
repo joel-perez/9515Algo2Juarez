@@ -2,9 +2,9 @@
 
 using namespace std;
 
-Vertice::Vertice(string nombre, unsigned int indice) {
-	if (nombre != "" && indice >= 0) {
-		this->nombre = nombre;
+Vertice::Vertice(Elemento* elemento, unsigned int indice) {
+	if (elemento != NULL && indice >= 0) {
+		this->elemento = elemento;
 		this->adyacentes = new Lista<Arista*>();
 		this->indice = indice;
 	}
@@ -14,8 +14,8 @@ Lista<Arista*>* Vertice::obtenerAdyacentes() {
 	return this->adyacentes;
 }
 
-string Vertice::obtenerNombre() {
-	return this->nombre;
+Elemento* Vertice::obtenerElemento() {
+	return this->elemento;
 }
 
 unsigned int Vertice::obtenerIndice() {

@@ -15,21 +15,20 @@ unsigned int Grafo::obtener_tam() {
 	return this->tam;
 }
 
-void Grafo::insertar_nodo(string nombreVertice) {
-	if (this->existe_nodo(nombreVertice) == NULL) {
-		Vertice* nuevoVertice = new Vertice(nombreVertice, this->obtener_tam());
+void Grafo::insertar_nodo(Elemento* elemento) {
+	if (this->existe_nodo(elemento) == NULL) {
+		Vertice* nuevoVertice = new Vertice(elemento, this->obtener_tam());
 		this->vertices->agregar(nuevoVertice);
 		this->tam++;
 	}
 }
 
-Vertice* Grafo::existe_nodo(string nombre) {
+Vertice* Grafo::existe_nodo(Elemento* elemento) {
 	Vertice* vertice = NULL;
 	bool encontrado = false;
 	this->vertices->iniciar_cursor();
 	while (this->vertices->avanzar_cursor() && !encontrado) {
-		//encontrado = (texto.mayusculas(this->vertices->obtenerCursor()->obtenerNombre()) == texto.mayusculas(nombre));
-		encontrado = (this->vertices->obtener_cursor()->obtenerNombre() == nombre);
+        encontrado = elementos_son_iguales(this->vertices->obtener_cursor()->obtenerElemento(), elemento);
 		if (encontrado) {
 			vertice = vertices->obtener_cursor();
 		}
@@ -37,9 +36,15 @@ Vertice* Grafo::existe_nodo(string nombre) {
 	return vertice;
 }
 
-void Grafo::insertar_arista(string nombre_origen, string nombre_destino) {
-	Vertice* origen = this->existe_nodo(nombre_origen);
-	Vertice* destino = this->existe_nodo(nombre_destino);
+bool Grafo::elementos_son_iguales(Elemento* primer_elemento, Elemento* segundo_elemento) {
+    return primer_elemento->obtener_posicion_x() == segundo_elemento->obtener_posicion_x() &&
+           primer_elemento->obtener_posicion_y() == segundo_elemento->obtener_posicion_y() &&
+           primer_elemento->obtener_tipo() == segundo_elemento->obtener_tipo();
+}
+
+void Grafo::insertar_arista(Elemento* elemento_origen, Elemento* elemento_destino) {
+	Vertice* origen = this->existe_nodo(elemento_origen);
+	Vertice* destino = this->existe_nodo(elemento_destino);
 
 	if (origen != NULL && destino != NULL) {
 		Arista* nueva_arista = new Arista(destino);
@@ -47,8 +52,8 @@ void Grafo::insertar_arista(string nombre_origen, string nombre_destino) {
 	}
 }
 
-void Grafo::eliminar_nodo(string nombre) {
-	Vertice* eliminar = this->existe_nodo(nombre);
+void Grafo::eliminar_nodo(Elemento* elemento) {
+	Vertice* eliminar = this->existe_nodo(elemento);
 	if (eliminar != NULL)
 		delete eliminar;
 }
