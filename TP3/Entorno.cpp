@@ -101,6 +101,9 @@ void Entorno::renderizarTodo()
 
     //Inserte codigo para renderizar imagenes
 
+    renderizar(DOSIS_A, 50, 50);   // TODO: Mejorar esto... es solo una prueba para ver como explota con la tecla A
+    renderizar(DOSIS_B, 250, 250); // TODO: Mejorar esto... es solo una prueba para ver como explota con la tecla B
+
     SDL_RenderPresent(renderer); // draw to the screen
 }
 
