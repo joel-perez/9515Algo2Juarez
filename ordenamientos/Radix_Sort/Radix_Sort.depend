@@ -1,0 +1,5 @@
+# depslib dependency file v1.0
+1574537568 source:/home/juank/9515Algo2Juarez/ordenamientos/Radix_Sort/main.cpp
+	<iostream>
+	<math.h>
+
