@@ -1,0 +1,20 @@
+//pseudocodigo del metodo cargar tejido:
+cargar_tejido
+crear un grafo vacio
+abrir el archivo
+acumulador = 1
+mientras haya una linea para leer
+    si es una celula
+        agregar vertice al grafo
+        si acumulador es distinto de 1
+            si es impar 
+                agregar adyacencia con los ultimo dos vertices cargados
+            si no
+                agregar adyacencia con el ultimo vertice cargado
+        fin del si distinto de 1
+        incrementar 1 acumulador
+    fin si es celula
+    si no
+        renderizar en posicion leida //a los efectos del pseudocodigo; de esto se ocupa otra clase
+        
+    
