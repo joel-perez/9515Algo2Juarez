@@ -26,11 +26,7 @@ string Anticuerpo::detalles_datos(){
             "\nPosicion Y: " + float_to_string(posicion_y) +
             "\n";
 }
-float Anticuerpo :: posicion_aleatoria_x (){
+void Anticuerpo :: posicion_aleatoria (){
     posicion_x = rand () % 10;
-    return posicion_x;
-}
-float Anticuerpo :: posicion_aleatoria_y (){
     posicion_y = rand () % 10;
-    return posicion_y;
 }

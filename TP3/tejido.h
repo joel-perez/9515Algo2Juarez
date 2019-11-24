@@ -23,6 +23,7 @@ class Tejido {
     //Atributos
     private:
         Grafo* grafo;
+        Anticuerpo* anticuerpo;
         Lista<Elemento*>* lista;
         Lista<Elemento*>* cargador_dosis;
 
@@ -40,6 +41,7 @@ class Tejido {
         // PRE: lista esta inicializada
         // POST: agrega e al Tejido
         void agregar_anticuerpo(Elemento* e);
+        Lista <Anticuerpo*>* mover_anticuerpos (Elemento* e);
         // Agregar anticuerpo
         // PRE: cargador_dosis esta inicializado
         // POST: agrega e al Tejido

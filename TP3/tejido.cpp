@@ -4,6 +4,7 @@ using namespace std;
 
 Tejido::Tejido() {
     grafo = new Grafo();
+    anticuerpo = new Anticuerpo ();
     lista = new Lista<Elemento*>();
     cargador_dosis = new Lista<Elemento*>();
 }
@@ -22,6 +23,12 @@ void Tejido::agregar_celula(Elemento *e, unsigned int acumulador) {
 
 void Tejido::agregar_anticuerpo(Elemento* e) {
     lista->agregar(e);
+}
+
+Lista <Anticuerpo*>* Tejido:: mover_anticuerpos(Elemento* e){
+  while (!lista->esta_vacia()){
+    anticuerpo -> posicion_aleatoria ();
+  }
 }
 
 void Tejido::agregar_dosis(Elemento *e) {
