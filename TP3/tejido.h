@@ -20,8 +20,6 @@
 class Tejido {
     //Atributos
     private:
-        int indice;                         // TODO: Esto va a volar...
-        Elemento *elementos[MAX_ELEMENTOS]; // TODO: Esto va a volar...
         Grafo* grafo;
 
     //Metodos
@@ -51,20 +49,6 @@ class Tejido {
         // PRE: -
         // POST: Devuelve una dosis en base al tipo_dosis recibido y su cantidad correspondiente.
         Suero* obtener_dosis_desde_string(std::string tipo_dosis, int cantidad_dosis);
-        // Mostrar elemento
-        // PRE: 1 <= i <= indice
-        // POST: imprime por pantalla todos los detalles del elemento
-        //       en la posicion pos (la primera es la 1)
-        void mostrar_elemento(int pos);
-        // Mostrar todos los elementos
-        // PRE: -
-        // POST: recorre el vector e imprime los datos basicos
-        //       (nombre y posicion) de todos los elementos
-        void mostrar_todos();
-        // Obtener Cantidad Elementos
-        // PRE: -
-        // POST: Devuelve la cantidad de elementos que hay cargados en el vector.
-        int obtener_cantidad_elementos();
         // Obtener Coordenadas Relaciones
         // PRE:  El grafo debe estar cargado.
         // POST: Devuelve una lista de CoordenadasRelacion indicando donde empieza y donde termina una linea.
