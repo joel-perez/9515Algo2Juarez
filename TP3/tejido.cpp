@@ -5,6 +5,7 @@ using namespace std;
 Tejido::Tejido() {
     grafo = new Grafo();
     lista = new Lista<Elemento*>();
+    cargador_dosis = new Lista<Elemento*>();
 }
 
 void Tejido::agregar_celula(Elemento *e, unsigned int acumulador) {
