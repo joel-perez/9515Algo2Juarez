@@ -6,7 +6,7 @@ Tejido::Tejido() {
     grafo = new Grafo();
 }
 
-void Tejido::agregar_elemento(Elemento *e) {
+void Tejido::agregar_elemento(Elemento *e, int acumulador) {
     // TODO: Aqui hay que agregar la logica para cargar el grafo...
 }
 
@@ -14,6 +14,7 @@ void Tejido::cargar_archivo() {
     ifstream entrada;
     entrada.open(ARCHIVO_DATOS.c_str());
 
+    int acumulador = 1;
     string linea;
     while (getline(entrada, linea)) {
         stringstream ss(linea);
@@ -29,17 +30,17 @@ void Tejido::cargar_archivo() {
             ss >> tipo_celula;
             ss >> posicion_x;
             ss >> posicion_y;
-            agregar_elemento(obtener_celula_desde_string(tipo_celula, posicion_x, posicion_y));
+            agregar_elemento(obtener_celula_desde_string(tipo_celula, posicion_x, posicion_y), acumulador);
         }
         else if (tipo_elemento == TIPO_ELEMENTO_ANTICUERPO) {
             ss >> posicion_x;
             ss >> posicion_y;
-            agregar_elemento(obtener_anticuerpo_desde_string(tipo_elemento,posicion_x, posicion_y));
+            agregar_elemento(obtener_anticuerpo_desde_string(tipo_elemento,posicion_x, posicion_y), acumulador); // TODO: Ver si va al grafo o a otro lado...
         }
         else if (tipo_elemento == TIPO_ELEMENTO_DOSIS) {
             ss >> tipo_dosis;
             ss >> cantidad_dosis;
-            agregar_elemento(obtener_dosis_desde_string(tipo_dosis, cantidad_dosis));
+            agregar_elemento(obtener_dosis_desde_string(tipo_dosis, cantidad_dosis), acumulador); // TODO: Ver si va al grafo o a otro lado...
         }
     }
     entrada.close();

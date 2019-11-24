@@ -31,7 +31,7 @@ class Tejido {
         // Agregar elemento
         // PRE: vector no esta lleno
         // POST: agrega e al tejido e incrementa el indice
-        void agregar_elemento(Elemento *e);
+        void agregar_elemento(Elemento *e, int acumulador);
         // Cargar vector
         // PRE: -
         // POST: llena el vector con los elementos extraidos
