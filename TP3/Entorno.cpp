@@ -157,24 +157,28 @@ bool Entorno::dosisBExplotando()
 }
 
 void Entorno::dibujar_lineas_entre_celulas() {
+    int ajuste_coordenadas = TAMANIO_CELULA / 2;
     coordenadas_relaciones->iniciar_cursor();
 	while (coordenadas_relaciones->avanzar_cursor()) {
 		CoordenadasRelacion* coordenadas_relacion = coordenadas_relaciones->obtener_cursor();
 		SDL_RenderDrawLine(renderer,
-                           coordenadas_relacion->obtener_inicio_x(),
-                           coordenadas_relacion->obtener_inicio_y(),
-                           coordenadas_relacion->obtener_destino_x(),
-                           coordenadas_relacion->obtener_destino_y());
+                           coordenadas_relacion->obtener_inicio_x() + ajuste_coordenadas,
+                           coordenadas_relacion->obtener_inicio_y() + ajuste_coordenadas,
+                           coordenadas_relacion->obtener_destino_x() + ajuste_coordenadas,
+                           coordenadas_relacion->obtener_destino_y() + ajuste_coordenadas);
     }
 }
 
 void Entorno::dibujar_celulas(){
     // TODO: Implementar...
+    renderizar(CELULA_X, 100, 100);
+    renderizar(CELULA_Y, 200, 200);
+    renderizar(CELULA_Z, 300, 100);
 }
 
 void Entorno::dibujar_dosis() {
-    renderizar(DOSIS_A, 50, 50);   // TODO: Mejorar esto... es solo una prueba para ver como explota con la tecla A
-    renderizar(DOSIS_B, 250, 250); // TODO: Mejorar esto... es solo una prueba para ver como explota con la tecla B
+    renderizar(DOSIS_A, 250, 250);   // TODO: Mejorar esto... es solo una prueba para ver como explota con la tecla A
+    renderizar(DOSIS_B, 250, 350); // TODO: Mejorar esto... es solo una prueba para ver como explota con la tecla B
 }
 
 float Entorno::obtener_nanobot_pos_x() {
