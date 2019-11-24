@@ -21,6 +21,8 @@ imagenes obtener_tipo_imagenes_desde_string(std::string tipo_elemento) {
         return CELULA_Y;
     else if (tipo_elemento == TIPO_CELULA_Z)
         return CELULA_Z;
+    else
+        return CELULA_S; // TODO: Ver bien que valor iria por default, igualmente a este caso no va a llegar.
 }
 
 string obtener_string_desde_tipo_dosis(TipoDosis tipo_dosis)
