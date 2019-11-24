@@ -40,6 +40,7 @@ class Entorno
         bool dosisBExplotando();
         void dibujar_lineas_entre_celulas();
         void dibujar_celulas();
+        void dibujar_anticuerpos();
         void dibujar_dosis();
         float obtener_nanobot_pos_x();
         float obtener_nanobot_pos_y();

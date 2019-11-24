@@ -4,8 +4,7 @@ using namespace std;
 
 Tejido::Tejido() {
     grafo = new Grafo();
-    anticuerpo = new Anticuerpo ();
-    lista = new Lista<Elemento*>();
+    lista = new Lista<Anticuerpo*>();
     cargador_dosis = new Lista<Elemento*>();
 }
 
@@ -21,14 +20,15 @@ void Tejido::agregar_celula(Elemento *e, unsigned int acumulador) {
     }
 }
 
-void Tejido::agregar_anticuerpo(Elemento* e) {
-    lista->agregar(e);
+void Tejido::agregar_anticuerpo(Anticuerpo* a) {
+    lista->agregar(a);
 }
 
-Lista <Anticuerpo*>* Tejido:: mover_anticuerpos(Elemento* e){
-  while (!lista->esta_vacia()){
-    anticuerpo -> posicion_aleatoria ();
-  }
+void Tejido::mover_anticuerpos(){
+    lista->iniciar_cursor();
+    while (lista->avanzar_cursor()) {
+        lista->obtener_cursor()->posicion_aleatoria();
+    }
 }
 
 void Tejido::agregar_dosis(Elemento *e) {
@@ -131,6 +131,21 @@ Lista<CoordenadasElemento*>* Tejido::obtener_coordenadas_celulas(){
         imagenes tipo = obtener_tipo_imagenes_desde_string(elemento_actual->obtener_tipo());
         coordenadas_elemento = new CoordenadasElemento(pos_x, pos_y, tipo);
         resultado->agregar(coordenadas_elemento);
+    }
+    return resultado;
+}
+
+Lista<CoordenadasElemento*>* Tejido::obtener_coordenadas_anticuerpos(){
+    Lista<CoordenadasElemento*>* resultado = new Lista<CoordenadasElemento*>();
+    CoordenadasElemento* coordenadas_anticuerpo;
+    lista->iniciar_cursor();
+    while (lista->avanzar_cursor()) {
+        Anticuerpo* anticuerpo_actual = lista->obtener_cursor();
+        float pos_x = anticuerpo_actual->obtener_posicion_x();
+        float pos_y = anticuerpo_actual->obtener_posicion_y();
+        imagenes tipo = obtener_tipo_imagenes_desde_string(anticuerpo_actual->obtener_tipo());
+        coordenadas_anticuerpo = new CoordenadasElemento(pos_x, pos_y, tipo);
+        resultado->agregar(coordenadas_anticuerpo);
     }
     return resultado;
 }

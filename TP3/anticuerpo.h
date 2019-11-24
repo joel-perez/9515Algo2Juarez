@@ -12,7 +12,7 @@ class Anticuerpo : public Elemento {
         Anticuerpo(std::string tipo, float posicion_x, float posicion_y);
         std::string resumen_datos();
         std::string detalles_datos();
-        void posicion_aleatoria ();
+        void posicion_aleatoria();
 };
 
 #endif // ANTICUERPO_H

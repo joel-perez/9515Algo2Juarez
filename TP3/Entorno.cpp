@@ -97,6 +97,8 @@ Entorno::~Entorno()
 
 void Entorno::renderizarTodo()
 {
+    tejido->mover_anticuerpos(); // TODO: Ver si es mejor realizarlo en otro lado...
+
     SDL_SetRenderDrawColor(renderer, 0xFF, 0xFF, 0xFF, 0xFF);
     SDL_RenderClear(renderer); // clear the renderer to the draw color
     renderizar(FONDO, 0, 0);
@@ -108,6 +110,7 @@ void Entorno::renderizarTodo()
     dibujar_lineas_entre_celulas();
     //Inserte codigo para renderizar imagenes
     dibujar_celulas();
+    dibujar_anticuerpos();
     dibujar_dosis();
 
     SDL_RenderPresent(renderer); // draw to the screen
@@ -175,6 +178,15 @@ void Entorno::dibujar_celulas(){
     coordenadas_celulas->iniciar_cursor();
 	while (coordenadas_celulas->avanzar_cursor()) {
 		CoordenadasElemento* coordenadas_elemento = coordenadas_celulas->obtener_cursor();
+		renderizar(coordenadas_elemento->obtener_tipo(), coordenadas_elemento->obtener_pos_x(), coordenadas_elemento->obtener_pos_y());
+    }
+}
+
+void Entorno::dibujar_anticuerpos(){
+    Lista<CoordenadasElemento*>* coordenadas_anticuerpos = tejido->obtener_coordenadas_anticuerpos();
+    coordenadas_anticuerpos->iniciar_cursor();
+	while (coordenadas_anticuerpos->avanzar_cursor()) {
+		CoordenadasElemento* coordenadas_elemento = coordenadas_anticuerpos->obtener_cursor();
 		renderizar(coordenadas_elemento->obtener_tipo(), coordenadas_elemento->obtener_pos_x(), coordenadas_elemento->obtener_pos_y());
     }
 }

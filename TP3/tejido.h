@@ -23,8 +23,7 @@ class Tejido {
     //Atributos
     private:
         Grafo* grafo;
-        Anticuerpo* anticuerpo;
-        Lista<Elemento*>* lista;
+        Lista<Anticuerpo*>* lista;
         Lista<Elemento*>* cargador_dosis;
 
     //Metodos
@@ -40,8 +39,11 @@ class Tejido {
         // Agregar anticuerpo
         // PRE: lista esta inicializada
         // POST: agrega e al Tejido
-        void agregar_anticuerpo(Elemento* e);
-        Lista <Anticuerpo*>* mover_anticuerpos (Elemento* e);
+        void agregar_anticuerpo(Anticuerpo* e);
+        // Mover Anticuerpos
+        // PRE: lista esta inicializada
+        // POST: invoca al metodo posicion_aleatoria que tiene cada anticuerpo
+        void mover_anticuerpos();
         // Agregar anticuerpo
         // PRE: cargador_dosis esta inicializado
         // POST: agrega e al Tejido
@@ -71,6 +73,10 @@ class Tejido {
         // PRE:  El grafo debe estar cargado.
         // POST: Devuelve una lista de CoordenadasElemento indicando donde esta ubicada y que tipo de celula es.
         Lista<CoordenadasElemento*>* obtener_coordenadas_celulas();
+        // Obtener Coordenadas Anticuerpos
+        // PRE:  La lista de anticuerpos debe estar cargada.
+        // POST: Devuelve una lista de CoordenadasElemento indicando donde esta ubicado y que tipo de anticuerpo es.
+        Lista<CoordenadasElemento*>* obtener_coordenadas_anticuerpos();
         // Destructor
         // PRE: -
         // POST: elimina el Tejido
