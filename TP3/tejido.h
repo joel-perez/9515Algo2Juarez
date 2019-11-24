@@ -35,9 +35,13 @@ class Tejido {
         // POST: agrega e al Tejido
         void agregar_celula(Elemento *e, unsigned int acumulador);
         // Agregar anticuerpo
-        // PRE: la lista esta inicializada
+        // PRE: lista esta inicializada
         // POST: agrega e al Tejido
         void agregar_anticuerpo(Elemento* e);
+        // Agregar anticuerpo
+        // PRE: cargador_dosis esta inicializado
+        // POST: agrega e al Tejido
+        void agregar_dosis(Elemento* e);
         // Cargar archivo
         // PRE: -
         // POST: llena el Tejido con los elementos extraidos

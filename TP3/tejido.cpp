@@ -23,6 +23,10 @@ void Tejido::agregar_anticuerpo(Elemento* e) {
     lista->agregar(e);
 }
 
+void Tejido::agregar_dosis(Elemento *e) {
+    cargador_dosis->agregar(e);
+}
+
 void Tejido::cargar_archivo() {
     ifstream entrada;
     entrada.open(ARCHIVO_DATOS.c_str());
