@@ -13,10 +13,10 @@ void Tejido::agregar_celula(Elemento *e, unsigned int acumulador) {
     grafo->insertar_nodo(e);
     if (acumulador > 1) {
         if (acumulador % 2 == 0)
-            grafo->insertar_arista(e, grafo->obtener_vertice_por_indice(acumulador-1)->obtenerElemento());
-        else {
-            grafo->insertar_arista(e, grafo->obtener_vertice_por_indice(acumulador-1)->obtenerElemento());
             grafo->insertar_arista(e, grafo->obtener_vertice_por_indice(acumulador-2)->obtenerElemento());
+        else {
+            grafo->insertar_arista(e, grafo->obtener_vertice_por_indice(acumulador-2)->obtenerElemento());
+            grafo->insertar_arista(e, grafo->obtener_vertice_por_indice(acumulador-3)->obtenerElemento());
         }
     }
 }
