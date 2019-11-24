@@ -127,6 +127,9 @@ void Entorno::explotarDosis(dosis dosis)
         {
             this->loaderA->loadSprite(DOSIS_PATH, estadoDosisA, renderer, &texturas[DOSIS_A]);
             ++estadoDosisA;
+        } else {
+            estadoDosisA = 1;
+            this->loaderA->loadSprite(DOSIS_PATH, estadoDosisA, renderer, &texturas[DOSIS_A]);
         }
         break;
     case DosisB:
@@ -134,6 +137,9 @@ void Entorno::explotarDosis(dosis dosis)
         {
             this->loaderB->loadSprite(DOSIS_PATH, estadoDosisB, renderer, &texturas[DOSIS_B]);
             ++estadoDosisB;
+        } else {
+            estadoDosisB = 1;
+            this->loaderB->loadSprite(DOSIS_PATH, estadoDosisB, renderer, &texturas[DOSIS_B]);
         }
     }
 }
