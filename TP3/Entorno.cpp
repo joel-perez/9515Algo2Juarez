@@ -7,6 +7,8 @@ Entorno::Entorno() {
     estadoDosisB = 1;
     loaderA = new ImageLoader(COMMON_RED, COMMON_GREEN, COMMON_BLUE);
     loaderB = new ImageLoader(SECONDARY_RED, SECONDARY_GREEN, SECONDARY_BLUE);
+    nanobot_pos_x = 0;
+    nanobot_pos_y = SCREEN_HEIGHT - NANOBOT_HEIGHT;
     tejido = new Tejido();
     coordenadas_relaciones = this->tejido->obtener_coordenadas_relaciones();
 }
@@ -173,4 +175,20 @@ void Entorno::dibujar_celulas(){
 void Entorno::dibujar_dosis() {
     renderizar(DOSIS_A, 50, 50);   // TODO: Mejorar esto... es solo una prueba para ver como explota con la tecla A
     renderizar(DOSIS_B, 250, 250); // TODO: Mejorar esto... es solo una prueba para ver como explota con la tecla B
+}
+
+float Entorno::obtener_nanobot_pos_x() {
+     return nanobot_pos_x;
+}
+
+float Entorno::obtener_nanobot_pos_y() {
+    return nanobot_pos_y;
+}
+
+void Entorno::cambiar_nanobot_pos_x(int x) {
+    nanobot_pos_x = x;
+}
+
+void Entorno::cambiar_nanobot_pos_y(int y) {
+     nanobot_pos_y = y;
 }

@@ -22,6 +22,8 @@ class Entorno
     ImageLoader* loaderB;
     Textura texturas[9];
     int estadoDosisA,estadoDosisB;
+    float nanobot_pos_x;
+    float nanobot_pos_y;
     Tejido* tejido;
     Lista<CoordenadasRelacion*>* coordenadas_relaciones;
 
@@ -29,7 +31,7 @@ class Entorno
         Entorno();
         ~Entorno();
         void cargarTexturas();
-        void renderizar(imagenes imagen,float x, float y);
+        void renderizar(imagenes imagen, float x, float y);
         bool iniciar(const char *titulo, int xPos, int yPos, int flags);
         void renderizarTodo();
         void limpiar();
@@ -39,10 +41,10 @@ class Entorno
         void dibujar_lineas_entre_celulas();
         void dibujar_celulas();
         void dibujar_dosis();
-
-    float nanobot_pos_x = 0;                              // TODO: Mejorar esto...
-    float nanobot_pos_y = SCREEN_HEIGHT - NANOBOT_HEIGHT; // TODO: Mejorar esto...
-
+        float obtener_nanobot_pos_x();
+        float obtener_nanobot_pos_y();
+        void cambiar_nanobot_pos_x(int x);
+        void cambiar_nanobot_pos_y(int y);
 };
 
 #endif // ENTORNO_H
