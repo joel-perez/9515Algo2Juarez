@@ -53,12 +53,12 @@ void Tejido::cargar_archivo() {
         else if (tipo_elemento == TIPO_ELEMENTO_ANTICUERPO) {
             ss >> posicion_x;
             ss >> posicion_y;
-            //agregar_elemento(obtener_anticuerpo_desde_string(tipo_elemento,posicion_x, posicion_y), acumulador); // TODO: Ver si va al grafo o a otro lado...
+            agregar_anticuerpo(obtener_anticuerpo_desde_string(tipo_elemento,posicion_x, posicion_y));
         }
         else if (tipo_elemento == TIPO_ELEMENTO_DOSIS) {
             ss >> tipo_dosis;
             ss >> cantidad_dosis;
-            //agregar_elemento(obtener_dosis_desde_string(tipo_dosis, cantidad_dosis), acumulador); // TODO: Ver si va al grafo o a otro lado...
+            agregar_dosis(obtener_dosis_desde_string(tipo_dosis, cantidad_dosis));
         }
     }
     entrada.close();
