@@ -12,6 +12,17 @@ TipoDosis obtener_tipo_dosis_desde_string(string tipo_dosis)
         return DosisDesconocida;
 }
 
+imagenes obtener_tipo_imagenes_desde_string(std::string tipo_elemento) {
+    if (tipo_elemento == TIPO_CELULA_S)
+        return CELULA_S;
+    else if (tipo_elemento == TIPO_CELULA_X)
+        return CELULA_X;
+    else if (tipo_elemento == TIPO_CELULA_Y)
+        return CELULA_Y;
+    else if (tipo_elemento == TIPO_CELULA_Z)
+        return CELULA_Z;
+}
+
 string obtener_string_desde_tipo_dosis(TipoDosis tipo_dosis)
 {
     switch(tipo_dosis)

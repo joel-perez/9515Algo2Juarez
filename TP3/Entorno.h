@@ -8,8 +8,8 @@
 #include "SDL2/SDL_image.h"
 #include "ImageLoader.h"
 #include "tejido.h"
+#include "imagenes.h"
 
-enum imagenes {FONDO, NANOBOT, CELULA_S, CELULA_X, CELULA_Y, CELULA_Z, ANTICUERPO, DOSIS_A, DOSIS_B };
 enum dosis { DosisA, DosisB };
 
 class Entorno

@@ -12,8 +12,10 @@
 #include "constantes.h"
 #include "conversiones.h"
 #include "CoordenadasRelacion.h"
+#include "CoordenadasElemento.h"
 #include "elemento.h"
 #include "Grafo.h"
+#include "imagenes.h"
 #include "lista.h"
 #include "suero.h"
 
@@ -63,6 +65,10 @@ class Tejido {
         // PRE:  El grafo debe estar cargado.
         // POST: Devuelve una lista de CoordenadasRelacion indicando donde empieza y donde termina una linea.
         Lista<CoordenadasRelacion*>* obtener_coordenadas_relaciones();
+        // Obtener Coordenadas Celulas
+        // PRE:  El grafo debe estar cargado.
+        // POST: Devuelve una lista de CoordenadasElemento indicando donde esta ubicada y que tipo de celula es.
+        Lista<CoordenadasElemento*>* obtener_coordenadas_celulas();
         // Destructor
         // PRE: -
         // POST: elimina el Tejido

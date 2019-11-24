@@ -111,6 +111,23 @@ Lista<CoordenadasRelacion*>* Tejido::obtener_coordenadas_relaciones(){
     return resultado;
 }
 
+Lista<CoordenadasElemento*>* Tejido::obtener_coordenadas_celulas(){
+    Lista<CoordenadasElemento*>* resultado = new Lista<CoordenadasElemento*>();
+    CoordenadasElemento* coordenadas_elemento;
+    Lista<Vertice*>* vertices = grafo->obtener_vertices();
+    vertices->iniciar_cursor();
+    while (vertices->avanzar_cursor()) {
+        Vertice* vertice_actual = vertices->obtener_cursor();
+        Elemento* elemento_actual = vertice_actual->obtenerElemento();
+        float pos_x = elemento_actual->obtener_posicion_x();
+        float pos_y = elemento_actual->obtener_posicion_y();
+        imagenes tipo = obtener_tipo_imagenes_desde_string(elemento_actual->obtener_tipo());
+        coordenadas_elemento = new CoordenadasElemento(pos_x, pos_y, tipo);
+        resultado->agregar(coordenadas_elemento);
+    }
+    return resultado;
+}
+
 Tejido::~Tejido() {
     delete grafo;
 }

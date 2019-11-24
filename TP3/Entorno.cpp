@@ -171,14 +171,16 @@ void Entorno::dibujar_lineas_entre_celulas() {
 }
 
 void Entorno::dibujar_celulas(){
-    // TODO: Implementar...
-    renderizar(CELULA_X, 100, 100);
-    renderizar(CELULA_Y, 200, 200);
-    renderizar(CELULA_Z, 300, 100);
+    Lista<CoordenadasElemento*>* coordenadas_celulas = tejido->obtener_coordenadas_celulas();
+    coordenadas_celulas->iniciar_cursor();
+	while (coordenadas_celulas->avanzar_cursor()) {
+		CoordenadasElemento* coordenadas_elemento = coordenadas_celulas->obtener_cursor();
+		renderizar(coordenadas_elemento->obtener_tipo(), coordenadas_elemento->obtener_pos_x(), coordenadas_elemento->obtener_pos_y());
+    }
 }
 
 void Entorno::dibujar_dosis() {
-    renderizar(DOSIS_A, 250, 250);   // TODO: Mejorar esto... es solo una prueba para ver como explota con la tecla A
+    renderizar(DOSIS_A, 250, 250); // TODO: Mejorar esto... es solo una prueba para ver como explota con la tecla A
     renderizar(DOSIS_B, 250, 350); // TODO: Mejorar esto... es solo una prueba para ver como explota con la tecla B
 }
 
