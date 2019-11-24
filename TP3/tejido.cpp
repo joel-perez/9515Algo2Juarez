@@ -3,17 +3,18 @@
 using namespace std;
 
 Tejido::Tejido() {
-    indice = 0;
-    for (int i = 0; i < MAX_ELEMENTOS; i++)
-        elementos[i] = 0;
+    indice = 0;                              // TODO: Esto va a volar...
+    for (int i = 0; i < MAX_ELEMENTOS; i++)  // TODO: Esto va a volar...
+        elementos[i] = 0;                    // TODO: Esto va a volar...
+    grafo = new Grafo();
 }
 
 void Tejido::agregar_elemento(Elemento *e) {
-    elementos[indice] = e;
-    indice++;
+    elementos[indice] = e; // TODO: Esto va a volar...
+    indice++;              // TODO: Esto va a volar...
 }
 
-void Tejido::cargar_vector() {
+void Tejido::cargar_archivo() {
     ifstream entrada;
     entrada.open(ARCHIVO_DATOS.c_str());
 
@@ -84,7 +85,22 @@ int Tejido::obtener_cantidad_elementos() {
     return indice;
 }
 
+Lista<CoordenadasRelacion*>* Tejido::obtener_coordenadas_relaciones(){
+    // TODO: Implementar el recorrido del grafo y armar una lista con las coordenadas de inicio y de fin de cada linea...
+    //       ...esto es solo para probar que esta dibujando bien las lineas en pantalla.
+    Lista<CoordenadasRelacion*>* resultado = new Lista<CoordenadasRelacion*>();
+    CoordenadasRelacion* coordenadas_relacion;
+    coordenadas_relacion = new CoordenadasRelacion(100,100,200,200);
+    resultado->agregar(coordenadas_relacion);
+    coordenadas_relacion = new CoordenadasRelacion(200,200,300,100);
+    resultado->agregar(coordenadas_relacion);
+    coordenadas_relacion = new CoordenadasRelacion(300,100,100,100);
+    resultado->agregar(coordenadas_relacion);
+    return resultado;
+}
+
 Tejido::~Tejido() {
-    for(int i=0;i<indice;i++)
-        delete elementos[i];
+    for(int i=0;i<indice;i++) // TODO: Esto va a volar...
+        delete elementos[i];  // TODO: Esto va a volar...
+    delete grafo;
 }

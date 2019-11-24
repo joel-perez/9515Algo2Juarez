@@ -7,6 +7,8 @@ Entorno::Entorno() {
     estadoDosisB = 1;
     loaderA = new ImageLoader(COMMON_RED, COMMON_GREEN, COMMON_BLUE);
     loaderB = new ImageLoader(SECONDARY_RED, SECONDARY_GREEN, SECONDARY_BLUE);
+    tejido = new Tejido();
+    coordenadas_relaciones = this->tejido->obtener_coordenadas_relaciones();
 }
 
 bool Entorno::iniciar(const char *title, int xpos, int ypos, int flags) {
@@ -86,6 +88,8 @@ Entorno::~Entorno()
 {
     window = NULL;
     renderer = NULL;
+    delete coordenadas_relaciones;
+    delete tejido;
 }
 
 void Entorno::renderizarTodo()
@@ -98,11 +102,10 @@ void Entorno::renderizarTodo()
     //Prepara el Draw para dibujar una linea negra
     SDL_SetRenderDrawColor(renderer, 0, 0, 0, SDL_ALPHA_OPAQUE);
     //Inserte codigo para dibujar lineas
-
+    dibujar_lineas_entre_celulas();
     //Inserte codigo para renderizar imagenes
-
-    renderizar(DOSIS_A, 50, 50);   // TODO: Mejorar esto... es solo una prueba para ver como explota con la tecla A
-    renderizar(DOSIS_B, 250, 250); // TODO: Mejorar esto... es solo una prueba para ver como explota con la tecla B
+    dibujar_celulas();
+    dibujar_dosis();
 
     SDL_RenderPresent(renderer); // draw to the screen
 }
@@ -143,4 +146,25 @@ bool Entorno::dosisAExplotando()
 bool Entorno::dosisBExplotando()
 {
     return estadoDosisB > 1;
+}
+
+void Entorno::dibujar_lineas_entre_celulas() {
+    coordenadas_relaciones->iniciar_cursor();
+	while (coordenadas_relaciones->avanzar_cursor()) {
+		CoordenadasRelacion* coordenadas_relacion = coordenadas_relaciones->obtener_cursor();
+		SDL_RenderDrawLine(renderer,
+                           coordenadas_relacion->obtener_inicio_x(),
+                           coordenadas_relacion->obtener_inicio_y(),
+                           coordenadas_relacion->obtener_destino_x(),
+                           coordenadas_relacion->obtener_destino_y());
+    }
+}
+
+void Entorno::dibujar_celulas(){
+    // TODO: Implementar...
+}
+
+void Entorno::dibujar_dosis() {
+    renderizar(DOSIS_A, 50, 50);   // TODO: Mejorar esto... es solo una prueba para ver como explota con la tecla A
+    renderizar(DOSIS_B, 250, 250); // TODO: Mejorar esto... es solo una prueba para ver como explota con la tecla B
 }

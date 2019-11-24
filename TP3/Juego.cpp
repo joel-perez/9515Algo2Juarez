@@ -8,8 +8,7 @@ using namespace std;
 
 bool Juego::iniciar(const char *title, int xpos, int ypos, int flags) {
     entorno.iniciar(title, xpos, ypos, flags);
-
-    return false; //TODO: Ver que hay que devolver... lo puse solo para poder compilar.
+    return true;
 }
 
 Juego::Juego() {
@@ -39,18 +38,18 @@ void Juego::limpiar() {
     entorno.limpiar();
 }
 
-void loguear_evento(string descripcion_evento) {
-    //https://stackoverflow.com/a/997988
-    std::time_t t = std::time(0);
-    std::tm* now = std::localtime(&t);
-    std::cout << (now->tm_year + 1900) << '-'
-         << (now->tm_mon + 1) << '-'
-         <<  now->tm_mday << ' '
-         <<  now->tm_hour << ':'
-         <<  now->tm_min << ':'
-         <<  now->tm_sec << " - "
-         << descripcion_evento << endl;
-}
+void loguear_evento(string descripcion_evento) { // TODO: Eliminar esto cuando terminemos las pruebas...
+    //https://stackoverflow.com/a/997988         // TODO: Eliminar esto cuando terminemos las pruebas...
+    std::time_t t = std::time(0);                // TODO: Eliminar esto cuando terminemos las pruebas...
+    std::tm* now = std::localtime(&t);           // TODO: Eliminar esto cuando terminemos las pruebas...
+    std::cout << (now->tm_year + 1900) << '-'    // TODO: Eliminar esto cuando terminemos las pruebas...
+         << (now->tm_mon + 1) << '-'             // TODO: Eliminar esto cuando terminemos las pruebas...
+         <<  now->tm_mday << ' '                 // TODO: Eliminar esto cuando terminemos las pruebas...
+         <<  now->tm_hour << ':'                 // TODO: Eliminar esto cuando terminemos las pruebas...
+         <<  now->tm_min << ':'                  // TODO: Eliminar esto cuando terminemos las pruebas...
+         <<  now->tm_sec << " - "                // TODO: Eliminar esto cuando terminemos las pruebas...
+         << descripcion_evento << endl;          // TODO: Eliminar esto cuando terminemos las pruebas...
+}                                                // TODO: Eliminar esto cuando terminemos las pruebas...
 
 // Se encarga de manejar los eventos de teclado a traves de la clase "InputManager"
 // En general, para saber si una tecla esta siendo presionada se utilizara
@@ -96,4 +95,7 @@ void Juego::manejarEventos() {
         loguear_evento("nanobot derecha.");           // TODO: Eliminar esto cuando terminemos las pruebas...
     }
 
+}
+
+Juego::~Juego(){
 }

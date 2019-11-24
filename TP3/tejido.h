@@ -11,14 +11,19 @@
 #include "celulamutada.h"
 #include "constantes.h"
 #include "conversiones.h"
+#include "CoordenadasRelacion.h"
 #include "elemento.h"
+#include "Grafo.h"
+#include "lista.h"
 #include "suero.h"
 
 class Tejido {
     //Atributos
     private:
-        int indice;
-        Elemento *elementos[MAX_ELEMENTOS];
+        int indice;                         // TODO: Esto va a volar...
+        Elemento *elementos[MAX_ELEMENTOS]; // TODO: Esto va a volar...
+        Grafo* grafo;
+
     //Metodos
     public:
         // Constructor
@@ -33,7 +38,7 @@ class Tejido {
         // PRE: -
         // POST: llena el vector con los elementos extraidos
         //       del archivo
-        void cargar_vector();
+        void cargar_archivo();
         // Obtener celula desde string
         // PRE: -
         // POST: Devuelve una celula en base al string recibido
@@ -60,6 +65,10 @@ class Tejido {
         // PRE: -
         // POST: Devuelve la cantidad de elementos que hay cargados en el vector.
         int obtener_cantidad_elementos();
+        // Obtener Coordenadas Relaciones
+        // PRE:  El grafo debe estar cargado.
+        // POST: Devuelve una lista de CoordenadasRelacion indicando donde empieza y donde termina una linea.
+        Lista<CoordenadasRelacion*>* obtener_coordenadas_relaciones();
         // Destructor
         // PRE: -
         // POST: elimina el Tejido

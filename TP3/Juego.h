@@ -9,6 +9,7 @@
 #include "Textura.h"
 #include "InputManager.h"
 #include "Entorno.h"
+#include "tejido.h"
 
 using namespace std;
 
@@ -19,7 +20,7 @@ private:
 
 public:
     Juego();
-    ~Juego(){}
+    ~Juego();
     bool iniciar(const char* titulo, int xPos, int yPos, int flags);
     void correr();
     void renderizar();

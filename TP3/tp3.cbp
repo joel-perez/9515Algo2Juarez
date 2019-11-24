@@ -47,6 +47,8 @@
 		</Linker>
 		<Unit filename="Arista.cpp" />
 		<Unit filename="Arista.h" />
+		<Unit filename="CoordenadasRelacion.cpp" />
+		<Unit filename="CoordenadasRelacion.h" />
 		<Unit filename="Entorno.cpp" />
 		<Unit filename="Entorno.h" />
 		<Unit filename="FPSManager.cpp" />
