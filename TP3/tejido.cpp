@@ -4,10 +4,23 @@ using namespace std;
 
 Tejido::Tejido() {
     grafo = new Grafo();
+    lista = new Lista<Elemento*>();
 }
 
-void Tejido::agregar_elemento(Elemento *e, int acumulador) {
-    // TODO: Aqui hay que agregar la logica para cargar el grafo...
+void Tejido::agregar_celula(Elemento *e, unsigned int acumulador) {
+    grafo->insertar_nodo(e);
+    if (acumulador > 1) {
+        if (acumulador % 2 == 0)
+            grafo->insertar_arista(e, grafo->obtener_vertice_por_indice(acumulador-1)->obtenerElemento());
+        else {
+            grafo->insertar_arista(e, grafo->obtener_vertice_por_indice(acumulador-1)->obtenerElemento());
+            grafo->insertar_arista(e, grafo->obtener_vertice_por_indice(acumulador-2)->obtenerElemento());
+        }
+    }
+}
+
+void Tejido::agregar_anticuerpo(Elemento* e) {
+    lista->agregar(e);
 }
 
 void Tejido::cargar_archivo() {
@@ -30,17 +43,18 @@ void Tejido::cargar_archivo() {
             ss >> tipo_celula;
             ss >> posicion_x;
             ss >> posicion_y;
-            agregar_elemento(obtener_celula_desde_string(tipo_celula, posicion_x, posicion_y), acumulador);
+            agregar_celula(obtener_celula_desde_string(tipo_celula, posicion_x, posicion_y), acumulador);
+            acumulador++;
         }
         else if (tipo_elemento == TIPO_ELEMENTO_ANTICUERPO) {
             ss >> posicion_x;
             ss >> posicion_y;
-            agregar_elemento(obtener_anticuerpo_desde_string(tipo_elemento,posicion_x, posicion_y), acumulador); // TODO: Ver si va al grafo o a otro lado...
+            //agregar_elemento(obtener_anticuerpo_desde_string(tipo_elemento,posicion_x, posicion_y), acumulador); // TODO: Ver si va al grafo o a otro lado...
         }
         else if (tipo_elemento == TIPO_ELEMENTO_DOSIS) {
             ss >> tipo_dosis;
             ss >> cantidad_dosis;
-            agregar_elemento(obtener_dosis_desde_string(tipo_dosis, cantidad_dosis), acumulador); // TODO: Ver si va al grafo o a otro lado...
+            //agregar_elemento(obtener_dosis_desde_string(tipo_dosis, cantidad_dosis), acumulador); // TODO: Ver si va al grafo o a otro lado...
         }
     }
     entrada.close();

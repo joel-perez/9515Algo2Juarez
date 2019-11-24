@@ -58,6 +58,17 @@ void Grafo::eliminar_nodo(Elemento* elemento) {
 		delete eliminar;
 }
 
+Vertice* Grafo::obtener_vertice_por_indice(unsigned int indice) {
+    Vertice* actual;
+    this->vertices->iniciar_cursor();
+    while (vertices->avanzar_cursor()) {
+        actual = this->vertices->obtener_cursor();
+        if (actual->obtenerIndice() == indice)
+            return actual;
+    }
+    return NULL;
+}
+
 Grafo::~Grafo() {
 	this->vertices->iniciar_cursor();
 	while (vertices->avanzar_cursor()) {

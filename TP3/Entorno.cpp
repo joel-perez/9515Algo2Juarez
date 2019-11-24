@@ -10,6 +10,7 @@ Entorno::Entorno() {
     nanobot_pos_x = 0;
     nanobot_pos_y = SCREEN_HEIGHT - NANOBOT_HEIGHT;
     tejido = new Tejido();
+    tejido->cargar_archivo();
     coordenadas_relaciones = this->tejido->obtener_coordenadas_relaciones();
 }
 

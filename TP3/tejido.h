@@ -21,20 +21,26 @@ class Tejido {
     //Atributos
     private:
         Grafo* grafo;
+        Lista<Elemento*>* lista;
+        Lista<Elemento*>* cargador_dosis;
 
     //Metodos
     public:
         // Constructor
         // PRE: -
-        // POST: crea un tejido vacío
+        // POST: crea un Tejido vacío
         Tejido();
-        // Agregar elemento
-        // PRE: vector no esta lleno
-        // POST: agrega e al tejido e incrementa el indice
-        void agregar_elemento(Elemento *e, int acumulador);
-        // Cargar vector
+        // Agregar celula
+        // PRE: el grafo esta inicializado
+        // POST: agrega e al Tejido
+        void agregar_celula(Elemento *e, unsigned int acumulador);
+        // Agregar anticuerpo
+        // PRE: la lista esta inicializada
+        // POST: agrega e al Tejido
+        void agregar_anticuerpo(Elemento* e);
+        // Cargar archivo
         // PRE: -
-        // POST: llena el vector con los elementos extraidos
+        // POST: llena el Tejido con los elementos extraidos
         //       del archivo
         void cargar_archivo();
         // Obtener celula desde string

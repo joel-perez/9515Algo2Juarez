@@ -70,6 +70,11 @@ public:
 	bool elementos_son_iguales(Elemento* primer_elemento, Elemento* segundo_elemento);
 
 	/*
+
+	 */
+	Vertice* obtener_vertice_por_indice(unsigned int indice);
+
+	/*
 	 * PRE: que el grafo exista.
 	 * POST: libera los recursos utilizados por el grafo
 	 */

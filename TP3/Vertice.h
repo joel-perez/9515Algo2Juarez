@@ -14,6 +14,11 @@ private:
 	unsigned int indice;
 
 public:
+
+	/*
+	 */
+	Vertice();
+
 	/*
 	 * pre: Indice debe ser mayor que cero y el nombre no debe estar vacio
 	 * post: Vertice listo para utilizar con un nombre y un indice dado. Si no cumple las precondiciones

@@ -2,6 +2,12 @@
 
 using namespace std;
 
+Vertice::Vertice() {
+    this->elemento = NULL;
+    this->adyacentes = NULL;
+    this->indice = 0;
+}
+
 Vertice::Vertice(Elemento* elemento, unsigned int indice) {
 	if (elemento != NULL && indice >= 0) {
 		this->elemento = elemento;
