@@ -75,8 +75,10 @@ void Juego::manejarEventos() {
 
     //Your code here
     if(inputManager->isKeyDown(KEY_ESCAPE)) {
-        SDL_Quit();
-        exit(0);
+        //SDL_Quit();
+        //entorno.~Entorno();
+        //exit(0);
+        running = false;
     }
     if(inputManager->isKeyDown(KEY_UP) && !inputManager->isKeyDown(KEY_LEFT) && !inputManager->isKeyDown(KEY_RIGHT) && entorno.nanobot_pos_y >= 0) {
         entorno.nanobot_pos_y -= 10;
