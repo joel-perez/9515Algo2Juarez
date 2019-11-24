@@ -86,16 +86,34 @@ int Tejido::obtener_cantidad_elementos() {
 }
 
 Lista<CoordenadasRelacion*>* Tejido::obtener_coordenadas_relaciones(){
-    // TODO: Implementar el recorrido del grafo y armar una lista con las coordenadas de inicio y de fin de cada linea...
-    //       ...esto es solo para probar que esta dibujando bien las lineas en pantalla.
     Lista<CoordenadasRelacion*>* resultado = new Lista<CoordenadasRelacion*>();
     CoordenadasRelacion* coordenadas_relacion;
-    coordenadas_relacion = new CoordenadasRelacion(100,100,200,200);
-    resultado->agregar(coordenadas_relacion);
-    coordenadas_relacion = new CoordenadasRelacion(200,200,300,100);
-    resultado->agregar(coordenadas_relacion);
-    coordenadas_relacion = new CoordenadasRelacion(300,100,100,100);
-    resultado->agregar(coordenadas_relacion);
+    Lista<Vertice*>* vertices = grafo->obtener_vertices();
+    vertices->iniciar_cursor();
+    while (vertices->avanzar_cursor()) {
+        Vertice* vertice_actual = vertices->obtener_cursor();
+        Elemento* elemento_actual = vertice_actual->obtenerElemento();
+        float inicio_x = elemento_actual->obtener_posicion_x();
+        float inicio_y = elemento_actual->obtener_posicion_y();
+        Lista<Arista*>* aristas = vertice_actual->obtenerAdyacentes();
+        aristas->iniciar_cursor();
+        while (aristas->avanzar_cursor()) {
+            Arista* arista_actual = aristas->obtener_cursor();
+            Vertice* vertice_destino = arista_actual->obtenerDestino();
+            Elemento* elemento_destino = vertice_destino->obtenerElemento();
+            float destino_x = elemento_destino->obtener_posicion_x();
+            float destino_y = elemento_destino->obtener_posicion_y();
+            coordenadas_relacion = new CoordenadasRelacion(inicio_x, inicio_y, destino_x, destino_y);
+            resultado->agregar(coordenadas_relacion);
+        }
+    }
+
+    coordenadas_relacion = new CoordenadasRelacion(100,100,200,200); // TODO: Esto va a volar...
+    resultado->agregar(coordenadas_relacion);                        // TODO: Esto va a volar...
+    coordenadas_relacion = new CoordenadasRelacion(200,200,300,100); // TODO: Esto va a volar...
+    resultado->agregar(coordenadas_relacion);                        // TODO: Esto va a volar...
+    coordenadas_relacion = new CoordenadasRelacion(300,100,100,100); // TODO: Esto va a volar...
+    resultado->agregar(coordenadas_relacion);                        // TODO: Esto va a volar...
     return resultado;
 }
 
