@@ -11,7 +11,7 @@ class Anticuerpo : public Elemento {
 private:
     float tendencia_x;
     float tendencia_y;
-
+    bool esta_atrapado;
 
 public:
     Anticuerpo();
@@ -20,7 +20,7 @@ public:
     std::string resumen_datos();
     std::string detalles_datos();
     void posicion_aleatoria();
-    //bool esta_atrapado ();
+    void cambiar_esta_atrapado(bool esta_atrapado);
 };
 
 #endif // ANTICUERPO_H

@@ -35,10 +35,12 @@ string Anticuerpo::detalles_datos(){
             "\n";
 }
 
-//bool Anticuerpo:: esta_atrapado ()
+void Anticuerpo::cambiar_esta_atrapado(bool esta_atrapado) {
+    this->esta_atrapado = esta_atrapado;
+}
 
 void Anticuerpo::posicion_aleatoria() {
-    if (esta_atrapado() != true){
+    if (esta_atrapado != true){
         if (posicion_x <= 0)
             tendencia_x = 2;
         if (posicion_x >= SCREEN_WIDTH)
