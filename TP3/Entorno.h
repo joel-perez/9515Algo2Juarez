@@ -2,7 +2,6 @@
 #define ENTORNO_H
 
 #include <iostream>
-#include "Constants.h"
 #include "Textura.h"
 #include "SDL2/SDL.h"
 #include "SDL2/SDL_image.h"
@@ -42,6 +41,8 @@ class Entorno
         void dibujar_celulas();
         void dibujar_anticuerpos();
         void dibujar_dosis();
+        void mutar_celulas();
+        void detector_colisiones();
         float obtener_nanobot_pos_x();
         float obtener_nanobot_pos_y();
         void cambiar_nanobot_pos_x(int x);

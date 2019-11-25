@@ -196,6 +196,20 @@ void Entorno::dibujar_dosis() {
     renderizar(DOSIS_B, 250, 350); // TODO: Mejorar esto... es solo una prueba para ver como explota con la tecla B
 }
 
+void Entorno::mutar_celulas() {
+    tejido->obtener_grafo()->obtener_vertices()->iniciar_cursor();
+    while(tejido->obtener_grafo()->obtener_vertices()->avanzar_cursor())
+    if (tejido->obtener_grafo()->obtener_vertices()->obtener_cursor()->obtener_elemento()->obtener_tipo() == TIPO_CELULA_Z) {
+        tejido->obtener_grafo()->obtener_vertices()->obtener_cursor()->obtener_adyacentes()->iniciar_cursor();
+        while (tejido->obtener_grafo()->obtener_vertices()->obtener_cursor()->obtener_adyacentes()->avanzar_cursor())
+            tejido->obtener_grafo()->empeorar_estado(tejido->obtener_grafo()->obtener_vertices()->obtener_cursor()->obtener_adyacentes()->obtener_cursor()->obtener_destino()->obtener_indice());
+    }
+}
+
+void Entorno::detector_colisiones() {
+
+}
+
 float Entorno::obtener_nanobot_pos_x() {
      return nanobot_pos_x;
 }

@@ -32,6 +32,10 @@ class Tejido {
         // PRE: -
         // POST: crea un Tejido vacío
         Tejido();
+        // Obtener grafo
+        // PRE: -
+        // POST: devuelve el grafo de celulas
+        Grafo* obtener_grafo();
         // Agregar celula
         // PRE: el grafo esta inicializado
         // POST: agrega e al Tejido

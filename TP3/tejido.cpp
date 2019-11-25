@@ -8,14 +8,18 @@ Tejido::Tejido() {
     cargador_dosis = new Lista<Elemento*>();
 }
 
+Grafo* Tejido::obtener_grafo() {
+    return grafo;
+}
+
 void Tejido::agregar_celula(Elemento *e, unsigned int acumulador) {
     grafo->insertar_nodo(e);
     if (acumulador > 1) {
         if (acumulador % 2 == 0)
-            grafo->insertar_arista(e, grafo->obtener_vertice_por_indice(acumulador-2)->obtenerElemento());
+            grafo->insertar_arista(e, grafo->obtener_vertice_por_indice(acumulador-2)->obtener_elemento());
         else {
-            grafo->insertar_arista(e, grafo->obtener_vertice_por_indice(acumulador-2)->obtenerElemento());
-            grafo->insertar_arista(e, grafo->obtener_vertice_por_indice(acumulador-3)->obtenerElemento());
+            grafo->insertar_arista(e, grafo->obtener_vertice_por_indice(acumulador-2)->obtener_elemento());
+            grafo->insertar_arista(e, grafo->obtener_vertice_por_indice(acumulador-3)->obtener_elemento());
         }
     }
 }
@@ -100,15 +104,15 @@ Lista<CoordenadasRelacion*>* Tejido::obtener_coordenadas_relaciones(){
     vertices->iniciar_cursor();
     while (vertices->avanzar_cursor()) {
         Vertice* vertice_actual = vertices->obtener_cursor();
-        Elemento* elemento_actual = vertice_actual->obtenerElemento();
+        Elemento* elemento_actual = vertice_actual->obtener_elemento();
         float inicio_x = elemento_actual->obtener_posicion_x();
         float inicio_y = elemento_actual->obtener_posicion_y();
-        Lista<Arista*>* aristas = vertice_actual->obtenerAdyacentes();
+        Lista<Arista*>* aristas = vertice_actual->obtener_adyacentes();
         aristas->iniciar_cursor();
         while (aristas->avanzar_cursor()) {
             Arista* arista_actual = aristas->obtener_cursor();
-            Vertice* vertice_destino = arista_actual->obtenerDestino();
-            Elemento* elemento_destino = vertice_destino->obtenerElemento();
+            Vertice* vertice_destino = arista_actual->obtener_destino();
+            Elemento* elemento_destino = vertice_destino->obtener_elemento();
             float destino_x = elemento_destino->obtener_posicion_x();
             float destino_y = elemento_destino->obtener_posicion_y();
             coordenadas_relacion = new CoordenadasRelacion(inicio_x, inicio_y, destino_x, destino_y);
@@ -125,7 +129,7 @@ Lista<CoordenadasElemento*>* Tejido::obtener_coordenadas_celulas(){
     vertices->iniciar_cursor();
     while (vertices->avanzar_cursor()) {
         Vertice* vertice_actual = vertices->obtener_cursor();
-        Elemento* elemento_actual = vertice_actual->obtenerElemento();
+        Elemento* elemento_actual = vertice_actual->obtener_elemento();
         float pos_x = elemento_actual->obtener_posicion_x();
         float pos_y = elemento_actual->obtener_posicion_y();
         imagenes tipo = obtener_tipo_imagenes_desde_string(elemento_actual->obtener_tipo());

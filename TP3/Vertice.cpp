@@ -16,21 +16,26 @@ Vertice::Vertice(Elemento* elemento, unsigned int indice) {
 	}
 }
 
-Lista<Arista*>* Vertice::obtenerAdyacentes() {
+Lista<Arista*>* Vertice::obtener_adyacentes() {
 	return this->adyacentes;
 }
 
-Elemento* Vertice::obtenerElemento() {
+Elemento* Vertice::obtener_elemento() {
 	return this->elemento;
 }
 
-unsigned int Vertice::obtenerIndice() {
+unsigned int Vertice::obtener_indice() {
 	return this->indice;
 }
 
-void Vertice::agregarArista(Arista* nuevaArista) {
-	if (nuevaArista != NULL)
-		this->adyacentes->agregar(nuevaArista);
+void Vertice::agregar_arista(Arista* nueva_arista) {
+	if (nueva_arista != NULL)
+		this->adyacentes->agregar(nueva_arista);
+}
+
+void Vertice::cambiar_elemento(Elemento* nuevo_elemento) {
+    if (nuevo_elemento != NULL)
+        this->elemento = nuevo_elemento;
 }
 
 Vertice::~Vertice() {

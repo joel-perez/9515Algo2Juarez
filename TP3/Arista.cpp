@@ -7,7 +7,7 @@ Arista::Arista(Vertice* destino) {
 		this->destino = destino;
 }
 
-Vertice* Arista::obtenerDestino() {
+Vertice* Arista::obtener_destino() {
 	return this->destino;
 }
 

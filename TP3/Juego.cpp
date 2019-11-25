@@ -19,6 +19,8 @@ void Juego::correr()
     while(running) {
         fpsManager.start();
 
+        // if (fpsManager.elapsedTime != 0 && fpsManager.elapsedTime % INTERVALO_MUTACION == 0)
+        //    entorno.mutar_celulas();
         manejarEventos();
         renderizar();
 
