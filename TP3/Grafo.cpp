@@ -17,8 +17,8 @@ unsigned int Grafo::obtener_tam() {
 
 void Grafo::insertar_nodo(Elemento* elemento) {
 	if (this->existe_nodo(elemento) == NULL) {
-		Vertice* nuevoVertice = new Vertice(elemento, this->obtener_tam());
-		this->vertices->agregar(nuevoVertice);
+		Vertice* nuevo_vertice = new Vertice(elemento, this->obtener_tam());
+		this->vertices->agregar(nuevo_vertice);
 		this->tam++;
 	}
 }
@@ -58,6 +58,11 @@ void Grafo::eliminar_nodo(Elemento* elemento) {
 		delete eliminar;
 }
 
+void Grafo::duplicar(Vertice* original) {
+    Vertice* copia = original;
+
+}
+
 Vertice* Grafo::obtener_vertice_por_indice(unsigned int indice) {
     Vertice* actual;
     this->vertices->iniciar_cursor();
@@ -67,6 +72,61 @@ Vertice* Grafo::obtener_vertice_por_indice(unsigned int indice) {
             return actual;
     }
     return NULL;
+}
+
+void Grafo::impacto_constructivo(unsigned int indice) {
+    Vertice* v = obtener_vertice_por_indice(indice);
+    if (v != NULL) {
+        if (e->obtener_tipo() == TIPO_CELULA_Y) {
+            e->cambiar_tipo(TIPO_CELULA_X);
+        }
+        else if (v->obtener_elemento()->obtener_tipo() == TIPO_CELULA_Z) {
+            Elemento* nuevo = new CelulaInflamada(TIPO_CELULA_Y,
+                                                  v->obtener_elemento()->obtener_posicion_x(),
+                                                  v->obtener_elemento()->obtener_posicion_y());
+            v->cambiar_elemento(nuevo);
+        }
+        else
+            delete v;
+    }
+}
+
+void Grafo::impacto_destructivo(unsigned int indice){
+    Vertice* v = obtener_vertice_por_indice(indice);
+    if (v != NULL) {
+        if (v->obtener_elemento()->obtener_tipo() == TIPO_CELULA_X) {
+            e->cambiar_tipo(TIPO_CELULA_Y);
+        }
+        else if (e->obtener_tipo() == TIPO_CELULA_Y) {
+            Elemento* nuevo = new CelulaMutada(TIPO_CELULA_Z,
+                                               v->obtener_elemento()->obtener_posicion_x(),
+                                               v->obtener_elemento()->obtener_posicion_y());
+            v->cambiar_elemento(nuevo);
+        }
+        else
+            duplicar(v);
+    }
+}
+
+void Grafo::empeorar_estado(unsigned int indice) {
+    Vertice* v = obtener_vertice_por_indice(indice);
+    if (v != NULL) {
+        if (v->obtener_elemento()->obtener_tipo() == TIPO_CELULA_S) {
+            Elemento* nuevo = new CelulaInflamada(TIPO_CELULA_X,
+                                                  v->obtener_elemento()->obtener_posicion_x(),
+                                                  v->obtener_elemento()->obtener_posicion_y());
+            v->cambiar_elemento(nuevo);
+        }
+        else if (v->obtener_elemento()->obtener_tipo() == TIPO_CELULA_X) {
+            e->cambiar_tipo(TIPO_CELULA_Y);
+        }
+        else if (e->obtener_tipo() == TIPO_CELULA_Y) {
+            Elemento* nuevo = new CelulaMutada(TIPO_CELULA_Z,
+                                               v->obtener_elemento()->obtener_posicion_x(),
+                                               v->obtener_elemento()->obtener_posicion_y());
+            v->cambiar_elemento(nuevo);
+        }
+    }
 }
 
 Grafo::~Grafo() {

@@ -2,14 +2,14 @@
 #define ENTORNO_H
 
 #include <iostream>
-#include "Constants.h"
+#include "constantes.h"
 #include "Textura.h"
 #include "SDL2/SDL.h"
 #include "SDL2/SDL_image.h"
 #include "ImageLoader.h"
 #include "tejido.h"
-#include "imagenes.h"
 
+enum imagenes {FONDO, NANOBOT, CELULA_S, CELULA_X, CELULA_Y, CELULA_Z, ANTICUERPO, DOSIS_A, DOSIS_B };
 enum dosis { DosisA, DosisB };
 
 class Entorno
@@ -40,8 +40,9 @@ class Entorno
         bool dosisBExplotando();
         void dibujar_lineas_entre_celulas();
         void dibujar_celulas();
-        void dibujar_anticuerpos();
         void dibujar_dosis();
+        void mutar_celulas();
+        void detector_colisiones();
         float obtener_nanobot_pos_x();
         float obtener_nanobot_pos_y();
         void cambiar_nanobot_pos_x(int x);

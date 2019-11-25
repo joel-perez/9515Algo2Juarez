@@ -47,8 +47,6 @@
 		</Linker>
 		<Unit filename="Arista.cpp" />
 		<Unit filename="Arista.h" />
-		<Unit filename="CoordenadasElemento.cpp" />
-		<Unit filename="CoordenadasElemento.h" />
 		<Unit filename="CoordenadasRelacion.cpp" />
 		<Unit filename="CoordenadasRelacion.h" />
 		<Unit filename="Entorno.cpp" />
@@ -82,7 +80,6 @@
 		<Unit filename="elemento.cpp" />
 		<Unit filename="elemento.h" />
 		<Unit filename="estado.txt" />
-		<Unit filename="imagenes.h" />
 		<Unit filename="lista.h" />
 		<Unit filename="main.cpp" />
 		<Unit filename="main.h" />

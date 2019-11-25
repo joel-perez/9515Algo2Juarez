@@ -4,7 +4,7 @@ using namespace std;
 
 Tejido::Tejido() {
     grafo = new Grafo();
-    lista = new Lista<Anticuerpo*>();
+    lista = new Lista<Elemento*>();
     cargador_dosis = new Lista<Elemento*>();
 }
 
@@ -12,23 +12,16 @@ void Tejido::agregar_celula(Elemento *e, unsigned int acumulador) {
     grafo->insertar_nodo(e);
     if (acumulador > 1) {
         if (acumulador % 2 == 0)
-            grafo->insertar_arista(e, grafo->obtener_vertice_por_indice(acumulador-2)->obtenerElemento());
+            grafo->insertar_arista(e, grafo->obtener_vertice_por_indice(acumulador-1)->obtenerElemento());
         else {
+            grafo->insertar_arista(e, grafo->obtener_vertice_por_indice(acumulador-1)->obtenerElemento());
             grafo->insertar_arista(e, grafo->obtener_vertice_por_indice(acumulador-2)->obtenerElemento());
-            grafo->insertar_arista(e, grafo->obtener_vertice_por_indice(acumulador-3)->obtenerElemento());
         }
     }
 }
 
-void Tejido::agregar_anticuerpo(Anticuerpo* a) {
-    lista->agregar(a);
-}
-
-void Tejido::mover_anticuerpos(){
-    lista->iniciar_cursor();
-    while (lista->avanzar_cursor()) {
-        lista->obtener_cursor()->posicion_aleatoria();
-    }
+void Tejido::agregar_anticuerpo(Elemento* e) {
+    lista->agregar(e);
 }
 
 void Tejido::agregar_dosis(Elemento *e) {
@@ -114,38 +107,6 @@ Lista<CoordenadasRelacion*>* Tejido::obtener_coordenadas_relaciones(){
             coordenadas_relacion = new CoordenadasRelacion(inicio_x, inicio_y, destino_x, destino_y);
             resultado->agregar(coordenadas_relacion);
         }
-    }
-    return resultado;
-}
-
-Lista<CoordenadasElemento*>* Tejido::obtener_coordenadas_celulas(){
-    Lista<CoordenadasElemento*>* resultado = new Lista<CoordenadasElemento*>();
-    CoordenadasElemento* coordenadas_elemento;
-    Lista<Vertice*>* vertices = grafo->obtener_vertices();
-    vertices->iniciar_cursor();
-    while (vertices->avanzar_cursor()) {
-        Vertice* vertice_actual = vertices->obtener_cursor();
-        Elemento* elemento_actual = vertice_actual->obtenerElemento();
-        float pos_x = elemento_actual->obtener_posicion_x();
-        float pos_y = elemento_actual->obtener_posicion_y();
-        imagenes tipo = obtener_tipo_imagenes_desde_string(elemento_actual->obtener_tipo());
-        coordenadas_elemento = new CoordenadasElemento(pos_x, pos_y, tipo);
-        resultado->agregar(coordenadas_elemento);
-    }
-    return resultado;
-}
-
-Lista<CoordenadasElemento*>* Tejido::obtener_coordenadas_anticuerpos(){
-    Lista<CoordenadasElemento*>* resultado = new Lista<CoordenadasElemento*>();
-    CoordenadasElemento* coordenadas_anticuerpo;
-    lista->iniciar_cursor();
-    while (lista->avanzar_cursor()) {
-        Anticuerpo* anticuerpo_actual = lista->obtener_cursor();
-        float pos_x = anticuerpo_actual->obtener_posicion_x();
-        float pos_y = anticuerpo_actual->obtener_posicion_y();
-        imagenes tipo = obtener_tipo_imagenes_desde_string(anticuerpo_actual->obtener_tipo());
-        coordenadas_anticuerpo = new CoordenadasElemento(pos_x, pos_y, tipo);
-        resultado->agregar(coordenadas_anticuerpo);
     }
     return resultado;
 }

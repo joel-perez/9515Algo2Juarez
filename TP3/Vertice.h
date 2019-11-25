@@ -28,20 +28,25 @@ public:
 	/*
 	 * post: devuelve el elemento del vertice
 	 */
-	Elemento* obtenerElemento();
+	Elemento* obtener_elemento();
 	/*
 	 * post: devuelve la lista de adyacentes
 	 */
-	Lista<Arista*>* obtenerAdyacentes();
+	Lista<Arista*>* obtener_adyacentes();
 	/*
 	 *post: devuelve el indice
 	 */
-	unsigned int obtenerIndice();
+	unsigned int obtener_indice();
 	/*
 	 *pre: La arista no debe ser nula.
 	 *post: Agrega una arista a la lista de adyacentes
 	 */
-	void agregarArista(Arista* nuevaArista);
+	void agregar_arista(Arista* nueva_arista);
+	/*
+	 *pre: el elemento no debe ser nulo
+     *post: cambia el elemento del vertice por nuevo_elemento
+	 */
+	void cambiar_elemento(Elemento* nuevo_elemento);
 	/*
 	 * post: libera los recursos utilizados en vertice.
 	 */
