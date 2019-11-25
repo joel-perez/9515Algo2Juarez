@@ -87,6 +87,7 @@
 		<Unit filename="main.cpp" />
 		<Unit filename="main.h" />
 		<Unit filename="nodo.h" />
+		<Unit filename="resultadojuego.h" />
 		<Unit filename="suero.cpp" />
 		<Unit filename="suero.h" />
 		<Unit filename="tejido.cpp" />
