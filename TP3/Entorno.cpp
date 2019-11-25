@@ -202,7 +202,7 @@ void Entorno::mutar_celulas() {
     if (tejido->obtener_grafo()->obtener_vertices()->obtener_cursor()->obtener_elemento()->obtener_tipo() == TIPO_CELULA_Z) {
         tejido->obtener_grafo()->obtener_vertices()->obtener_cursor()->obtener_adyacentes()->iniciar_cursor();
         while (tejido->obtener_grafo()->obtener_vertices()->obtener_cursor()->obtener_adyacentes()->avanzar_cursor())
-            tejido->obtener_grafo()->empeorar_estado(tejido->obtener_grafo()->obtener_vertices()->obtener_cursor()->obtener_adyacentes()->obtener_cursor()->obtener_destino()->obtener_indice());
+            tejido->empeorar_estado(tejido->obtener_grafo()->obtener_vertices()->obtener_cursor()->obtener_adyacentes()->obtener_cursor()->obtener_destino()->obtener_indice());
     }
 }
 

@@ -85,9 +85,11 @@ void Tejido::duplicar(Vertice* original) {
     else if (original->obtener_elemento()->obtener_tipo() == TIPO_CELULA_Z)
         nuevo = new CelulaMutada(original->obtener_elemento()->obtener_tipo(),
                                  original->obtener_elemento()->obtener_posicion_x() + CORRIMIENTO,
-                                 original->obtener_elemento()->obtener_posicion_y())
-    if (nuevo != NULL)
-        grafo->insertar_arista(grafo->insertar_nodo(nuevo), original);
+                                 original->obtener_elemento()->obtener_posicion_y());
+    if (nuevo != NULL) {
+        grafo->insertar_nodo(nuevo);
+        grafo->insertar_arista(nuevo, original->obtener_elemento());
+    }
 }
 
 void Tejido::impacto_constructivo(unsigned int indice) {
