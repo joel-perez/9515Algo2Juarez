@@ -200,12 +200,18 @@ void Entorno::mutar_celulas() {
     Lista<Vertice*>* vertices = tejido->obtener_grafo()->obtener_vertices();
     vertices->iniciar_cursor();
     while(vertices->avanzar_cursor()) {
-        //if (vertices->obtener_cursor()->obtener_elemento()->obtener_tipo() == TIPO_CELULA_Z) {
-        //    vertices->obtener_cursor()->obtener_adyacentes()->iniciar_cursor();
-        //    while (vertices->obtener_cursor()->obtener_adyacentes()->avanzar_cursor()) {
-                tejido->empeorar_estado(vertices->obtener_cursor()->obtener_adyacentes()->obtener_cursor()->obtener_destino()->obtener_indice());
-        //    }
-        //}
+        Vertice* vertice_actual = vertices->obtener_cursor();
+        if (vertice_actual->obtener_elemento()->obtener_tipo() == TIPO_CELULA_Z) {
+            Lista<Arista*>* adyacentes = vertice_actual->obtener_adyacentes();
+            adyacentes->iniciar_cursor();
+            while (adyacentes->avanzar_cursor()){
+                Vertice* adyacente_actual = adyacentes->obtener_cursor()->obtener_destino();
+                if (adyacente_actual->obtener_elemento()->obtener_tipo() == TIPO_CELULA_S)
+                    tejido->empeorar_estado(adyacente_actual->obtener_indice());
+            }
+        }
+        else if (vertice_actual->obtener_elemento()->obtener_tipo() != TIPO_CELULA_S)
+            tejido->empeorar_estado(vertice_actual->obtener_indice());
     }
 }
 
