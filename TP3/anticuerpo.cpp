@@ -6,6 +6,8 @@ Anticuerpo::Anticuerpo() {
     tipo = "";
     posicion_x = 0;
     posicion_y = 0;
+    tendencia_x = 5;
+    tendencia_y = 5;
 }
 
 Anticuerpo::Anticuerpo(string tipo, float posicion_x, float posicion_y):
@@ -28,6 +30,14 @@ string Anticuerpo::detalles_datos(){
 }
 
 void Anticuerpo::posicion_aleatoria() {
-    posicion_x += (rand() % 10) - 5;
-    posicion_y += (rand() % 10) - 5;
+    if (posicion_x <= 0)
+        tendencia_x = 2;
+    if (posicion_x >= SCREEN_WIDTH)
+        tendencia_x = 5;
+    if (posicion_y <= 0)
+        tendencia_y = 2;
+    if (posicion_y >= SCREEN_HEIGHT)
+        tendencia_y = 5;
+    posicion_x += (rand() % 10) - tendencia_x;
+    posicion_y += (rand() % 10) - tendencia_y;
 }
