@@ -57,6 +57,10 @@ class Tejido {
         // POST: llena el Tejido con los elementos extraidos
         //       del archivo
         void cargar_archivo();
+        void duplicar(Vertice* original);
+        void impacto_constructivo(unsigned int indice);
+        void impacto_destructivo(unsigned int indice);
+        void empeorar_estado(unsigned int indice);
         // Obtener celula desde string
         // PRE: -
         // POST: Devuelve una celula en base al string recibido

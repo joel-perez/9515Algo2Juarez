@@ -51,5 +51,6 @@ const std::string TIPO_DOSIS_A = "A";
 const std::string TIPO_DOSIS_B = "B";
 const std::string TIPO_DOSIS_DESCONOCIDA = "desconocido";
 const int TAMANIO_CELULA = 60;
+const int CORRIMIENTO = 100;
 
 #endif // CONSTANTES_H_INCLUDED
