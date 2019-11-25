@@ -40,10 +40,6 @@ string Elemento::obtener_tipo() {
     return this->tipo;
 }
 
-void Elemento::cambiar_tipo(string nuevo){
-    this->tipo = nuevo;
-}
-
 Elemento::~Elemento(){
     // Agrego el destructor porque me estaba dando undefined reference to Elemento::~Elemento() varias veces...
 }

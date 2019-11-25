@@ -19,7 +19,7 @@ public:
 	/*
 	 * POST: Devuelve el destino asociado a la arista.
 	 */
-	Vertice* obtener_destino();
+	Vertice* obtenerDestino();
 
 	/*
 	 *post: -

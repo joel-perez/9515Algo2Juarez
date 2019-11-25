@@ -18,7 +18,6 @@ class Elemento {
         virtual float obtener_posicion_x();
         virtual float obtener_posicion_y();
         virtual std::string obtener_tipo();
-        virtual void cambiar_tipo(std::string nuevo);
         virtual ~Elemento();
 };
 

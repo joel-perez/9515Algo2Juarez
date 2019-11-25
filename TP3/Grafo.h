@@ -74,12 +74,6 @@ public:
 	 */
 	Vertice* obtener_vertice_por_indice(unsigned int indice);
 
-	void impacto_constructivo(unsigned int indice);
-
-	void impacto_destructivo(unsigned int indice);
-
-	void empeorar_estado(unsigned int indice);
-
 	/*
 	 * PRE: que el grafo exista.
 	 * POST: libera los recursos utilizados por el grafo

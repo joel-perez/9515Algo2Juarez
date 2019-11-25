@@ -97,6 +97,8 @@ Entorno::~Entorno()
 
 void Entorno::renderizarTodo()
 {
+    tejido->mover_anticuerpos(); // TODO: Ver si es mejor realizarlo en otro lado...
+
     SDL_SetRenderDrawColor(renderer, 0xFF, 0xFF, 0xFF, 0xFF);
     SDL_RenderClear(renderer); // clear the renderer to the draw color
     renderizar(FONDO, 0, 0);
@@ -108,6 +110,7 @@ void Entorno::renderizarTodo()
     dibujar_lineas_entre_celulas();
     //Inserte codigo para renderizar imagenes
     dibujar_celulas();
+    dibujar_anticuerpos();
     dibujar_dosis();
 
     SDL_RenderPresent(renderer); // draw to the screen
@@ -171,28 +174,26 @@ void Entorno::dibujar_lineas_entre_celulas() {
 }
 
 void Entorno::dibujar_celulas(){
-    // TODO: Implementar...
-    renderizar(CELULA_X, 100, 100);
-    renderizar(CELULA_Y, 200, 200);
-    renderizar(CELULA_Z, 300, 100);
-}
-
-void Entorno::dibujar_dosis() {
-    renderizar(DOSIS_A, 250, 250);   // TODO: Mejorar esto... es solo una prueba para ver como explota con la tecla A
-    renderizar(DOSIS_B, 250, 350); // TODO: Mejorar esto... es solo una prueba para ver como explota con la tecla B
-}
-
-void Entorno::mutar_celulas() {
-    tejido->obtener_grafo()->obtener_vertices()->iniciar_cursor();
-    while(tejido->obtener_grafo()->obtener_vertices()->avanzar_cursor())
-    if (tejido->obtener_grafo()->obtener_vertices()->obtener_cursor()->obtener_elemento()->tipo == TIPO_CELULA_Z) {
-        tejido->obtener_grafo()->obtener_vertices()->obtener_cursor()->obtener_adyacentes()->iniciar_cursor();
-        while (tejido->obtener_grafo()->obtener_vertices()->obtener_cursor()->obtener_adyacentes()->avanzar_cursor())
-            tejido->obtener_grafo()->empeorar_estado(tejido->obtener_grafo()->obtener_vertices()->obtener_cursor()->obtener_adyacentes()->obtener_cursor()->obtener_destino()->obtener_indice());
+    Lista<CoordenadasElemento*>* coordenadas_celulas = tejido->obtener_coordenadas_celulas();
+    coordenadas_celulas->iniciar_cursor();
+	while (coordenadas_celulas->avanzar_cursor()) {
+		CoordenadasElemento* coordenadas_elemento = coordenadas_celulas->obtener_cursor();
+		renderizar(coordenadas_elemento->obtener_tipo(), coordenadas_elemento->obtener_pos_x(), coordenadas_elemento->obtener_pos_y());
     }
 }
 
-void Entorno::detector_colisiones() {
+void Entorno::dibujar_anticuerpos(){
+    Lista<CoordenadasElemento*>* coordenadas_anticuerpos = tejido->obtener_coordenadas_anticuerpos();
+    coordenadas_anticuerpos->iniciar_cursor();
+	while (coordenadas_anticuerpos->avanzar_cursor()) {
+		CoordenadasElemento* coordenadas_elemento = coordenadas_anticuerpos->obtener_cursor();
+		renderizar(coordenadas_elemento->obtener_tipo(), coordenadas_elemento->obtener_pos_x(), coordenadas_elemento->obtener_pos_y());
+    }
+}
+
+void Entorno::dibujar_dosis() {
+    renderizar(DOSIS_A, 250, 250); // TODO: Mejorar esto... es solo una prueba para ver como explota con la tecla A
+    renderizar(DOSIS_B, 250, 350); // TODO: Mejorar esto... es solo una prueba para ver como explota con la tecla B
 }
 
 float Entorno::obtener_nanobot_pos_x() {

@@ -26,3 +26,8 @@ string Anticuerpo::detalles_datos(){
             "\nPosicion Y: " + float_to_string(posicion_y) +
             "\n";
 }
+
+void Anticuerpo::posicion_aleatoria() {
+    posicion_x += (rand() % 10) - 5;
+    posicion_y += (rand() % 10) - 5;
+}
