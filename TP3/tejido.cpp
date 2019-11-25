@@ -93,34 +93,48 @@ void Tejido::duplicar(Vertice* original) {
 }
 
 void Tejido::impacto_constructivo(unsigned int indice) {
-    if (grafo->obtener_vertice_por_indice(indice) != NULL) {
-        if (grafo->obtener_vertice_por_indice(indice)->obtener_elemento()->obtener_tipo() == TIPO_CELULA_Y) {
-            grafo->obtener_vertice_por_indice(indice)->obtener_elemento()->cambiar_tipo(TIPO_CELULA_X);
-        }
-        else if (grafo->obtener_vertice_por_indice(indice)->obtener_elemento()->obtener_tipo() == TIPO_CELULA_Z) {
+    Vertice* vertice_actual = grafo->obtener_vertice_por_indice(indice);
+    if (vertice_actual != NULL) {
+        Elemento* elemento_actual = vertice_actual->obtener_elemento();
+        if (elemento_actual->obtener_tipo() == TIPO_CELULA_Y) {
             Elemento* nuevo = new CelulaInflamada(TIPO_CELULA_Y,
-                                                  grafo->obtener_vertice_por_indice(indice)->obtener_elemento()->obtener_posicion_x(),
-                                                  grafo->obtener_vertice_por_indice(indice)->obtener_elemento()->obtener_posicion_y());
-            grafo->obtener_vertice_por_indice(indice)->cambiar_elemento(nuevo);
+                                                  elemento_actual->obtener_posicion_x(),
+                                                  elemento_actual->obtener_posicion_y());
+            vertice_actual->cambiar_elemento(nuevo);
+            delete elemento_actual;
+        }
+        else if (elemento_actual->obtener_tipo() == TIPO_CELULA_Z) {
+            Elemento* nuevo = new CelulaInflamada(TIPO_CELULA_Y,
+                                                  elemento_actual->obtener_posicion_x(),
+                                                  elemento_actual->obtener_posicion_y());
+            vertice_actual->cambiar_elemento(nuevo);
+            delete elemento_actual;
         }
         else
-            delete grafo->obtener_vertice_por_indice(indice);
+            delete vertice_actual;
     }
 }
 
 void Tejido::impacto_destructivo(unsigned int indice){
-    if (grafo->obtener_vertice_por_indice(indice) != NULL) {
-        if (grafo->obtener_vertice_por_indice(indice)->obtener_elemento()->obtener_tipo() == TIPO_CELULA_X) {
-            grafo->obtener_vertice_por_indice(indice)->obtener_elemento()->cambiar_tipo(TIPO_CELULA_Y);
+    Vertice* vertice_actual = grafo->obtener_vertice_por_indice(indice);
+    if (vertice_actual != NULL) {
+        Elemento* elemento_actual = vertice_actual->obtener_elemento();
+        if (elemento_actual->obtener_tipo() == TIPO_CELULA_X) {
+            Elemento* nuevo = new CelulaInflamada(TIPO_CELULA_Y,
+                                                  elemento_actual->obtener_posicion_x(),
+                                                  elemento_actual->obtener_posicion_y());
+            vertice_actual->cambiar_elemento(nuevo);
+            delete elemento_actual;
         }
-        else if (grafo->obtener_vertice_por_indice(indice)->obtener_elemento()->obtener_tipo() == TIPO_CELULA_Y) {
+        else if (elemento_actual->obtener_tipo() == TIPO_CELULA_Y) {
             Elemento* nuevo = new CelulaMutada(TIPO_CELULA_Z,
-                                               grafo->obtener_vertice_por_indice(indice)->obtener_elemento()->obtener_posicion_x(),
-                                               grafo->obtener_vertice_por_indice(indice)->obtener_elemento()->obtener_posicion_y());
-            grafo->obtener_vertice_por_indice(indice)->cambiar_elemento(nuevo);
+                                               elemento_actual->obtener_posicion_x(),
+                                               elemento_actual->obtener_posicion_y());
+            vertice_actual->cambiar_elemento(nuevo);
+            delete elemento_actual;
         }
         else
-            duplicar(grafo->obtener_vertice_por_indice(indice));
+            duplicar(vertice_actual);
     }
 }
 
@@ -134,7 +148,6 @@ void Tejido::empeorar_estado(unsigned int indice) {
                                                   elemento_actual->obtener_posicion_y());
             vertice_actual->cambiar_elemento(nuevo);
             delete elemento_actual;
-            //cout << "mutando..." << endl;
         }
         else if (elemento_actual->obtener_tipo() == TIPO_CELULA_X) {
             Elemento* nuevo = new CelulaInflamada(TIPO_CELULA_Y,
@@ -142,7 +155,6 @@ void Tejido::empeorar_estado(unsigned int indice) {
                                                   elemento_actual->obtener_posicion_y());
             vertice_actual->cambiar_elemento(nuevo);
             delete elemento_actual;
-            //cout << "mutando..." << endl;
         }
         else if (elemento_actual->obtener_tipo() == TIPO_CELULA_Y) {
             Elemento* nuevo = new CelulaMutada(TIPO_CELULA_Z,
@@ -150,7 +162,6 @@ void Tejido::empeorar_estado(unsigned int indice) {
                                                   elemento_actual->obtener_posicion_y());
             vertice_actual->cambiar_elemento(nuevo);
             delete elemento_actual;
-            //cout << "mutando..." << endl;
         }
     }
 }
