@@ -1,7 +1,3 @@
-//
-// Created by caropistillo
-//
-
 #ifndef FPSMANAGER_H_
 #define FPSMANAGER_H_
 
