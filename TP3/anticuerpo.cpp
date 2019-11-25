@@ -12,7 +12,8 @@ Anticuerpo::Anticuerpo() {
 
 Anticuerpo::Anticuerpo(string tipo, float posicion_x, float posicion_y):
 Elemento(tipo, posicion_x, posicion_y) {
-    // TODO: agregar posibles atributos futuros
+    tendencia_x = 5;
+    tendencia_y = 5;
 }
 
 string Anticuerpo::resumen_datos(){
