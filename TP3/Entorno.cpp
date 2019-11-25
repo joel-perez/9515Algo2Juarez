@@ -197,17 +197,24 @@ void Entorno::dibujar_dosis() {
 }
 
 void Entorno::mutar_celulas() {
-    tejido->obtener_grafo()->obtener_vertices()->iniciar_cursor();
-    while(tejido->obtener_grafo()->obtener_vertices()->avanzar_cursor())
-    if (tejido->obtener_grafo()->obtener_vertices()->obtener_cursor()->obtener_elemento()->obtener_tipo() == TIPO_CELULA_Z) {
-        tejido->obtener_grafo()->obtener_vertices()->obtener_cursor()->obtener_adyacentes()->iniciar_cursor();
-        while (tejido->obtener_grafo()->obtener_vertices()->obtener_cursor()->obtener_adyacentes()->avanzar_cursor())
-            tejido->empeorar_estado(tejido->obtener_grafo()->obtener_vertices()->obtener_cursor()->obtener_adyacentes()->obtener_cursor()->obtener_destino()->obtener_indice());
+    Lista<Vertice*>* vertices = tejido->obtener_grafo()->obtener_vertices();
+    vertices->iniciar_cursor();
+    while(vertices->avanzar_cursor()) {
+        //if (vertices->obtener_cursor()->obtener_elemento()->obtener_tipo() == TIPO_CELULA_Z) {
+        //    vertices->obtener_cursor()->obtener_adyacentes()->iniciar_cursor();
+        //    while (vertices->obtener_cursor()->obtener_adyacentes()->avanzar_cursor()) {
+                tejido->empeorar_estado(vertices->obtener_cursor()->obtener_adyacentes()->obtener_cursor()->obtener_destino()->obtener_indice());
+        //    }
+        //}
     }
 }
 
 void Entorno::detector_colisiones() {
+    Lista<Vertice*>* vertices = tejido->obtener_grafo()->obtener_vertices();
+    vertices->iniciar_cursor();
+    while(vertices->avanzar_cursor()) {
 
+    }
 }
 
 float Entorno::obtener_nanobot_pos_x() {
