@@ -37,6 +37,7 @@ void Juego::correr()
         if (fpsManager.obtener_milisegundos_actuales() >= milisegundos_inicial + INTERVALO_MUTACION * 1000) {
             milisegundos_inicial = fpsManager.obtener_milisegundos_actuales();
             entorno.mutar_celulas();
+            entorno.generar_anticuerpo();
         }
 
         fpsManager.stop();

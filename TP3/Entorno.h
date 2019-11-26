@@ -41,6 +41,7 @@ class Entorno
         void dibujar_anticuerpos();
         void dibujar_dosis();
         void mutar_celulas();
+        void generar_anticuerpo();
         void detector_colisiones();
         float obtener_nanobot_pos_x();
         float obtener_nanobot_pos_y();
