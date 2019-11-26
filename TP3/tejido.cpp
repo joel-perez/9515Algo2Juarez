@@ -244,14 +244,20 @@ Lista<CoordenadasElemento*>* Tejido::obtener_coordenadas_anticuerpos(){
     return resultado;
 }
 
-int Tejido::obtener_cantidad_celulas(string tipo_celula){
-/*recorre el grafo(sus vertices)
-consulta cual es el tipo de elemento q tiene cargado cada vertice
-lo acumula y devuelve resultado numerico*/
+unsigned int Tejido::obtener_cantidad_celulas(string tipo_celula){
+    int contador = 0;
+    Lista<Vertice*>* celulas = grafo->obtener_vertices();
+    celulas->iniciar_cursor();
+    while (celulas->avanzar_cursor()) {
+        Elemento* celula_actual = celulas->obtener_cursor()->obtener_elemento();
+        if (celula_actual->obtener_tipo() == tipo_celula)
+            contador++;
+    }
+    return contador;
 }
 
-int Tejido::obtener_cantidad_total_celulas(){
-    //devolver cantidad de vertices del grafo
+unsigned int Tejido::obtener_cantidad_total_celulas(){
+    return grafo->obtener_tam();
 }
 
 Tejido::~Tejido() {

@@ -12,13 +12,14 @@ Juego::Juego() {
 }
 
 resultado_juego Juego::obtener_resultado_juego(){
-    entorno.obtener_cantidad_total_celulas();
-    entorno.obtener_cantidad_celulas(TIPO_CELULA_S);
-    entorno.obtener_cantidad_celulas(TIPO_CELULA_Z);
-    /*calcula la diferencia, si el porcentaje de celulas_z es mayor que 50%, el estado que devuelve es PERDISTE
-    si el porcentaje de celulas_s es 100%, el resultado que devuelve es GANASTE
-    y en cualquier otro valor, el resultado es JUGANDO*/
-
+    unsigned int total_celulas = entorno.obtener_cantidad_total_celulas();
+    unsigned int cant_celulas_s = entorno.obtener_cantidad_celulas(TIPO_CELULA_S);
+    unsigned int cant_celulas_z = entorno.obtener_cantidad_celulas(TIPO_CELULA_Z);
+    if (100 * cant_celulas_s / (float) total_celulas == 100)
+        return GANASTE;
+    else if (100 * cant_celulas_z / (float) total_celulas > 50)
+        return PERDISTE;
+    return JUGANDO;
 }
 
 void Juego::correr()

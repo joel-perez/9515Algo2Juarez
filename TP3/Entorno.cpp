@@ -239,10 +239,10 @@ void Entorno::cambiar_nanobot_pos_y(int y) {
      nanobot_pos_y = y;
 }
 
-int Entorno::obtener_cantidad_total_celulas(){
+unsigned int Entorno::obtener_cantidad_total_celulas(){
     return tejido->obtener_cantidad_total_celulas();
 }
 
-int Entorno::obtener_cantidad_celulas(string tipo_celula){
+unsigned int Entorno::obtener_cantidad_celulas(string tipo_celula){
     return tejido->obtener_cantidad_celulas(tipo_celula);
 }
