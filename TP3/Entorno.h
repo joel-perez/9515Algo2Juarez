@@ -24,7 +24,6 @@ class Entorno
     float nanobot_pos_x;
     float nanobot_pos_y;
     Tejido* tejido;
-    Lista<CoordenadasRelacion*>* coordenadas_relaciones;
 
     public:
         Entorno();

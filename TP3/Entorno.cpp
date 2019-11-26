@@ -11,7 +11,6 @@ Entorno::Entorno() {
     nanobot_pos_y = SCREEN_HEIGHT - NANOBOT_HEIGHT;
     tejido = new Tejido();
     tejido->cargar_archivo();
-    coordenadas_relaciones = this->tejido->obtener_coordenadas_relaciones();
 }
 
 bool Entorno::iniciar(const char *title, int xpos, int ypos, int flags) {
@@ -91,7 +90,6 @@ Entorno::~Entorno()
 {
     window = NULL;
     renderer = NULL;
-    delete coordenadas_relaciones;
     delete tejido;
 }
 
@@ -162,6 +160,7 @@ bool Entorno::dosisBExplotando()
 
 void Entorno::dibujar_lineas_entre_celulas() {
     int ajuste_coordenadas = TAMANIO_CELULA / 2;
+    Lista<CoordenadasRelacion*>* coordenadas_relaciones = this->tejido->obtener_coordenadas_relaciones();
     coordenadas_relaciones->iniciar_cursor();
 	while (coordenadas_relaciones->avanzar_cursor()) {
 		CoordenadasRelacion* coordenadas_relacion = coordenadas_relaciones->obtener_cursor();
@@ -171,6 +170,7 @@ void Entorno::dibujar_lineas_entre_celulas() {
                            coordenadas_relacion->obtener_destino_x() + ajuste_coordenadas,
                            coordenadas_relacion->obtener_destino_y() + ajuste_coordenadas);
     }
+    delete coordenadas_relaciones;
 }
 
 void Entorno::dibujar_celulas(){
@@ -240,9 +240,9 @@ void Entorno::cambiar_nanobot_pos_y(int y) {
 }
 
 int Entorno::obtener_cantidad_total_celulas(){
-    tejido->obtener_cantidad_total_celulas();
+    return tejido->obtener_cantidad_total_celulas();
 }
 
 int Entorno::obtener_cantidad_celulas(string tipo_celula){
-    tejido->obtener_cantidad_celulas(tipo_celula);
+    return tejido->obtener_cantidad_celulas(tipo_celula);
 }
