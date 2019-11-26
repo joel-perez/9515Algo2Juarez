@@ -215,6 +215,10 @@ void Entorno::mutar_celulas() {
     }
 }
 
+void Entorno::generar_anticuerpo() {
+    this->tejido->generar_anticuerpo();
+}
+
 void Entorno::detector_colisiones() {
     Lista<Vertice*>* vertices = tejido->obtener_grafo()->obtener_vertices();
     vertices->iniciar_cursor();

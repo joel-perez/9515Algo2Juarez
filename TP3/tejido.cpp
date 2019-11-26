@@ -166,6 +166,13 @@ void Tejido::empeorar_estado(unsigned int indice) {
     }
 }
 
+void Tejido::generar_anticuerpo() {
+    float pos_x = rand() % SCREEN_WIDTH;
+    float pos_y = rand() % SCREEN_HEIGHT;
+    Anticuerpo* nuevo_anticuerpo = new Anticuerpo(TIPO_ELEMENTO_ANTICUERPO, pos_x, pos_y);
+    agregar_anticuerpo(nuevo_anticuerpo);
+}
+
 Celula* Tejido::obtener_celula_desde_string(string tipo_celula, float posicion_x, float posicion_y) {
     if (tipo_celula == TIPO_CELULA_S)
         return new Celula(tipo_celula, posicion_x, posicion_y);
