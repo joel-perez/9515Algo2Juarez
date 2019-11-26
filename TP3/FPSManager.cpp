@@ -23,3 +23,7 @@ void FPSManager::stop() {
 	} else
 		delta = 0;
 }
+
+Uint32 FPSManager::obtener_milisegundos_actuales(){
+    return SDL_GetTicks();
+}

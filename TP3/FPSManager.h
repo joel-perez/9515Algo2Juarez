@@ -10,6 +10,8 @@ public:
 	void start();
 	void stop();
 
+	Uint32 obtener_milisegundos_actuales();
+
 private:
 	Uint32 t1;
 	Uint32 t2;

@@ -25,18 +25,20 @@ void Juego::correr()
 {
     running = true;
     FPSManager fpsManager(SCREEN_FPS);
+    Uint32 milisegundos_inicial = fpsManager.obtener_milisegundos_actuales();
 
     while(running) {
         fpsManager.start();
 
         manejarEventos();
         renderizar();
-        obtener_resultado_juego();
+
+        if (fpsManager.obtener_milisegundos_actuales() >= milisegundos_inicial + INTERVALO_MUTACION * 1000) {
+            milisegundos_inicial = fpsManager.obtener_milisegundos_actuales();
+            entorno.mutar_celulas();
+        }
 
         fpsManager.stop();
-
-        // if (fpsManager.elapsedTime != 0 && fpsManager.elapsedTime % INTERVALO_MUTACION == 0)
-            entorno.mutar_celulas();
     }
 }
 
