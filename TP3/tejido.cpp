@@ -15,11 +15,15 @@ Grafo* Tejido::obtener_grafo() {
 void Tejido::agregar_celula(Elemento *e, unsigned int acumulador) {
     grafo->insertar_nodo(e);
     if (acumulador > 1) {
-        if (acumulador % 2 == 0)
+        if (acumulador % 2 == 0) {
             grafo->insertar_arista(e, grafo->obtener_vertice_por_indice(acumulador-2)->obtener_elemento());
+            grafo->insertar_arista(grafo->obtener_vertice_por_indice(acumulador-2)->obtener_elemento(), e);
+        }
         else {
             grafo->insertar_arista(e, grafo->obtener_vertice_por_indice(acumulador-2)->obtener_elemento());
             grafo->insertar_arista(e, grafo->obtener_vertice_por_indice(acumulador-3)->obtener_elemento());
+            grafo->insertar_arista(grafo->obtener_vertice_por_indice(acumulador-2)->obtener_elemento(), e);
+            grafo->insertar_arista(grafo->obtener_vertice_por_indice(acumulador-3)->obtener_elemento(), e);
         }
     }
 }
