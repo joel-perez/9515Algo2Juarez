@@ -95,7 +95,8 @@ Entorno::~Entorno()
 
 void Entorno::renderizarTodo()
 {
-    tejido->mover_anticuerpos(); // TODO: Ver si es mejor realizarlo en otro lado...
+    tejido->mover_anticuerpos(); // Es correcto que este aqui?
+    detector_colisiones();       // Es correcto que este aqui?
 
     SDL_SetRenderDrawColor(renderer, 0xFF, 0xFF, 0xFF, 0xFF);
     SDL_RenderClear(renderer); // clear the renderer to the draw color
@@ -192,8 +193,8 @@ void Entorno::dibujar_anticuerpos(){
 }
 
 void Entorno::dibujar_dosis() {
-    renderizar(DOSIS_A, 250, 250); // TODO: Mejorar esto... es solo una prueba para ver como explota con la tecla A
-    renderizar(DOSIS_B, 250, 350); // TODO: Mejorar esto... es solo una prueba para ver como explota con la tecla B
+    // renderizar(DOSIS_A, 250, 250); // TODO: Mejorar esto... es solo una prueba para ver como explota con la tecla A
+    // renderizar(DOSIS_B, 250, 350); // TODO: Mejorar esto... es solo una prueba para ver como explota con la tecla B
 }
 
 void Entorno::mutar_celulas() {
@@ -220,12 +221,51 @@ void Entorno::generar_anticuerpo() {
 }
 
 void Entorno::detector_colisiones() {
+    // Celulas con anticuerpos
     Lista<Vertice*>* vertices = tejido->obtener_grafo()->obtener_vertices();
     vertices->iniciar_cursor();
     while(vertices->avanzar_cursor()) {
-
+        Vertice* vertice_actual = vertices->obtener_cursor();
+        Elemento* elemento_actual = vertice_actual->obtener_elemento();
+        float celula_x = elemento_actual->obtener_posicion_x();
+        float celula_y = elemento_actual->obtener_posicion_y();
+        string tipo_elemento = elemento_actual->obtener_tipo();
+        int indice_anticuerpo = 0;
+        bool debe_remover_anticuerpo = false;
+        Lista<Anticuerpo*>* lista_anticuerpos = tejido->obtener_lista_anticuerpos();
+        lista_anticuerpos->iniciar_cursor();
+        while (lista_anticuerpos->avanzar_cursor() && !debe_remover_anticuerpo) {
+            Anticuerpo* anticuerpo_actual = lista_anticuerpos->obtener_cursor();
+            float anticuerpo_x = anticuerpo_actual->obtener_posicion_x();
+            float anticuerpo_y = anticuerpo_actual->obtener_posicion_y();
+            if (hay_colision(celula_x, celula_y, anticuerpo_x, anticuerpo_y, ANTICUERPO_HEIGHT, CELULA_SIZE)) {
+                if (tipo_elemento != TIPO_CELULA_S){
+                    debe_remover_anticuerpo = true;
+                    Elemento* nuevo = new Celula(TIPO_CELULA_S,
+                                                 elemento_actual->obtener_posicion_x(),
+                                                 elemento_actual->obtener_posicion_y());
+                    vertice_actual->cambiar_elemento(nuevo);
+                    delete elemento_actual;
+                }
+            }
+            indice_anticuerpo++;
+        }
+        if (debe_remover_anticuerpo){
+            lista_anticuerpos->remover(indice_anticuerpo);
+        }
     }
 }
+
+bool Entorno::hay_colision(float pos_x1, float pos_y1, float pos_x2, float pos_y2, int ancho_objeto1, int ancho_objeto2) {
+    int ancho_objeto = ancho_objeto1;
+    if (ancho_objeto2 > ancho_objeto1)
+        ancho_objeto = ancho_objeto2;
+    return (pos_x1 >= pos_x2 - ancho_objeto) &&
+           (pos_x1 <= pos_x2 + ancho_objeto) &&
+           (pos_y1 >= pos_y2 - ancho_objeto) &&
+           (pos_y1 <= pos_y2 + ancho_objeto);
+}
+
 
 float Entorno::obtener_nanobot_pos_x() {
      return nanobot_pos_x;

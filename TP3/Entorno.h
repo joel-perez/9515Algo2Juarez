@@ -49,6 +49,7 @@ class Entorno
         void cambiar_nanobot_pos_y(int y);
         unsigned int obtener_cantidad_total_celulas();
         unsigned int obtener_cantidad_celulas(string tipo_celula);
+        bool hay_colision(float pos_x1, float pos_y1, float pos_x2, float pos_y2, int ancho_objeto1, int ancho_objeto2);
 };
 
 #endif // ENTORNO_H

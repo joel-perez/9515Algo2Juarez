@@ -177,6 +177,10 @@ void Tejido::generar_anticuerpo() {
     agregar_anticuerpo(nuevo_anticuerpo);
 }
 
+Lista<Anticuerpo*>* Tejido::obtener_lista_anticuerpos(){
+    return lista;
+}
+
 Celula* Tejido::obtener_celula_desde_string(string tipo_celula, float posicion_x, float posicion_y) {
     if (tipo_celula == TIPO_CELULA_S)
         return new Celula(tipo_celula, posicion_x, posicion_y);
