@@ -47,6 +47,8 @@ class Entorno
         float obtener_nanobot_pos_y();
         void cambiar_nanobot_pos_x(int x);
         void cambiar_nanobot_pos_y(int y);
+        int obtener_cantidad_total_celulas();
+        int obtener_cantidad_celulas(string tipo_celula);
 };
 
 #endif // ENTORNO_H

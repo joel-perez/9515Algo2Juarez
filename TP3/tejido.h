@@ -61,6 +61,8 @@ class Tejido {
         void impacto_constructivo(unsigned int indice);
         void impacto_destructivo(unsigned int indice);
         void empeorar_estado(unsigned int indice);
+        int obtener_cantidad_total_celulas();
+        int obtener_cantidad_celulas(std::string tipo_celula);
         // Obtener celula desde string
         // PRE: -
         // POST: Devuelve una celula en base al string recibido

@@ -10,6 +10,7 @@
 #include "InputManager.h"
 #include "Entorno.h"
 #include "tejido.h"
+#include "resultadojuego.h"
 
 using namespace std;
 
@@ -26,6 +27,7 @@ public:
     void renderizar();
     void manejarEventos();
     void limpiar();
+    resultado_juego obtener_resultado_juego();
 };
 
 #endif //JUEGO_H

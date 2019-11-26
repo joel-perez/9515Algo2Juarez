@@ -244,6 +244,16 @@ Lista<CoordenadasElemento*>* Tejido::obtener_coordenadas_anticuerpos(){
     return resultado;
 }
 
+int Tejido::obtener_cantidad_celulas(string tipo_celula){
+/*recorre el grafo(sus vertices)
+consulta cual es el tipo de elemento q tiene cargado cada vertice
+lo acumula y devuelve resultado numerico*/
+}
+
+int Tejido::obtener_cantidad_total_celulas(){
+    //devolver cantidad de vertices del grafo
+}
+
 Tejido::~Tejido() {
     delete grafo;
 }

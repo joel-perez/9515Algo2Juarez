@@ -11,6 +11,16 @@ Juego::Juego() {
     running = false;
 }
 
+resultado_juego Juego::obtener_resultado_juego(){
+    entorno.obtener_cantidad_total_celulas();
+    entorno.obtener_cantidad_celulas(TIPO_CELULA_S);
+    entorno.obtener_cantidad_celulas(TIPO_CELULA_Z);
+    /*calcula la diferencia, si el porcentaje de celulas_z es mayor que 50%, el estado que devuelve es PERDISTE
+    si el porcentaje de celulas_s es 100%, el resultado que devuelve es GANASTE
+    y en cualquier otro valor, el resultado es JUGANDO*/
+
+}
+
 void Juego::correr()
 {
     running = true;
@@ -21,6 +31,7 @@ void Juego::correr()
 
         manejarEventos();
         renderizar();
+        obtener_resultado_juego();
 
         fpsManager.stop();
 
