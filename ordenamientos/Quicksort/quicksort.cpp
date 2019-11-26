@@ -1,57 +1,45 @@
 #include <iostream>
 using namespace std;
 
-// Funcion para intercambiar dos elementos
-void intercambiar(int* a, int* b)
-{
-    int t = *a;
-    *a = *b;
-    *b = t;
-}
 
-/*Función que toma el último elemento como pivote, situa
-el elemento pivote en su posición correcta en el arreglo
-ordenado y coloca todos los elementos más pequeños que el
-a su izquierda, y todos los elementos mayores a su derecha
-*/
-int dividir (int arreglo[], int primero, int ultimo)
+/* FUNCION PRINCIPAL QUE IMPLEMENTA QuickSort*/
+void quicksort(int arreglo[],int primero, int ultimo )
 {
-    int pivote = arreglo[ultimo]; // pivote
-    int i = (primero - 1); // indice del elemento menor
-
-    for (int j = primero; j <= ultimo - 1; j++)
+    int i, j, x, aux;
+    i = primero;
+    j = ultimo;
+    x = arreglo[ (primero + ultimo) /2 ]; //PIVOTE
+    do
     {
-        // Si el elemento es menor que el pivotee
-        if (arreglo[j] < pivote)
+        while( (arreglo[i] < x) && (j <= ultimo) )
         {
-            i++; // incrementa el indice del elemento menor
-            intercambiar(&arreglo[i], &arreglo[j]);
+            i++;
         }
+
+        while( (x < arreglo[j]) && (j > primero) )
+        {
+            j--;
+        }
+
+        if( i <= j )
+        {
+            aux = arreglo[i];
+            arreglo[i] = arreglo[j];
+            arreglo[j] = aux;
+            i++;
+            j--;
+        }
+
     }
-    intercambiar(&arreglo[i + 1], &arreglo[ultimo]);
-    return (i + 1);
+    while( i <= j );
+
+    if( primero < j )
+        quicksort( arreglo, primero, j );
+    if( i < ultimo )
+        quicksort( arreglo, i, ultimo );
 }
 
-/* FUNCION PRINCIPAL QUE IMPLEMENTA QuickSort
-arreglo[] --> arreglo a ser ordenado,
-primero --> Indice del comienzo
-ultimo --> Indice del final */
-void quickSort(int arreglo[], int primero, int ultimo)
-{
-    if (primero < ultimo)
-    {
-        /* pi divide el indice, arreglo[p] ahora esta
-        en el lugar correcto */
-        int pi = dividir(arreglo, primero, ultimo);
-
-        // Separar elementos antes separados
-        // dividir y despues dividir
-        quickSort(arreglo, primero, pi - 1);
-        quickSort(arreglo, pi + 1, ultimo);
-    }
-}
-
-/* Funcion para imprimir el arreglo */
+//FUNCION PARA IMPRIMIR EL ARREGLO
 void imprimirarreglo(int arreglo[], int size)
 {
     int i;
@@ -67,7 +55,7 @@ int main()
     int n = sizeof(arreglo) / sizeof(arreglo[0]);
     cout << "arreglo sin ordenar: \n";
     imprimirarreglo(arreglo, n);
-    quickSort(arreglo, 0, n-1);
+    quicksort(arreglo, 0, n-1);    //APLICAMOS QUICKSORT
     cout << "arreglo ordenado: \n";
     imprimirarreglo(arreglo, n);
     return 0;
