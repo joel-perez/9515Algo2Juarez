@@ -36,7 +36,7 @@ bool Entorno::iniciar(const char *title, int xpos, int ypos, int flags) {
                     cerr << "SDL_image no pudo inicializarse." << endl;
                     return false;
                 }
-                cargarTexturas();
+                cargar_texturas();
             }
         }
     }
@@ -78,7 +78,7 @@ void Entorno::renderizar(imagenes imagen, float x, float y) {
     }
 }
 
-void Entorno::cargarTexturas() {
+void Entorno::cargar_texturas() {
     for(int i = 0; i < 7; i++) {
         texturas[i].cargar_desde_archivo(PATHS[i], renderer);
     }
@@ -93,7 +93,7 @@ Entorno::~Entorno()
     delete tejido;
 }
 
-void Entorno::renderizarTodo()
+void Entorno::renderizar_todo()
 {
     tejido->mover_anticuerpos(); // Es correcto que este aqui?
     detector_colisiones();       // Es correcto que este aqui?

@@ -45,7 +45,7 @@ void Juego::correr()
 }
 
 void Juego::renderizar() {
-    entorno.renderizarTodo();
+    entorno.renderizar_todo();
 }
 
 void Juego::limpiar() {
@@ -54,7 +54,7 @@ void Juego::limpiar() {
 
 // Se encarga de manejar los eventos de teclado a traves de la clase "InputManager"
 // En general, para saber si una tecla esta siendo presionada se utilizara
-// el metodo "isKeyDown(KEY)". Para saber que KEY pasar por parametro, consultar
+// el metodo "is_key_down(KEY)". Para saber que KEY pasar por parametro, consultar
 // el archivo "InputTable.h" que mapea codigos de teclado de SDL.
 void Juego::manejar_eventos() {
     InputManager* inputManager = InputManager::get_instance();
@@ -62,28 +62,28 @@ void Juego::manejar_eventos() {
     if(inputManager->quit_requested())
         running = false;
 
-    if(inputManager->isKeyDown(KEY_A) || entorno.dosisAExplotando()) {
+    if(inputManager->is_key_down(KEY_A) || entorno.dosisAExplotando()) {
         entorno.explotarDosis(DosisA);
     }
 
-    if(inputManager->isKeyDown(KEY_B) || entorno.dosisBExplotando()) {
+    if(inputManager->is_key_down(KEY_B) || entorno.dosisBExplotando()) {
         entorno.explotarDosis(DosisB);
     }
 
     //Your code here
-    if(inputManager->isKeyDown(KEY_ESCAPE)) {
+    if(inputManager->is_key_down(KEY_ESCAPE)) {
         running = false;
     }
-    if(inputManager->isKeyDown(KEY_UP) && !inputManager->isKeyDown(KEY_LEFT) && !inputManager->isKeyDown(KEY_RIGHT) && entorno.obtener_nanobot_pos_y() >= 0) {
+    if(inputManager->is_key_down(KEY_UP) && !inputManager->is_key_down(KEY_LEFT) && !inputManager->is_key_down(KEY_RIGHT) && entorno.obtener_nanobot_pos_y() >= 0) {
         entorno.cambiar_nanobot_pos_y(entorno.obtener_nanobot_pos_y() - 10);
     }
-    if(inputManager->isKeyDown(KEY_DOWN) && !inputManager->isKeyDown(KEY_LEFT) && !inputManager->isKeyDown(KEY_RIGHT) && entorno.obtener_nanobot_pos_y() <= SCREEN_HEIGHT - NANOBOT_HEIGHT) {
+    if(inputManager->is_key_down(KEY_DOWN) && !inputManager->is_key_down(KEY_LEFT) && !inputManager->is_key_down(KEY_RIGHT) && entorno.obtener_nanobot_pos_y() <= SCREEN_HEIGHT - NANOBOT_HEIGHT) {
         entorno.cambiar_nanobot_pos_y(entorno.obtener_nanobot_pos_y() + 10);
     }
-    if(inputManager->isKeyDown(KEY_LEFT) && !inputManager->isKeyDown(KEY_UP) && !inputManager->isKeyDown(KEY_DOWN) && entorno.obtener_nanobot_pos_x() >= 0) {
+    if(inputManager->is_key_down(KEY_LEFT) && !inputManager->is_key_down(KEY_UP) && !inputManager->is_key_down(KEY_DOWN) && entorno.obtener_nanobot_pos_x() >= 0) {
         entorno.cambiar_nanobot_pos_x(entorno.obtener_nanobot_pos_x() - 10);
     }
-    if(inputManager->isKeyDown(KEY_RIGHT) && !inputManager->isKeyDown(KEY_UP) && !inputManager->isKeyDown(KEY_DOWN) && entorno.obtener_nanobot_pos_x() <= SCREEN_WIDTH - NANOBOT_WIDTH) {
+    if(inputManager->is_key_down(KEY_RIGHT) && !inputManager->is_key_down(KEY_UP) && !inputManager->is_key_down(KEY_DOWN) && entorno.obtener_nanobot_pos_x() <= SCREEN_WIDTH - NANOBOT_WIDTH) {
         entorno.cambiar_nanobot_pos_x(entorno.obtener_nanobot_pos_x() + 10);
     }
 }

@@ -10,10 +10,10 @@ public:
 	InputManager();
 	static InputManager* get_instance();
 	void update();
-	bool isKeyDown(int key);
-	bool isKeyUp(int key);
-	bool isKeyPressed(KeyboardKey key);
-	bool isHoldingKey(int key);
+	bool is_key_down(int key);
+	bool is_key_up(int key);
+	bool is_key_pressed(KeyboardKey key);
+	bool is_holding_key(int key);
 	bool quit_requested();
 
 private:
@@ -21,8 +21,8 @@ private:
 	const uint8_t* keyboard;
 	bool quit;
 
-	uint8_t keyStatus[KEYBOARD_SIZE];
-	uint8_t keyHold[KEYBOARD_SIZE];
+	uint8_t key_status[KEYBOARD_SIZE];
+	uint8_t key_hold[KEYBOARD_SIZE];
 };
 
 #endif /* INPUTMANAGER_H_ */

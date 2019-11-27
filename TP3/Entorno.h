@@ -28,10 +28,10 @@ class Entorno
     public:
         Entorno();
         ~Entorno();
-        void cargarTexturas();
+        void cargar_texturas();
         void renderizar(imagenes imagen, float x, float y);
         bool iniciar(const char *titulo, int xPos, int yPos, int flags);
-        void renderizarTodo();
+        void renderizar_todo();
         void limpiar();
         void explotarDosis(dosis dosis);
         bool dosisAExplotando();

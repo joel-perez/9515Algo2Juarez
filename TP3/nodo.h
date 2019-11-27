@@ -6,24 +6,29 @@ template <class T> class Nodo {
     T dato;
     Nodo<T>* siguiente;
   public:
-    // post: el Nodo resulta inicializado con el dato dado y sin un Nodo siguiente.
+  
+    // POST: El Nodo resulta inicializado con el dato dado y sin un Nodo siguiente.
     Nodo(T dato) {
       this->dato = dato;
       this->siguiente = NULL;
     }
-    //post: devuelve el valor del dato.
+	
+    // POST: Devuelve el valor del dato.
     T obtener_dato() {
       return this->dato;
     }
-    //post: cambia el valor del dato.
+	
+    // POST: Cambia el valor del dato.
     void cambiar_dato(T nuevoDato) {
       this->dato = nuevoDato;
     }
-    //post: devuelve el siguiente Nodo.
+	
+    // POST: Devuelve un puntero al siguiente Nodo.
     Nodo<T>* obtener_siguiente() {
       return this->siguiente;
     }
-    //post: cambia el siguiente Nodo por nuevo_siguiente.
+	
+    // POST: Cambia el siguiente Nodo por nuevo_siguiente.
     void cambiar_siguiente(Nodo<T>* nuevo_siguiente) {
       this->siguiente = nuevo_siguiente;
     }

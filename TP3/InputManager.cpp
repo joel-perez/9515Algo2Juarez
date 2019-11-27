@@ -7,8 +7,8 @@ InputManager::InputManager() {
 	this->keyboard = SDL_GetKeyboardState(nullptr);
 
 	for(int i = 0; i < KEYBOARD_SIZE; i++){
-		this->keyStatus[i] = 0;
-		this->keyHold[i] = 0;
+		this->key_status[i] = 0;
+		this->key_hold[i] = 0;
 	}
 }
 
@@ -35,15 +35,15 @@ void InputManager::update() {
 
 
 			if(event.key.repeat)
-				this->keyHold[SDL_GetScancodeFromKey(event.key.keysym.sym)] = 1;
+				this->key_hold[SDL_GetScancodeFromKey(event.key.keysym.sym)] = 1;
 
-			this->keyStatus[SDL_GetScancodeFromKey(event.key.keysym.sym)] = 1;
+			this->key_status[SDL_GetScancodeFromKey(event.key.keysym.sym)] = 1;
 			break;
 
 		case SDL_KEYUP:
 
-			this->keyStatus[SDL_GetScancodeFromKey(event.key.keysym.sym)] = 0;
-			this->keyHold[SDL_GetScancodeFromKey(event.key.keysym.sym)] = 0;
+			this->key_status[SDL_GetScancodeFromKey(event.key.keysym.sym)] = 0;
+			this->key_hold[SDL_GetScancodeFromKey(event.key.keysym.sym)] = 0;
 			break;
 
 		default:
@@ -52,25 +52,25 @@ void InputManager::update() {
 	}
 }
 
-bool InputManager::isKeyDown(int key) {
+bool InputManager::is_key_down(int key) {
 	if(key < 0 || key >= KEYBOARD_SIZE)
 		return false;
 
-	return this->keyStatus[key];
+	return this->key_status[key];
 }
 
-bool InputManager::isKeyUp(int key) {
+bool InputManager::is_key_up(int key) {
 	if(key < 0 || key >= KEYBOARD_SIZE)
 		return false;
 
-	return this->keyStatus[key];
+	return this->key_status[key];
 }
 
-bool InputManager::isHoldingKey(int key){
-	return this->keyHold[key];
+bool InputManager::is_holding_key(int key){
+	return this->key_hold[key];
 }
 
-bool InputManager::isKeyPressed(KeyboardKey key) {
+bool InputManager::is_key_pressed(KeyboardKey key) {
 	if(!(this->keyboard))
 		return false;
 
