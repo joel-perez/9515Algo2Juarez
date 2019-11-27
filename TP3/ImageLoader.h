@@ -9,16 +9,13 @@
 
 using namespace std;
 
-
-//A personal Image Loader for each character.
 class ImageLoader{
 
 public:
 	ImageLoader(Uint8 r, Uint8 g, Uint8 b);
 	~ImageLoader();
 
-	void loadSprite(string firstPath, int currentSprite, SDL_Renderer *renderer, Textura* texture);
-
+	void load_sprite(string firstPath, int currentSprite, SDL_Renderer *renderer, Textura* texture);
 
 private:
     Uint8 r_value;

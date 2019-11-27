@@ -12,7 +12,7 @@ InputManager::InputManager() {
 	}
 }
 
-InputManager* InputManager::getInstance() {
+InputManager* InputManager::get_instance() {
 	if(!instance) {
 		instance = new InputManager();
 	}
@@ -82,6 +82,6 @@ bool InputManager::isKeyPressed(KeyboardKey key) {
 	return false;
 }
 
-bool InputManager::quitRequested() {
+bool InputManager::quit_requested() {
 	return this->quit;
 }

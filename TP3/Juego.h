@@ -25,7 +25,7 @@ public:
     bool iniciar(const char* titulo, int xPos, int yPos, int flags);
     void correr();
     void renderizar();
-    void manejarEventos();
+    void manejar_eventos();
     void limpiar();
     resultado_juego obtener_resultado_juego();
 };

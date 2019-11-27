@@ -10,7 +10,7 @@ Anticuerpo::Anticuerpo() {
     tendencia_y = 5;
 }
 
-void Anticuerpo :: establecer_posiciones (float posicion_x, float posicion_y){
+void Anticuerpo::establecer_posiciones(float posicion_x, float posicion_y) {
     this -> posicion_x =  posicion_x;
     this -> posicion_y = posicion_y;
 }
@@ -21,14 +21,14 @@ Elemento(tipo, posicion_x, posicion_y) {
     tendencia_y = 5;
 }
 
-string Anticuerpo::resumen_datos(){
+string Anticuerpo::resumen_datos() {
     return "Tipo: " + tipo +
             "\nPosicion X: " + float_to_string(posicion_x) +
             "\nPosicion Y: " + float_to_string(posicion_y) +
             "\n";
 }
 
-string Anticuerpo::detalles_datos(){
+string Anticuerpo::detalles_datos() {
     return "Tipo: " + tipo +
             "\nPosicion X: " + float_to_string(posicion_x) +
             "\nPosicion Y: " + float_to_string(posicion_y) +

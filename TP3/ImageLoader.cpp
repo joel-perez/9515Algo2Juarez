@@ -7,10 +7,10 @@ ImageLoader::ImageLoader(Uint8 r, Uint8 g, Uint8 b){
 }
 ImageLoader::~ImageLoader(){}
 
-void ImageLoader::loadSprite(string firstPath, int currentSprite, SDL_Renderer *renderer, Textura* texture){
+void ImageLoader::load_sprite(string firstPath, int currentSprite, SDL_Renderer *renderer, Textura* texture){
 
 	string imagePath = firstPath + int_to_string(currentSprite) + ".png";
 
-	texture->cargarDesdeArchivo(imagePath, renderer);
+	texture->cargar_desde_archivo(imagePath, renderer);
 	texture->setColor(r_value, g_value, b_value);
 }

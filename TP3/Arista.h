@@ -11,19 +11,13 @@ private:
 
 public:
 
-	/*
-	 *post: Arista con un destino fijado.
-	 */
+	// POST: Arista con un destino fijado.
 	Arista(Vertice* destino);
 
-	/*
-	 * POST: Devuelve el destino asociado a la arista.
-	 */
+	// POST: Devuelve el destino asociado a la arista.
 	Vertice* obtener_destino();
 
-	/*
-	 *post: -
-	 */
+	// POST: ---
 	~Arista();
 };
 

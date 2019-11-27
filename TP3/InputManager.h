@@ -7,15 +7,14 @@
 
 class InputManager {
 public:
-	static InputManager* getInstance();
+	InputManager();
+	static InputManager* get_instance();
 	void update();
 	bool isKeyDown(int key);
 	bool isKeyUp(int key);
 	bool isKeyPressed(KeyboardKey key);
 	bool isHoldingKey(int key);
-	bool quitRequested();
-
-	InputManager();
+	bool quit_requested();
 
 private:
 	static InputManager* instance;

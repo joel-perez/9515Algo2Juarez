@@ -14,7 +14,7 @@ Textura::~Textura() {
     free();
 }
 
-bool Textura::cargarDesdeArchivo(std::string path, SDL_Renderer *renderer) {
+bool Textura::cargar_desde_archivo(std::string path, SDL_Renderer *renderer) {
     //Me desago de la textura actual
     free();
 
@@ -25,7 +25,7 @@ bool Textura::cargarDesdeArchivo(std::string path, SDL_Renderer *renderer) {
     SDL_Surface *superficieCargada = IMG_Load(path.c_str());
     if (superficieCargada == NULL)
     {
-        cout<<"No se pudo cargar la imagen del archivo "<< string(path.c_str()) << "! SDL_image Error: "<<IMG_GetError()<<endl;
+        cout << "No se pudo cargar la imagen del archivo " << string(path.c_str()) << "! SDL_image Error: " << IMG_GetError() << endl;
         exit(1);
     }
     else
@@ -37,7 +37,7 @@ bool Textura::cargarDesdeArchivo(std::string path, SDL_Renderer *renderer) {
         nuevaTextura = SDL_CreateTextureFromSurface(renderer, superficieCargada);
         if (nuevaTextura == NULL)
         {
-            cout<<"No se pudo crear la textura desde el archivo "<< string(path.c_str()) << "! SDL Error: " << SDL_GetError() <<endl;
+            cout << "No se pudo crear la textura desde el archivo " << string(path.c_str()) << "! SDL Error: " << SDL_GetError() << endl;
         }
         else {
             //Obtener las dimensiones de la imagen cargada
@@ -64,7 +64,6 @@ void Textura::free() {
     }
 }
 
-
 void Textura::render(int x, int y, int renderWidth, int renderHeight, SDL_Renderer *renderer, SDL_Rect* clip, double angle, SDL_Point* center, SDL_RendererFlip flip )
 {
 	//SDL_Rect renderQuad = { x, y, width+100, height };
@@ -80,7 +79,6 @@ void Textura::render(int x, int y, int renderWidth, int renderHeight, SDL_Render
 	//Render to screen
 	SDL_RenderCopyEx( renderer, textura, clip, &renderQuad, angle, center, flip );
 }
-
 
 int Textura::getWidth() {
     return this->width;

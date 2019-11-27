@@ -16,7 +16,7 @@ public:
     ~Textura();
 
     //Loads image at specified path
-    bool cargarDesdeArchivo(std::string path, SDL_Renderer *renderer);
+    bool cargar_desde_archivo(std::string path, SDL_Renderer *renderer);
 
     //Deallocates texture
     void free();

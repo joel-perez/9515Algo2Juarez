@@ -80,10 +80,10 @@ void Entorno::renderizar(imagenes imagen, float x, float y) {
 
 void Entorno::cargarTexturas() {
     for(int i = 0; i < 7; i++) {
-        texturas[i].cargarDesdeArchivo(PATHS[i], renderer);
+        texturas[i].cargar_desde_archivo(PATHS[i], renderer);
     }
-    loaderA->loadSprite(DOSIS_PATH, estadoDosisA, renderer, &texturas[DOSIS_A]);
-    loaderB->loadSprite(DOSIS_PATH, estadoDosisB, renderer, &texturas[DOSIS_B]);
+    loaderA->load_sprite(DOSIS_PATH, estadoDosisA, renderer, &texturas[DOSIS_A]);
+    loaderB->load_sprite(DOSIS_PATH, estadoDosisB, renderer, &texturas[DOSIS_B]);
 }
 
 Entorno::~Entorno()
@@ -130,21 +130,21 @@ void Entorno::explotarDosis(dosis dosis)
     case DosisA:
         if(estadoDosisA <= LAST_DOSIS_SPRITE)
         {
-            this->loaderA->loadSprite(DOSIS_PATH, estadoDosisA, renderer, &texturas[DOSIS_A]);
+            this->loaderA->load_sprite(DOSIS_PATH, estadoDosisA, renderer, &texturas[DOSIS_A]);
             ++estadoDosisA;
         } else {
             estadoDosisA = 1;
-            this->loaderA->loadSprite(DOSIS_PATH, estadoDosisA, renderer, &texturas[DOSIS_A]);
+            this->loaderA->load_sprite(DOSIS_PATH, estadoDosisA, renderer, &texturas[DOSIS_A]);
         }
         break;
     case DosisB:
         if(estadoDosisB <= LAST_DOSIS_SPRITE)
         {
-            this->loaderB->loadSprite(DOSIS_PATH, estadoDosisB, renderer, &texturas[DOSIS_B]);
+            this->loaderB->load_sprite(DOSIS_PATH, estadoDosisB, renderer, &texturas[DOSIS_B]);
             ++estadoDosisB;
         } else {
             estadoDosisB = 1;
-            this->loaderB->loadSprite(DOSIS_PATH, estadoDosisB, renderer, &texturas[DOSIS_B]);
+            this->loaderB->load_sprite(DOSIS_PATH, estadoDosisB, renderer, &texturas[DOSIS_B]);
         }
     }
 }

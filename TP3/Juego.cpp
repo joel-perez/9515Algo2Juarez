@@ -31,7 +31,7 @@ void Juego::correr()
     while(running) {
         fpsManager.start();
 
-        manejarEventos();
+        manejar_eventos();
         renderizar();
 
         if (fpsManager.obtener_milisegundos_actuales() >= milisegundos_inicial + INTERVALO_MUTACION * 1000) {
@@ -56,10 +56,10 @@ void Juego::limpiar() {
 // En general, para saber si una tecla esta siendo presionada se utilizara
 // el metodo "isKeyDown(KEY)". Para saber que KEY pasar por parametro, consultar
 // el archivo "InputTable.h" que mapea codigos de teclado de SDL.
-void Juego::manejarEventos() {
-    InputManager* inputManager = InputManager::getInstance();
+void Juego::manejar_eventos() {
+    InputManager* inputManager = InputManager::get_instance();
     inputManager->update();
-    if(inputManager->quitRequested())
+    if(inputManager->quit_requested())
         running = false;
 
     if(inputManager->isKeyDown(KEY_A) || entorno.dosisAExplotando()) {

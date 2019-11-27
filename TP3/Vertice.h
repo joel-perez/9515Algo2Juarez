@@ -15,41 +15,33 @@ private:
 
 public:
 
-	/*
-	 */
+	// PRE:  --
+	// POST: --
 	Vertice();
 
-	/*
-	 * pre: Indice debe ser mayor que cero y el nombre no debe estar vacio
-	 * post: Vertice listo para utilizar con un nombre y un indice dado. Si no cumple las precondiciones
-	 * no hace nada.
-	 */
+	// PRE:  Indice debe ser mayor que cero y el nombre no debe estar vacio
+	// POST: Vertice listo para utilizar con un nombre y un indice dado.
+    //       Si no cumple las precondiciones no hace nada.
 	Vertice(Elemento* elemento, unsigned int indice);
-	/*
-	 * post: devuelve el elemento del vertice
-	 */
+	
+	// POST: Devuelve el elemento del vertice.
 	Elemento* obtener_elemento();
-	/*
-	 * post: devuelve la lista de adyacentes
-	 */
+
+	// POST: Devuelve la lista de adyacentes.
 	Lista<Arista*>* obtener_adyacentes();
-	/*
-	 *post: devuelve el indice
-	 */
+
+	// POST: Devuelve el indice.
 	unsigned int obtener_indice();
-	/*
-	 *pre: La arista no debe ser nula.
-	 *post: Agrega una arista a la lista de adyacentes
-	 */
+
+	// PRE:  La arista no debe ser nula.
+	// POST: Agrega una arista a la lista de adyacentes
 	void agregar_arista(Arista* nueva_arista);
-	/*
-	 *pre: el elemento no debe ser nulo
-     *post: cambia el elemento del vertice por nuevo_elemento
-	 */
+
+    // PRE:  El elemento no debe ser nulo.
+    // POST: Cambia el elemento del vertice por nuevo_elemento.
 	void cambiar_elemento(Elemento* nuevo_elemento);
-	/*
-	 * post: libera los recursos utilizados en vertice.
-	 */
+
+	// POST: Libera los recursos utilizados en vertice.
 	~Vertice();
 };
 

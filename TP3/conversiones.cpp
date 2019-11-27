@@ -24,7 +24,7 @@ imagenes obtener_tipo_imagenes_desde_string(std::string tipo_elemento) {
     else if (tipo_elemento == TIPO_ELEMENTO_ANTICUERPO)
         return ANTICUERPO;
     else
-        return CELULA_S; // TODO: Ver bien que valor iria por default, igualmente a este caso no va a llegar.
+        return CELULA_S;
 }
 
 string obtener_string_desde_tipo_dosis(TipoDosis tipo_dosis)
