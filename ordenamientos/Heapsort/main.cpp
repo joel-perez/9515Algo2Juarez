@@ -7,8 +7,8 @@ using namespace std;
 void convertir_a_heap(int vec[], int n, int raiz)
 {
     int maximo = raiz;
-    int izquierdo = 2*i + 1;
-    int derecho = 2*i + 2;
+    int izquierdo = 2 * raiz + 1;
+    int derecho = 2 * raiz + 2;
 
     // Si el hijo izquierdo es mayor que la raiz
     if (izquierdo < n && vec[izquierdo] > vec[maximo])
@@ -35,8 +35,8 @@ void heapsort(int vec[], int n)
     for (int i = n / 2 - 1; i >= 0; i--)
         convertir_a_heap(vec, n, i);
 
-    // Extrae el elemento maximo en cada iteracion
-    // y vuelve a convertir en heap al subarbol resultante 
+    // Extrae el elemento maximo moviendolo al final en cada iteracion
+    // y vuelve a convertir en heap al subarbol resultante
     for (int i = n - 1; i >= 0; i--)
     {
         swap(vec[0], vec[i]);
