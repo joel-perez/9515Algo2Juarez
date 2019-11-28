@@ -63,7 +63,10 @@ int main()
 {
     int vector[] = {170, 45, 75, 90, 802, 24, 2, 66};
     int n = sizeof(vector)/sizeof(vector[0]);
+    cout<<"Vector sin ordenar:"<<endl;
+    imprimir(vector, n);
     radixsort(vector, n);
+    cout<<"\n\nVector ordenado:"<<endl;
     imprimir(vector, n);
     return 0;
 }
