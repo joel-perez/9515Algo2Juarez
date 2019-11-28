@@ -238,7 +238,7 @@ void Entorno::detector_colisiones() {
             Anticuerpo* anticuerpo_actual = lista_anticuerpos->obtener_cursor();
             float anticuerpo_x = anticuerpo_actual->obtener_posicion_x();
             float anticuerpo_y = anticuerpo_actual->obtener_posicion_y();
-            if (hay_colision(celula_x, celula_y, anticuerpo_x, anticuerpo_y, ANTICUERPO_HEIGHT, CELULA_SIZE)) {
+            if (hay_colision(celula_x, celula_y, anticuerpo_x, anticuerpo_y, CELULA_SIZE, ANTICUERPO_HEIGHT)) {
                 if (tipo_elemento != TIPO_CELULA_S){
                     debe_remover_anticuerpo = true;
                     Elemento* nuevo = new Celula(TIPO_CELULA_S,
@@ -257,15 +257,11 @@ void Entorno::detector_colisiones() {
 }
 
 bool Entorno::hay_colision(float pos_x1, float pos_y1, float pos_x2, float pos_y2, int ancho_objeto1, int ancho_objeto2) {
-    int ancho_objeto = ancho_objeto1;
-    if (ancho_objeto2 > ancho_objeto1)
-        ancho_objeto = ancho_objeto2;
-    return (pos_x1 >= pos_x2 - ancho_objeto) &&
-           (pos_x1 <= pos_x2 + ancho_objeto) &&
-           (pos_y1 >= pos_y2 - ancho_objeto) &&
-           (pos_y1 <= pos_y2 + ancho_objeto);
+    return (pos_x1 >= pos_x2 - ancho_objeto1) &&
+           (pos_x1 <= pos_x2 + ancho_objeto2) &&
+           (pos_y1 >= pos_y2 - ancho_objeto1) &&
+           (pos_y1 <= pos_y2 + ancho_objeto2);
 }
-
 
 float Entorno::obtener_nanobot_pos_x() {
      return nanobot_pos_x;
