@@ -2,69 +2,67 @@
 
 using namespace std;
 
-// To heapify a subtree rooted with node i which is
-// an index in arr[]. n is size of heap
-void heapify(int arr[], int n, int i)
+// Convierte a heap un subarbol dado representado por vec.
+// raiz es un indice en vec. n es el tamaño del vector/arbol
+void convertir_a_heap(int vec[], int n, int raiz)
 {
-    int largest = i; // Initialize largest as root
-    int l = 2*i + 1; // left = 2*i + 1
-    int r = 2*i + 2; // right = 2*i + 2
+    int maximo = raiz;
+    int izquierdo = 2*i + 1;
+    int derecho = 2*i + 2;
 
-    // If left child is larger than root
-    if (l < n && arr[l] > arr[largest])
-        largest = l;
+    // Si el hijo izquierdo es mayor que la raiz
+    if (izquierdo < n && vec[izquierdo] > vec[maximo])
+        maximo = izquierdo;
 
-    // If right child is larger than largest so far
-    if (r < n && arr[r] > arr[largest])
-        largest = r;
+    // Si el hijo derecho es mayor que el maximo actual
+    if (derecho < n && vec[derecho] > vec[maximo])
+        maximo = derecho;
 
-    // If largest is not root
-    if (largest != i)
+    // Si la raiz ya no es el maximo
+    if (maximo != raiz)
     {
-        swap(arr[i], arr[largest]);
+        swap(vec[raiz], vec[maximo]);
 
-        // Recursively heapify the affected sub-tree
-        heapify(arr, n, largest);
+        // Convierte a heap el nuevo subarbol recursivamente
+        convertir_a_heap(vec, n, maximo);
     }
 }
 
-// main function to do heap sort
-void heapSort(int arr[], int n)
+// Realiza el ordenamiento
+void heapsort(int vec[], int n)
 {
     // Build heap (rearrange array)
     for (int i = n / 2 - 1; i >= 0; i--)
-        heapify(arr, n, i);
+        convertir_a_heap(vec, n, i);
 
-    // One by one extract an element from heap
-    for (int i=n-1; i>=0; i--)
+    // Extrae el elemento maximo en cada iteracion
+    // y vuelve a convertir en heap al subarbol resultante 
+    for (int i = n - 1; i >= 0; i--)
     {
-        // Move current root to end
-        swap(arr[0], arr[i]);
+        swap(vec[0], vec[i]);
 
-        // call max heapify on the reduced heap
-        heapify(arr, i, 0);
+        convertir_a_heap(vec, i, 0);
     }
 }
 
-/* A utility function to print array of size n */
-void printArray(int arr[], int n)
+// Imprime el vector
+void imprimir_vector(int vec[], int n)
 {
     for (int i=0; i<n; ++i)
-        cout << arr[i] << " ";
+        cout << vec[i] << " ";
     cout << "\n";
 }
 
-// Driver program
 int main()
 {
-    int arr[] = {12, 11, 13, 5, 6, 7};
-    int n = sizeof(arr)/sizeof(arr[0]);
+    int vec[] = {12, 11, 13, 5, 6, 7};
+    int n = sizeof(vec)/sizeof(vec[0]);
 
     cout << "Arreglo sin ordenar:" << endl;
-    printArray(arr, n);
+    imprimir_vector(vec, n);
 
-    heapSort(arr, n);
+    heapsort(vec, n);
 
     cout << "Arreglo ordenado:" << endl;
-    printArray(arr, n);
+    imprimir_vector(vec, n);
 }
