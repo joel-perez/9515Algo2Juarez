@@ -1,0 +1,216 @@
+# depslib dependency file v1.0
+1574968602 source:c:\users\intel\desktop\cande\9515algo2juarez-master\tp3\anticuerpo.cpp
+	"anticuerpo.h"
+
+1574968602 c:\users\intel\desktop\cande\9515algo2juarez-master\tp3\anticuerpo.h
+	<string>
+	<stdlib.h>
+	<time.h>
+	"elemento.h"
+	"constantes.h"
+
+1574968602 c:\users\intel\desktop\cande\9515algo2juarez-master\tp3\elemento.h
+	<string>
+	"texto.h"
+
+1574968602 c:\users\intel\desktop\cande\9515algo2juarez-master\tp3\texto.h
+	<iostream>
+	<string>
+	<sstream>
+
+1575072469 c:\users\intel\desktop\cande\9515algo2juarez-master\tp3\constantes.h
+	<string>
+
+1574968602 source:c:\users\intel\desktop\cande\9515algo2juarez-master\tp3\celula.cpp
+	"celula.h"
+
+1574968602 c:\users\intel\desktop\cande\9515algo2juarez-master\tp3\celula.h
+	<string>
+	"constantes.h"
+	"elemento.h"
+
+1574968602 source:c:\users\intel\desktop\cande\9515algo2juarez-master\tp3\celulainflamada.cpp
+	"celulainflamada.h"
+
+1574968602 c:\users\intel\desktop\cande\9515algo2juarez-master\tp3\celulainflamada.h
+	<string>
+	"celula.h"
+
+1574968602 source:c:\users\intel\desktop\cande\9515algo2juarez-master\tp3\celulamutada.cpp
+	"celulamutada.h"
+
+1574968602 c:\users\intel\desktop\cande\9515algo2juarez-master\tp3\celulamutada.h
+	<string>
+	"celulainflamada.h"
+
+1574968602 source:c:\users\intel\desktop\cande\9515algo2juarez-master\tp3\conversiones.cpp
+	"conversiones.h"
+
+1574968602 c:\users\intel\desktop\cande\9515algo2juarez-master\tp3\conversiones.h
+	<cstdlib>
+	<iostream>
+	<sstream>
+	<string>
+	"constantes.h"
+	"imagenes.h"
+	"tipodosis.h"
+
+1574968602 c:\users\intel\desktop\cande\9515algo2juarez-master\tp3\imagenes.h
+
+1574968602 c:\users\intel\desktop\cande\9515algo2juarez-master\tp3\tipodosis.h
+
+1574968602 source:c:\users\intel\desktop\cande\9515algo2juarez-master\tp3\coordenadaselemento.cpp
+	"CoordenadasElemento.h"
+
+1574968602 c:\users\intel\desktop\cande\9515algo2juarez-master\tp3\coordenadaselemento.h
+	"imagenes.h"
+
+1574968602 source:c:\users\intel\desktop\cande\9515algo2juarez-master\tp3\coordenadasrelacion.cpp
+	"CoordenadasRelacion.h"
+
+1574968602 c:\users\intel\desktop\cande\9515algo2juarez-master\tp3\coordenadasrelacion.h
+
+1574968602 source:c:\users\intel\desktop\cande\9515algo2juarez-master\tp3\elemento.cpp
+	"elemento.h"
+
+1574968602 source:c:\users\intel\desktop\cande\9515algo2juarez-master\tp3\entorno.cpp
+	"Entorno.h"
+
+1574968602 c:\users\intel\desktop\cande\9515algo2juarez-master\tp3\entorno.h
+	<iostream>
+	"Textura.h"
+	"SDL2/SDL.h"
+	"SDL2/SDL_image.h"
+	"ImageLoader.h"
+	"tejido.h"
+	"imagenes.h"
+
+1574968602 c:\users\intel\desktop\cande\9515algo2juarez-master\tp3\textura.h
+	<cstdlib>
+	<SDL2/SDL.h>
+	<SDL2/SDL_image.h>
+	<iostream>
+	<string>
+
+1574968602 c:\users\intel\desktop\cande\9515algo2juarez-master\tp3\imageloader.h
+	"conversiones.h"
+	"texto.h"
+	<SDL2/SDL.h>
+	<SDL2/SDL_image.h>
+	"Textura.h"
+
+1574968602 c:\users\intel\desktop\cande\9515algo2juarez-master\tp3\tejido.h
+	<fstream>
+	<iostream>
+	<sstream>
+	<string>
+	"anticuerpo.h"
+	"celula.h"
+	"celulainflamada.h"
+	"celulamutada.h"
+	"constantes.h"
+	"conversiones.h"
+	"CoordenadasRelacion.h"
+	"CoordenadasElemento.h"
+	"elemento.h"
+	"Grafo.h"
+	"imagenes.h"
+	"lista.h"
+	"suero.h"
+
+1575068407 c:\users\intel\desktop\cande\9515algo2juarez-master\tp3\grafo.h
+	<iostream>
+	<string>
+	"lista.h"
+	"Vertice.h"
+	"constantes.h"
+	"celulamutada.h"
+	"ColaPrioridad.h"
+
+1574968602 c:\users\intel\desktop\cande\9515algo2juarez-master\tp3\lista.h
+	"nodo.h"
+
+1575072397 c:\users\intel\desktop\cande\9515algo2juarez-master\tp3\nodo.h
+
+1574968602 c:\users\intel\desktop\cande\9515algo2juarez-master\tp3\vertice.h
+	<iostream>
+	<string>
+	"elemento.h"
+	"Arista.h"
+	"lista.h"
+
+1575067650 c:\users\intel\desktop\cande\9515algo2juarez-master\tp3\arista.h
+	"elemento.h"
+	<iostream>
+
+1574968602 c:\users\intel\desktop\cande\9515algo2juarez-master\tp3\suero.h
+	<string>
+	"conversiones.h"
+	"elemento.h"
+	"tipodosis.h"
+
+1574968602 source:c:\users\intel\desktop\cande\9515algo2juarez-master\tp3\fpsmanager.cpp
+	"FPSManager.h"
+
+1574968602 c:\users\intel\desktop\cande\9515algo2juarez-master\tp3\fpsmanager.h
+	<SDL2/SDL.h>
+
+1574968602 source:c:\users\intel\desktop\cande\9515algo2juarez-master\tp3\imageloader.cpp
+	"ImageLoader.h"
+
+1574968602 source:c:\users\intel\desktop\cande\9515algo2juarez-master\tp3\inputmanager.cpp
+	"InputManager.h"
+
+1574968602 c:\users\intel\desktop\cande\9515algo2juarez-master\tp3\inputmanager.h
+	<iostream>
+	"SDL2/SDL.h"
+	"InputTable.h"
+
+1574968602 c:\users\intel\desktop\cande\9515algo2juarez-master\tp3\inputtable.h
+	"SDL2/SDL.h"
+
+1574968602 source:c:\users\intel\desktop\cande\9515algo2juarez-master\tp3\juego.cpp
+	"Juego.h"
+
+1574968602 c:\users\intel\desktop\cande\9515algo2juarez-master\tp3\juego.h
+	<SDL2/SDL_image.h>
+	<stdio.h>
+	<iostream>
+	"FPSManager.h"
+	"Textura.h"
+	"InputManager.h"
+	"Entorno.h"
+	"tejido.h"
+	"resultadojuego.h"
+
+1574968602 c:\users\intel\desktop\cande\9515algo2juarez-master\tp3\resultadojuego.h
+
+1574968602 source:c:\users\intel\desktop\cande\9515algo2juarez-master\tp3\main.cpp
+	"main.h"
+
+1574968602 c:\users\intel\desktop\cande\9515algo2juarez-master\tp3\main.h
+	<iostream>
+	"Juego.h"
+
+1574968602 source:c:\users\intel\desktop\cande\9515algo2juarez-master\tp3\suero.cpp
+	"suero.h"
+
+1574968602 source:c:\users\intel\desktop\cande\9515algo2juarez-master\tp3\tejido.cpp
+	"tejido.h"
+
+1574968602 source:c:\users\intel\desktop\cande\9515algo2juarez-master\tp3\texto.cpp
+	"texto.h"
+
+1574968602 source:c:\users\intel\desktop\cande\9515algo2juarez-master\tp3\textura.cpp
+	"Textura.h"
+
+1574968602 source:c:\users\intel\desktop\cande\9515algo2juarez-master\tp3\vertice.cpp
+	"Vertice.h"
+
+1575067614 source:c:\users\intel\desktop\cande\9515algo2juarez-master\tp3\arista.cpp
+	"Arista.h"
+
+1575068759 c:\users\intel\desktop\cande\9515algo2juarez-master\tp3\colaprioridad.h
+	<string>
+	"Nodo.h"
+
