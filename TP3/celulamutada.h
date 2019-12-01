@@ -8,14 +8,26 @@ class CelulaMutada : public CelulaInflamada {
     private:
         float porcentaje_mutacion;
     public:
+        //PRE: -
+        //POST: genera una celula mutada
         CelulaMutada();
+        //PRE: -
+        //POST: genera una celula mutada
         CelulaMutada(float porcentaje_mutacion);
+        //PRE: -
+        //POST: genera una celula mutada
         CelulaMutada(std::string tipo, float posicion_x, float posicion_y,
                int cantidad_enzimas, int cantidad_proteinas,
                bool material_genetico_es_adn, bool es_pluricelular,
                float porcentaje_inflamacion, float porcentaje_mutacion);
+        //PRE: -
+        //POST: genera una celula mutada
         CelulaMutada(std::string tipo, float posicion_x, float posicion_y);
+        // PRE: -
+        // POST: imprime por pantalla un resumen de sus datos
         std::string resumen_datos();
+        // PRE: -
+        // POST: imprime por pantalla detalles de los datos
         std::string detalles_datos();
 };
 
