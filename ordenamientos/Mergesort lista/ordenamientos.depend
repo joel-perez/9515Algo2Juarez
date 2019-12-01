@@ -1,0 +1,14 @@
+# depslib dependency file v1.0
+1574942102 source:/home/juan_karabin/Escritorio/9515Algo2Juarez/ordenamientos/Mergesort lista/lista.cpp
+	"lista.h"
+
+1574942102 /home/juan_karabin/Escritorio/9515Algo2Juarez/ordenamientos/Mergesort lista/lista.h
+	"nodo.h"
+
+1574942102 /home/juan_karabin/Escritorio/9515Algo2Juarez/ordenamientos/Mergesort lista/nodo.h
+	<iostream>
+
+1574942102 source:/home/juan_karabin/Escritorio/9515Algo2Juarez/ordenamientos/Mergesort lista/main.cpp
+	"lista.h"
+	<random>
+
