@@ -2,6 +2,8 @@
 1574968602 source:c:\users\intel\desktop\cande\9515algo2juarez-master\tp3\anticuerpo.cpp
 	"anticuerpo.h"
 
+1574968602 o.h"
+
 1574968602 c:\users\intel\desktop\cande\9515algo2juarez-master\tp3\anticuerpo.h
 	<string>
 	<stdlib.h>
@@ -9,9 +11,13 @@
 	"elemento.h"
 	"constantes.h"
 
+1574968602 s.h"
+
 1574968602 c:\users\intel\desktop\cande\9515algo2juarez-master\tp3\elemento.h
 	<string>
 	"texto.h"
+
+1575068759 
 
 1574968602 c:\users\intel\desktop\cande\9515algo2juarez-master\tp3\texto.h
 	<iostream>
@@ -24,13 +30,19 @@
 1574968602 source:c:\users\intel\desktop\cande\9515algo2juarez-master\tp3\celula.cpp
 	"celula.h"
 
+1575067614 
+
 1574968602 c:\users\intel\desktop\cande\9515algo2juarez-master\tp3\celula.h
 	<string>
 	"constantes.h"
 	"elemento.h"
 
+1574968602 h"
+
 1574968602 source:c:\users\intel\desktop\cande\9515algo2juarez-master\tp3\celulainflamada.cpp
 	"celulainflamada.h"
+
+1574968602 lamada.h"
 
 1574968602 c:\users\intel\desktop\cande\9515algo2juarez-master\tp3\celulainflamada.h
 	<string>
@@ -39,12 +51,16 @@
 1574968602 source:c:\users\intel\desktop\cande\9515algo2juarez-master\tp3\celulamutada.cpp
 	"celulamutada.h"
 
+1574968602 ada.h"
+
 1574968602 c:\users\intel\desktop\cande\9515algo2juarez-master\tp3\celulamutada.h
 	<string>
 	"celulainflamada.h"
 
 1574968602 source:c:\users\intel\desktop\cande\9515algo2juarez-master\tp3\conversiones.cpp
 	"conversiones.h"
+
+1574968602 nes.h"
 
 1574968602 c:\users\intel\desktop\cande\9515algo2juarez-master\tp3\conversiones.h
 	<cstdlib>
@@ -55,6 +71,8 @@
 	"imagenes.h"
 	"tipodosis.h"
 
+1574968602 .h"
+
 1574968602 c:\users\intel\desktop\cande\9515algo2juarez-master\tp3\imagenes.h
 
 1574968602 c:\users\intel\desktop\cande\9515algo2juarez-master\tp3\tipodosis.h
@@ -62,11 +80,15 @@
 1574968602 source:c:\users\intel\desktop\cande\9515algo2juarez-master\tp3\coordenadaselemento.cpp
 	"CoordenadasElemento.h"
 
+1574968602 asElemento.h"
+
 1574968602 c:\users\intel\desktop\cande\9515algo2juarez-master\tp3\coordenadaselemento.h
 	"imagenes.h"
 
 1574968602 source:c:\users\intel\desktop\cande\9515algo2juarez-master\tp3\coordenadasrelacion.cpp
 	"CoordenadasRelacion.h"
+
+1574968602 asRelacion.h"
 
 1574968602 c:\users\intel\desktop\cande\9515algo2juarez-master\tp3\coordenadasrelacion.h
 
@@ -75,6 +97,8 @@
 
 1574968602 source:c:\users\intel\desktop\cande\9515algo2juarez-master\tp3\entorno.cpp
 	"Entorno.h"
+
+1574968602 "
 
 1574968602 c:\users\intel\desktop\cande\9515algo2juarez-master\tp3\entorno.h
 	<iostream>
@@ -127,6 +151,8 @@
 	"celulamutada.h"
 	"ColaPrioridad.h"
 
+1575068407 idad.h"
+
 1574968602 c:\users\intel\desktop\cande\9515algo2juarez-master\tp3\lista.h
 	"nodo.h"
 
@@ -152,19 +178,29 @@
 1574968602 source:c:\users\intel\desktop\cande\9515algo2juarez-master\tp3\fpsmanager.cpp
 	"FPSManager.h"
 
+1574968602 r.h"
+
 1574968602 c:\users\intel\desktop\cande\9515algo2juarez-master\tp3\fpsmanager.h
 	<SDL2/SDL.h>
+
+1574968602 h>
 
 1574968602 source:c:\users\intel\desktop\cande\9515algo2juarez-master\tp3\imageloader.cpp
 	"ImageLoader.h"
 
+1574968602 er.h"
+
 1574968602 source:c:\users\intel\desktop\cande\9515algo2juarez-master\tp3\inputmanager.cpp
 	"InputManager.h"
+
+1574968602 ger.h"
 
 1574968602 c:\users\intel\desktop\cande\9515algo2juarez-master\tp3\inputmanager.h
 	<iostream>
 	"SDL2/SDL.h"
 	"InputTable.h"
+
+1574968602 e.h"
 
 1574968602 c:\users\intel\desktop\cande\9515algo2juarez-master\tp3\inputtable.h
 	"SDL2/SDL.h"
@@ -182,6 +218,8 @@
 	"Entorno.h"
 	"tejido.h"
 	"resultadojuego.h"
+
+1574968602 juego.h"
 
 1574968602 c:\users\intel\desktop\cande\9515algo2juarez-master\tp3\resultadojuego.h
 
@@ -213,4 +251,85 @@
 1575068759 c:\users\intel\desktop\cande\9515algo2juarez-master\tp3\colaprioridad.h
 	<string>
 	"Nodo.h"
+
+1575222306 source:/home/juan_karabin/Escritorio/9515Algo2Juarez/TP4/anticuerpo.cpp
+	"anticuerpo.h"
+
+1575222306 /home/juan_karabin/Escritorio/9515Algo2Juarez/TP4/anticuerpo.h
+	<string>
+	<stdlib.h>
+	<time.h>
+	"elemento.h"
+	"constantes.h"
+
+1575222306 /home/juan_karabin/Escritorio/9515Algo2Juarez/TP4/elemento.h
+	<string>
+	"texto.h"
+
+1575222306 /home/juan_karabin/Escritorio/9515Algo2Juarez/TP4/texto.h
+	<iostream>
+	<string>
+	<sstream>
+
+1575222306 /home/juan_karabin/Escritorio/9515Algo2Juarez/TP4/constantes.h
+	<string>
+
+1575222306 source:/home/juan_karabin/Escritorio/9515Algo2Juarez/TP4/Arista.cpp
+	"Arista.h"
+
+1575222306 /home/juan_karabin/Escritorio/9515Algo2Juarez/TP4/Arista.h
+	"elemento.h"
+	<iostream>
+
+1575222306 source:/home/juan_karabin/Escritorio/9515Algo2Juarez/TP4/celula.cpp
+	"celula.h"
+
+1575222306 /home/juan_karabin/Escritorio/9515Algo2Juarez/TP4/celula.h
+	<string>
+	"constantes.h"
+	"elemento.h"
+
+1575222306 source:/home/juan_karabin/Escritorio/9515Algo2Juarez/TP4/celulainflamada.cpp
+	"celulainflamada.h"
+
+1575222306 /home/juan_karabin/Escritorio/9515Algo2Juarez/TP4/celulainflamada.h
+	<string>
+	"celula.h"
+
+1575222306 source:/home/juan_karabin/Escritorio/9515Algo2Juarez/TP4/celulamutada.cpp
+	"celulamutada.h"
+
+1575222306 /home/juan_karabin/Escritorio/9515Algo2Juarez/TP4/celulamutada.h
+	<string>
+	"celulainflamada.h"
+
+1575222306 source:/home/juan_karabin/Escritorio/9515Algo2Juarez/TP4/conversiones.cpp
+	"conversiones.h"
+
+1575222306 /home/juan_karabin/Escritorio/9515Algo2Juarez/TP4/conversiones.h
+	<cstdlib>
+	<iostream>
+	<sstream>
+	<string>
+	"constantes.h"
+	"imagenes.h"
+	"tipodosis.h"
+
+1575222306 /home/juan_karabin/Escritorio/9515Algo2Juarez/TP4/imagenes.h
+
+1575222306 /home/juan_karabin/Escritorio/9515Algo2Juarez/TP4/tipodosis.h
+
+1575222306 source:/home/juan_karabin/Escritorio/9515Algo2Juarez/TP4/CoordenadasElemento.cpp
+	"CoordenadasElemento.h"
+
+1575222306 /home/juan_karabin/Escritorio/9515Algo2Juarez/TP4/CoordenadasElemento.h
+	"imagenes.h"
+
+1575222306 source:/home/juan_karabin/Escritorio/9515Algo2Juarez/TP4/CoordenadasRelacion.cpp
+	"CoordenadasRelacion.h"
+
+1575222306 /home/juan_karabin/Escritorio/9515Algo2Juarez/TP4/CoordenadasRelacion.h
+
+1575222306 source:/home/juan_karabin/Escritorio/9515Algo2Juarez/TP4/elemento.cpp
+	"elemento.h"
 
