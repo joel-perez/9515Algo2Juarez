@@ -10,14 +10,13 @@ private:
 	Vertice* destino;
 
 public:
-
 	// POST: Arista con un destino fijado.
 	Arista(Vertice* destino);
 
 	// POST: Devuelve el destino asociado a la arista.
 	Vertice* obtener_destino();
 
-	// POST: ---
+	// POST: Libera memoria.
 	~Arista();
 };
 

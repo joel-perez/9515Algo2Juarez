@@ -16,7 +16,6 @@ class Celula : public Elemento {
         std::string detalles_datos();
 
     protected:
-        // int tamanio;
         int cantidad_enzimas;
         int cantidad_proteinas;
         bool material_genetico_es_adn;

@@ -1,8 +1,7 @@
 #ifndef COORDENADASRELACION_H_INCLUDED
 #define COORDENADASRELACION_H_INCLUDED
 
-class CoordenadasRelacion
-{
+class CoordenadasRelacion {
 private:
     int inicio_x;
     int inicio_y;

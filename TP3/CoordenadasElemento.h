@@ -3,8 +3,7 @@
 
 #include "imagenes.h"
 
-class CoordenadasElemento
-{
+class CoordenadasElemento {
 private:
     int pos_x;
     int pos_y;

@@ -79,6 +79,7 @@
 		<Unit filename="constantes.h" />
 		<Unit filename="conversiones.cpp" />
 		<Unit filename="conversiones.h" />
+		<Unit filename="dosis.h" />
 		<Unit filename="elemento.cpp" />
 		<Unit filename="elemento.h" />
 		<Unit filename="estado.txt" />

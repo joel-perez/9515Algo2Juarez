@@ -8,8 +8,7 @@
 #include "ImageLoader.h"
 #include "tejido.h"
 #include "imagenes.h"
-
-enum dosis { DosisA, DosisB };
+#include "dosis.h"
 
 class Entorno
 {
