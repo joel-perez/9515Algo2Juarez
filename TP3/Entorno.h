@@ -7,6 +7,7 @@
 #include "SDL2/SDL_image.h"
 #include "ImageLoader.h"
 #include "tejido.h"
+#include "tipodosis.h"
 #include "imagenes.h"
 #include "dosis.h"
 
@@ -42,6 +43,7 @@ class Entorno
         void mutar_celulas();
         void generar_anticuerpo();
         void detector_colisiones();
+        void inyectar_dosis(TipoDosis tipo_dosis);
         float obtener_nanobot_pos_x();
         float obtener_nanobot_pos_y();
         void cambiar_nanobot_pos_x(int x);
@@ -49,6 +51,8 @@ class Entorno
         unsigned int obtener_cantidad_total_celulas();
         unsigned int obtener_cantidad_celulas(string tipo_celula);
         bool hay_colision(float pos_x1, float pos_y1, float pos_x2, float pos_y2, int ancho_objeto1, int ancho_objeto2);
+
+        bool inyectando_dosis;
 };
 
 #endif // ENTORNO_H

@@ -11,6 +11,8 @@ Entorno::Entorno() {
     nanobot_pos_y = SCREEN_HEIGHT - NANOBOT_HEIGHT;
     tejido = new Tejido();
     tejido->cargar_archivo();
+    tejido->asignar_dosis();
+    inyectando_dosis = false;
 }
 
 bool Entorno::iniciar(const char *title, int xpos, int ypos, int flags) {
@@ -162,16 +164,18 @@ bool Entorno::dosisBExplotando()
 void Entorno::dibujar_lineas_entre_celulas() {
     int ajuste_coordenadas = TAMANIO_CELULA / 2;
     Lista<CoordenadasRelacion*>* coordenadas_relaciones = this->tejido->obtener_coordenadas_relaciones();
-    coordenadas_relaciones->iniciar_cursor();
-	while (coordenadas_relaciones->avanzar_cursor()) {
-		CoordenadasRelacion* coordenadas_relacion = coordenadas_relaciones->obtener_cursor();
-		SDL_RenderDrawLine(renderer,
-                           coordenadas_relacion->obtener_inicio_x() + ajuste_coordenadas,
-                           coordenadas_relacion->obtener_inicio_y() + ajuste_coordenadas,
-                           coordenadas_relacion->obtener_destino_x() + ajuste_coordenadas,
-                           coordenadas_relacion->obtener_destino_y() + ajuste_coordenadas);
+    if (coordenadas_relaciones != NULL) {
+        coordenadas_relaciones->iniciar_cursor();
+        while (coordenadas_relaciones->avanzar_cursor()) {
+            CoordenadasRelacion* coordenadas_relacion = coordenadas_relaciones->obtener_cursor();
+            SDL_RenderDrawLine(renderer,
+                               coordenadas_relacion->obtener_inicio_x() + ajuste_coordenadas,
+                               coordenadas_relacion->obtener_inicio_y() + ajuste_coordenadas,
+                               coordenadas_relacion->obtener_destino_x() + ajuste_coordenadas,
+                               coordenadas_relacion->obtener_destino_y() + ajuste_coordenadas);
+        }
+        delete coordenadas_relaciones;
     }
-    delete coordenadas_relaciones;
 }
 
 void Entorno::dibujar_celulas(){
@@ -252,6 +256,34 @@ void Entorno::detector_colisiones() {
         }
         if (debe_remover_anticuerpo){
             lista_anticuerpos->remover(indice_anticuerpo);
+        }
+    }
+}
+
+void Entorno::inyectar_dosis(TipoDosis tipo_dosis) {
+    Lista<Vertice*>* vertices = this->tejido->obtener_grafo()->obtener_vertices();
+    Vertice* celula;
+    bool se_produjo_colision = false;
+    vertices->iniciar_cursor();
+    while (vertices->avanzar_cursor() && !se_produjo_colision) {
+        celula = vertices->obtener_cursor();
+        if (celula != NULL) {
+            Elemento* elemento_actual = celula->obtener_elemento();
+            if (elemento_actual != NULL) {
+                float celula_pos_x = elemento_actual->obtener_posicion_x();
+                float celula_pos_y = elemento_actual->obtener_posicion_y();
+                if (hay_colision(nanobot_pos_x, nanobot_pos_y, celula_pos_x, celula_pos_y, NANOBOT_WIDTH, TAMANIO_CELULA)) {
+                    se_produjo_colision = true;
+                }
+            }
+        }
+    }
+    if (se_produjo_colision) {
+        if (tipo_dosis == A) {
+            this->tejido->impacto_destructivo(celula);
+        }
+        else if (tipo_dosis == B) {
+            this->tejido->impacto_constructivo(celula);
         }
     }
 }

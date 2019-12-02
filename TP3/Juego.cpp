@@ -86,6 +86,16 @@ void Juego::manejar_eventos() {
     if(inputManager->is_key_down(KEY_RIGHT) && !inputManager->is_key_down(KEY_UP) && !inputManager->is_key_down(KEY_DOWN) && entorno.obtener_nanobot_pos_x() <= SCREEN_WIDTH - NANOBOT_WIDTH) {
         entorno.cambiar_nanobot_pos_x(entorno.obtener_nanobot_pos_x() + 10);
     }
+    if(inputManager->is_key_pressed(KEY_1) && !entorno.inyectando_dosis) {
+        entorno.inyectando_dosis = true;
+        entorno.inyectar_dosis(A);
+        entorno.inyectando_dosis = false;
+    }
+    if(inputManager->is_key_pressed(KEY_2) && !entorno.inyectando_dosis) {
+        entorno.inyectando_dosis = true;
+        entorno.inyectar_dosis(B);
+        entorno.inyectando_dosis = false;
+    }
 }
 
 Juego::~Juego(){

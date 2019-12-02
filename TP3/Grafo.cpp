@@ -52,10 +52,11 @@ void Grafo::insertar_arista(Elemento* elemento_origen, Elemento* elemento_destin
 	}
 }
 
-void Grafo::eliminar_nodo(Elemento* elemento) {
-	Vertice* eliminar = this->existe_nodo(elemento);
-	if (eliminar != NULL)
-		delete eliminar;
+void Grafo::eliminar_nodo(Vertice* eliminar) {
+    if (eliminar != NULL) {
+        delete eliminar->obtener_adyacentes();
+        this->vertices->remover(eliminar);
+    }
 }
 
 Vertice* Grafo::obtener_vertice_por_indice(unsigned int indice) {

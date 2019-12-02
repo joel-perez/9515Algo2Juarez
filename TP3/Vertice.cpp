@@ -38,6 +38,10 @@ void Vertice::cambiar_elemento(Elemento* nuevo_elemento) {
         this->elemento = nuevo_elemento;
 }
 
+void Vertice::decrecer_indice() {
+    indice--;
+}
+
 Vertice::~Vertice() {
 	this->adyacentes->iniciar_cursor();
 	while (this->adyacentes->avanzar_cursor()) {

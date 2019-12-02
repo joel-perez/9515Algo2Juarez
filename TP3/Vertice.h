@@ -23,7 +23,7 @@ public:
 	// POST: Vertice listo para utilizar con un nombre y un indice dado.
     //       Si no cumple las precondiciones no hace nada.
 	Vertice(Elemento* elemento, unsigned int indice);
-	
+
 	// POST: Devuelve el elemento del vertice.
 	Elemento* obtener_elemento();
 
@@ -40,6 +40,8 @@ public:
     // PRE:  El elemento no debe ser nulo.
     // POST: Cambia el elemento del vertice por nuevo_elemento.
 	void cambiar_elemento(Elemento* nuevo_elemento);
+
+	void decrecer_indice();
 
 	// POST: Libera los recursos utilizados en vertice.
 	~Vertice();

@@ -36,7 +36,7 @@ public:
 
 	// PRE:  Que el grafo exista y que el nodo a eliminar este en el y no tenga aristas incidentes en el.
 	// POST: El grafo queda modificado por la eliminacion del nodo.
-    void eliminar_nodo(Elemento* elemento);
+    void eliminar_nodo(Vertice* eliminar);
 
 	// PRE:  Que el grafo exista y la arista esten el.
 	// POST: El grafo queda modificado por la eliminacion de la arista.
