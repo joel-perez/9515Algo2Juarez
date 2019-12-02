@@ -2,13 +2,13 @@
 
 using namespace std;
 
-string int_to_string(int number){
+string int_to_string(int number) {
     ostringstream oss;
     oss << number;
     return oss.str();
 }
 
-string float_to_string(float number){
+string float_to_string(float number) {
     ostringstream oss;
     oss << number;
     return oss.str();

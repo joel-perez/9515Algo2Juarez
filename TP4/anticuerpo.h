@@ -14,12 +14,26 @@ private:
     bool esta_atrapado;
 
 public:
+    // PRE: -
+    // POST: genera Anticuerpo
     Anticuerpo();
+    // PRE: -
+    // POST: genera Anticuerpo
     Anticuerpo(std::string tipo, float posicion_x, float posicion_y);
+    // PRE: -
+    // POST: establece las posiciones
     void establecer_posiciones (float posicion_x, float posicion_y);
+    // PRE: -
+    // POST: imprime por pantalla un resumen de sus datos
     std::string resumen_datos();
+    // PRE: -
+    // POST: imprime por pantalla detalles de los datos
     std::string detalles_datos();
+    // PRE: existe y esta en una posicion
+    // POST: genera posicion aleatoria
     void posicion_aleatoria();
+    // PRE: el anticuerpo no esta atrapado
+    // POST: cambia su estado a esta_atrapado
     void cambiar_esta_atrapado(bool esta_atrapado);
 };
 

@@ -9,37 +9,39 @@
 
 class Textura {
 public:
-    //Initializes variables
+    // Inicializa variables
     Textura();
 
-    //Deallocates memory
+    // Libera memoria.
     ~Textura();
 
-    //Loads image at specified path
+    // Carga una imagen de la ruta especificada.
     bool cargar_desde_archivo(std::string path, SDL_Renderer *renderer);
 
-    //Deallocates texture
+    // Libera la textura de la memoria.
     void free();
 
-    //Renders texture at given point
+    // Renderiza la textura en el punto dado.
     void render(int x, int y, int renderWidth, int renderHeight, SDL_Renderer *renderer, SDL_Rect* clip = NULL, double angle = 0.0, SDL_Point* center = NULL, SDL_RendererFlip flip = SDL_FLIP_NONE);
 
-    //Gets image dimensions
+    // Devuelve el ancho de la imagen.
     int getWidth();
 
+    // Devuelve el alto de la imagen.
     int getHeight();
 
-    //Set color modulation
-    void setColor( Uint8 red, Uint8 green, Uint8 blue );
+    // Establece modulación de color.
+    void setColor(Uint8 red, Uint8 green, Uint8 blue);
 
 private:
     //The actual hardware texture
     SDL_Texture *textura;
 
-    //Image dimensions
+    // Ancho de la imagen
     int width;
+	
+	// Alto de la imagen.
     int height;
 };
-
 
 #endif //TEXTURA_H

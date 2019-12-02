@@ -31,9 +31,6 @@ void InputManager::update() {
 			break;
 
 		case SDL_KEYDOWN:
-
-
-
 			if(event.key.repeat)
 				this->key_hold[SDL_GetScancodeFromKey(event.key.keysym.sym)] = 1;
 
@@ -41,7 +38,6 @@ void InputManager::update() {
 			break;
 
 		case SDL_KEYUP:
-
 			this->key_status[SDL_GetScancodeFromKey(event.key.keysym.sym)] = 0;
 			this->key_hold[SDL_GetScancodeFromKey(event.key.keysym.sym)] = 0;
 			break;

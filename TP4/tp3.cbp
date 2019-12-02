@@ -16,6 +16,7 @@
 				</Compiler>
 				<ExtraCommands>
 					<Add after='cp -r &quot;estado.txt&quot; &quot;$(TARGET_OUTPUT_DIR)estado.txt&quot;' />
+					<Add after='cp -r &quot;fuente.ttf&quot; &quot;$(TARGET_OUTPUT_DIR)fuente.ttf&quot;' />
 					<Add after='cp -R &quot;images&quot; &quot;$(TARGET_OUTPUT_DIR)images&quot;' />
 					<Mode after="always" />
 				</ExtraCommands>
@@ -33,6 +34,7 @@
 				</Linker>
 				<ExtraCommands>
 					<Add after='cp -r &quot;estado.txt&quot; &quot;$(TARGET_OUTPUT_DIR)estado.txt&quot;' />
+					<Add after='cp -r &quot;fuente.ttf&quot; &quot;$(TARGET_OUTPUT_DIR)fuente.ttf&quot;' />
 					<Add after='cp -R &quot;images&quot; &quot;$(TARGET_OUTPUT_DIR)images&quot;' />
 					<Mode after="always" />
 				</ExtraCommands>
@@ -43,7 +45,7 @@
 			<Add option="-fexceptions" />
 		</Compiler>
 		<Linker>
-			<Add option="-lSDL2 -lSDL2_image" />
+			<Add option="-lSDL2 -lSDL2_image -lSDL2_ttf" />
 		</Linker>
 		<Unit filename="Arista.cpp" />
 		<Unit filename="Arista.h" />
@@ -79,6 +81,7 @@
 		<Unit filename="constantes.h" />
 		<Unit filename="conversiones.cpp" />
 		<Unit filename="conversiones.h" />
+		<Unit filename="dosis.h" />
 		<Unit filename="elemento.cpp" />
 		<Unit filename="elemento.h" />
 		<Unit filename="estado.txt" />

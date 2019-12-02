@@ -7,7 +7,6 @@
 #include "Vertice.h"
 #include "constantes.h"
 #include "celulamutada.h"
-#include "ColaPrioridad.h"
 
 class Grafo {
 
@@ -37,7 +36,7 @@ public:
 
 	// PRE:  Que el grafo exista y que el nodo a eliminar este en el y no tenga aristas incidentes en el.
 	// POST: El grafo queda modificado por la eliminacion del nodo.
-    void eliminar_nodo(Elemento* elemento);
+    void eliminar_nodo(Vertice* eliminar);
 
 	// PRE:  Que el grafo exista y la arista esten el.
 	// POST: El grafo queda modificado por la eliminacion de la arista.
@@ -60,29 +59,7 @@ public:
 
 	// PRE:  Que el grafo exista.
 	// POST: Libera los recursos utilizados por el grafo.
-	unsigned int buscar_camino_minimo(Vertice* origen, Vertice* destino, Elemento* celula);
-	/*
-	 * post: imprime por pantalla la lista de adyacencia del grafo.
-	 */
-
-	//unsigned int costoDeEnvio(Vertice* destino,std::string nombreCultivo);
-
-	 /* pre: Origen debe estar en la lista de vertices
-	 * post: devuelve un vector inicializado del mismo tamanio que la cantidad de vertices actual
-	 */
-	unsigned int* inicializar_vector(Vertice* origen, Elemento* celula);
-	/*
-	 * pre: origen debe ser diferente a NULL
-	 * post: devuelve una cola con prioridad con los vertices en el..
-	 */
-	ColaPrioridad<Vertice*>* inicializar_cola(Vertice* origen, unsigned int* costos);
-
 	~Grafo();
-
-
-
-
-
 
 };
 #endif /* GRAFOS_H_ */

@@ -11,6 +11,8 @@ Entorno::Entorno() {
     nanobot_pos_y = SCREEN_HEIGHT - NANOBOT_HEIGHT;
     tejido = new Tejido();
     tejido->cargar_archivo();
+    tejido->asignar_dosis();
+    estado_inyeccion = 1;
 }
 
 bool Entorno::iniciar(const char *title, int xpos, int ypos, int flags) {
@@ -35,6 +37,17 @@ bool Entorno::iniciar(const char *title, int xpos, int ypos, int flags) {
                 if (!(IMG_Init(imgFlags) & imgFlags)) {
                     cerr << "SDL_image no pudo inicializarse." << endl;
                     return false;
+                } else {
+                    if (TTF_Init() != 0) {
+                        cerr << "SDL_ttf no pudo inicializarse: " << SDL_GetError() << endl;
+                        return false;
+                    } else {
+                        fuente = TTF_OpenFont("fuente.ttf", 20);
+                        if (fuente == NULL) {
+                            cerr << "No se pudo cargar la fuente: " << SDL_GetError() << endl;
+                            return false;
+                        }
+                    }
                 }
                 cargar_texturas();
             }
@@ -112,6 +125,8 @@ void Entorno::renderizar_todo()
     dibujar_anticuerpos();
     dibujar_dosis();
 
+    dibujar_texto();
+
     SDL_RenderPresent(renderer); // draw to the screen
 }
 
@@ -149,29 +164,33 @@ void Entorno::explotarDosis(dosis dosis)
     }
 }
 
-bool Entorno::dosisAExplotando()
-{
+bool Entorno::dosisAExplotando() {
     return estadoDosisA > 1;
 }
 
-bool Entorno::dosisBExplotando()
-{
+bool Entorno::dosisBExplotando() {
     return estadoDosisB > 1;
+}
+
+bool Entorno::inyectando_dosis() {
+    return estado_inyeccion > 1;
 }
 
 void Entorno::dibujar_lineas_entre_celulas() {
     int ajuste_coordenadas = TAMANIO_CELULA / 2;
     Lista<CoordenadasRelacion*>* coordenadas_relaciones = this->tejido->obtener_coordenadas_relaciones();
-    coordenadas_relaciones->iniciar_cursor();
-	while (coordenadas_relaciones->avanzar_cursor()) {
-		CoordenadasRelacion* coordenadas_relacion = coordenadas_relaciones->obtener_cursor();
-		SDL_RenderDrawLine(renderer,
-                           coordenadas_relacion->obtener_inicio_x() + ajuste_coordenadas,
-                           coordenadas_relacion->obtener_inicio_y() + ajuste_coordenadas,
-                           coordenadas_relacion->obtener_destino_x() + ajuste_coordenadas,
-                           coordenadas_relacion->obtener_destino_y() + ajuste_coordenadas);
+    if (coordenadas_relaciones != NULL) {
+        coordenadas_relaciones->iniciar_cursor();
+        while (coordenadas_relaciones->avanzar_cursor()) {
+            CoordenadasRelacion* coordenadas_relacion = coordenadas_relaciones->obtener_cursor();
+            SDL_RenderDrawLine(renderer,
+                               coordenadas_relacion->obtener_inicio_x() + ajuste_coordenadas,
+                               coordenadas_relacion->obtener_inicio_y() + ajuste_coordenadas,
+                               coordenadas_relacion->obtener_destino_x() + ajuste_coordenadas,
+                               coordenadas_relacion->obtener_destino_y() + ajuste_coordenadas);
+        }
+        delete coordenadas_relaciones;
     }
-    delete coordenadas_relaciones;
 }
 
 void Entorno::dibujar_celulas(){
@@ -208,11 +227,11 @@ void Entorno::mutar_celulas() {
             while (adyacentes->avanzar_cursor()){
                 Vertice* adyacente_actual = adyacentes->obtener_cursor()->obtener_destino();
                 if (adyacente_actual->obtener_elemento()->obtener_tipo() == TIPO_CELULA_S)
-                    tejido->empeorar_estado(adyacente_actual->obtener_indice());
+                    tejido->empeorar_estado(adyacente_actual);
             }
         }
         else if (vertice_actual->obtener_elemento()->obtener_tipo() != TIPO_CELULA_S)
-            tejido->empeorar_estado(vertice_actual->obtener_indice());
+            tejido->empeorar_estado(vertice_actual);
     }
 }
 
@@ -256,6 +275,42 @@ void Entorno::detector_colisiones() {
     }
 }
 
+void Entorno::animar_inyeccion_dosis() {
+    if(estado_inyeccion <= TOTAL_FRAMES_INYECCION) {
+        ++estado_inyeccion;
+    } else {
+        estado_inyeccion = 1;
+    }
+}
+
+void Entorno::inyectar_dosis(TipoDosis tipo_dosis) {
+    Lista<Vertice*>* vertices = this->tejido->obtener_grafo()->obtener_vertices();
+    Vertice* celula;
+    bool se_produjo_colision = false;
+    vertices->iniciar_cursor();
+    while (vertices->avanzar_cursor() && !se_produjo_colision) {
+        celula = vertices->obtener_cursor();
+        if (celula != NULL) {
+            Elemento* elemento_actual = celula->obtener_elemento();
+            if (elemento_actual != NULL) {
+                float celula_pos_x = elemento_actual->obtener_posicion_x();
+                float celula_pos_y = elemento_actual->obtener_posicion_y();
+                if (hay_colision(nanobot_pos_x, nanobot_pos_y, celula_pos_x, celula_pos_y, NANOBOT_WIDTH, TAMANIO_CELULA)) {
+                    se_produjo_colision = true;
+                }
+            }
+        }
+    }
+    if (se_produjo_colision) {
+        if (tipo_dosis == A) {
+            this->tejido->impacto_destructivo(celula);
+        }
+        else if (tipo_dosis == B) {
+            this->tejido->impacto_constructivo(celula);
+        }
+    }
+}
+
 bool Entorno::hay_colision(float pos_x1, float pos_y1, float pos_x2, float pos_y2, int ancho_objeto1, int ancho_objeto2) {
     return (pos_x1 >= pos_x2 - ancho_objeto1) &&
            (pos_x1 <= pos_x2 + ancho_objeto2) &&
@@ -285,4 +340,44 @@ unsigned int Entorno::obtener_cantidad_total_celulas(){
 
 unsigned int Entorno::obtener_cantidad_celulas(string tipo_celula){
     return tejido->obtener_cantidad_celulas(tipo_celula);
+}
+
+void Entorno::dibujar_texto(){
+    // TODO: Mejorar esto para mostrar el estado actual del juego, cantidad de dosis restantes, cantidad de celulas de cada clase, etc...
+    SDL_Color color;
+    color.r = 0;
+    color.g = 0;
+    color.b = 0;
+    color.a = 0;
+    string mi_texto = "TP3 NANOBOT-GRUPO: SOBRECARGADOS- X:"
+            + float_to_string(this -> obtener_nanobot_pos_x())
+            + "Y: " + float_to_string(this->obtener_nanobot_pos_y())
+            + "---celulas S: " + float_to_string(this->obtener_cantidad_celulas("S"))
+            + "---celulas X: " + float_to_string(this->obtener_cantidad_celulas("X"))
+            + "---celulas Y: " + float_to_string(this->obtener_cantidad_celulas("Y"))
+            + "---celulas Z: " + float_to_string(this->obtener_cantidad_celulas("Z"))
+            + "---Estado del juego: " + estado_juego();
+    texto = TTF_RenderText_Blended(fuente, mi_texto.c_str(), color);
+    SDL_Rect* renderQuad = new SDL_Rect();
+    renderQuad->h = 48;
+    renderQuad->w = 950;
+    renderQuad->x = 10;
+    renderQuad->y = 10;
+    SDL_Texture* mitextura = SDL_CreateTextureFromSurface(renderer, texto);
+    SDL_Point* center = new SDL_Point();
+    center->x = 10;
+    center->y = 10;
+    SDL_RendererFlip flip;
+    SDL_RenderCopyEx(renderer, mitextura, NULL, renderQuad, 0, center, flip);
+}
+
+string Entorno::estado_juego(){
+    unsigned int total_celulas = obtener_cantidad_total_celulas();
+    unsigned int cant_celulas_s = obtener_cantidad_celulas(TIPO_CELULA_S);
+    unsigned int cant_celulas_z = obtener_cantidad_celulas(TIPO_CELULA_Z);
+    if (100 * cant_celulas_s / (float) total_celulas == 100)
+        return "GANASTE EL JUEGO";
+    else if (100 * cant_celulas_z / (float) total_celulas > 50)
+        return "GANASTE EL JUEGO";
+    return "JUGANDO";
 }

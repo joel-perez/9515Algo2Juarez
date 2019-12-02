@@ -20,13 +20,28 @@ private:
     Entorno entorno;
 
 public:
+    //PRE: -
+    //POST: genera el juego.
     Juego();
+
     ~Juego();
+    //PRE: -
+    // POST: retorna true cuando inicia el juego
     bool iniciar(const char* titulo, int xPos, int yPos, int flags);
+    //
+    //
     void correr();
+    //
+    //
     void renderizar();
+    //
+    //
     void manejar_eventos();
+    //
+    //
     void limpiar();
+    //
+    //
     resultado_juego obtener_resultado_juego();
 };
 
