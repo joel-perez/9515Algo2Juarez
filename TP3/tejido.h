@@ -104,6 +104,16 @@ class Tejido {
 		// POST:
         unsigned int obtener_cantidad_celulas(std::string tipo_celula);
 
+        // Obtener doosis a disponibles
+		// PRE:
+		// POST:
+        int obtener_dosis_a_disponibles();
+
+        // Obtener dosis b disponibles
+		// PRE:
+		// POST:
+        int obtener_dosis_b_disponibles();
+
         // Obtener celula desde string
         // PRE: -
         // POST: Devuelve una celula en base al string recibido

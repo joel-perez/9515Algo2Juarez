@@ -359,8 +359,10 @@ Anticuerpo* Entorno::atrapar_anticuerpo() {
 }
 
 void Entorno::disparar_anticuerpo(Anticuerpo* proyectil) {
-    proyectil->cambiar_esta_atrapado(false);
-    proyectil->cambiar_esta_siendo_disparado(true);
+    if (proyectil != NULL) {
+        proyectil->cambiar_esta_atrapado(false);
+        proyectil->cambiar_esta_siendo_disparado(true);
+    }
 }
 
 bool Entorno::hay_colision(float pos_x1, float pos_y1, float pos_x2, float pos_y2, int ancho_objeto1, int ancho_objeto2) {
@@ -394,18 +396,21 @@ unsigned int Entorno::obtener_cantidad_celulas(string tipo_celula){
     return tejido->obtener_cantidad_celulas(tipo_celula);
 }
 
-void Entorno::dibujar_texto() {
+void Entorno::dibujar_texto(){
+    // TODO: Mejorar esto para mostrar el estado actual del juego, cantidad de dosis restantes, cantidad de celulas de cada clase, etc...
     SDL_Color color;
     color.r = 0;
     color.g = 0;
     color.b = 0;
     color.a = 0;
-    string mi_texto = "TP3 NANOBOT-GRUPO: SOBRECARGADOS ";
-    mi_texto += "---celulas S: " + float_to_string(this->obtener_cantidad_celulas("S"))
-              + "---celulas X: " + float_to_string(this->obtener_cantidad_celulas("X"))
-              + "---celulas Y: " + float_to_string(this->obtener_cantidad_celulas("Y"))
-              + "---celulas Z: " + float_to_string(this->obtener_cantidad_celulas("Z"))
-              + "---Estado del juego: " + estado_juego();
+    string mi_texto = "TP3 NANOBOT-GRUPO: SOBRECARGADOS --dosis A: "
+            + int_to_string(this->tejido->obtener_dosis_a_disponibles())
+            + " --dosis B: " + int_to_string(this->tejido->obtener_dosis_b_disponibles())
+            + " --celulas S: " + float_to_string(this->obtener_cantidad_celulas("S"))
+            + " --celulas X: " + float_to_string(this->obtener_cantidad_celulas("X"))
+            + " --celulas Y: " + float_to_string(this->obtener_cantidad_celulas("Y"))
+            + " --celulas Z: " + float_to_string(this->obtener_cantidad_celulas("Z"))
+            + " --Estado del juego: " + estado_juego();
     texto = TTF_RenderText_Blended(fuente, mi_texto.c_str(), color);
     SDL_Rect* renderQuad = new SDL_Rect();
     renderQuad->h = 48;

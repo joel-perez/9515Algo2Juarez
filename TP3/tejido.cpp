@@ -302,6 +302,14 @@ unsigned int Tejido::obtener_cantidad_total_celulas(){
     return grafo->obtener_tam();
 }
 
+int Tejido::obtener_dosis_a_disponibles() {
+    return dosis_a_disponibles;
+}
+
+int Tejido::obtener_dosis_b_disponibles() {
+    return dosis_b_disponibles;
+}
+
 Tejido::~Tejido() {
     delete grafo;
     delete lista;

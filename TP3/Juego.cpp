@@ -99,13 +99,13 @@ void Juego::manejar_eventos() {
         }
         entorno.animar_inyeccion_dosis();
     }
-    if(inputManager->is_key_down(KEY_C) || entorno.atrapando_anticuerpo()) {
+    if(inputManager->is_key_down(KEY_3) || entorno.atrapando_anticuerpo()) {
         if (!entorno.atrapando_anticuerpo()) {
             atrapado = entorno.atrapar_anticuerpo();
         }
         entorno.animar_atrapada_anticuerpo();
     }
-    if(inputManager->is_key_down(KEY_SPACE) || entorno.atrapando_anticuerpo()) {
+    if(inputManager->is_key_down(KEY_SPACE)) {
         if (!entorno.atrapando_anticuerpo()) {
             entorno.disparar_anticuerpo(atrapado);
         }
