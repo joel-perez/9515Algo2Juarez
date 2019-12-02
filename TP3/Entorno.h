@@ -26,6 +26,7 @@ class Entorno
     float nanobot_pos_x;
     float nanobot_pos_y;
     Tejido* tejido;
+    Anticuerpo* anticuerpo_atrapado;
     int estado_inyeccion;
     int estado_atrapada;
     TTF_Font* fuente;
@@ -96,10 +97,10 @@ class Entorno
 		void inyectar_dosis(TipoDosis tipo_dosis);
 		//PRE:
 		//POST:
-		Anticuerpo* atrapar_anticuerpo();
+		void atrapar_anticuerpo();
 		//PRE:
 		//POST:
-		void disparar_anticuerpo(Anticuerpo* proyectil);
+		void disparar_anticuerpo();
         //PRE:
         //POST:
         float obtener_nanobot_pos_x();
@@ -118,6 +119,9 @@ class Entorno
         //PRE:
         //POST:
         unsigned int obtener_cantidad_celulas(string tipo_celula);
+        //PRE:
+        //POST:
+        Anticuerpo* obtener_anticuerpo_atrapado();
         //PRE:
         //POST:
         bool hay_colision(float pos_x1, float pos_y1, float pos_x2, float pos_y2, int ancho_objeto1, int ancho_objeto2);

@@ -13,6 +13,8 @@ Entorno::Entorno() {
     tejido->cargar_archivo();
     tejido->asignar_dosis();
     estado_inyeccion = 1;
+    estado_atrapada = 1;
+    anticuerpo_atrapado = NULL;
 }
 
 bool Entorno::iniciar(const char *title, int xpos, int ypos, int flags) {
@@ -280,7 +282,8 @@ void Entorno::detector_colisiones() {
             Anticuerpo* anticuerpo_actual = lista_anticuerpos->obtener_cursor();
             float anticuerpo_x = anticuerpo_actual->obtener_posicion_x();
             float anticuerpo_y = anticuerpo_actual->obtener_posicion_y();
-            if (hay_colision(celula_x, celula_y, anticuerpo_x, anticuerpo_y, CELULA_SIZE, ANTICUERPO_HEIGHT)) {
+            if (hay_colision(celula_x, celula_y, anticuerpo_x, anticuerpo_y, CELULA_SIZE, ANTICUERPO_HEIGHT)
+                && !anticuerpo_actual->obtener_esta_atrapado()) {
                 if (tipo_elemento != TIPO_CELULA_S){
                     debe_remover_anticuerpo = true;
                     Elemento* nuevo = new Celula(TIPO_CELULA_S,
@@ -342,7 +345,7 @@ void Entorno::inyectar_dosis(TipoDosis tipo_dosis) {
     }
 }
 
-Anticuerpo* Entorno::atrapar_anticuerpo() {
+void Entorno::atrapar_anticuerpo() {
     Lista<Anticuerpo*>* anticuerpos = tejido->obtener_lista_anticuerpos();
     anticuerpos->iniciar_cursor();
     while (anticuerpos->avanzar_cursor()) {
@@ -350,18 +353,19 @@ Anticuerpo* Entorno::atrapar_anticuerpo() {
         float anticuerpo_x = anticuerpo_actual->obtener_posicion_x();
         float anticuerpo_y = anticuerpo_actual->obtener_posicion_y();
         if (hay_colision(nanobot_pos_x, nanobot_pos_y, anticuerpo_x, anticuerpo_y, NANOBOT_WIDTH, ANTICUERPO_WIDTH)
-            && !anticuerpo_actual->obtener_esta_atrapado()) {
+            && anticuerpo_atrapado == NULL) {
             anticuerpo_actual->cambiar_esta_atrapado(true);
-            return anticuerpo_actual;
+            anticuerpo_atrapado = anticuerpo_actual;
+            anticuerpos->avanzar_cursor() == false;
         }
     }
-    return NULL;
 }
 
-void Entorno::disparar_anticuerpo(Anticuerpo* proyectil) {
-    if (proyectil != NULL) {
-        proyectil->cambiar_esta_atrapado(false);
-        proyectil->cambiar_esta_siendo_disparado(true);
+void Entorno::disparar_anticuerpo() {
+    if (anticuerpo_atrapado != NULL) {
+        anticuerpo_atrapado->cambiar_esta_atrapado(false);
+        anticuerpo_atrapado->cambiar_esta_siendo_disparado(true);
+        anticuerpo_atrapado = NULL;
     }
 }
 

@@ -59,7 +59,6 @@ void Juego::limpiar() {
 void Juego::manejar_eventos() {
     InputManager* inputManager = InputManager::get_instance();
     inputManager->update();
-    Anticuerpo* atrapado;
     if(inputManager->quit_requested())
         running = false;
 
@@ -101,13 +100,13 @@ void Juego::manejar_eventos() {
     }
     if(inputManager->is_key_down(KEY_3) || entorno.atrapando_anticuerpo()) {
         if (!entorno.atrapando_anticuerpo()) {
-            atrapado = entorno.atrapar_anticuerpo();
+            entorno.atrapar_anticuerpo();
         }
         entorno.animar_atrapada_anticuerpo();
     }
     if(inputManager->is_key_down(KEY_SPACE)) {
         if (!entorno.atrapando_anticuerpo()) {
-            entorno.disparar_anticuerpo(atrapado);
+            entorno.disparar_anticuerpo();
         }
     }
 }
