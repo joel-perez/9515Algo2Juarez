@@ -5,6 +5,7 @@
 #include "Textura.h"
 #include "SDL2/SDL.h"
 #include "SDL2/SDL_image.h"
+#include "SDL2/SDL_ttf.h"
 #include "ImageLoader.h"
 #include "tejido.h"
 #include "imagenes.h"
@@ -25,6 +26,8 @@ class Entorno
     float nanobot_pos_y;
     Tejido* tejido;
     int estado_inyeccion;
+    TTF_Font* fuente;
+    SDL_Surface* texto;
 
     public:
         //PRE:-
@@ -106,6 +109,9 @@ class Entorno
         //PRE:
         //POST:
 		bool inyectando_dosis();
+		//PRE:
+		//POST:
+		void dibujar_texto();
 };
 
 #endif // ENTORNO_H

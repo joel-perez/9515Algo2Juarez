@@ -37,6 +37,17 @@ bool Entorno::iniciar(const char *title, int xpos, int ypos, int flags) {
                 if (!(IMG_Init(imgFlags) & imgFlags)) {
                     cerr << "SDL_image no pudo inicializarse." << endl;
                     return false;
+                } else {
+                    if (TTF_Init() != 0) {
+                        cerr << "SDL_ttf no pudo inicializarse: " << SDL_GetError() << endl;
+                        return false;
+                    } else {
+                        fuente = TTF_OpenFont("fuente.ttf", 20);
+                        if (fuente == NULL) {
+                            cerr << "No se pudo cargar la fuente: " << SDL_GetError() << endl;
+                            return false;
+                        }
+                    }
                 }
                 cargar_texturas();
             }
@@ -113,6 +124,8 @@ void Entorno::renderizar_todo()
     dibujar_celulas();
     dibujar_anticuerpos();
     dibujar_dosis();
+
+    dibujar_texto();
 
     SDL_RenderPresent(renderer); // draw to the screen
 }
@@ -327,4 +340,25 @@ unsigned int Entorno::obtener_cantidad_total_celulas(){
 
 unsigned int Entorno::obtener_cantidad_celulas(string tipo_celula){
     return tejido->obtener_cantidad_celulas(tipo_celula);
+}
+
+void Entorno::dibujar_texto(){
+    // TODO: Mejorar esto para mostrar el estado actual del juego, cantidad de dosis restantes, cantidad de celulas de cada clase, etc...
+    SDL_Color color;
+    color.r = 0;
+    color.g = 0;
+    color.b = 0;
+    color.a = 0;
+    texto = TTF_RenderText_Blended(fuente, "TP3 Nanobot - Grupo: Sobrecargados", color);
+    SDL_Rect* renderQuad = new SDL_Rect();
+    renderQuad->h = 20;
+    renderQuad->w = 300;
+    renderQuad->x = 30;
+    renderQuad->y = 30;
+    SDL_Texture* mitextura = SDL_CreateTextureFromSurface(renderer, texto);
+    SDL_Point* center = new SDL_Point();
+    center->x = 10;
+    center->y = 10;
+    SDL_RendererFlip flip;
+    SDL_RenderCopyEx(renderer, mitextura, NULL, renderQuad, 0, center, flip);
 }
