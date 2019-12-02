@@ -35,6 +35,10 @@ Ejecutar el siguiente comando:
 
 sudo fuser -vki  /var/lib/dpkg/lock
 
+Finalmente:
+
+sudo apt-get install libsdl2-ttf-dev
+
 ## Instalacion en Windows
 
 Se deben descargar los siguientes archivos:
