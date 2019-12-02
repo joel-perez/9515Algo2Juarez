@@ -81,7 +81,7 @@ class Tejido {
         // Empeorar estado
 		// PRE:  
 		// POST: 
-        void empeorar_estado(unsigned int indice);
+        void empeorar_estado(Vertice* vertice_actual);
 		
 		// Generar Anticuerpo
 		// PRE:  

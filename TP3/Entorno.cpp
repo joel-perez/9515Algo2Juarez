@@ -208,11 +208,11 @@ void Entorno::mutar_celulas() {
             while (adyacentes->avanzar_cursor()){
                 Vertice* adyacente_actual = adyacentes->obtener_cursor()->obtener_destino();
                 if (adyacente_actual->obtener_elemento()->obtener_tipo() == TIPO_CELULA_S)
-                    tejido->empeorar_estado(adyacente_actual->obtener_indice());
+                    tejido->empeorar_estado(adyacente_actual);
             }
         }
         else if (vertice_actual->obtener_elemento()->obtener_tipo() != TIPO_CELULA_S)
-            tejido->empeorar_estado(vertice_actual->obtener_indice());
+            tejido->empeorar_estado(vertice_actual);
     }
 }
 

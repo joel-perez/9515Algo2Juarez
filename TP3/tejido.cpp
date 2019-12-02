@@ -142,8 +142,7 @@ void Tejido::impacto_destructivo(unsigned int indice){
     }
 }
 
-void Tejido::empeorar_estado(unsigned int indice) {
-    Vertice* vertice_actual = grafo->obtener_vertice_por_indice(indice);
+void Tejido::empeorar_estado(Vertice* vertice_actual) {
     if (vertice_actual != NULL) {
 	    Elemento* elemento_actual = vertice_actual->obtener_elemento();
         if (elemento_actual->obtener_tipo() == TIPO_CELULA_S) {
