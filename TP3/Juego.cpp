@@ -26,7 +26,7 @@ void Juego::correr()
 {
     running = true;
     FPSManager fpsManager(SCREEN_FPS);
-    Uint32 milisegundos_inicial = fpsManager.obtener_milisegundos_actuales();
+    Uint32 milisegundos_inicial_mutacion = fpsManager.obtener_milisegundos_actuales();
 
     while(running) {
         fpsManager.start();
@@ -34,8 +34,8 @@ void Juego::correr()
         manejar_eventos();
         renderizar();
 
-        if (fpsManager.obtener_milisegundos_actuales() >= milisegundos_inicial + INTERVALO_MUTACION * 1000) {
-            milisegundos_inicial = fpsManager.obtener_milisegundos_actuales();
+        if (fpsManager.obtener_milisegundos_actuales() >= milisegundos_inicial_mutacion + INTERVALO_MUTACION * 1000) {
+            milisegundos_inicial_mutacion = fpsManager.obtener_milisegundos_actuales();
             entorno.mutar_celulas();
             entorno.generar_anticuerpo();
         }
