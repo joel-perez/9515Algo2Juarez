@@ -108,7 +108,7 @@ Entorno::~Entorno()
 
 void Entorno::renderizar_todo()
 {
-    mover_anticuerpos(); // Es correcto que este aqui?
+    tejido->mover_anticuerpos(); // Es correcto que este aqui?
     detector_colisiones();       // Es correcto que este aqui?
 
     SDL_SetRenderDrawColor(renderer, 0xFF, 0xFF, 0xFF, 0xFF);
@@ -235,24 +235,6 @@ void Entorno::mutar_celulas() {
     }
 }
 
-void Entorno::mover_anticuerpos(){
-    Lista<Anticuerpo*>* anticuerpos = tejido->obtener_lista_anticuerpos();
-    anticuerpos->iniciar_cursor();
-    while (anticuerpos->avanzar_cursor()) {
-        Anticuerpo* actual = anticuerpos->obtener_cursor();
-        if (actual->obtener_esta_atrapado())
-            actual->establecer_posiciones(nanobot_pos_x, nanobot_pos_y);
-        else if (actual->obtener_esta_siendo_disparado()) {
-            actual->establecer_posiciones(nanobot_pos_x, nanobot_pos_y + 1); // Modificar la posicion en base a la direccion del nanobot
-            if (actual->obtener_posicion_x() <= 0 || actual->obtener_posicion_x() >= SCREEN_WIDTH ||
-                actual->obtener_posicion_y() <= 0 || actual->obtener_posicion_y() >= SCREEN_HEIGHT)
-                actual->cambiar_esta_siendo_disparado(false);
-        }
-        else
-            actual->posicion_aleatoria();
-    }
-}
-
 void Entorno::generar_anticuerpo() {
     this->tejido->generar_anticuerpo();
 }
@@ -329,26 +311,6 @@ void Entorno::inyectar_dosis(TipoDosis tipo_dosis) {
     }
 }
 
-Anticuerpo* Entorno::atrapar_anticuerpo() {
-    Lista<Anticuerpo*>* anticuerpos = tejido->obtener_lista_anticuerpos();
-    anticuerpos->iniciar_cursor();
-    while (anticuerpos->avanzar_cursor()) {
-        Anticuerpo* anticuerpo_actual = anticuerpos->obtener_cursor();
-        float anticuerpo_x = anticuerpo_actual->obtener_posicion_x();
-        float anticuerpo_y = anticuerpo_actual->obtener_posicion_y();
-        if (hay_colision(nanobot_pos_x, nanobot_pos_y, anticuerpo_x, anticuerpo_y, NANOBOT_WIDTH, ANTICUERPO_WIDTH)
-            && !anticuerpo_actual->obtener_esta_atrapado()) {
-            anticuerpo_actual->cambiar_esta_atrapado(true);
-            return anticuerpo_actual;
-        }
-    }
-}
-
-void Entorno::disparar_anticuerpo(Anticuerpo* proyectil) {
-    proyectil->cambiar_esta_atrapado(false);
-    proyectil->cambiar_esta_siendo_disparado(true);
-}
-
 bool Entorno::hay_colision(float pos_x1, float pos_y1, float pos_x2, float pos_y2, int ancho_objeto1, int ancho_objeto2) {
     return (pos_x1 >= pos_x2 - ancho_objeto1) &&
            (pos_x1 <= pos_x2 + ancho_objeto2) &&
@@ -387,16 +349,35 @@ void Entorno::dibujar_texto(){
     color.g = 0;
     color.b = 0;
     color.a = 0;
-    texto = TTF_RenderText_Blended(fuente, "TP3 Nanobot - Grupo: Sobrecargados", color);
+    string mi_texto = "TP3 NANOBOT-GRUPO: SOBRECARGADOS- X:"
+            + float_to_string(this -> obtener_nanobot_pos_x())
+            + "Y: " + float_to_string(this->obtener_nanobot_pos_y())
+            + "---celulas S: " + float_to_string(this->obtener_cantidad_celulas("S"))
+            + "---celulas X: " + float_to_string(this->obtener_cantidad_celulas("X"))
+            + "---celulas Y: " + float_to_string(this->obtener_cantidad_celulas("Y"))
+            + "---celulas Z: " + float_to_string(this->obtener_cantidad_celulas("Z"))
+            + "---Estado del juego: " + estado_juego();
+    texto = TTF_RenderText_Blended(fuente, mi_texto.c_str(), color);
     SDL_Rect* renderQuad = new SDL_Rect();
-    renderQuad->h = 20;
-    renderQuad->w = 300;
-    renderQuad->x = 30;
-    renderQuad->y = 30;
+    renderQuad->h = 48;
+    renderQuad->w = 950;
+    renderQuad->x = 10;
+    renderQuad->y = 10;
     SDL_Texture* mitextura = SDL_CreateTextureFromSurface(renderer, texto);
     SDL_Point* center = new SDL_Point();
     center->x = 10;
     center->y = 10;
     SDL_RendererFlip flip;
     SDL_RenderCopyEx(renderer, mitextura, NULL, renderQuad, 0, center, flip);
+}
+
+string Entorno::estado_juego(){
+    unsigned int total_celulas = obtener_cantidad_total_celulas();
+    unsigned int cant_celulas_s = obtener_cantidad_celulas(TIPO_CELULA_S);
+    unsigned int cant_celulas_z = obtener_cantidad_celulas(TIPO_CELULA_Z);
+    if (100 * cant_celulas_s / (float) total_celulas == 100)
+        return "GANASTE EL JUEGO";
+    else if (100 * cant_celulas_z / (float) total_celulas > 50)
+        return "GANASTE EL JUEGO";
+    return "JUGANDO";
 }
