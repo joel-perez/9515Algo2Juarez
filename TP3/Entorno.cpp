@@ -108,7 +108,7 @@ Entorno::~Entorno()
 
 void Entorno::renderizar_todo()
 {
-    tejido->mover_anticuerpos(); // Es correcto que este aqui?
+    mover_anticuerpos(); // Es correcto que este aqui?
     detector_colisiones();       // Es correcto que este aqui?
 
     SDL_SetRenderDrawColor(renderer, 0xFF, 0xFF, 0xFF, 0xFF);
@@ -235,6 +235,24 @@ void Entorno::mutar_celulas() {
     }
 }
 
+void Entorno::mover_anticuerpos(){
+    Lista<Anticuerpo*>* anticuerpos = tejido->obtener_lista_anticuerpos();
+    anticuerpos->iniciar_cursor();
+    while (anticuerpos->avanzar_cursor()) {
+        Anticuerpo* actual = anticuerpos->obtener_cursor();
+        if (actual->obtener_esta_atrapado())
+            actual->establecer_posiciones(nanobot_pos_x, nanobot_pos_y);
+        else if (actual->obtener_esta_siendo_disparado()) {
+            actual->establecer_posiciones(nanobot_pos_x, nanobot_pos_y + 1); // Modificar la posicion en base a la direccion del nanobot
+            if (actual->obtener_posicion_x() <= 0 || actual->obtener_posicion_x() >= SCREEN_WIDTH ||
+                actual->obtener_posicion_y() <= 0 || actual->obtener_posicion_y() >= SCREEN_HEIGHT)
+                actual->cambiar_esta_siendo_disparado(false);
+        }
+        else
+            actual->posicion_aleatoria();
+    }
+}
+
 void Entorno::generar_anticuerpo() {
     this->tejido->generar_anticuerpo();
 }
@@ -309,6 +327,26 @@ void Entorno::inyectar_dosis(TipoDosis tipo_dosis) {
             this->tejido->impacto_constructivo(celula);
         }
     }
+}
+
+Anticuerpo* Entorno::atrapar_anticuerpo() {
+    Lista<Anticuerpo*>* anticuerpos = tejido->obtener_lista_anticuerpos();
+    anticuerpos->iniciar_cursor();
+    while (anticuerpos->avanzar_cursor()) {
+        Anticuerpo* anticuerpo_actual = anticuerpos->obtener_cursor();
+        float anticuerpo_x = anticuerpo_actual->obtener_posicion_x();
+        float anticuerpo_y = anticuerpo_actual->obtener_posicion_y();
+        if (hay_colision(nanobot_pos_x, nanobot_pos_y, anticuerpo_x, anticuerpo_y, NANOBOT_WIDTH, ANTICUERPO_WIDTH)
+            && !anticuerpo_actual->obtener_esta_atrapado()) {
+            anticuerpo_actual->cambiar_esta_atrapado(true);
+            return anticuerpo_actual;
+        }
+    }
+}
+
+void Entorno::disparar_anticuerpo(Anticuerpo* proyectil) {
+    proyectil->cambiar_esta_atrapado(false);
+    proyectil->cambiar_esta_siendo_disparado(true);
 }
 
 bool Entorno::hay_colision(float pos_x1, float pos_y1, float pos_x2, float pos_y2, int ancho_objeto1, int ancho_objeto2) {

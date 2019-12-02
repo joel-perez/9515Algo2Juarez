@@ -35,8 +35,20 @@ string Anticuerpo::detalles_datos() {
             "\n";
 }
 
+bool Anticuerpo::obtener_esta_atrapado() {
+    return esta_atrapado;
+}
+
+bool Anticuerpo::obtener_esta_siendo_disparado() {
+    return esta_siendo_disparado;
+}
+
 void Anticuerpo::cambiar_esta_atrapado(bool esta_atrapado) {
     this->esta_atrapado = esta_atrapado;
+}
+
+void Anticuerpo::cambiar_esta_siendo_disparado(bool esta_siendo_disparado) {
+    this->esta_siendo_disparado = esta_siendo_disparado;
 }
 
 void Anticuerpo::posicion_aleatoria() {

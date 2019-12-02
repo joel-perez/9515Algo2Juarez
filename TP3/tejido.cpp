@@ -50,13 +50,6 @@ void Tejido::agregar_anticuerpo(Anticuerpo* a) {
     lista->agregar(a);
 }
 
-void Tejido::mover_anticuerpos(){
-    lista->iniciar_cursor();
-    while (lista->avanzar_cursor()) {
-        lista->obtener_cursor()->posicion_aleatoria();
-    }
-}
-
 void Tejido::agregar_dosis(Suero *s) {
     cargador_dosis->agregar(s);
 }

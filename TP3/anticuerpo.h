@@ -12,6 +12,7 @@ private:
     float tendencia_x;
     float tendencia_y;
     bool esta_atrapado;
+    bool esta_siendo_disparado;
 
 public:
     // PRE: -
@@ -32,9 +33,14 @@ public:
     // PRE: existe y esta en una posicion
     // POST: genera posicion aleatoria
     void posicion_aleatoria();
+    bool obtener_esta_atrapado();
+    bool obtener_esta_siendo_disparado();
     // PRE: el anticuerpo no esta atrapado
     // POST: cambia su estado a esta_atrapado
     void cambiar_esta_atrapado(bool esta_atrapado);
+    // PRE:
+    // POST:
+    void cambiar_esta_siendo_disparado(bool esta_siendo_disparado);
 };
 
 #endif // ANTICUERPO_H

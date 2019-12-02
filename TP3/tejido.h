@@ -54,11 +54,6 @@ class Tejido {
         // POST: agrega e al Tejido
         void agregar_anticuerpo(Anticuerpo* e);
 
-        // Mover Anticuerpos
-        // PRE: lista esta inicializada
-        // POST: invoca al metodo posicion_aleatoria que tiene cada anticuerpo
-        void mover_anticuerpos();
-
         // Agregar anticuerpo
         // PRE: cargador_dosis esta inicializado
         // POST: agrega s al Tejido

@@ -73,6 +73,9 @@ class Entorno
         //PRE:
         //POST:
         void mutar_celulas();
+        // PRE:
+        // POST:
+        void mover_anticuerpos();
         //PRE:
         //POST:
         void generar_anticuerpo();
@@ -85,6 +88,12 @@ class Entorno
 		//PRE:
 		//POST:
 		void inyectar_dosis(TipoDosis tipo_dosis);
+		//PRE:
+		//POST:
+		Anticuerpo* atrapar_anticuerpo();
+		//PRE:
+		//POST:
+		void disparar_anticuerpo(Anticuerpo* proyectil);
         //PRE:
         //POST:
         float obtener_nanobot_pos_x();

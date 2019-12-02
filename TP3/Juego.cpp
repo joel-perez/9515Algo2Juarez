@@ -98,6 +98,12 @@ void Juego::manejar_eventos() {
         }
         entorno.animar_inyeccion_dosis();
     }
+    if(inputManager->is_key_down(KEY_SPACE)) {
+        Anticuerpo* atrapado = entorno.atrapar_anticuerpo();
+        if (atrapado != NULL) {
+            entorno.disparar_anticuerpo(atrapado);
+        }
+    }
 }
 
 Juego::~Juego(){
