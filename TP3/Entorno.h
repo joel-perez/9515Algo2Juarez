@@ -27,9 +27,11 @@ class Entorno
     float nanobot_pos_y;
     Tejido* tejido;
     int estado_inyeccion;
+    int estado_atrapada;
     TTF_Font* fuente;
     SDL_Surface* texto;
     SDL_Surface* texto1;
+
     public:
         //PRE:-
         //POST: genera un entorno
@@ -74,6 +76,9 @@ class Entorno
         //PRE:
         //POST:
         void mutar_celulas();
+        // PRE:
+        // POST:
+        void mover_anticuerpos();
         //PRE:
         //POST:
         void generar_anticuerpo();
@@ -83,9 +88,18 @@ class Entorno
         //PRE:
         //POST:
         void animar_inyeccion_dosis();
+        //PRE:
+        //POST:
+        void animar_atrapada_anticuerpo();
 		//PRE:
 		//POST:
 		void inyectar_dosis(TipoDosis tipo_dosis);
+		//PRE:
+		//POST:
+		Anticuerpo* atrapar_anticuerpo();
+		//PRE:
+		//POST:
+		void disparar_anticuerpo(Anticuerpo* proyectil);
         //PRE:
         //POST:
         float obtener_nanobot_pos_x();
@@ -110,11 +124,14 @@ class Entorno
         //PRE:
         //POST:
 		bool inyectando_dosis();
+        //PRE:
+        //POST:
+		bool atrapando_anticuerpo();
 		//PRE:
 		//POST:
         std::string estado_juego();
-        //PRE:-
-        //POST: Muestra en el sdl el estado del juego
+		//PRE:
+		//POST:
 		void dibujar_texto();
 };
 
