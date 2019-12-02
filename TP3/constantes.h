@@ -29,6 +29,7 @@
 #define SECONDARY_GREEN     200
 #define SECONDARY_RED       255
 
+const int TOTAL_FRAMES_INYECCION = 30;
 const char CARACTER_SEPARADOR = ' ';
 const int ACCION_MOSTRAR_TODOS = 1;
 const int ACCION_MOSTRAR_UN_ELEMENTO = 2;

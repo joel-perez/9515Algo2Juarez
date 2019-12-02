@@ -24,6 +24,7 @@ class Entorno
     float nanobot_pos_x;
     float nanobot_pos_y;
     Tejido* tejido;
+    int estado_inyeccion;
 
     public:
         //PRE:-
@@ -75,8 +76,11 @@ class Entorno
         //PRE:
         //POST:
         void detector_colisiones();
-		//PRE:  
-		//POST: 
+        //PRE:
+        //POST:
+        void animar_inyeccion_dosis();
+		//PRE:
+		//POST:
 		void inyectar_dosis(TipoDosis tipo_dosis);
         //PRE:
         //POST:
@@ -99,7 +103,9 @@ class Entorno
         //PRE:
         //POST:
         bool hay_colision(float pos_x1, float pos_y1, float pos_x2, float pos_y2, int ancho_objeto1, int ancho_objeto2);
-		bool inyectando_dosis;
+        //PRE:
+        //POST:
+		bool inyectando_dosis();
 };
 
 #endif // ENTORNO_H

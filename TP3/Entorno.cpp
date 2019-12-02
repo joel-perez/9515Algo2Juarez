@@ -12,7 +12,7 @@ Entorno::Entorno() {
     tejido = new Tejido();
     tejido->cargar_archivo();
     tejido->asignar_dosis();
-    inyectando_dosis = false;
+    estado_inyeccion = 1;
 }
 
 bool Entorno::iniciar(const char *title, int xpos, int ypos, int flags) {
@@ -151,14 +151,16 @@ void Entorno::explotarDosis(dosis dosis)
     }
 }
 
-bool Entorno::dosisAExplotando()
-{
+bool Entorno::dosisAExplotando() {
     return estadoDosisA > 1;
 }
 
-bool Entorno::dosisBExplotando()
-{
+bool Entorno::dosisBExplotando() {
     return estadoDosisB > 1;
+}
+
+bool Entorno::inyectando_dosis() {
+    return estado_inyeccion > 1;
 }
 
 void Entorno::dibujar_lineas_entre_celulas() {
@@ -257,6 +259,14 @@ void Entorno::detector_colisiones() {
         if (debe_remover_anticuerpo){
             lista_anticuerpos->remover(indice_anticuerpo);
         }
+    }
+}
+
+void Entorno::animar_inyeccion_dosis() {
+    if(estado_inyeccion <= TOTAL_FRAMES_INYECCION) {
+        ++estado_inyeccion;
+    } else {
+        estado_inyeccion = 1;
     }
 }
 
