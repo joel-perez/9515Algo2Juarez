@@ -394,21 +394,18 @@ unsigned int Entorno::obtener_cantidad_celulas(string tipo_celula){
     return tejido->obtener_cantidad_celulas(tipo_celula);
 }
 
-void Entorno::dibujar_texto(){
-    // TODO: Mejorar esto para mostrar el estado actual del juego, cantidad de dosis restantes, cantidad de celulas de cada clase, etc...
+void Entorno::dibujar_texto() {
     SDL_Color color;
     color.r = 0;
     color.g = 0;
     color.b = 0;
     color.a = 0;
-    string mi_texto = "TP3 NANOBOT-GRUPO: SOBRECARGADOS- X:"
-            + float_to_string(this -> obtener_nanobot_pos_x())
-            + "Y: " + float_to_string(this->obtener_nanobot_pos_y())
-            + "---celulas S: " + float_to_string(this->obtener_cantidad_celulas("S"))
-            + "---celulas X: " + float_to_string(this->obtener_cantidad_celulas("X"))
-            + "---celulas Y: " + float_to_string(this->obtener_cantidad_celulas("Y"))
-            + "---celulas Z: " + float_to_string(this->obtener_cantidad_celulas("Z"))
-            + "---Estado del juego: " + estado_juego();
+    string mi_texto = "TP3 NANOBOT-GRUPO: SOBRECARGADOS ";
+    mi_texto += "---celulas S: " + float_to_string(this->obtener_cantidad_celulas("S"))
+              + "---celulas X: " + float_to_string(this->obtener_cantidad_celulas("X"))
+              + "---celulas Y: " + float_to_string(this->obtener_cantidad_celulas("Y"))
+              + "---celulas Z: " + float_to_string(this->obtener_cantidad_celulas("Z"))
+              + "---Estado del juego: " + estado_juego();
     texto = TTF_RenderText_Blended(fuente, mi_texto.c_str(), color);
     SDL_Rect* renderQuad = new SDL_Rect();
     renderQuad->h = 48;
@@ -419,8 +416,7 @@ void Entorno::dibujar_texto(){
     SDL_Point* center = new SDL_Point();
     center->x = 10;
     center->y = 10;
-    SDL_RendererFlip flip;
-    SDL_RenderCopyEx(renderer, mitextura, NULL, renderQuad, 0, center, flip);
+    SDL_RenderCopyEx(renderer, mitextura, NULL, renderQuad, 0, center, SDL_FLIP_NONE);
 }
 
 string Entorno::estado_juego(){
