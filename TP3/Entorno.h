@@ -9,6 +9,7 @@
 #include "tejido.h"
 #include "imagenes.h"
 #include "dosis.h"
+#include "tipodosis.h"
 
 class Entorno
 {
@@ -74,6 +75,9 @@ class Entorno
         //PRE:
         //POST:
         void detector_colisiones();
+		//PRE:  
+		//POST: 
+		void inyectar_dosis(TipoDosis tipo_dosis);
         //PRE:
         //POST:
         float obtener_nanobot_pos_x();
@@ -95,6 +99,7 @@ class Entorno
         //PRE:
         //POST:
         bool hay_colision(float pos_x1, float pos_y1, float pos_x2, float pos_y2, int ancho_objeto1, int ancho_objeto2);
+		bool inyectando_dosis;
 };
 
 #endif // ENTORNO_H
