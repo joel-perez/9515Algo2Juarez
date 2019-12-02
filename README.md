@@ -42,3 +42,4 @@ Se deben descargar los siguientes archivos:
 * MinGW:      https://osdn.net/projects/mingw/downloads/68260/mingw-get-setup.exe/
 * SDL2:       https://www.libsdl.org/release/SDL2-devel-2.0.10-mingw.tar.gz
 * SDL2Image:  https://www.libsdl.org/projects/SDL_image/release/SDL2_image-devel-2.0.5-mingw.tar.gz
+* SDL2ttf:    https://www.libsdl.org/projects/SDL_ttf/release/SDL2_ttf-devel-2.0.15-mingw.tar.gz
