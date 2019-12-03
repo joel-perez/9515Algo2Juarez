@@ -30,6 +30,10 @@ Celula::Celula(string tipo, float posicion_x, float posicion_y)
     this->es_pluricelular = false;
 }
 
+unsigned int Celula::obtener_id_celula() {
+    return id_celula;
+}
+
 string Celula::resumen_datos(){
     return "Tipo: " + TIPO_ELEMENTO_CELULA + CARACTER_SEPARADOR + tipo +
             "\nPosicion X: " + float_to_string(posicion_x) +

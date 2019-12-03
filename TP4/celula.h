@@ -18,6 +18,9 @@ class Celula : public Elemento {
         //PRE: -
         //POST: genera una celula
         Celula(std::string tipo, float posicion_x, float posicion_y);
+        // PRE -
+        // POST: devuelve id_celula
+        unsigned int obtener_id_celula();
         // PRE: -
         // POST: imprime por pantalla un resumen de sus datos
         std::string resumen_datos();
@@ -26,6 +29,7 @@ class Celula : public Elemento {
         std::string detalles_datos();
 
     protected:
+        unsigned int id_celula;
         int cantidad_enzimas;
         int cantidad_proteinas;
         bool material_genetico_es_adn;

@@ -313,6 +313,17 @@ int Tejido::obtener_dosis_b_disponibles() {
     return dosis_b_disponibles;
 }
 
+Vertice* Tejido::obtener_vertice_segun_id_celula(unsigned int id) {
+    Lista<Vertice*>* vertices = this->grafo->obtener_vertices();
+    vertices->iniciar_cursor();
+    while (vertices->avanzar_cursor()) {
+        Celula* celula_actual = (Celula*)vertices->obtener_cursor()->obtener_elemento();
+        if (celula_actual->obtener_id_celula() == id)
+            return vertices->obtener_cursor();
+    }
+    return NULL;
+}
+
 Tejido::~Tejido() {
     delete grafo;
     delete lista;

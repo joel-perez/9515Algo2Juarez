@@ -149,6 +149,11 @@ class Tejido {
         // POST: Devuelve una lista de CoordenadasElemento indicando donde esta ubicado y que tipo de anticuerpo es.
         Lista<CoordenadasElemento*>* obtener_coordenadas_anticuerpos();
 
+        // Obtener vertice segun id de celula
+        // PRE:
+        // POST:
+        Vertice* obtener_vertice_segun_id_celula(unsigned int id);
+
         // Destructor
         // PRE: -
         // POST: elimina el Tejido y libera la memoria.
