@@ -1,6 +1,6 @@
 #ifndef ARISTA_H
 #define ARISTA_H_
-
+#include "elemento.h"
 #include <iostream>
 
 class Vertice;
@@ -8,16 +8,24 @@ class Vertice;
 class Arista {
 private:
 	Vertice* destino;
+	Elemento* celula;
+	unsigned int peso;
 
 public:
-    //PRE: -
+
 	// POST: Arista con un destino fijado.
 	Arista(Vertice* destino);
-    //PRE: -
+
 	// POST: Devuelve el destino asociado a la arista.
 	Vertice* obtener_destino();
-    //PRE: -
-	// POST: Libera memoria.
+
+	// POST: devuelve el valor peso de la arista.
+	unsigned int obtener_peso();
+
+	//POST: Devuelve el cultivo asociado a la arista.
+	Elemento* obtener_celula();
+
+	// POST: ---
 	~Arista();
 };
 

@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6" />
+	<Project>
+		<Option title="tp3" />
+		<Option pch_mode="2" />
+		<Option compiler="gcc" />
+		<Build>
+			<Target title="Debug">
+				<Option output="bin/Debug/tp3" prefix_auto="1" extension_auto="1" />
+				<Option object_output="obj/Debug/" />
+				<Option type="1" />
+				<Option compiler="gcc" />
+				<Compiler>
+					<Add option="-g" />
+				</Compiler>
+				<ExtraCommands>
+					<Add after='cp -r &quot;estado.txt&quot; &quot;$(TARGET_OUTPUT_DIR)estado.txt&quot;' />
+					<Add after='cp -r &quot;fuente.ttf&quot; &quot;$(TARGET_OUTPUT_DIR)fuente.ttf&quot;' />
+					<Add after='cp -R &quot;images&quot; &quot;$(TARGET_OUTPUT_DIR)images&quot;' />
+					<Mode after="always" />
+				</ExtraCommands>
+			</Target>
+			<Target title="Release">
+				<Option output="bin/Release/tp3" prefix_auto="1" extension_auto="1" />
+				<Option object_output="obj/Release/" />
+				<Option type="1" />
+				<Option compiler="gcc" />
+				<Compiler>
+					<Add option="-O2" />
+				</Compiler>
+				<Linker>
+					<Add option="-s" />
+				</Linker>
+				<ExtraCommands>
+					<Add after='cp -r &quot;estado.txt&quot; &quot;$(TARGET_OUTPUT_DIR)estado.txt&quot;' />
+					<Add after='cp -r &quot;fuente.ttf&quot; &quot;$(TARGET_OUTPUT_DIR)fuente.ttf&quot;' />
+					<Add after='cp -R &quot;images&quot; &quot;$(TARGET_OUTPUT_DIR)images&quot;' />
+					<Mode after="always" />
+				</ExtraCommands>
+			</Target>
+		</Build>
+		<Compiler>
+			<Add option="-Wall" />
+			<Add option="-fexceptions" />
+		</Compiler>
+		<Linker>
+			<Add option="-lSDL2 -lSDL2_image -lSDL2_ttf" />
+		</Linker>
+		<Unit filename="Arista.cpp" />
+		<Unit filename="Arista.h" />
+		<Unit filename="CoordenadasElemento.cpp" />
+		<Unit filename="CoordenadasElemento.h" />
+		<Unit filename="CoordenadasRelacion.cpp" />
+		<Unit filename="CoordenadasRelacion.h" />
+		<Unit filename="Entorno.cpp" />
+		<Unit filename="Entorno.h" />
+		<Unit filename="FPSManager.cpp" />
+		<Unit filename="FPSManager.h" />
+		<Unit filename="Grafo.cpp" />
+		<Unit filename="Grafo.h" />
+		<Unit filename="ImageLoader.cpp" />
+		<Unit filename="ImageLoader.h" />
+		<Unit filename="InputManager.cpp" />
+		<Unit filename="InputManager.h" />
+		<Unit filename="InputTable.h" />
+		<Unit filename="Juego.cpp" />
+		<Unit filename="Juego.h" />
+		<Unit filename="Textura.cpp" />
+		<Unit filename="Textura.h" />
+		<Unit filename="Vertice.cpp" />
+		<Unit filename="Vertice.h" />
+		<Unit filename="anticuerpo.cpp" />
+		<Unit filename="anticuerpo.h" />
+		<Unit filename="celula.cpp" />
+		<Unit filename="celula.h" />
+		<Unit filename="celulainflamada.cpp" />
+		<Unit filename="celulainflamada.h" />
+		<Unit filename="celulamutada.cpp" />
+		<Unit filename="celulamutada.h" />
+		<Unit filename="constantes.h" />
+		<Unit filename="conversiones.cpp" />
+		<Unit filename="conversiones.h" />
+		<Unit filename="dosis.h" />
+		<Unit filename="elemento.cpp" />
+		<Unit filename="elemento.h" />
+		<Unit filename="estado.txt" />
+		<Unit filename="imagenes.h" />
+		<Unit filename="lista.h" />
+		<Unit filename="main.cpp" />
+		<Unit filename="main.h" />
+		<Unit filename="nodo.h" />
+		<Unit filename="resultadojuego.h" />
+		<Unit filename="suero.cpp" />
+		<Unit filename="suero.h" />
+		<Unit filename="tejido.cpp" />
+		<Unit filename="tejido.h" />
+		<Unit filename="texto.cpp" />
+		<Unit filename="texto.h" />
+		<Unit filename="tipodosis.h" />
+		<Extensions>
+			<code_completion />
+			<debugger />
+			<envvars />
+		</Extensions>
+	</Project>
+</CodeBlocks_project_file>
