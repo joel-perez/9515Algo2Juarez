@@ -2,9 +2,11 @@
 
 using namespace std;
 
-Arista::Arista(Vertice* destino) {
-	if (destino != NULL)
+Arista::Arista(Vertice* destino, unsigned int peso) {
+	if (destino != NULL) {
 		this->destino = destino;
+		this->peso = peso;
+	}
 }
 
 Vertice* Arista::obtener_destino() {

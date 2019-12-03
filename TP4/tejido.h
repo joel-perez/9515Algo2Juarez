@@ -152,7 +152,7 @@ class Tejido {
         // Obtener vertice segun id de celula
         // PRE:
         // POST:
-        Vertice* obtener_vertice_segun_id_celula(unsigned int id);
+        Vertice* obtener_vertice_segun_indice_celula(unsigned int indice_celula);
 
         // Destructor
         // PRE: -

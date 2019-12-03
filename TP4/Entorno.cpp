@@ -298,7 +298,7 @@ void Entorno::detector_colisiones() {
     vertices->iniciar_cursor();
     while(vertices->avanzar_cursor()) {
         Vertice* vertice_actual = vertices->obtener_cursor();
-        Elemento* elemento_actual = vertice_actual->obtener_elemento();
+        Celula* elemento_actual = (Celula*)vertice_actual->obtener_elemento();
         float celula_x = elemento_actual->obtener_posicion_x();
         float celula_y = elemento_actual->obtener_posicion_y();
         string tipo_elemento = elemento_actual->obtener_tipo();
@@ -314,9 +314,10 @@ void Entorno::detector_colisiones() {
                 && !anticuerpo_actual->obtener_esta_atrapado()) {
                 if (tipo_elemento != TIPO_CELULA_S){
                     debe_remover_anticuerpo = true;
-                    Elemento* nuevo = new Celula(TIPO_CELULA_S,
+                    Celula* nuevo = new Celula(TIPO_CELULA_S,
                                                  elemento_actual->obtener_posicion_x(),
-                                                 elemento_actual->obtener_posicion_y());
+                                                 elemento_actual->obtener_posicion_y(),
+                                                 elemento_actual->obtener_indice_celula());
                     vertice_actual->cambiar_elemento(nuevo);
                     delete elemento_actual;
                 }

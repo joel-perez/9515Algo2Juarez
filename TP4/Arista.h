@@ -13,8 +13,8 @@ private:
 
 public:
 
-	// POST: Arista con un destino fijado.
-	Arista(Vertice* destino);
+	// POST: Arista con un destino y un peso fijados.
+	Arista(Vertice* destino, unsigned int peso);
 
 	// POST: Devuelve el destino asociado a la arista.
 	Vertice* obtener_destino();

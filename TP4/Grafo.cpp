@@ -42,12 +42,12 @@ bool Grafo::elementos_son_iguales(Elemento* primer_elemento, Elemento* segundo_e
            primer_elemento->obtener_tipo() == segundo_elemento->obtener_tipo();
 }
 
-void Grafo::insertar_arista(Elemento* elemento_origen, Elemento* elemento_destino) {
+void Grafo::insertar_arista(Elemento* elemento_origen, Elemento* elemento_destino, unsigned int peso) {
 	Vertice* origen = this->existe_nodo(elemento_origen);
 	Vertice* destino = this->existe_nodo(elemento_destino);
 
 	if (origen != NULL && destino != NULL) {
-		Arista* nueva_arista = new Arista(destino);
+		Arista* nueva_arista = new Arista(destino, peso);
 		origen->agregar_arista(nueva_arista);
 	}
 }
