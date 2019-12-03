@@ -36,6 +36,7 @@ void Tejido::agregar_celula(Elemento *e, unsigned int acumulador) {
 
 void Tejido::agregar_filamento(unsigned int indice_celula_origen, unsigned int indice_celula_destino, unsigned int peso) {
     // TODO: Implementar agregar arista, buscando a los elementos celula origen y destino...
+
 }
 
 void Tejido::agregar_anticuerpo(Anticuerpo* a) {
@@ -199,13 +200,13 @@ Lista<Anticuerpo*>* Tejido::obtener_lista_anticuerpos(){
 
 Celula* Tejido::obtener_celula_desde_string(string tipo_celula, float posicion_x, float posicion_y, int indice_celula) {
     if (tipo_celula == TIPO_CELULA_S)
-        return new Celula(tipo_celula, posicion_x, posicion_y); // TODO: Agregar el parametro indice_celula...
+        return new Celula(tipo_celula, posicion_x, posicion_y, indice_celula);
     else if (tipo_celula == TIPO_CELULA_X)
-        return new CelulaInflamada(tipo_celula, posicion_x, posicion_y); // TODO: Agregar el parametro indice_celula...
+        return new CelulaInflamada(tipo_celula, posicion_x, posicion_y, indice_celula);
     else if (tipo_celula == TIPO_CELULA_Y)
-        return new CelulaInflamada(tipo_celula, posicion_x, posicion_y); // TODO: Agregar el parametro indice_celula...
+        return new CelulaInflamada(tipo_celula, posicion_x, posicion_y, indice_celula);
     else if (tipo_celula == TIPO_CELULA_Z)
-        return new CelulaMutada(tipo_celula, posicion_x, posicion_y); // TODO: Agregar el parametro indice_celula...
+        return new CelulaMutada(tipo_celula, posicion_x, posicion_y, indice_celula);
     else
         return new Celula();
 }
@@ -313,12 +314,12 @@ int Tejido::obtener_dosis_b_disponibles() {
     return dosis_b_disponibles;
 }
 
-Vertice* Tejido::obtener_vertice_segun_id_celula(unsigned int id) {
+Vertice* Tejido::obtener_vertice_segun_indice_celula(unsigned int id) {
     Lista<Vertice*>* vertices = this->grafo->obtener_vertices();
     vertices->iniciar_cursor();
     while (vertices->avanzar_cursor()) {
         Celula* celula_actual = (Celula*)vertices->obtener_cursor()->obtener_elemento();
-        if (celula_actual->obtener_id_celula() == id)
+        if (celula_actual->obtener_indice_celula() == id)
             return vertices->obtener_cursor();
     }
     return NULL;

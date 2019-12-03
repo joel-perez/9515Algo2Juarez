@@ -17,12 +17,12 @@ class CelulaMutada : public CelulaInflamada {
         //PRE: -
         //POST: genera una celula mutada
         CelulaMutada(std::string tipo, float posicion_x, float posicion_y,
-               int cantidad_enzimas, int cantidad_proteinas,
+               unsigned int indice_celula, int cantidad_enzimas, int cantidad_proteinas,
                bool material_genetico_es_adn, bool es_pluricelular,
                float porcentaje_inflamacion, float porcentaje_mutacion);
         //PRE: -
         //POST: genera una celula mutada
-        CelulaMutada(std::string tipo, float posicion_x, float posicion_y);
+        CelulaMutada(std::string tipo, float posicion_x, float posicion_y, unsigned int indice_celula);
         // PRE: -
         // POST: imprime por pantalla un resumen de sus datos
         std::string resumen_datos();

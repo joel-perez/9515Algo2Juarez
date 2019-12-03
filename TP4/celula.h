@@ -13,14 +13,14 @@ class Celula : public Elemento {
         //PRE: -
         //POST: genera una celula
         Celula(std::string tipo, float posicion_x, float posicion_y,
-               int cantidad_enzimas, int cantidad_proteinas,
+               unsigned int indice_celula, int cantidad_enzimas, int cantidad_proteinas,
                bool material_genetico_es_adn, bool es_pluricelular);
         //PRE: -
         //POST: genera una celula
-        Celula(std::string tipo, float posicion_x, float posicion_y);
+        Celula(std::string tipo, float posicion_x, float posicion_y, unsigned int indice_celula);
         // PRE -
-        // POST: devuelve id_celula
-        unsigned int obtener_id_celula();
+        // POST: devuelve indice_celula
+        unsigned int obtener_indice_celula();
         // PRE: -
         // POST: imprime por pantalla un resumen de sus datos
         std::string resumen_datos();
@@ -29,7 +29,7 @@ class Celula : public Elemento {
         std::string detalles_datos();
 
     protected:
-        unsigned int id_celula;
+        unsigned int indice_celula;
         int cantidad_enzimas;
         int cantidad_proteinas;
         bool material_genetico_es_adn;

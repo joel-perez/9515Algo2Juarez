@@ -6,6 +6,7 @@ Celula::Celula() {
     tipo = TIPO_CELULA_DESCONOCIDO;
     posicion_x = 0;
     posicion_y = 0;
+    indice_celula = 0;
     cantidad_enzimas = 0;
     cantidad_proteinas = 0;
     material_genetico_es_adn = false;
@@ -13,25 +14,27 @@ Celula::Celula() {
 }
 
 Celula::Celula(string tipo, float posicion_x, float posicion_y,
-               int cantidad_enzimas, int cantidad_proteinas,
+               unsigned int indice_celula, int cantidad_enzimas, int cantidad_proteinas,
                bool material_genetico_es_adn, bool es_pluricelular)
 :Elemento::Elemento(tipo, posicion_x, posicion_y) {
+    this->indice_celula = indice_celula;
     this->cantidad_enzimas = cantidad_enzimas;
     this->cantidad_proteinas = cantidad_proteinas;
     this->material_genetico_es_adn = material_genetico_es_adn;
     this->es_pluricelular = es_pluricelular;
 }
 
-Celula::Celula(string tipo, float posicion_x, float posicion_y)
+Celula::Celula(string tipo, float posicion_x, float posicion_y, unsigned int indice_celula)
 :Elemento::Elemento(tipo, posicion_x, posicion_y) {
+    this->indice_celula = indice_celula;
     this->cantidad_enzimas = 0;
     this->cantidad_proteinas = 0;
     this->material_genetico_es_adn = false;
     this->es_pluricelular = false;
 }
 
-unsigned int Celula::obtener_id_celula() {
-    return id_celula;
+unsigned int Celula::obtener_indice_celula() {
+    return indice_celula;
 }
 
 string Celula::resumen_datos(){
