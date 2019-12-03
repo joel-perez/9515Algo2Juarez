@@ -14,12 +14,12 @@ class CelulaInflamada : public Celula {
         //PRE: -
         //POST: genera una celula inflamada
         CelulaInflamada(std::string tipo, float posicion_x, float posicion_y,
-               unsigned int indice_celula, int cantidad_enzimas, int cantidad_proteinas,
+               int cantidad_enzimas, int cantidad_proteinas,
                bool material_genetico_es_adn, bool es_pluricelular,
                float porcentaje_inflamacion);
         //PRE: -
         //POST: genera una celula inflamada
-        CelulaInflamada(std::string tipo, float posicion_x, float posicion_y, unsigned int indice_celula);
+        CelulaInflamada(std::string tipo, float posicion_x, float posicion_y);
         //PRE: -
         //POST: genera una celula inflamada
         CelulaInflamada(float porcentaje_inflamacion);
