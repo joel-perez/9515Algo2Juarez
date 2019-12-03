@@ -70,6 +70,9 @@ class Entorno
         void dibujar_celulas();
         //PRE:
         //POST:
+        void dibujar_etiqueta(std::string mi_texto, float x, float y);
+        //PRE:
+        //POST:
         void dibujar_anticuerpos();
         //PRE:
         //POST:

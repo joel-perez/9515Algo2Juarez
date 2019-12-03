@@ -205,7 +205,29 @@ void Entorno::dibujar_celulas(){
 	while (coordenadas_celulas->avanzar_cursor()) {
 		CoordenadasElemento* coordenadas_elemento = coordenadas_celulas->obtener_cursor();
 		renderizar(coordenadas_elemento->obtener_tipo(), coordenadas_elemento->obtener_pos_x(), coordenadas_elemento->obtener_pos_y());
+		// TODO: en lugar de este primer parametro, voy a mostrar el indice_celula... una vez que este implementado.
+		dibujar_etiqueta(int_to_string(coordenadas_elemento->obtener_tipo()), coordenadas_elemento->obtener_pos_x(), coordenadas_elemento->obtener_pos_y());
     }
+}
+
+void Entorno::dibujar_etiqueta(string mi_texto, float x, float y) {
+    SDL_Color color;
+    color.r = 255;
+    color.g = 255;
+    color.b = 255;
+    color.a = 255;
+    TTF_Font* mi_fuente = TTF_OpenFont("fuente.ttf", 20);
+    texto = TTF_RenderText_Blended(mi_fuente, mi_texto.c_str(), color);
+    SDL_Rect* renderQuad = new SDL_Rect();
+    renderQuad->h = 20;
+    renderQuad->w = 20;
+    renderQuad->x = x;
+    renderQuad->y = y - 20;
+    SDL_Texture* mitextura = SDL_CreateTextureFromSurface(renderer, texto);
+    SDL_Point* center = new SDL_Point();
+    center->x = 10;
+    center->y = 10;
+    SDL_RenderCopyEx(renderer, mitextura, NULL, renderQuad, 0, center, SDL_FLIP_NONE);
 }
 
 void Entorno::dibujar_anticuerpos(){
@@ -401,7 +423,6 @@ unsigned int Entorno::obtener_cantidad_celulas(string tipo_celula){
 }
 
 void Entorno::dibujar_texto(){
-    // TODO: Mejorar esto para mostrar el estado actual del juego, cantidad de dosis restantes, cantidad de celulas de cada clase, etc...
     SDL_Color color;
     color.r = 0;
     color.g = 0;
