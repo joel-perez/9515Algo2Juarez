@@ -22,6 +22,7 @@ public:
 	// POST: devuelve el valor peso de la arista.
 	unsigned int obtener_peso();
 
+	void cambiar_peso(int peso);
 	//POST: Devuelve el cultivo asociado a la arista.
 	Elemento* obtener_celula();
 

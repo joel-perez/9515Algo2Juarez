@@ -50,13 +50,6 @@ void Tejido::agregar_anticuerpo(Anticuerpo* a) {
     lista->agregar(a);
 }
 
-void Tejido::mover_anticuerpos(){
-    lista->iniciar_cursor();
-    while (lista->avanzar_cursor()) {
-        lista->obtener_cursor()->posicion_aleatoria();
-    }
-}
-
 void Tejido::agregar_dosis(Suero *s) {
     cargador_dosis->agregar(s);
 }
@@ -307,6 +300,14 @@ unsigned int Tejido::obtener_cantidad_celulas(string tipo_celula){
 
 unsigned int Tejido::obtener_cantidad_total_celulas(){
     return grafo->obtener_tam();
+}
+
+int Tejido::obtener_dosis_a_disponibles() {
+    return dosis_a_disponibles;
+}
+
+int Tejido::obtener_dosis_b_disponibles() {
+    return dosis_b_disponibles;
 }
 
 Tejido::~Tejido() {

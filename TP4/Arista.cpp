@@ -15,6 +15,10 @@ unsigned int Arista::obtener_peso() {
 	return this->peso;
 }
 
+void Arista :: cambiar_peso (int peso){
+    this -> peso = peso;
+}
+
 Elemento* Arista::obtener_celula() {
 	return this->celula;
 }

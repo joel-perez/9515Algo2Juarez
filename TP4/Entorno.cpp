@@ -13,6 +13,8 @@ Entorno::Entorno() {
     tejido->cargar_archivo();
     tejido->asignar_dosis();
     estado_inyeccion = 1;
+    estado_atrapada = 1;
+    anticuerpo_atrapado = NULL;
 }
 
 bool Entorno::iniciar(const char *title, int xpos, int ypos, int flags) {
@@ -108,7 +110,7 @@ Entorno::~Entorno()
 
 void Entorno::renderizar_todo()
 {
-    tejido->mover_anticuerpos(); // Es correcto que este aqui?
+    mover_anticuerpos(); // Es correcto que este aqui?
     detector_colisiones();       // Es correcto que este aqui?
 
     SDL_SetRenderDrawColor(renderer, 0xFF, 0xFF, 0xFF, 0xFF);
@@ -176,6 +178,10 @@ bool Entorno::inyectando_dosis() {
     return estado_inyeccion > 1;
 }
 
+bool Entorno::atrapando_anticuerpo() {
+    return estado_atrapada > 1;
+}
+
 void Entorno::dibujar_lineas_entre_celulas() {
     int ajuste_coordenadas = TAMANIO_CELULA / 2;
     Lista<CoordenadasRelacion*>* coordenadas_relaciones = this->tejido->obtener_coordenadas_relaciones();
@@ -235,6 +241,25 @@ void Entorno::mutar_celulas() {
     }
 }
 
+void Entorno::mover_anticuerpos(){
+    Lista<Anticuerpo*>* anticuerpos = tejido->obtener_lista_anticuerpos();
+    anticuerpos->iniciar_cursor();
+    while (anticuerpos->avanzar_cursor()) {
+        Anticuerpo* actual = anticuerpos->obtener_cursor();
+        if (actual->obtener_esta_atrapado())
+            actual->establecer_posiciones(nanobot_pos_x, nanobot_pos_y);
+        else if (actual->obtener_esta_siendo_disparado()) {
+            // TODO: Modificar la posicion en base a la direccion del nanobot
+            actual->establecer_posiciones(actual->obtener_posicion_x(), actual->obtener_posicion_y() - 10);
+            if (actual->obtener_posicion_x() <= 0 || actual->obtener_posicion_x() >= SCREEN_WIDTH ||
+                actual->obtener_posicion_y() <= 0 || actual->obtener_posicion_y() >= SCREEN_HEIGHT)
+                actual->cambiar_esta_siendo_disparado(false);
+        }
+        else
+            actual->posicion_aleatoria();
+    }
+}
+
 void Entorno::generar_anticuerpo() {
     this->tejido->generar_anticuerpo();
 }
@@ -257,7 +282,8 @@ void Entorno::detector_colisiones() {
             Anticuerpo* anticuerpo_actual = lista_anticuerpos->obtener_cursor();
             float anticuerpo_x = anticuerpo_actual->obtener_posicion_x();
             float anticuerpo_y = anticuerpo_actual->obtener_posicion_y();
-            if (hay_colision(celula_x, celula_y, anticuerpo_x, anticuerpo_y, CELULA_SIZE, ANTICUERPO_HEIGHT)) {
+            if (hay_colision(celula_x, celula_y, anticuerpo_x, anticuerpo_y, CELULA_SIZE, ANTICUERPO_HEIGHT)
+                && !anticuerpo_actual->obtener_esta_atrapado()) {
                 if (tipo_elemento != TIPO_CELULA_S){
                     debe_remover_anticuerpo = true;
                     Elemento* nuevo = new Celula(TIPO_CELULA_S,
@@ -280,6 +306,14 @@ void Entorno::animar_inyeccion_dosis() {
         ++estado_inyeccion;
     } else {
         estado_inyeccion = 1;
+    }
+}
+
+void Entorno::animar_atrapada_anticuerpo() {
+    if(estado_atrapada <= TOTAL_FRAMES_ATRAPADA) {
+        ++estado_atrapada;
+    } else {
+        estado_atrapada = 1;
     }
 }
 
@@ -308,6 +342,30 @@ void Entorno::inyectar_dosis(TipoDosis tipo_dosis) {
         else if (tipo_dosis == B) {
             this->tejido->impacto_constructivo(celula);
         }
+    }
+}
+
+void Entorno::atrapar_anticuerpo() {
+    Lista<Anticuerpo*>* anticuerpos = tejido->obtener_lista_anticuerpos();
+    anticuerpos->iniciar_cursor();
+    while (anticuerpos->avanzar_cursor()) {
+        Anticuerpo* anticuerpo_actual = anticuerpos->obtener_cursor();
+        float anticuerpo_x = anticuerpo_actual->obtener_posicion_x();
+        float anticuerpo_y = anticuerpo_actual->obtener_posicion_y();
+        if (hay_colision(nanobot_pos_x, nanobot_pos_y, anticuerpo_x, anticuerpo_y, NANOBOT_WIDTH, ANTICUERPO_WIDTH)
+            && anticuerpo_atrapado == NULL) {
+            anticuerpo_actual->cambiar_esta_atrapado(true);
+            anticuerpo_atrapado = anticuerpo_actual;
+            anticuerpos->avanzar_cursor() == false;
+        }
+    }
+}
+
+void Entorno::disparar_anticuerpo() {
+    if (anticuerpo_atrapado != NULL) {
+        anticuerpo_atrapado->cambiar_esta_atrapado(false);
+        anticuerpo_atrapado->cambiar_esta_siendo_disparado(true);
+        anticuerpo_atrapado = NULL;
     }
 }
 
@@ -349,14 +407,14 @@ void Entorno::dibujar_texto(){
     color.g = 0;
     color.b = 0;
     color.a = 0;
-    string mi_texto = "TP3 NANOBOT-GRUPO: SOBRECARGADOS- X:"
-            + float_to_string(this -> obtener_nanobot_pos_x())
-            + "Y: " + float_to_string(this->obtener_nanobot_pos_y())
-            + "---celulas S: " + float_to_string(this->obtener_cantidad_celulas("S"))
-            + "---celulas X: " + float_to_string(this->obtener_cantidad_celulas("X"))
-            + "---celulas Y: " + float_to_string(this->obtener_cantidad_celulas("Y"))
-            + "---celulas Z: " + float_to_string(this->obtener_cantidad_celulas("Z"))
-            + "---Estado del juego: " + estado_juego();
+    string mi_texto = "TP3 NANOBOT-GRUPO: SOBRECARGADOS --dosis A: "
+            + int_to_string(this->tejido->obtener_dosis_a_disponibles())
+            + " --dosis B: " + int_to_string(this->tejido->obtener_dosis_b_disponibles())
+            + " --celulas S: " + float_to_string(this->obtener_cantidad_celulas("S"))
+            + " --celulas X: " + float_to_string(this->obtener_cantidad_celulas("X"))
+            + " --celulas Y: " + float_to_string(this->obtener_cantidad_celulas("Y"))
+            + " --celulas Z: " + float_to_string(this->obtener_cantidad_celulas("Z"))
+            + " --Estado del juego: " + estado_juego();
     texto = TTF_RenderText_Blended(fuente, mi_texto.c_str(), color);
     SDL_Rect* renderQuad = new SDL_Rect();
     renderQuad->h = 48;
@@ -367,8 +425,7 @@ void Entorno::dibujar_texto(){
     SDL_Point* center = new SDL_Point();
     center->x = 10;
     center->y = 10;
-    SDL_RendererFlip flip;
-    SDL_RenderCopyEx(renderer, mitextura, NULL, renderQuad, 0, center, flip);
+    SDL_RenderCopyEx(renderer, mitextura, NULL, renderQuad, 0, center, SDL_FLIP_NONE);
 }
 
 string Entorno::estado_juego(){
