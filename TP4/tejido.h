@@ -52,7 +52,7 @@ class Tejido {
         // Agregar Filamento
         // PRE:
         // POST: Agrega un filamento (arista) que una a celula_origen con celula_destino, y tiene un peso determinado.
-        void agregar_filamento(unsigned int indice_celula_origen, unsigned int indice_celula_destino, unsigned int peso);
+        void agregar_filamento(unsigned int indice_vertice_origen, unsigned int indice_vertice_destino, unsigned int peso);
 
         // Agregar anticuerpo
         // PRE: lista esta inicializada
