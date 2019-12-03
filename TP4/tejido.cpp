@@ -266,7 +266,8 @@ Lista<CoordenadasElemento*>* Tejido::obtener_coordenadas_celulas(){
         float pos_x = elemento_actual->obtener_posicion_x();
         float pos_y = elemento_actual->obtener_posicion_y();
         imagenes tipo = obtener_tipo_imagenes_desde_string(elemento_actual->obtener_tipo());
-        coordenadas_elemento = new CoordenadasElemento(pos_x, pos_y, tipo);
+        int indice = vertice_actual->obtener_indice();
+        coordenadas_elemento = new CoordenadasElemento(pos_x, pos_y, tipo, indice);
         resultado->agregar(coordenadas_elemento);
     }
     return resultado;
@@ -281,7 +282,7 @@ Lista<CoordenadasElemento*>* Tejido::obtener_coordenadas_anticuerpos(){
         float pos_x = anticuerpo_actual->obtener_posicion_x();
         float pos_y = anticuerpo_actual->obtener_posicion_y();
         imagenes tipo = obtener_tipo_imagenes_desde_string(anticuerpo_actual->obtener_tipo());
-        coordenadas_anticuerpo = new CoordenadasElemento(pos_x, pos_y, tipo);
+        coordenadas_anticuerpo = new CoordenadasElemento(pos_x, pos_y, tipo, 0);
         resultado->agregar(coordenadas_anticuerpo);
     }
     return resultado;

@@ -129,7 +129,7 @@ void Entorno::renderizar_todo()
     dibujar_anticuerpos();
     dibujar_dosis();
 
-    dibujar_texto();
+    dibujar_texto_informativo();
 
     SDL_RenderPresent(renderer); // draw to the screen
 }
@@ -211,8 +211,7 @@ void Entorno::dibujar_celulas(){
 	while (coordenadas_celulas->avanzar_cursor()) {
 		CoordenadasElemento* coordenadas_elemento = coordenadas_celulas->obtener_cursor();
 		renderizar(coordenadas_elemento->obtener_tipo(), coordenadas_elemento->obtener_pos_x(), coordenadas_elemento->obtener_pos_y());
-		// TODO: en lugar de este primer parametro, voy a mostrar el indice_celula... una vez que este implementado.
-		dibujar_etiqueta(int_to_string(coordenadas_elemento->obtener_tipo()), coordenadas_elemento->obtener_pos_x(), coordenadas_elemento->obtener_pos_y());
+		dibujar_etiqueta(int_to_string(coordenadas_elemento->obtener_indice()), coordenadas_elemento->obtener_pos_x(), coordenadas_elemento->obtener_pos_y());
     }
 }
 
@@ -440,7 +439,7 @@ unsigned int Entorno::obtener_cantidad_celulas(string tipo_celula){
     return tejido->obtener_cantidad_celulas(tipo_celula);
 }
 
-void Entorno::dibujar_texto(){
+void Entorno::dibujar_texto_informativo(){
     SDL_Color color;
     color.r = 0;
     color.g = 0;

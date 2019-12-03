@@ -8,11 +8,12 @@ class CoordenadasElemento
 private:
     int pos_x;
     int pos_y;
+    int indice;
     imagenes tipo;
 public:
     //PRE: -
     //POST: genera las coordenadas del elemento
-    CoordenadasElemento(int pos_x, int pos_y, imagenes tipo);
+    CoordenadasElemento(int pos_x, int pos_y, imagenes tipo, int indice);
     //PRE:-
     //POST: genera las coordenadas del elemento
     ~CoordenadasElemento();
@@ -25,6 +26,9 @@ public:
     //PRE: -
     //POST: retorna el tipo de celula de la clase imagenes
     imagenes obtener_tipo();
+    //PRE: -
+    //POST: Retorna el indice del vertice al cual pertenece esta coordenada.
+    int obtener_indice();
 };
 
 #endif // CoordenadasElemento_H_INCLUDED
