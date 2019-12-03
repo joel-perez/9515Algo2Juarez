@@ -27,12 +27,17 @@ public:
 
 	// PRE:  Que el grafo exista y que el nodo no este previamente.
 	// POST: El grafo queda modificado por el agregado del nuevo nodo.
-	void insertar_nodo(Elemento* elemento);
+	void insertar_nodo(Elemento* elemento, unsigned int indice);
 
 	// PRE:  Que el grafo exista, que la arista no este previamente y que existan en el grafo los
 	//       nodos origen y destino de la arista.
 	// POST: El grafo queda modificado por el agregado de la nueva arista.
 	void insertar_arista(Elemento* elemento_origen, Elemento* elemento_destino, unsigned int peso);
+
+	// PRE:  Que el grafo exista, que la arista no este previamente y que existan en el grafo los
+	//       nodos origen y destino de la arista que estan expresados por los parametros indice.
+	// POST: El grafo queda modificado por el agregado de la nueva arista.
+	void insertar_arista(unsigned int indice_vertice_origen, unsigned int indice_vertice_destino, unsigned int peso);
 
 	// PRE:  Que el grafo exista y que el nodo a eliminar este en el y no tenga aristas incidentes en el.
 	// POST: El grafo queda modificado por la eliminacion del nodo.

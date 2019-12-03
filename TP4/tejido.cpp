@@ -30,12 +30,12 @@ void Tejido::asignar_dosis() {
     }
 }
 
-void Tejido::agregar_celula(Elemento *e, unsigned int acumulador) {
-    grafo->insertar_nodo(e);
+void Tejido::agregar_celula(Elemento *e, unsigned int indice_celula) {
+    grafo->insertar_nodo(e, indice_celula);
 }
 
-void Tejido::agregar_filamento(unsigned int indice_celula_origen, unsigned int indice_celula_destino, unsigned int peso) {
-    // TODO: Implementar agregar arista, buscando a los elementos celula origen y destino...
+void Tejido::agregar_filamento(unsigned int indice_vertice_origen, unsigned int indice_vertice_destino, unsigned int peso) {
+    grafo->insertar_arista(indice_vertice_origen, indice_vertice_destino, peso);
 }
 
 void Tejido::agregar_anticuerpo(Anticuerpo* a) {
@@ -50,7 +50,6 @@ void Tejido::cargar_archivo() {
     ifstream entrada;
     entrada.open(ARCHIVO_DATOS.c_str());
 
-    int acumulador = 1;
     string linea;
     while (getline(entrada, linea)) {
         stringstream ss(linea);
@@ -71,8 +70,7 @@ void Tejido::cargar_archivo() {
             ss >> tipo_celula;
             ss >> posicion_x;
             ss >> posicion_y;
-            agregar_celula(obtener_celula_desde_string(tipo_celula, posicion_x, posicion_y, indice_celula), acumulador);
-            acumulador++;
+            agregar_celula(obtener_celula_desde_string(tipo_celula, posicion_x, posicion_y, indice_celula), indice_celula);
         }
         else if (tipo_elemento == TIPO_ELEMENTO_ANTICUERPO) {
             ss >> posicion_x;
@@ -105,7 +103,7 @@ void Tejido::duplicar(Vertice* original) {
                                  original->obtener_elemento()->obtener_posicion_x() + CORRIMIENTO,
                                  original->obtener_elemento()->obtener_posicion_y());
     if (nuevo != NULL) {
-        grafo->insertar_nodo(nuevo);
+        grafo->insertar_nodo(nuevo, 0);
         grafo->insertar_arista(nuevo, original->obtener_elemento(), 0); // TODO: Revisar si esta bien este peso nulo...
     }
 }

@@ -47,7 +47,7 @@ class Tejido {
         // Agregar celula
         // PRE: el grafo esta inicializado
         // POST: agrega e al Tejido
-        void agregar_celula(Elemento *e, unsigned int acumulador);
+        void agregar_celula(Elemento *e, unsigned int indice_celula);
 
         // Agregar Filamento
         // PRE:

@@ -15,9 +15,11 @@ unsigned int Grafo::obtener_tam() {
 	return this->tam;
 }
 
-void Grafo::insertar_nodo(Elemento* elemento) {
+void Grafo::insertar_nodo(Elemento* elemento, unsigned int indice) {
+    if (indice == 0)
+        indice = this->obtener_tam();
 	if (this->existe_nodo(elemento) == NULL) {
-		Vertice* nuevo_vertice = new Vertice(elemento, this->obtener_tam());
+		Vertice* nuevo_vertice = new Vertice(elemento, indice);
 		this->vertices->agregar(nuevo_vertice);
 		this->tam++;
 	}
@@ -45,6 +47,16 @@ bool Grafo::elementos_son_iguales(Elemento* primer_elemento, Elemento* segundo_e
 void Grafo::insertar_arista(Elemento* elemento_origen, Elemento* elemento_destino, unsigned int peso) {
 	Vertice* origen = this->existe_nodo(elemento_origen);
 	Vertice* destino = this->existe_nodo(elemento_destino);
+
+	if (origen != NULL && destino != NULL) {
+		Arista* nueva_arista = new Arista(destino, peso);
+		origen->agregar_arista(nueva_arista);
+	}
+}
+
+void Grafo::insertar_arista(unsigned int indice_vertice_origen, unsigned int indice_vertice_destino, unsigned int peso) {
+	Vertice* origen = this->obtener_vertice_por_indice(indice_vertice_origen);
+	Vertice* destino = this->obtener_vertice_por_indice(indice_vertice_destino);
 
 	if (origen != NULL && destino != NULL) {
 		Arista* nueva_arista = new Arista(destino, peso);
