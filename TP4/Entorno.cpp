@@ -15,6 +15,8 @@ Entorno::Entorno() {
     estado_inyeccion = 1;
     estado_atrapada = 1;
     anticuerpo_atrapado = NULL;
+    desplazamiento_nanobot_x = 0;
+    desplazamiento_nanobot_y = 0;
 }
 
 bool Entorno::iniciar(const char *title, int xpos, int ypos, int flags) {
@@ -182,6 +184,10 @@ bool Entorno::atrapando_anticuerpo() {
     return estado_atrapada > 1;
 }
 
+bool Entorno::realizando_trayecto_nanobot() {
+    return estado_trayecto_nanobot > 1;
+}
+
 void Entorno::dibujar_lineas_entre_celulas() {
     int ajuste_coordenadas = TAMANIO_CELULA / 2;
     Lista<CoordenadasRelacion*>* coordenadas_relaciones = this->tejido->obtener_coordenadas_relaciones();
@@ -336,6 +342,18 @@ void Entorno::animar_atrapada_anticuerpo() {
         ++estado_atrapada;
     } else {
         estado_atrapada = 1;
+    }
+}
+
+void Entorno::animar_trayecto_nanobot() {
+    if(estado_trayecto_nanobot <= TOTAL_FRAMES_TRAYECTO_NANOBOT) {
+        ++estado_trayecto_nanobot;
+        nanobot_pos_x += desplazamiento_nanobot_x;
+        nanobot_pos_y += desplazamiento_nanobot_y;
+    } else {
+        estado_trayecto_nanobot = 1;
+        desplazamiento_nanobot_x = 0;
+        desplazamiento_nanobot_y = 0;
     }
 }
 

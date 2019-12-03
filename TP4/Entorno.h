@@ -29,9 +29,12 @@ class Entorno
     Anticuerpo* anticuerpo_atrapado;
     int estado_inyeccion;
     int estado_atrapada;
+    int estado_trayecto_nanobot;
     TTF_Font* fuente;
     SDL_Surface* texto;
     SDL_Surface* texto1;
+    float desplazamiento_nanobot_x;
+    float desplazamiento_nanobot_y;
 
     public:
         //PRE:-
@@ -95,6 +98,9 @@ class Entorno
         //PRE:
         //POST:
         void animar_atrapada_anticuerpo();
+        //PRE:
+        //POST:
+        void animar_trayecto_nanobot();
 		//PRE:
 		//POST:
 		void inyectar_dosis(TipoDosis tipo_dosis);
@@ -134,6 +140,9 @@ class Entorno
         //PRE:
         //POST:
 		bool atrapando_anticuerpo();
+		//PRE:
+		//POST:
+		bool realizando_trayecto_nanobot();
 		//PRE:
 		//POST:
         std::string estado_juego();

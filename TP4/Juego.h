@@ -18,6 +18,7 @@ class Juego {
 private:
     bool running;
     Entorno entorno;
+    bool solicitando_destino_nanobot;
 
 public:
     //PRE: -

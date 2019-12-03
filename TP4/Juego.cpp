@@ -9,6 +9,7 @@ bool Juego::iniciar(const char *title, int xpos, int ypos, int flags) {
 
 Juego::Juego() {
     running = false;
+    solicitando_destino_nanobot = false;
 }
 
 resultado_juego Juego::obtener_resultado_juego(){
@@ -86,27 +87,64 @@ void Juego::manejar_eventos() {
     if(inputManager->is_key_down(KEY_RIGHT) && !inputManager->is_key_down(KEY_UP) && !inputManager->is_key_down(KEY_DOWN) && entorno.obtener_nanobot_pos_x() <= SCREEN_WIDTH - NANOBOT_WIDTH) {
         entorno.cambiar_nanobot_pos_x(entorno.obtener_nanobot_pos_x() + 10);
     }
-    if(inputManager->is_key_down(KEY_1) || entorno.inyectando_dosis()) {
-        if (!entorno.inyectando_dosis()) {
-            entorno.inyectar_dosis(A);
+    if(!solicitando_destino_nanobot) {
+        if(inputManager->is_key_down(KEY_1) || entorno.inyectando_dosis()) {
+            if (!entorno.inyectando_dosis()) {
+                entorno.inyectar_dosis(A);
+            }
+            entorno.animar_inyeccion_dosis();
         }
-        entorno.animar_inyeccion_dosis();
-    }
-    if(inputManager->is_key_down(KEY_2) || entorno.inyectando_dosis()) {
-        if (!entorno.inyectando_dosis()) {
-            entorno.inyectar_dosis(B);
+        if(inputManager->is_key_down(KEY_2) || entorno.inyectando_dosis()) {
+            if (!entorno.inyectando_dosis()) {
+                entorno.inyectar_dosis(B);
+            }
+            entorno.animar_inyeccion_dosis();
         }
-        entorno.animar_inyeccion_dosis();
-    }
-    if(inputManager->is_key_down(KEY_3) || entorno.atrapando_anticuerpo()) {
-        if (!entorno.atrapando_anticuerpo()) {
-            entorno.atrapar_anticuerpo();
+        if(inputManager->is_key_down(KEY_3) || entorno.atrapando_anticuerpo()) {
+            if (!entorno.atrapando_anticuerpo()) {
+                entorno.atrapar_anticuerpo();
+            }
+            entorno.animar_atrapada_anticuerpo();
         }
-        entorno.animar_atrapada_anticuerpo();
     }
     if(inputManager->is_key_down(KEY_SPACE)) {
         if (!entorno.atrapando_anticuerpo()) {
             entorno.disparar_anticuerpo();
+        }
+    }
+    if(inputManager->is_key_down(KEY_C) && !solicitando_destino_nanobot) {
+        solicitando_destino_nanobot = true;
+    }
+    if(solicitando_destino_nanobot) {
+        if (inputManager->is_key_down(KEY_1)) {
+            // TODO: Realizar trayecto a Celula 1
+            cout << "Trayecto a celula 1" << endl;
+            solicitando_destino_nanobot = false;
+        }
+        if (inputManager->is_key_down(KEY_2)) {
+            // TODO: Realizar trayecto a Celula 2
+            cout << "Trayecto a celula 2" << endl;
+            solicitando_destino_nanobot = false;
+        }
+        if (inputManager->is_key_down(KEY_3)) {
+            // TODO: Realizar trayecto a Celula 3
+            cout << "Trayecto a celula 3" << endl;
+            solicitando_destino_nanobot = false;
+        }
+        if (inputManager->is_key_down(KEY_4)) {
+            // TODO: Realizar trayecto a Celula 4
+            cout << "Trayecto a celula 4" << endl;
+            solicitando_destino_nanobot = false;
+        }
+        if (inputManager->is_key_down(KEY_5)) {
+            // TODO: Realizar trayecto a Celula 5
+            cout << "Trayecto a celula 5" << endl;
+            solicitando_destino_nanobot = false;
+        }
+        if (inputManager->is_key_down(KEY_6)) {
+            // TODO: Realizar trayecto a Celula 6
+            cout << "Trayecto a celula 6" << endl;
+            solicitando_destino_nanobot = false;
         }
     }
 }
