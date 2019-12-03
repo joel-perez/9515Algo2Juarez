@@ -53,5 +53,6 @@ const std::string TIPO_DOSIS_DESCONOCIDA = "desconocido";
 const std::string TIPO_ELEMENTO_ANTICUERPO = "anticuerpo";
 const std::string TIPO_ELEMENTO_CELULA = "celula";
 const std::string TIPO_ELEMENTO_DOSIS = "dosis";
+const std::string TIPO_ELEMENTO_FILAMENTO = "filamento";
 
 #endif // CONSTANTES_H_INCLUDED

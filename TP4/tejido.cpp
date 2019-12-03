@@ -32,18 +32,10 @@ void Tejido::asignar_dosis() {
 
 void Tejido::agregar_celula(Elemento *e, unsigned int acumulador) {
     grafo->insertar_nodo(e);
-    if (acumulador > 1) {
-        if (acumulador % 2 == 0) {
-            grafo->insertar_arista(e, grafo->obtener_vertice_por_indice(acumulador-2)->obtener_elemento());
-            grafo->insertar_arista(grafo->obtener_vertice_por_indice(acumulador-2)->obtener_elemento(), e);
-        }
-        else {
-            grafo->insertar_arista(e, grafo->obtener_vertice_por_indice(acumulador-2)->obtener_elemento());
-            grafo->insertar_arista(e, grafo->obtener_vertice_por_indice(acumulador-3)->obtener_elemento());
-            grafo->insertar_arista(grafo->obtener_vertice_por_indice(acumulador-2)->obtener_elemento(), e);
-            grafo->insertar_arista(grafo->obtener_vertice_por_indice(acumulador-3)->obtener_elemento(), e);
-        }
-    }
+}
+
+void Tejido::agregar_filamento(unsigned int indice_celula_origen, unsigned int indice_celula_destino, unsigned int peso) {
+    // TODO: Implementar agregar arista, buscando a los elementos celula origen y destino...
 }
 
 void Tejido::agregar_anticuerpo(Anticuerpo* a) {
@@ -68,13 +60,18 @@ void Tejido::cargar_archivo() {
         float posicion_x;
         float posicion_y;
         int cantidad_dosis;
+        int indice_celula;
+        int filamento_origen;
+        int filamento_destino;
+        int filamento_peso;
         getline(ss, tipo_elemento, CARACTER_SEPARADOR);
 
         if (tipo_elemento == TIPO_ELEMENTO_CELULA) {
+            ss >> indice_celula;
             ss >> tipo_celula;
             ss >> posicion_x;
             ss >> posicion_y;
-            agregar_celula(obtener_celula_desde_string(tipo_celula, posicion_x, posicion_y), acumulador);
+            agregar_celula(obtener_celula_desde_string(tipo_celula, posicion_x, posicion_y, indice_celula), acumulador);
             acumulador++;
         }
         else if (tipo_elemento == TIPO_ELEMENTO_ANTICUERPO) {
@@ -86,6 +83,12 @@ void Tejido::cargar_archivo() {
             ss >> tipo_dosis;
             ss >> cantidad_dosis;
             agregar_dosis(obtener_dosis_desde_string(tipo_dosis, cantidad_dosis));
+        }
+        else if (tipo_elemento == TIPO_ELEMENTO_FILAMENTO) {
+            ss >> filamento_origen;
+            ss >> filamento_destino;
+            ss >> filamento_peso;
+            agregar_filamento(filamento_origen, filamento_destino, filamento_peso);
         }
     }
     entrada.close();
@@ -194,15 +197,15 @@ Lista<Anticuerpo*>* Tejido::obtener_lista_anticuerpos(){
     return lista;
 }
 
-Celula* Tejido::obtener_celula_desde_string(string tipo_celula, float posicion_x, float posicion_y) {
+Celula* Tejido::obtener_celula_desde_string(string tipo_celula, float posicion_x, float posicion_y, int indice_celula) {
     if (tipo_celula == TIPO_CELULA_S)
-        return new Celula(tipo_celula, posicion_x, posicion_y);
+        return new Celula(tipo_celula, posicion_x, posicion_y); // TODO: Agregar el parametro indice_celula...
     else if (tipo_celula == TIPO_CELULA_X)
-        return new CelulaInflamada(tipo_celula, posicion_x, posicion_y);
+        return new CelulaInflamada(tipo_celula, posicion_x, posicion_y); // TODO: Agregar el parametro indice_celula...
     else if (tipo_celula == TIPO_CELULA_Y)
-        return new CelulaInflamada(tipo_celula, posicion_x, posicion_y);
+        return new CelulaInflamada(tipo_celula, posicion_x, posicion_y); // TODO: Agregar el parametro indice_celula...
     else if (tipo_celula == TIPO_CELULA_Z)
-        return new CelulaMutada(tipo_celula, posicion_x, posicion_y);
+        return new CelulaMutada(tipo_celula, posicion_x, posicion_y); // TODO: Agregar el parametro indice_celula...
     else
         return new Celula();
 }
