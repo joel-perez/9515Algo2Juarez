@@ -107,6 +107,8 @@ Entorno::~Entorno()
 {
     window = NULL;
     renderer = NULL;
+    TTF_CloseFont(fuente);
+    fuente = NULL;
     delete tejido;
 }
 
@@ -216,23 +218,18 @@ void Entorno::dibujar_celulas(){
 }
 
 void Entorno::dibujar_etiqueta(string mi_texto, float x, float y) {
-    SDL_Color color;
-    color.r = 255;
-    color.g = 255;
-    color.b = 255;
-    color.a = 255;
-    TTF_Font* mi_fuente = TTF_OpenFont("fuente.ttf", 20);
+    SDL_Color color = { 255, 255, 255, 255 };
+    TTF_Font* mi_fuente = TTF_OpenFont("fuente.ttf", 30);
     texto = TTF_RenderText_Blended(mi_fuente, mi_texto.c_str(), color);
-    SDL_Rect* renderQuad = new SDL_Rect();
-    renderQuad->h = 20;
-    renderQuad->w = 20;
-    renderQuad->x = x;
-    renderQuad->y = y - 20;
-    SDL_Texture* mitextura = SDL_CreateTextureFromSurface(renderer, texto);
-    SDL_Point* center = new SDL_Point();
-    center->x = 10;
-    center->y = 10;
-    SDL_RenderCopyEx(renderer, mitextura, NULL, renderQuad, 0, center, SDL_FLIP_NONE);
+    TTF_CloseFont(mi_fuente);
+    mi_fuente = NULL;
+    SDL_Texture* mi_textura = SDL_CreateTextureFromSurface(renderer, texto);
+    SDL_FreeSurface(texto);
+    SDL_Rect renderQuad = { static_cast<int>(x), static_cast<int>(y - 20), 20, 20 };
+    SDL_Point center = {10, 10};
+    SDL_RenderCopyEx(renderer, mi_textura, NULL, &renderQuad, 0, &center, SDL_FLIP_NONE);
+    SDL_DestroyTexture(mi_textura);
+    mi_textura = NULL;
 }
 
 void Entorno::dibujar_anticuerpos(){
@@ -440,11 +437,7 @@ unsigned int Entorno::obtener_cantidad_celulas(string tipo_celula){
 }
 
 void Entorno::dibujar_texto_informativo(){
-    SDL_Color color;
-    color.r = 0;
-    color.g = 0;
-    color.b = 0;
-    color.a = 0;
+    SDL_Color color = { 0, 0, 0, 0 };
     string mi_texto = "TP3 NANOBOT-GRUPO: SOBRECARGADOS --dosis A: "
             + int_to_string(this->tejido->obtener_dosis_a_disponibles())
             + " --dosis B: " + int_to_string(this->tejido->obtener_dosis_b_disponibles())
@@ -454,16 +447,13 @@ void Entorno::dibujar_texto_informativo(){
             + " --celulas Z: " + float_to_string(this->obtener_cantidad_celulas("Z"))
             + " --Estado del juego: " + estado_juego();
     texto = TTF_RenderText_Blended(fuente, mi_texto.c_str(), color);
-    SDL_Rect* renderQuad = new SDL_Rect();
-    renderQuad->h = 48;
-    renderQuad->w = 950;
-    renderQuad->x = 10;
-    renderQuad->y = 10;
-    SDL_Texture* mitextura = SDL_CreateTextureFromSurface(renderer, texto);
-    SDL_Point* center = new SDL_Point();
-    center->x = 10;
-    center->y = 10;
-    SDL_RenderCopyEx(renderer, mitextura, NULL, renderQuad, 0, center, SDL_FLIP_NONE);
+    SDL_Texture* mi_textura = SDL_CreateTextureFromSurface(renderer, texto);
+    SDL_FreeSurface(texto);
+    SDL_Rect renderQuad = { 10, 10, 950, 48 };
+    SDL_Point center = {10, 10};
+    SDL_RenderCopyEx(renderer, mi_textura, NULL, &renderQuad, 0, &center, SDL_FLIP_NONE);
+    SDL_DestroyTexture(mi_textura);
+    mi_textura = NULL;
 }
 
 string Entorno::estado_juego(){
