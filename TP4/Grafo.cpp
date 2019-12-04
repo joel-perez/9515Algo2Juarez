@@ -16,10 +16,11 @@ unsigned int Grafo::obtener_tam() {
 }
 
 void Grafo::insertar_nodo(Elemento* elemento, unsigned int indice) {
-    if (indice == 0)
-        indice = this->obtener_tam();
 	if (this->existe_nodo(elemento) == NULL) {
-		Vertice* nuevo_vertice = new Vertice(elemento, indice);
+        unsigned int nuevo_indice = indice;
+        if (indice == 0)
+            nuevo_indice = this->tam;
+		Vertice* nuevo_vertice = new Vertice(elemento, nuevo_indice);
 		this->vertices->agregar(nuevo_vertice);
 		this->tam++;
 	}
