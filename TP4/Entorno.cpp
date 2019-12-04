@@ -438,7 +438,7 @@ unsigned int Entorno::obtener_cantidad_celulas(string tipo_celula){
 
 void Entorno::dibujar_texto_informativo(){
     SDL_Color color = { 0, 0, 0, 0 };
-    string mi_texto = "TP3 NANOBOT-GRUPO: SOBRECARGADOS --dosis A: "
+    string mi_texto = "TP4 NANOBOT-GRUPO: SOBRECARGADOS --dosis A: "
             + int_to_string(this->tejido->obtener_dosis_a_disponibles())
             + " --dosis B: " + int_to_string(this->tejido->obtener_dosis_b_disponibles())
             + " --celulas S: " + float_to_string(this->obtener_cantidad_celulas("S"))
