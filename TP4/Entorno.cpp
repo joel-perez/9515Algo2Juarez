@@ -502,22 +502,33 @@ CoordenadasElemento* Entorno::obtener_coordenadas_celula_mas_cercana() {
 Lista<CoordenadasElemento*>* Entorno::obtener_camino_minimo_entre_celulas(unsigned int indice_celula_mas_cercana, unsigned int indice_celula) {
     Lista<CoordenadasElemento*>* resultado = new Lista<CoordenadasElemento*>();
 
-
-    // TODO: Cambiar esto!! Es solo una prueba del movimiento animado del nanobot.
-    //       Esto debe ejecutar el algoritmo de Dijkstra para obtener el camino de menor peso entre dos vertices...
     Grafo* grafo = tejido->obtener_grafo();
-    Lista<Vertice*>* vertices = grafo->obtener_vertices();
-    vertices->iniciar_cursor();
-    while(vertices->avanzar_cursor()) {
-        Vertice* vertice_actual = vertices->obtener_cursor();
-        unsigned int indice_celula_actual = vertice_actual->obtener_indice();
-        Elemento* elemento_actual = vertice_actual->obtener_elemento();
-        float posicion_x = elemento_actual->obtener_posicion_x();
-        float posicion_y = elemento_actual->obtener_posicion_y();
-        resultado->agregar(new CoordenadasElemento(posicion_x, posicion_y, CELULA_S, indice_celula_actual));
-    }
-    //
+    Vertice* vertice_origen = grafo->obtener_vertice_por_indice(indice_celula_mas_cercana);
+    Vertice* vertice_destino = grafo->obtener_vertice_por_indice(indice_celula);
+    if (vertice_origen != NULL && vertice_destino != NULL) {
 
+        // TODO: Esto en realidad debe ejecutar el algoritmo de Dijkstra para obtener el camino de menor peso entre dos vertices.
+
+        bool origen_destino_directamente_unidos = false;
+        bool destino_origen_directamente_unidos = false;
+        Lista<Arista*>* adyacentes_origen = vertice_origen->obtener_adyacentes();
+        adyacentes_origen->iniciar_cursor();
+        while(adyacentes_origen->avanzar_cursor() && !origen_destino_directamente_unidos) {
+            Arista* adyacente = adyacentes_origen->obtener_cursor();
+            origen_destino_directamente_unidos = adyacente->obtener_destino()->obtener_indice() == indice_celula;
+        }
+        Lista<Arista*>* adyacentes_destino = vertice_destino->obtener_adyacentes();
+        adyacentes_destino->iniciar_cursor();
+        while(adyacentes_destino->avanzar_cursor() && !destino_origen_directamente_unidos) {
+            Arista* adyacente = adyacentes_destino->obtener_cursor();
+            destino_origen_directamente_unidos = adyacente->obtener_destino()->obtener_indice() == indice_celula;
+        }
+
+        if (origen_destino_directamente_unidos || destino_origen_directamente_unidos) {
+            Elemento* elemento_destino = vertice_destino->obtener_elemento();
+            resultado->agregar(new CoordenadasElemento(elemento_destino->obtener_posicion_x(), elemento_destino->obtener_posicion_y(), CELULA_S, indice_celula));
+        }
+    }
 
     return resultado;
 }

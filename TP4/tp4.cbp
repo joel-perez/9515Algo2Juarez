@@ -49,6 +49,7 @@
 		</Linker>
 		<Unit filename="Arista.cpp" />
 		<Unit filename="Arista.h" />
+		<Unit filename="ColaPrioridad.h" />
 		<Unit filename="CoordenadasElemento.cpp" />
 		<Unit filename="CoordenadasElemento.h" />
 		<Unit filename="CoordenadasRelacion.cpp" />

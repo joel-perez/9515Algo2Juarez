@@ -6,6 +6,7 @@
 #include "lista.h"
 #include "Vertice.h"
 #include "constantes.h"
+#include "ColaPrioridad.h"
 #include "celulamutada.h"
 
 class Grafo {
@@ -65,6 +66,18 @@ public:
 	// PRE:  Que el grafo exista.
 	// POST: Libera los recursos utilizados por el grafo.
 	~Grafo();
+
+	// PRE:
+	// POST:
+	unsigned int obtener_camino_minimo(Vertice* origen, Vertice* destino);
+
+	// PRE:
+	// POST:
+    unsigned int* inicializar_vector(Vertice* origen);
+
+	// PRE:
+	// POST:
+    ColaPrioridad<Vertice*>* inicializar_cola(Vertice* origen, unsigned int* costos);
 
 };
 #endif /* GRAFOS_H_ */

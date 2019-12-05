@@ -29,6 +29,7 @@
 #define SECONDARY_GREEN     200
 #define SECONDARY_RED       255
 
+const unsigned int INFINITO = 99999999;
 const int TOTAL_FRAMES_INYECCION = 30;
 const int TOTAL_FRAMES_ATRAPADA = 15;
 const int TOTAL_FRAMES_TRAYECTO_NANOBOT = 20;

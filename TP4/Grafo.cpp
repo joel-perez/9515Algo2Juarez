@@ -90,3 +90,61 @@ Grafo::~Grafo() {
 	}
 	delete vertices;
 }
+
+unsigned int Grafo::obtener_camino_minimo(Vertice* origen, Vertice* destino) {
+    unsigned int resultado = -1;
+    unsigned int* costos = this->inicializar_vector(origen);
+    ColaPrioridad<Vertice*>* cola = this->inicializar_cola(origen, costos);
+
+    while (!cola->esta_vacia()) {
+        Vertice* actual = cola->desacolar();
+        cout << "vertice actual: " << actual->obtener_indice() << endl;
+        actual->obtener_adyacentes()->iniciar_cursor();
+        while (actual->obtener_adyacentes()->avanzar_cursor()) {
+            Arista* analizada = actual->obtener_adyacentes()->obtener_cursor();
+            cout << "arista analizada destino: " << analizada->obtener_destino()->obtener_indice() << endl;
+            unsigned int temporal = costos[actual->obtener_indice()] + analizada->obtener_peso();
+            Vertice* actualiza = analizada->obtener_destino();
+            cout << "vertice actualiza: " << actualiza->obtener_indice() << endl;
+            if (costos[analizada->obtener_destino()->obtener_indice()] > temporal) {
+                costos[analizada->obtener_destino()->obtener_indice()] = temporal;
+                cola->actualizar_valor(actualiza, temporal);
+                cout << "actualiza " << actualiza->obtener_indice() << " temporal " << temporal << " - ";
+            }
+        }
+    }
+    cout << endl;
+    resultado = costos[destino->obtener_indice()];
+
+    delete[] costos;
+    delete cola;
+    return resultado;
+}
+
+unsigned int* Grafo::inicializar_vector(Vertice* origen) {
+    unsigned int* costos = new unsigned int[this->obtener_tam()];
+    for (unsigned int i = 0; i < this->obtener_tam(); i++) {
+        costos[i] = INFINITO;
+    }
+    origen->obtener_adyacentes()->iniciar_cursor();
+    while (origen->obtener_adyacentes()->avanzar_cursor()) {
+        Arista* analizada = origen->obtener_adyacentes()->obtener_cursor();
+        unsigned int costo = analizada->obtener_peso();
+        costos[analizada->obtener_destino()->obtener_indice()] = costo;
+    }
+    costos[origen->obtener_indice()] = 0;
+    return costos;
+}
+
+ColaPrioridad<Vertice*>* Grafo::inicializar_cola(Vertice* origen, unsigned int* costos) {
+    ColaPrioridad<Vertice*>* cola = new ColaPrioridad<Vertice*>();
+    this->vertices->iniciar_cursor();
+    while (this->vertices->avanzar_cursor()) {
+        Vertice* actual = this->vertices->obtener_cursor();
+        //if (actual->obtener_nombre() != origen->obtener_nombre()) {
+        if (actual->obtener_indice() != origen->obtener_indice()) {
+            cola->acolar(actual, costos[actual->obtener_indice()]);
+        }
+    }
+    return cola;
+}
