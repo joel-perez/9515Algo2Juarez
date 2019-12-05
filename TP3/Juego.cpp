@@ -15,12 +15,15 @@ resultado_juego Juego::obtener_resultado_juego(){
     unsigned int total_celulas = entorno.obtener_cantidad_total_celulas();
     unsigned int cant_celulas_s = entorno.obtener_cantidad_celulas(TIPO_CELULA_S);
     unsigned int cant_celulas_z = entorno.obtener_cantidad_celulas(TIPO_CELULA_Z);
-    if (100 * cant_celulas_s / (float) total_celulas == 100)
+    if (cant_celulas_s == total_celulas){
         return GANASTE;
-    else if (100 * cant_celulas_z / (float) total_celulas > 50)
+    }
+    else if (cant_celulas_z > cant_celulas_s){
         return PERDISTE;
+    }
     return JUGANDO;
 }
+
 
 void Juego::correr()
 {

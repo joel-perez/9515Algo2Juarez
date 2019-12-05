@@ -426,9 +426,9 @@ string Entorno::estado_juego(){
     unsigned int total_celulas = obtener_cantidad_total_celulas();
     unsigned int cant_celulas_s = obtener_cantidad_celulas(TIPO_CELULA_S);
     unsigned int cant_celulas_z = obtener_cantidad_celulas(TIPO_CELULA_Z);
-    if (100 * cant_celulas_s / (float) total_celulas == 100)
+    if (cant_celulas_s == total_celulas)
         return "GANASTE EL JUEGO";
-    else if (100 * cant_celulas_z / (float) total_celulas > 50)
-        return "GANASTE EL JUEGO";
+    else if (cant_celulas_z > cant_celulas_s)
+        return "PERDISTE EL JUEGO";
     return "JUGANDO";
 }
