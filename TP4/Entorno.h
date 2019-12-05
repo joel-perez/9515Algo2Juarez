@@ -36,6 +36,7 @@ class Entorno
     SDL_Surface* texto1;
     float desplazamiento_nanobot_x;
     float desplazamiento_nanobot_y;
+    Lista<CoordenadasElemento*>* coordenadas_a_visitar;
 
     public:
         //PRE:-
@@ -152,8 +153,16 @@ class Entorno
 		void dibujar_texto_informativo();
 		// PRE:
         // POST:
-        void iniciar_trayecto_a_celula(unsigned int indice_celula);
-
+        void calcular_trayecto_a_celula(unsigned int indice_celula);
+        // PRE:
+        // POST:
+        CoordenadasElemento* obtener_coordenadas_celula_mas_cercana();
+        // PRE:
+        // POST:
+        Lista<CoordenadasElemento*>* obtener_camino_minimo_entre_celulas(unsigned int indice_celula_mas_cercana, unsigned int indice_celula);
+        // PRE:
+        // POST:
+        void iniciar_trayecto_a_siguiente_celula();
 };
 
 #endif // ENTORNO_H

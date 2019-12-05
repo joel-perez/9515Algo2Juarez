@@ -118,31 +118,33 @@ void Juego::manejar_eventos() {
     if(solicitando_destino_nanobot) {
         if (inputManager->is_key_down(KEY_1)) {
             solicitando_destino_nanobot = false;
-            entorno.iniciar_trayecto_a_celula(1);
+            entorno.calcular_trayecto_a_celula(1);
         }
         if (inputManager->is_key_down(KEY_2)) {
             solicitando_destino_nanobot = false;
-            entorno.iniciar_trayecto_a_celula(2);
+            entorno.calcular_trayecto_a_celula(2);
         }
         if (inputManager->is_key_down(KEY_3)) {
             solicitando_destino_nanobot = false;
-            entorno.iniciar_trayecto_a_celula(3);
+            entorno.calcular_trayecto_a_celula(3);
         }
         if (inputManager->is_key_down(KEY_4)) {
             solicitando_destino_nanobot = false;
-            entorno.iniciar_trayecto_a_celula(4);
+            entorno.calcular_trayecto_a_celula(4);
         }
         if (inputManager->is_key_down(KEY_5)) {
             solicitando_destino_nanobot = false;
-            entorno.iniciar_trayecto_a_celula(5);
+            entorno.calcular_trayecto_a_celula(5);
         }
         if (inputManager->is_key_down(KEY_6)) {
             solicitando_destino_nanobot = false;
-            entorno.iniciar_trayecto_a_celula(6);
+            entorno.calcular_trayecto_a_celula(6);
         }
     }
     if(entorno.realizando_trayecto_nanobot()) {
         entorno.animar_trayecto_nanobot();
+    } else {
+        entorno.iniciar_trayecto_a_siguiente_celula();
     }
 }
 

@@ -18,6 +18,7 @@ Entorno::Entorno() {
     desplazamiento_nanobot_x = 0;
     desplazamiento_nanobot_y = 0;
     estado_trayecto_nanobot = 1;
+    coordenadas_a_visitar = new Lista<CoordenadasElemento*>();
 }
 
 bool Entorno::iniciar(const char *title, int xpos, int ypos, int flags) {
@@ -110,6 +111,7 @@ Entorno::~Entorno()
     renderer = NULL;
     TTF_CloseFont(fuente);
     fuente = NULL;
+    delete coordenadas_a_visitar;
     delete tejido;
 }
 
@@ -352,7 +354,6 @@ void Entorno::animar_trayecto_nanobot() {
         desplazamiento_nanobot_x = 0;
         desplazamiento_nanobot_y = 0;
     }
-    cout << "estado_trayecto_nanobot: " << estado_trayecto_nanobot << " desplazamiento_nanobot_x: " << desplazamiento_nanobot_x << " desplazamiento_nanobot_y: " << desplazamiento_nanobot_y << endl;
 }
 
 void Entorno::inyectar_dosis(TipoDosis tipo_dosis) {
@@ -469,7 +470,8 @@ string Entorno::estado_juego(){
     return "JUGANDO";
 }
 
-void Entorno::iniciar_trayecto_a_celula(unsigned int indice_celula) {
+CoordenadasElemento* Entorno::obtener_coordenadas_celula_mas_cercana() {
+    CoordenadasElemento* resultado = NULL;
     float distancia_menor = 0;
     float pos_x_mas_cercana = 0;
     float pos_y_mas_cercana = 0;
@@ -493,13 +495,52 @@ void Entorno::iniciar_trayecto_a_celula(unsigned int indice_celula) {
             pos_y_mas_cercana = posicion_y;
         }
     }
-    cout << "La celula mas cercana es la #" << indice_celula_mas_cercana << ", esta a una distancia de " << distancia_menor << " y sus coordenadas son X: " << pos_x_mas_cercana << " Y: " << pos_y_mas_cercana << endl;
+    resultado = new CoordenadasElemento(pos_x_mas_cercana, pos_y_mas_cercana, CELULA_S, indice_celula_mas_cercana);
+    return resultado;
+}
+
+Lista<CoordenadasElemento*>* Entorno::obtener_camino_minimo_entre_celulas(unsigned int indice_celula_mas_cercana, unsigned int indice_celula) {
+    Lista<CoordenadasElemento*>* resultado = new Lista<CoordenadasElemento*>();
 
 
-    // Esto tiene que ir aparte...
+    // TODO: Cambiar esto!! Es solo una prueba del movimiento animado del nanobot.
+    //       Esto debe ejecutar el algoritmo de Dijkstra para obtener el camino de menor peso entre dos vertices...
+    Grafo* grafo = tejido->obtener_grafo();
+    Lista<Vertice*>* vertices = grafo->obtener_vertices();
+    vertices->iniciar_cursor();
+    while(vertices->avanzar_cursor()) {
+        Vertice* vertice_actual = vertices->obtener_cursor();
+        unsigned int indice_celula_actual = vertice_actual->obtener_indice();
+        Elemento* elemento_actual = vertice_actual->obtener_elemento();
+        float posicion_x = elemento_actual->obtener_posicion_x();
+        float posicion_y = elemento_actual->obtener_posicion_y();
+        resultado->agregar(new CoordenadasElemento(posicion_x, posicion_y, CELULA_S, indice_celula_actual));
+    }
+    //
 
-    this->desplazamiento_nanobot_x = (pos_x_mas_cercana - nanobot_pos_x) / TOTAL_FRAMES_TRAYECTO_NANOBOT;
-    this->desplazamiento_nanobot_y = (pos_y_mas_cercana - nanobot_pos_y) / TOTAL_FRAMES_TRAYECTO_NANOBOT;
 
-    animar_trayecto_nanobot();
+    return resultado;
+}
+
+void Entorno::calcular_trayecto_a_celula(unsigned int indice_celula) {
+    CoordenadasElemento* coordenadas_celula_mas_cercana = obtener_coordenadas_celula_mas_cercana();
+    unsigned int indice_celula_mas_cercana = coordenadas_celula_mas_cercana->obtener_indice();
+    coordenadas_a_visitar->agregar(coordenadas_celula_mas_cercana);
+    if (indice_celula_mas_cercana != indice_celula) {
+        Lista<CoordenadasElemento*>* camino_minimo_entre_celulas = obtener_camino_minimo_entre_celulas(indice_celula_mas_cercana, indice_celula);
+        camino_minimo_entre_celulas->iniciar_cursor();
+        while (camino_minimo_entre_celulas->avanzar_cursor()) {
+            coordenadas_a_visitar->agregar(camino_minimo_entre_celulas->obtener_cursor());
+        }
+    }
+}
+
+void Entorno::iniciar_trayecto_a_siguiente_celula() {
+    if (coordenadas_a_visitar != NULL && coordenadas_a_visitar->contar_elementos() > 0) {
+        CoordenadasElemento* coordenadas_actuales = coordenadas_a_visitar->obtener(1);
+        this->desplazamiento_nanobot_x = (coordenadas_actuales->obtener_pos_x() - nanobot_pos_x) / TOTAL_FRAMES_TRAYECTO_NANOBOT;
+        this->desplazamiento_nanobot_y = (coordenadas_actuales->obtener_pos_y() - nanobot_pos_y) / TOTAL_FRAMES_TRAYECTO_NANOBOT;
+        coordenadas_a_visitar->remover(1);
+        animar_trayecto_nanobot();
+    }
 }
