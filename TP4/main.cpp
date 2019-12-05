@@ -8,6 +8,7 @@ int main() {
     juego = new Juego();
     juego->iniciar("TP4 - Nanobot - Grupo: 'Sobrecargados'", 100, 100, 0);
     juego->correr();
+    juego->aguardar_salida();
     juego->limpiar();
     delete juego;
     return 0;

@@ -44,6 +44,9 @@ public:
     //
     //
     resultado_juego obtener_resultado_juego();
+    //
+    //
+    void aguardar_salida();
 };
 
 #endif //JUEGO_H

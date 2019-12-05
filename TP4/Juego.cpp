@@ -41,7 +41,18 @@ void Juego::correr()
             entorno.generar_anticuerpo();
         }
 
+        running = obtener_resultado_juego() == JUGANDO;
+
         fpsManager.stop();
+    }
+}
+
+void Juego::aguardar_salida() {
+    InputManager* inputManager = InputManager::get_instance();
+    bool salir = false;
+    while(!salir) {
+    inputManager->update();
+        salir = inputManager->is_key_down(KEY_ESCAPE);
     }
 }
 
