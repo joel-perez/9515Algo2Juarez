@@ -105,6 +105,8 @@ Entorno::~Entorno()
 {
     window = NULL;
     renderer = NULL;
+    TTF_CloseFont(fuente);
+    fuente = NULL;
     delete tejido;
 }
 
@@ -127,7 +129,7 @@ void Entorno::renderizar_todo()
     dibujar_anticuerpos();
     dibujar_dosis();
 
-    dibujar_texto();
+    dibujar_texto_informativo();
 
     SDL_RenderPresent(renderer); // draw to the screen
 }
@@ -400,13 +402,8 @@ unsigned int Entorno::obtener_cantidad_celulas(string tipo_celula){
     return tejido->obtener_cantidad_celulas(tipo_celula);
 }
 
-void Entorno::dibujar_texto(){
-    // TODO: Mejorar esto para mostrar el estado actual del juego, cantidad de dosis restantes, cantidad de celulas de cada clase, etc...
-    SDL_Color color;
-    color.r = 0;
-    color.g = 0;
-    color.b = 0;
-    color.a = 0;
+void Entorno::dibujar_texto_informativo(){
+    SDL_Color color = { 0, 0, 0, 0 };
     string mi_texto = "TP3 NANOBOT-GRUPO: SOBRECARGADOS --dosis A: "
             + int_to_string(this->tejido->obtener_dosis_a_disponibles())
             + " --dosis B: " + int_to_string(this->tejido->obtener_dosis_b_disponibles())
@@ -416,16 +413,13 @@ void Entorno::dibujar_texto(){
             + " --celulas Z: " + float_to_string(this->obtener_cantidad_celulas("Z"))
             + " --Estado del juego: " + estado_juego();
     texto = TTF_RenderText_Blended(fuente, mi_texto.c_str(), color);
-    SDL_Rect* renderQuad = new SDL_Rect();
-    renderQuad->h = 48;
-    renderQuad->w = 950;
-    renderQuad->x = 10;
-    renderQuad->y = 10;
-    SDL_Texture* mitextura = SDL_CreateTextureFromSurface(renderer, texto);
-    SDL_Point* center = new SDL_Point();
-    center->x = 10;
-    center->y = 10;
-    SDL_RenderCopyEx(renderer, mitextura, NULL, renderQuad, 0, center, SDL_FLIP_NONE);
+    SDL_Texture* mi_textura = SDL_CreateTextureFromSurface(renderer, texto);
+    SDL_FreeSurface(texto);
+    SDL_Rect renderQuad = { 10, 10, 950, 48 };
+    SDL_Point center = {10, 10};
+    SDL_RenderCopyEx(renderer, mi_textura, NULL, &renderQuad, 0, &center, SDL_FLIP_NONE);
+    SDL_DestroyTexture(mi_textura);
+    mi_textura = NULL;
 }
 
 string Entorno::estado_juego(){

@@ -136,7 +136,7 @@ class Entorno
         std::string estado_juego();
 		//PRE:
 		//POST:
-		void dibujar_texto();
+		void dibujar_texto_informativo();
 };
 
 #endif // ENTORNO_H
