@@ -466,7 +466,7 @@ string Entorno::estado_juego(){
     if (100 * cant_celulas_s / (float) total_celulas == 100)
         return "GANASTE EL JUEGO";
     else if (100 * cant_celulas_z / (float) total_celulas > 50)
-        return "GANASTE EL JUEGO";
+        return "PERDISTE EL JUEGO";
     return "JUGANDO";
 }
 

@@ -1,7 +1,7 @@
 #ifndef COLAPRIORIDAD_H
 #define COLAPRIORIDAD_H
 #include <string>
-#include "Nodo.h"
+#include "nodo.h"
 
 template<class T> class ColaPrioridad {
 private:
