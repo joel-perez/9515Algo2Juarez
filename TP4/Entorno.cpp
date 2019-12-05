@@ -17,6 +17,7 @@ Entorno::Entorno() {
     anticuerpo_atrapado = NULL;
     desplazamiento_nanobot_x = 0;
     desplazamiento_nanobot_y = 0;
+    estado_trayecto_nanobot = 1;
 }
 
 bool Entorno::iniciar(const char *title, int xpos, int ypos, int flags) {
@@ -351,6 +352,7 @@ void Entorno::animar_trayecto_nanobot() {
         desplazamiento_nanobot_x = 0;
         desplazamiento_nanobot_y = 0;
     }
+    cout << "estado_trayecto_nanobot: " << estado_trayecto_nanobot << " desplazamiento_nanobot_x: " << desplazamiento_nanobot_x << " desplazamiento_nanobot_y: " << desplazamiento_nanobot_y << endl;
 }
 
 void Entorno::inyectar_dosis(TipoDosis tipo_dosis) {
@@ -465,4 +467,39 @@ string Entorno::estado_juego(){
     else if (100 * cant_celulas_z / (float) total_celulas > 50)
         return "GANASTE EL JUEGO";
     return "JUGANDO";
+}
+
+void Entorno::iniciar_trayecto_a_celula(unsigned int indice_celula) {
+    float distancia_menor = 0;
+    float pos_x_mas_cercana = 0;
+    float pos_y_mas_cercana = 0;
+    unsigned int indice_celula_mas_cercana = 0;
+    bool primera_comparacion = true;
+    Grafo* grafo = tejido->obtener_grafo();
+    Lista<Vertice*>* vertices = grafo->obtener_vertices();
+    vertices->iniciar_cursor();
+    while(vertices->avanzar_cursor()) {
+        Vertice* vertice_actual = vertices->obtener_cursor();
+        unsigned int indice_celula_actual = vertice_actual->obtener_indice();
+        Elemento* elemento_actual = vertice_actual->obtener_elemento();
+        float posicion_x = elemento_actual->obtener_posicion_x();
+        float posicion_y = elemento_actual->obtener_posicion_y();
+        float distancia = sqrt(pow(posicion_x - nanobot_pos_x, 2) + pow(posicion_y - nanobot_pos_y, 2));
+        if (distancia < distancia_menor || primera_comparacion) {
+            primera_comparacion = false;
+            distancia_menor = distancia;
+            indice_celula_mas_cercana = indice_celula_actual;
+            pos_x_mas_cercana = posicion_x;
+            pos_y_mas_cercana = posicion_y;
+        }
+    }
+    cout << "La celula mas cercana es la #" << indice_celula_mas_cercana << ", esta a una distancia de " << distancia_menor << " y sus coordenadas son X: " << pos_x_mas_cercana << " Y: " << pos_y_mas_cercana << endl;
+
+
+    // Esto tiene que ir aparte...
+
+    this->desplazamiento_nanobot_x = (pos_x_mas_cercana - nanobot_pos_x) / TOTAL_FRAMES_TRAYECTO_NANOBOT;
+    this->desplazamiento_nanobot_y = (pos_y_mas_cercana - nanobot_pos_y) / TOTAL_FRAMES_TRAYECTO_NANOBOT;
+
+    animar_trayecto_nanobot();
 }

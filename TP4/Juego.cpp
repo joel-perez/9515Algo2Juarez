@@ -117,35 +117,32 @@ void Juego::manejar_eventos() {
     }
     if(solicitando_destino_nanobot) {
         if (inputManager->is_key_down(KEY_1)) {
-            // TODO: Realizar trayecto a Celula 1
-            cout << "Trayecto a celula 1" << endl;
             solicitando_destino_nanobot = false;
+            entorno.iniciar_trayecto_a_celula(1);
         }
         if (inputManager->is_key_down(KEY_2)) {
-            // TODO: Realizar trayecto a Celula 2
-            cout << "Trayecto a celula 2" << endl;
             solicitando_destino_nanobot = false;
+            entorno.iniciar_trayecto_a_celula(2);
         }
         if (inputManager->is_key_down(KEY_3)) {
-            // TODO: Realizar trayecto a Celula 3
-            cout << "Trayecto a celula 3" << endl;
             solicitando_destino_nanobot = false;
+            entorno.iniciar_trayecto_a_celula(3);
         }
         if (inputManager->is_key_down(KEY_4)) {
-            // TODO: Realizar trayecto a Celula 4
-            cout << "Trayecto a celula 4" << endl;
             solicitando_destino_nanobot = false;
+            entorno.iniciar_trayecto_a_celula(4);
         }
         if (inputManager->is_key_down(KEY_5)) {
-            // TODO: Realizar trayecto a Celula 5
-            cout << "Trayecto a celula 5" << endl;
             solicitando_destino_nanobot = false;
+            entorno.iniciar_trayecto_a_celula(5);
         }
         if (inputManager->is_key_down(KEY_6)) {
-            // TODO: Realizar trayecto a Celula 6
-            cout << "Trayecto a celula 6" << endl;
             solicitando_destino_nanobot = false;
+            entorno.iniciar_trayecto_a_celula(6);
         }
+    }
+    if(entorno.realizando_trayecto_nanobot()) {
+        entorno.animar_trayecto_nanobot();
     }
 }
 

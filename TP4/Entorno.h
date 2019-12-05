@@ -12,6 +12,7 @@
 #include "dosis.h"
 #include "tipodosis.h"
 #include "resultadojuego.h"
+#include "math.h"
 
 class Entorno
 {
@@ -149,6 +150,10 @@ class Entorno
 		//PRE:
 		//POST:
 		void dibujar_texto_informativo();
+		// PRE:
+        // POST:
+        void iniciar_trayecto_a_celula(unsigned int indice_celula);
+
 };
 
 #endif // ENTORNO_H

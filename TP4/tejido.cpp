@@ -197,13 +197,13 @@ Lista<Anticuerpo*>* Tejido::obtener_lista_anticuerpos(){
 
 Celula* Tejido::obtener_celula_desde_string(string tipo_celula, float posicion_x, float posicion_y, int indice_celula) {
     if (tipo_celula == TIPO_CELULA_S)
-        return new Celula(tipo_celula, posicion_x, posicion_y); // TODO: Agregar el parametro indice_celula...
+        return new Celula(tipo_celula, posicion_x, posicion_y);
     else if (tipo_celula == TIPO_CELULA_X)
-        return new CelulaInflamada(tipo_celula, posicion_x, posicion_y); // TODO: Agregar el parametro indice_celula...
+        return new CelulaInflamada(tipo_celula, posicion_x, posicion_y);
     else if (tipo_celula == TIPO_CELULA_Y)
-        return new CelulaInflamada(tipo_celula, posicion_x, posicion_y); // TODO: Agregar el parametro indice_celula...
+        return new CelulaInflamada(tipo_celula, posicion_x, posicion_y);
     else if (tipo_celula == TIPO_CELULA_Z)
-        return new CelulaMutada(tipo_celula, posicion_x, posicion_y); // TODO: Agregar el parametro indice_celula...
+        return new CelulaMutada(tipo_celula, posicion_x, posicion_y);
     else
         return new Celula();
 }
