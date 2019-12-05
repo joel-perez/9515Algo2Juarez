@@ -98,22 +98,17 @@ unsigned int Grafo::obtener_camino_minimo(Vertice* origen, Vertice* destino) {
 
     while (!cola->esta_vacia()) {
         Vertice* actual = cola->desacolar();
-        cout << "vertice actual: " << actual->obtener_indice() << endl;
         actual->obtener_adyacentes()->iniciar_cursor();
         while (actual->obtener_adyacentes()->avanzar_cursor()) {
             Arista* analizada = actual->obtener_adyacentes()->obtener_cursor();
-            cout << "arista analizada destino: " << analizada->obtener_destino()->obtener_indice() << endl;
             unsigned int temporal = costos[actual->obtener_indice()] + analizada->obtener_peso();
             Vertice* actualiza = analizada->obtener_destino();
-            cout << "vertice actualiza: " << actualiza->obtener_indice() << endl;
             if (costos[analizada->obtener_destino()->obtener_indice()] > temporal) {
                 costos[analizada->obtener_destino()->obtener_indice()] = temporal;
                 cola->actualizar_valor(actualiza, temporal);
-                cout << "actualiza " << actualiza->obtener_indice() << " temporal " << temporal << " - ";
             }
         }
     }
-    cout << endl;
     resultado = costos[destino->obtener_indice()];
 
     delete[] costos;
