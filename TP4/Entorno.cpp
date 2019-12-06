@@ -506,9 +506,6 @@ Lista<CoordenadasElemento*>* Entorno::obtener_camino_minimo_entre_celulas(unsign
     Vertice* vertice_origen = grafo->obtener_vertice_por_indice(indice_celula_mas_cercana);
     Vertice* vertice_destino = grafo->obtener_vertice_por_indice(indice_celula);
     if (vertice_origen != NULL && vertice_destino != NULL) {
-
-        // TODO: Esto en realidad debe ejecutar el algoritmo de Dijkstra para obtener el camino de menor peso entre dos vertices.
-
         bool origen_destino_directamente_unidos = false;
         bool destino_origen_directamente_unidos = false;
         Lista<Arista*>* adyacentes_origen = vertice_origen->obtener_adyacentes();
@@ -527,6 +524,11 @@ Lista<CoordenadasElemento*>* Entorno::obtener_camino_minimo_entre_celulas(unsign
         if (origen_destino_directamente_unidos || destino_origen_directamente_unidos) {
             Elemento* elemento_destino = vertice_destino->obtener_elemento();
             resultado->agregar(new CoordenadasElemento(elemento_destino->obtener_posicion_x(), elemento_destino->obtener_posicion_y(), CELULA_S, indice_celula));
+        } else {
+            // TODO: Corregir el dijkstra para que no se cuelgue cuando hay nodos que fueron borrados...
+            // TODO: Corregir el dijkstra para que devuelva una lista de celulas a visitar...
+            // int peso_minimo = grafo->obtener_camino_minimo(vertice_origen, vertice_destino);
+            // cout << "Peso minimo entre " << indice_celula_mas_cercana << " y " << indice_celula << " tiene peso " << peso_minimo << endl;
         }
     }
 
