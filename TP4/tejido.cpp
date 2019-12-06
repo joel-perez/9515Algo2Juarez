@@ -36,7 +36,7 @@ void Tejido::agregar_celula(Elemento *e, unsigned int indice_celula) {
 
 void Tejido::agregar_filamento(unsigned int indice_vertice_origen, unsigned int indice_vertice_destino, unsigned int peso) {
     grafo->insertar_arista(indice_vertice_origen, indice_vertice_destino, peso);
-    //grafo->insertar_arista(indice_vertice_destino, indice_vertice_origen, peso);
+    grafo->insertar_arista(indice_vertice_destino, indice_vertice_origen, peso);
 }
 
 void Tejido::agregar_anticuerpo(Anticuerpo* a) {
