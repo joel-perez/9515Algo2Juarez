@@ -27,6 +27,7 @@ Se deberá leer el archivo de texto similar a la forma descripta en el TP N 1 pe
 
 # Ejemplo:
 
+```
 celula 1 X 10.5 10.3
 celula 2 S 100.2 70.4
 celula 3 Y 200 105.3
@@ -46,6 +47,7 @@ filamento 2 6 15
 filamento 2 4 8
 filamento 4 6 12
 filamento 4 5 6
+```
 
 La primera línea nos indica que hay una célula de tipo X en la coordenada (10.5;10.3) con identificador 1, luego tenemos una célula de tipo S con identificador 2, etc. Los anticuerpos y las dosis no tienen id.
 
