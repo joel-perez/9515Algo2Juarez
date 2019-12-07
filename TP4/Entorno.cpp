@@ -501,37 +501,27 @@ CoordenadasElemento* Entorno::obtener_coordenadas_celula_mas_cercana() {
 
 Lista<CoordenadasElemento*>* Entorno::obtener_camino_minimo_entre_celulas(unsigned int indice_celula_mas_cercana, unsigned int indice_celula) {
     Lista<CoordenadasElemento*>* resultado = new Lista<CoordenadasElemento*>();
-
     Grafo* grafo = tejido->obtener_grafo();
     Vertice* vertice_origen = grafo->obtener_vertice_por_indice(indice_celula_mas_cercana);
     Vertice* vertice_destino = grafo->obtener_vertice_por_indice(indice_celula);
     if (vertice_origen != NULL && vertice_destino != NULL) {
         bool origen_destino_directamente_unidos = false;
-        bool destino_origen_directamente_unidos = false;
         Lista<Arista*>* adyacentes_origen = vertice_origen->obtener_adyacentes();
         adyacentes_origen->iniciar_cursor();
         while(adyacentes_origen->avanzar_cursor() && !origen_destino_directamente_unidos) {
             Arista* adyacente = adyacentes_origen->obtener_cursor();
             origen_destino_directamente_unidos = adyacente->obtener_destino()->obtener_indice() == indice_celula;
         }
-        Lista<Arista*>* adyacentes_destino = vertice_destino->obtener_adyacentes();
-        adyacentes_destino->iniciar_cursor();
-        while(adyacentes_destino->avanzar_cursor() && !destino_origen_directamente_unidos) {
-            Arista* adyacente = adyacentes_destino->obtener_cursor();
-            destino_origen_directamente_unidos = adyacente->obtener_destino()->obtener_indice() == indice_celula;
-        }
-
-        if (origen_destino_directamente_unidos || destino_origen_directamente_unidos) {
+        if (origen_destino_directamente_unidos) {
             Elemento* elemento_destino = vertice_destino->obtener_elemento();
             resultado->agregar(new CoordenadasElemento(elemento_destino->obtener_posicion_x(), elemento_destino->obtener_posicion_y(), CELULA_S, indice_celula));
         } else {
             // TODO: Corregir el dijkstra para que no se cuelgue cuando hay nodos que fueron borrados...
-            // TODO: Corregir el dijkstra para que devuelva una lista de celulas a visitar...
+            // TODO: Corregir el dijkstra para que devuelva una lista de vertices a visitar...
             int peso_minimo = grafo->obtener_camino_minimo(vertice_origen, vertice_destino);
             cout << "Peso minimo entre " << indice_celula_mas_cercana << " y " << indice_celula << " tiene peso " << peso_minimo << endl;
         }
     }
-
     return resultado;
 }
 
