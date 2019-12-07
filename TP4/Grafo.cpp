@@ -19,7 +19,7 @@ void Grafo::insertar_nodo(Elemento* elemento, unsigned int indice) {
 	if (this->existe_nodo(elemento) == NULL) {
         unsigned int nuevo_indice = indice;
         if (indice == 0)
-            nuevo_indice = this->tam;
+            nuevo_indice = this->tam + 1;
 		Vertice* nuevo_vertice = new Vertice(elemento, nuevo_indice);
 		this->vertices->agregar(nuevo_vertice);
 		this->tam++;
@@ -93,26 +93,34 @@ Grafo::~Grafo() {
 
 unsigned int Grafo::obtener_camino_minimo(Vertice* origen, Vertice* destino) {
     unsigned int resultado = -1;
-    unsigned int* costos = this->inicializar_vector(origen);
-    ColaPrioridad<Vertice*>* cola = this->inicializar_cola(origen, costos);
-
-    while (!cola->esta_vacia()) {
-        Vertice* actual = cola->desacolar();
-        actual->obtener_adyacentes()->iniciar_cursor();
-        while (actual->obtener_adyacentes()->avanzar_cursor()) {
-            Arista* analizada = actual->obtener_adyacentes()->obtener_cursor();
-            unsigned int temporal = costos[actual->obtener_indice()] + analizada->obtener_peso();
-            Vertice* actualiza = analizada->obtener_destino();
-            if (costos[analizada->obtener_destino()->obtener_indice()] > temporal) {
-                costos[analizada->obtener_destino()->obtener_indice()] = temporal;
-                cola->actualizar_valor(actualiza, temporal);
+    if (origen != NULL && destino != NULL) {
+        unsigned int* costos = this->inicializar_vector(origen);
+        ColaPrioridad<Vertice*>* cola = this->inicializar_cola(origen, costos);
+        while (!cola->esta_vacia()) {
+            Vertice* actual = cola->desacolar();
+            if (actual != NULL) {
+                Lista<Arista*>* adyacentes = actual->obtener_adyacentes();
+                adyacentes->iniciar_cursor();
+                while (adyacentes->avanzar_cursor()) {
+                    Arista* analizada = adyacentes->obtener_cursor();
+                    if (analizada != NULL) {
+                        unsigned int temporal = costos[actual->obtener_indice()] + analizada->obtener_peso();
+                        Vertice* actualiza = analizada->obtener_destino();
+                        if (actualiza != NULL) {
+                            unsigned int actualiza_indice = actualiza->obtener_indice();
+                            if (costos[actualiza_indice] > temporal) {
+                                costos[actualiza_indice] = temporal;
+                                cola->actualizar_valor(actualiza, temporal);
+                            }
+                        }
+                    }
+                }
             }
         }
+        resultado = costos[destino->obtener_indice()];
+        delete[] costos;
+        delete cola;
     }
-    resultado = costos[destino->obtener_indice()];
-
-    delete[] costos;
-    delete cola;
     return resultado;
 }
 
@@ -121,13 +129,22 @@ unsigned int* Grafo::inicializar_vector(Vertice* origen) {
     for (unsigned int i = 0; i < this->obtener_tam(); i++) {
         costos[i] = INFINITO;
     }
-    origen->obtener_adyacentes()->iniciar_cursor();
-    while (origen->obtener_adyacentes()->avanzar_cursor()) {
-        Arista* analizada = origen->obtener_adyacentes()->obtener_cursor();
-        unsigned int costo = analizada->obtener_peso();
-        costos[analizada->obtener_destino()->obtener_indice()] = costo;
+    if (origen != NULL) {
+        Lista<Arista*>* adyacentes = origen->obtener_adyacentes();
+        adyacentes->iniciar_cursor();
+        while (adyacentes->avanzar_cursor()) {
+            Arista* analizada = adyacentes->obtener_cursor();
+            if (analizada != NULL) {
+                Vertice* analizada_destino = analizada->obtener_destino();
+                if (analizada_destino != NULL) {
+                    unsigned int analizada_peso = analizada->obtener_peso();
+                    unsigned int analizada_destino_indice = analizada_destino->obtener_indice();
+                    costos[analizada_destino_indice] = analizada_peso;
+                }
+            }
+        }
+        costos[origen->obtener_indice()] = 0;
     }
-    costos[origen->obtener_indice()] = 0;
     return costos;
 }
 
@@ -136,9 +153,10 @@ ColaPrioridad<Vertice*>* Grafo::inicializar_cola(Vertice* origen, unsigned int* 
     this->vertices->iniciar_cursor();
     while (this->vertices->avanzar_cursor()) {
         Vertice* actual = this->vertices->obtener_cursor();
-        //if (actual->obtener_nombre() != origen->obtener_nombre()) {
-        if (actual->obtener_indice() != origen->obtener_indice()) {
-            cola->acolar(actual, costos[actual->obtener_indice()]);
+        if (actual != NULL && origen != NULL) {
+            if (actual->obtener_indice() != origen->obtener_indice()) {
+                cola->acolar(actual, costos[actual->obtener_indice()]);
+            }
         }
     }
     return cola;

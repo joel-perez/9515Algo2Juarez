@@ -94,18 +94,21 @@ void Tejido::cargar_archivo() {
 }
 
 void Tejido::duplicar(Vertice* original) {
-    Elemento* nuevo = NULL;
-    if (original->obtener_elemento()->obtener_tipo() == TIPO_CELULA_S)
-        nuevo = new Celula(original->obtener_elemento()->obtener_tipo(),
-                           original->obtener_elemento()->obtener_posicion_x() + CORRIMIENTO,
-                           original->obtener_elemento()->obtener_posicion_y());
-    else if (original->obtener_elemento()->obtener_tipo() == TIPO_CELULA_Z)
-        nuevo = new CelulaMutada(original->obtener_elemento()->obtener_tipo(),
-                                 original->obtener_elemento()->obtener_posicion_x() + CORRIMIENTO,
-                                 original->obtener_elemento()->obtener_posicion_y());
-    if (nuevo != NULL) {
-        grafo->insertar_nodo(nuevo, 0);
-        grafo->insertar_arista(nuevo, original->obtener_elemento(), 0); // TODO: Revisar si esta bien este peso nulo...
+    Elemento* elemento_nuevo = NULL;
+    Elemento* elemento_original = original->obtener_elemento();
+    if (elemento_original->obtener_tipo() == TIPO_CELULA_S)
+        elemento_nuevo = new Celula(elemento_original->obtener_tipo(),
+                           elemento_original->obtener_posicion_x() + CORRIMIENTO, // TODO: mejorar el metodo para que
+                           elemento_original->obtener_posicion_y());              //       genere el elemento en un lugar vacio
+    else if (elemento_original->obtener_tipo() == TIPO_CELULA_Z)
+        elemento_nuevo = new CelulaMutada(elemento_original->obtener_tipo(),
+                                 elemento_original->obtener_posicion_x() + CORRIMIENTO,
+                                 elemento_original->obtener_posicion_y());
+    if (elemento_nuevo != NULL) {
+        unsigned int nuevo_peso = 1; // Arbitrariamente elijo un peso para el nuevo filamento.
+        grafo->insertar_nodo(elemento_nuevo, 0);
+        grafo->insertar_arista(elemento_nuevo, elemento_original, nuevo_peso);
+        grafo->insertar_arista(elemento_original, elemento_nuevo, nuevo_peso);
     }
 }
 

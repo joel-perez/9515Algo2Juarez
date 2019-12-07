@@ -527,8 +527,8 @@ Lista<CoordenadasElemento*>* Entorno::obtener_camino_minimo_entre_celulas(unsign
         } else {
             // TODO: Corregir el dijkstra para que no se cuelgue cuando hay nodos que fueron borrados...
             // TODO: Corregir el dijkstra para que devuelva una lista de celulas a visitar...
-            // int peso_minimo = grafo->obtener_camino_minimo(vertice_origen, vertice_destino);
-            // cout << "Peso minimo entre " << indice_celula_mas_cercana << " y " << indice_celula << " tiene peso " << peso_minimo << endl;
+            int peso_minimo = grafo->obtener_camino_minimo(vertice_origen, vertice_destino);
+            cout << "Peso minimo entre " << indice_celula_mas_cercana << " y " << indice_celula << " tiene peso " << peso_minimo << endl;
         }
     }
 
