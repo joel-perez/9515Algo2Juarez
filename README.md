@@ -6,13 +6,13 @@ Algoritmos y Programación II - Juarez - 2do Cuatrimestre 2019
 
 # Trabajos Prácticos:
 
-:microscope: Celulas, Anticuerpos y Suero
+N&ordm; 1: :microscope: Celulas, Anticuerpos y Suero
 
-:skull: "Virus Z"
+N&ordm; 2: :skull: "Virus Z"
 
-:fireworks: "Nanobot"
+N&ordm; 3: :fireworks: "Nanobot"
 
-:collision: "Nanotecnología"
+N&ordm; 4: :collision: "Nanotecnología"
  
 # Grupo: Sobrecargados
 

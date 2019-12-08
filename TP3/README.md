@@ -4,7 +4,7 @@
 
 Algoritmos y Programación II - Juarez - 2do Cuatrimestre 2019
 
-# Trabajo Práctico N 3: :fireworks: "Nanobot"
+# Trabajo Práctico N&ordm; 3: :fireworks: "Nanobot"
 
 # Objetivo
 

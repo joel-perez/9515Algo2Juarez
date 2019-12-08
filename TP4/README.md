@@ -3,7 +3,8 @@
 ![FIUBA](https://raw.githubusercontent.com/joel-perez/9515Algo2Juarez/master/img/logo_fiuba.png)
 
 Algoritmos y Programación II - Juarez - 2do Cuatrimestre 2019
-# Trabajo Práctico N 4: :collision: "Nanotecnología"
+
+# Trabajo Práctico N&ordm; 4: :collision: "Nanotecnología"
 
 # Objetivo
 

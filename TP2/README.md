@@ -4,7 +4,7 @@
 
 Algoritmos y Programación II - Juarez - 2do Cuatrimestre 2019
 
-# Trabajo Práctico N 2: :skull: "Virus Z"
+# Trabajo Práctico N&ordm; 2: :skull: "Virus Z"
 
 # Objetivo
 
