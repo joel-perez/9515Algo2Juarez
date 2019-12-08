@@ -69,7 +69,7 @@ public:
 
 	// PRE:
 	// POST:
-	unsigned int obtener_camino_minimo(Vertice* origen, Vertice* destino);
+	Lista<Vertice*>* obtener_camino_minimo(Vertice* origen, Vertice* destino);
 
 	// PRE:
 	// POST:

@@ -91,8 +91,10 @@ Grafo::~Grafo() {
 	delete vertices;
 }
 
-unsigned int Grafo::obtener_camino_minimo(Vertice* origen, Vertice* destino) {
-    unsigned int resultado = -1;
+Lista<Vertice*>* Grafo::obtener_camino_minimo(Vertice* origen, Vertice* destino) {
+    Lista<Vertice*>* resultado = new Lista<Vertice*>();
+    unsigned int menor_peso = -1;
+    unsigned int temporal_anterior = -1;
     if (origen != NULL && destino != NULL) {
         unsigned int* costos = this->inicializar_vector(origen);
         ColaPrioridad<Vertice*>* cola = this->inicializar_cola(origen, costos);
@@ -104,22 +106,19 @@ unsigned int Grafo::obtener_camino_minimo(Vertice* origen, Vertice* destino) {
                 while (adyacentes->avanzar_cursor()) {
                     Arista* analizada = adyacentes->obtener_cursor();
                     if (analizada != NULL) {
-
-                        cout << "Arista* analizada peso: " << analizada->obtener_peso() << endl;
-
                         unsigned int temporal = costos[actual->obtener_indice()] + analizada->obtener_peso();
                         Vertice* actualiza = analizada->obtener_destino();
                         if (actualiza != NULL) {
-
-                            cout << "Vertice* actualiza: " << actualiza->obtener_indice() << endl;
-
                             unsigned int actualiza_indice = actualiza->obtener_indice();
                             if (costos[actualiza_indice] > temporal) {
                                 costos[actualiza_indice] = temporal;
                                 cola->actualizar_valor(actualiza, temporal);
 
-                                cout << "costos[" << actualiza_indice << "] = " << costos[actualiza_indice] << endl;
-                                cout << "costos[" << destino->obtener_indice() << "] = " << costos[destino->obtener_indice()] << endl;
+                                //TODO: Corregir esto porque esta agregando todo el recorrido que hace el Dijkstra,
+                                //      y en realidad deberia agregar solo el camino minimo.
+                                cout << " agrego " << actual->obtener_indice();
+                                resultado->agregar(actual);
+                                //
                             }
                         }
                     }
@@ -127,12 +126,14 @@ unsigned int Grafo::obtener_camino_minimo(Vertice* origen, Vertice* destino) {
             }
         }
 
-        cout << "costos[" << destino->obtener_indice() << "] = " << costos[destino->obtener_indice()] << endl;
+        cout << " agrego " << destino->obtener_indice() << endl;
+        resultado->agregar(destino);
 
-        resultado = costos[destino->obtener_indice()];
+        menor_peso = costos[destino->obtener_indice()];
         delete[] costos;
         delete cola;
     }
+    //return menor_peso;
     return resultado;
 }
 

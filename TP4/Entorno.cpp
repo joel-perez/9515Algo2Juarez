@@ -505,21 +505,13 @@ Lista<CoordenadasElemento*>* Entorno::obtener_camino_minimo_entre_celulas(unsign
     Vertice* vertice_origen = grafo->obtener_vertice_por_indice(indice_celula_mas_cercana);
     Vertice* vertice_destino = grafo->obtener_vertice_por_indice(indice_celula);
     if (vertice_origen != NULL && vertice_destino != NULL) {
-        bool origen_destino_directamente_unidos = false;
-        Lista<Arista*>* adyacentes_origen = vertice_origen->obtener_adyacentes();
-        adyacentes_origen->iniciar_cursor();
-        while(adyacentes_origen->avanzar_cursor() && !origen_destino_directamente_unidos) {
-            Arista* adyacente = adyacentes_origen->obtener_cursor();
-            origen_destino_directamente_unidos = adyacente->obtener_destino()->obtener_indice() == indice_celula;
-        }
-        if (origen_destino_directamente_unidos) {
-            Elemento* elemento_destino = vertice_destino->obtener_elemento();
+        // TODO: Corregir el dijkstra para que devuelva solo la lista de vertices a visitar de menor peso.
+        Lista<Vertice*>* vertices_a_visitar = grafo->obtener_camino_minimo(vertice_origen, vertice_destino);
+        vertices_a_visitar->iniciar_cursor();
+        while (vertices_a_visitar->avanzar_cursor()) {
+            Vertice* vertice_actual = vertices_a_visitar->obtener_cursor();
+            Elemento* elemento_destino = vertice_actual->obtener_elemento();
             resultado->agregar(new CoordenadasElemento(elemento_destino->obtener_posicion_x(), elemento_destino->obtener_posicion_y(), CELULA_S, indice_celula));
-        } else {
-            // TODO: Corregir el dijkstra para que no se cuelgue cuando hay nodos que fueron borrados...
-            // TODO: Corregir el dijkstra para que devuelva una lista de vertices a visitar...
-            int peso_minimo = grafo->obtener_camino_minimo(vertice_origen, vertice_destino);
-            cout << "Peso minimo entre " << indice_celula_mas_cercana << " y " << indice_celula << " tiene peso " << peso_minimo << endl;
         }
     }
     return resultado;

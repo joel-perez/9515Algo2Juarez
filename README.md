@@ -11,6 +11,8 @@ Algoritmos y Programación II - Juarez - 2do Cuatrimestre 2019
 :skull: "Virus Z"
 
 :fireworks: "Nanobot"
+
+:collision: "Nanotecnología"
  
 # Grupo: Sobrecargados
 
@@ -21,11 +23,13 @@ Algoritmos y Programación II - Juarez - 2do Cuatrimestre 2019
 
 En una ventana de terminal, ejecutar los siguientes comandos:
 
+```
 sudo apt-cache search libsdl2
 
 sudo apt-get update
 
 sudo apt-get install libsdl2-dev
+```
 
 En caso que hubiera un error como el siguiente:
 
@@ -33,11 +37,15 @@ no se pudo bloquear /var/lib/dpkg/lock
 
 Ejecutar el siguiente comando:
 
+```
 sudo fuser -vki  /var/lib/dpkg/lock
+```
 
 Finalmente:
 
+```
 sudo apt-get install libsdl2-ttf-dev
+```
 
 ## Instalacion en Windows
 
