@@ -22,4 +22,4 @@ private:
 };
 
 
-#endif /* FPSMANAGER_H_ */
+#endif // FPSMANAGER_H_

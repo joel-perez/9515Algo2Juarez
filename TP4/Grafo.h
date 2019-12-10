@@ -99,4 +99,4 @@ public:
     void imprimir_solucion(unsigned int* dist, int n, int parent[]);
 
 };
-#endif /* GRAFOS_H_ */
+#endif // GRAFO_H_

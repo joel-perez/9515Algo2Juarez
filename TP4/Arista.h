@@ -30,4 +30,4 @@ public:
     ~Arista();
 };
 
-#endif /* ARISTA_H_ */
+#endif // ARISTA_H_

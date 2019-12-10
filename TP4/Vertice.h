@@ -47,4 +47,4 @@ public:
     ~Vertice();
 };
 
-#endif /* VERTICE_H_ */
+#endif // VERTICE_H_

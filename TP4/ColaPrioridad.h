@@ -8,41 +8,25 @@ private:
     Nodo<T>* frente;
     Nodo<T>* fondo;
 public:
-    /*
-     * post: instancia de Cola vacía y lista para ser usada.
-     */
+    // POST: Instancia de Cola vacía y lista para ser usada.
     ColaPrioridad();
-    /*
-     * pre: el nodo debe existir y el valor de la prioridad debe ser mayor o igual a cero
-     * post: Actualiza el valor de la prioridad del nodo y lo ordena en la cola. Si el valor de la prioridad
-     * no es la indicada no hace nada.
-     */
+    // PRE:  El nodo debe existir y el valor de la prioridad debe ser mayor o igual a cero.
+    // POST: Actualiza el valor de la prioridad del nodo y lo ordena en la cola. Si el valor de la prioridad
+    //       no es la indicada no hace nada.
     void actualizar_valor(T vertice, unsigned int prioridad);
-    /*
-     * post: devuelve true si la cola esta vacia y false si no.
-     */
+    // POST: Devuelve true si la cola esta vacia y false si no.
     bool esta_vacia();
-    /*
-     * post: agrega elemento en el fondo de la Cola.
-     */
+    // POST: Agrega elemento en el fondo de la Cola.
     void acolar(T elemento, unsigned int prioridad);
-    /*
-     * pre : la Cola no está vacía.
-     * post: remueve el frente de la Cola y lo devuelve.
-     */
+    // PRE:  La Cola no está vacía.
+    // POST: Remueve el frente de la Cola y lo devuelve.
     T desacolar();
-    /*
-     * pre : la Cola no está vacía.
-     * post: devuelve el frente de la Cola.
-     */
+    // PRE:  La Cola no está vacía.
+    // POST: Devuelve el frente de la Cola.
     T obtener_frente();
-    /*
-     * post: Ordena la cola segun la prioridad de cada nodo
-     */
+    // POST: Ordena la cola segun la prioridad de cada nodo
     void ordenar();
-    /*
-     * post: remueve todos los elementos y libera los recursos utilizados.
-     */
+    // POST: Remueve todos los elementos y libera los recursos utilizados.
     ~ColaPrioridad();
 };
 template<class T>

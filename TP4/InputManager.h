@@ -25,4 +25,4 @@ private:
     uint8_t key_hold[KEYBOARD_SIZE];
 };
 
-#endif /* INPUTMANAGER_H_ */
+#endif // INPUTMANAGER_H_
