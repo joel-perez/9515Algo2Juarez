@@ -119,7 +119,7 @@ Lista<Vertice*>* Grafo::obtener_camino_minimo(Vertice* origen, Vertice* destino)
                 }
             }
         }
-        //printSolution(costos, tam, parent);
+        //imprimir_solucion(costos, tam, parent);
         construir_path(parent, destino->obtener_indice(), resultado);
         delete[] costos;
         delete cola;
