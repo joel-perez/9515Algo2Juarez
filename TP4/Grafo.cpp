@@ -93,9 +93,8 @@ Grafo::~Grafo() {
 
 Lista<Vertice*>* Grafo::obtener_camino_minimo(Vertice* origen, Vertice* destino) {
     Lista<Vertice*>* resultado = new Lista<Vertice*>();
-    unsigned int menor_peso = -1;
-    unsigned int temporal_anterior = -1;
     if (origen != NULL && destino != NULL) {
+        int* parent = this->inicializar_vector_rutas();
         unsigned int* costos = this->inicializar_vector(origen);
         ColaPrioridad<Vertice*>* cola = this->inicializar_cola(origen, costos);
         while (!cola->esta_vacia()) {
@@ -112,29 +111,56 @@ Lista<Vertice*>* Grafo::obtener_camino_minimo(Vertice* origen, Vertice* destino)
                             unsigned int actualiza_indice = actualiza->obtener_indice();
                             if (costos[actualiza_indice] > temporal) {
                                 costos[actualiza_indice] = temporal;
-                                cola->actualizar_valor(actualiza, temporal);
-
-                                //TODO: Corregir esto porque esta agregando todo el recorrido que hace el Dijkstra,
-                                //      y en realidad deberia agregar solo el camino minimo.
-                                cout << " agrego " << actual->obtener_indice();
-                                resultado->agregar(actual);
-                                //
+                                cola->actualizar_valor(actualiza, temporal);         // Esto solo devuelve el menor peso total.
+                                parent[actualiza_indice] = actual->obtener_indice(); // Esto devuelve la ruta detallada.
                             }
                         }
                     }
                 }
             }
         }
-
-        cout << " agrego " << destino->obtener_indice() << endl;
-        resultado->agregar(destino);
-
-        menor_peso = costos[destino->obtener_indice()];
+        //printSolution(costos, tam, parent);
+        construir_path(parent, destino->obtener_indice(), resultado);
         delete[] costos;
         delete cola;
     }
-    //return menor_peso;
     return resultado;
+}
+
+void Grafo::construir_path(int parent[], int j, Lista<Vertice*>* &vertices) {
+    if (parent[j] == - 1)
+        return;
+    construir_path(parent, parent[j], vertices);
+    vertices->agregar(this->obtener_vertice_por_indice(j));
+}
+
+void Grafo::imprimir_path(int parent[], int j) {
+    // Caso Base: si j es origen
+    if (parent[j] == - 1)
+        return;
+    imprimir_path(parent, parent[j]);
+    cout << j << " ";
+}
+
+void Grafo::imprimir_solucion(unsigned int* dist, int n, int parent[]) {
+    int src = 0;
+    cout << "Vertex\t Distance\tPath" << endl;
+    for (unsigned int i = 1; i <= tam; i++)
+    {
+        cout << endl << src << " -> " << i << " \t\t " << dist[i] << " \t\t " << src << " [ ";
+        imprimir_path(parent, i);
+        cout << " ]" << endl;
+    }
+}
+
+int* Grafo::inicializar_vector_rutas() {
+    // Vector 'Parent' para almacenar detalladamente el camino mas corto.
+    int* parent = new int[this->obtener_tam()];
+    parent[0] = -1;
+    for (unsigned int i = 1; i <= tam; i++) {
+        parent[i] = 0;
+    }
+    return parent;
 }
 
 unsigned int* Grafo::inicializar_vector(Vertice* origen) {

@@ -73,11 +73,30 @@ public:
 
 	// PRE:
 	// POST:
+	int* inicializar_vector_rutas();
+
+	// PRE:
+	// POST:
     unsigned int* inicializar_vector(Vertice* origen);
 
 	// PRE:
 	// POST:
     ColaPrioridad<Vertice*>* inicializar_cola(Vertice* origen, unsigned int* costos);
+
+    // Devuelve la lista de vertices que componen el minimo camino seleccionado para recorrer (lo usa el Dijkstra).
+    // PRE:
+    // POST:
+    void construir_path(int parent[], int j, Lista<Vertice*>* &vertices);
+
+    // Funcion para imprimir la ruta mas corta desde un origen hasta j usando el vector 'Parent'.
+    // PRE:
+    // POST:
+    void imprimir_path(int parent[], int j);
+
+    // Una funcion de utilidad para imprimir el vector construido de distancias.
+    // PRE:
+    // POST:
+    void imprimir_solucion(unsigned int* dist, int n, int parent[]);
 
 };
 #endif /* GRAFOS_H_ */
