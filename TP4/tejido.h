@@ -69,54 +69,54 @@ class Tejido {
         // POST: llena el Tejido con los elementos extraidos del archivo.
         void cargar_archivo();
 
-		// Duplicar
-		// PRE:
-		// POST:
+        // Duplicar
+        // PRE:
+        // POST:
         void duplicar(Vertice* original);
 
-		// Impacto Constructivo
-		// PRE:
-		// POST:
+        // Impacto Constructivo
+        // PRE:
+        // POST:
         void impacto_constructivo(Vertice* vertice_actual);
 
-		// Impacto Destructivo
-		// PRE:
-		// POST:
+        // Impacto Destructivo
+        // PRE:
+        // POST:
         void impacto_destructivo(Vertice* vertice_actual);
 
         // Empeorar estado
-		// PRE:
-		// POST:
+        // PRE:
+        // POST:
         void empeorar_estado(Vertice* vertice_actual);
 
-		// Generar Anticuerpo
-		// PRE:
-		// POST:
+        // Generar Anticuerpo
+        // PRE:
+        // POST:
         void generar_anticuerpo();
 
-		// Obtener Lista Anticuerpos
-		// PRE:
-		// POST:
+        // Obtener Lista Anticuerpos
+        // PRE:
+        // POST:
         Lista<Anticuerpo*>* obtener_lista_anticuerpos();
 
-		// Obtener cantidad total celulas
-		// PRE:
-		// POST:
+        // Obtener cantidad total celulas
+        // PRE:
+        // POST:
         unsigned int obtener_cantidad_total_celulas();
 
-		// Obtener cantidad celulas
-		// PRE:
-		// POST:
+        // Obtener cantidad celulas
+        // PRE:
+        // POST:
         unsigned int obtener_cantidad_celulas(std::string tipo_celula);
 
         // Obtener doosis a disponibles
-		// PRE:
-		// POST:
+        // PRE:
+        // POST:
         int obtener_dosis_a_disponibles();
 
         // Obtener dosis b disponibles
-		// PRE:
-		// POST:
+        // PRE:
+        // POST:
         int obtener_dosis_b_disponibles();
 
         // Obtener celula desde string

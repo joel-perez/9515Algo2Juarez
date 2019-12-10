@@ -213,10 +213,10 @@ void Entorno::dibujar_lineas_entre_celulas() {
 void Entorno::dibujar_celulas(){
     Lista<CoordenadasElemento*>* coordenadas_celulas = tejido->obtener_coordenadas_celulas();
     coordenadas_celulas->iniciar_cursor();
-	while (coordenadas_celulas->avanzar_cursor()) {
-		CoordenadasElemento* coordenadas_elemento = coordenadas_celulas->obtener_cursor();
-		renderizar(coordenadas_elemento->obtener_tipo(), coordenadas_elemento->obtener_pos_x(), coordenadas_elemento->obtener_pos_y());
-		dibujar_etiqueta(int_to_string(coordenadas_elemento->obtener_indice()), coordenadas_elemento->obtener_pos_x(), coordenadas_elemento->obtener_pos_y());
+    while (coordenadas_celulas->avanzar_cursor()) {
+        CoordenadasElemento* coordenadas_elemento = coordenadas_celulas->obtener_cursor();
+        renderizar(coordenadas_elemento->obtener_tipo(), coordenadas_elemento->obtener_pos_x(), coordenadas_elemento->obtener_pos_y());
+        dibujar_etiqueta(int_to_string(coordenadas_elemento->obtener_indice()), coordenadas_elemento->obtener_pos_x(), coordenadas_elemento->obtener_pos_y());
     }
 }
 
@@ -238,9 +238,9 @@ void Entorno::dibujar_etiqueta(string mi_texto, float x, float y) {
 void Entorno::dibujar_anticuerpos(){
     Lista<CoordenadasElemento*>* coordenadas_anticuerpos = tejido->obtener_coordenadas_anticuerpos();
     coordenadas_anticuerpos->iniciar_cursor();
-	while (coordenadas_anticuerpos->avanzar_cursor()) {
-		CoordenadasElemento* coordenadas_elemento = coordenadas_anticuerpos->obtener_cursor();
-		renderizar(coordenadas_elemento->obtener_tipo(), coordenadas_elemento->obtener_pos_x(), coordenadas_elemento->obtener_pos_y());
+    while (coordenadas_anticuerpos->avanzar_cursor()) {
+        CoordenadasElemento* coordenadas_elemento = coordenadas_anticuerpos->obtener_cursor();
+        renderizar(coordenadas_elemento->obtener_tipo(), coordenadas_elemento->obtener_pos_x(), coordenadas_elemento->obtener_pos_y());
     }
 }
 

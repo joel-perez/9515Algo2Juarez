@@ -12,10 +12,10 @@ using namespace std;
 class ImageLoader{
 
 public:
-	ImageLoader(Uint8 r, Uint8 g, Uint8 b);
-	~ImageLoader();
+    ImageLoader(Uint8 r, Uint8 g, Uint8 b);
+    ~ImageLoader();
 
-	void load_sprite(string firstPath, int currentSprite, SDL_Renderer *renderer, Textura* texture);
+    void load_sprite(string firstPath, int currentSprite, SDL_Renderer *renderer, Textura* texture);
 
 private:
     Uint8 r_value;

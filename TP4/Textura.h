@@ -39,8 +39,8 @@ private:
 
     // Ancho de la imagen
     int width;
-	
-	// Alto de la imagen.
+    
+    // Alto de la imagen.
     int height;
 };
 

@@ -3,18 +3,18 @@
 using namespace std;
 
 Arista::Arista(Vertice* destino, unsigned int peso) {
-	if (destino != NULL) {
-		this->destino = destino;
-		this->peso = peso;
-	}
+    if (destino != NULL) {
+        this->destino = destino;
+        this->peso = peso;
+    }
 }
 
 Vertice* Arista::obtener_destino() {
-	return this->destino;
+    return this->destino;
 }
 
 unsigned int Arista::obtener_peso() {
-	return this->peso;
+    return this->peso;
 }
 
 void Arista :: cambiar_peso (int peso){
@@ -22,7 +22,7 @@ void Arista :: cambiar_peso (int peso){
 }
 
 Elemento* Arista::obtener_celula() {
-	return this->celula;
+    return this->celula;
 }
 
 Arista::~Arista() {

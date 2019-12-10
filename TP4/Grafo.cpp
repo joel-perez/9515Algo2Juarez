@@ -3,40 +3,40 @@
 using namespace std;
 
 Grafo::Grafo() {
-	this->vertices = new Lista<Vertice*>();
-	this->tam = 0;
+    this->vertices = new Lista<Vertice*>();
+    this->tam = 0;
 }
 
 Lista<Vertice*>* Grafo::obtener_vertices() {
-	return this->vertices;
+    return this->vertices;
 }
 
 unsigned int Grafo::obtener_tam() {
-	return this->tam;
+    return this->tam;
 }
 
 void Grafo::insertar_nodo(Elemento* elemento, unsigned int indice) {
-	if (this->existe_nodo(elemento) == NULL) {
+    if (this->existe_nodo(elemento) == NULL) {
         unsigned int nuevo_indice = indice;
         if (indice == 0)
             nuevo_indice = this->tam + 1;
-		Vertice* nuevo_vertice = new Vertice(elemento, nuevo_indice);
-		this->vertices->agregar(nuevo_vertice);
-		this->tam++;
-	}
+        Vertice* nuevo_vertice = new Vertice(elemento, nuevo_indice);
+        this->vertices->agregar(nuevo_vertice);
+        this->tam++;
+    }
 }
 
 Vertice* Grafo::existe_nodo(Elemento* elemento) {
-	Vertice* vertice = NULL;
-	bool encontrado = false;
-	this->vertices->iniciar_cursor();
-	while (this->vertices->avanzar_cursor() && !encontrado) {
+    Vertice* vertice = NULL;
+    bool encontrado = false;
+    this->vertices->iniciar_cursor();
+    while (this->vertices->avanzar_cursor() && !encontrado) {
         encontrado = elementos_son_iguales(this->vertices->obtener_cursor()->obtener_elemento(), elemento);
-		if (encontrado) {
-			vertice = vertices->obtener_cursor();
-		}
-	}
-	return vertice;
+        if (encontrado) {
+            vertice = vertices->obtener_cursor();
+        }
+    }
+    return vertice;
 }
 
 bool Grafo::elementos_son_iguales(Elemento* primer_elemento, Elemento* segundo_elemento) {
@@ -46,23 +46,23 @@ bool Grafo::elementos_son_iguales(Elemento* primer_elemento, Elemento* segundo_e
 }
 
 void Grafo::insertar_arista(Elemento* elemento_origen, Elemento* elemento_destino, unsigned int peso) {
-	Vertice* origen = this->existe_nodo(elemento_origen);
-	Vertice* destino = this->existe_nodo(elemento_destino);
+    Vertice* origen = this->existe_nodo(elemento_origen);
+    Vertice* destino = this->existe_nodo(elemento_destino);
 
-	if (origen != NULL && destino != NULL) {
-		Arista* nueva_arista = new Arista(destino, peso);
-		origen->agregar_arista(nueva_arista);
-	}
+    if (origen != NULL && destino != NULL) {
+        Arista* nueva_arista = new Arista(destino, peso);
+        origen->agregar_arista(nueva_arista);
+    }
 }
 
 void Grafo::insertar_arista(unsigned int indice_vertice_origen, unsigned int indice_vertice_destino, unsigned int peso) {
-	Vertice* origen = this->obtener_vertice_por_indice(indice_vertice_origen);
-	Vertice* destino = this->obtener_vertice_por_indice(indice_vertice_destino);
+    Vertice* origen = this->obtener_vertice_por_indice(indice_vertice_origen);
+    Vertice* destino = this->obtener_vertice_por_indice(indice_vertice_destino);
 
-	if (origen != NULL && destino != NULL) {
-		Arista* nueva_arista = new Arista(destino, peso);
-		origen->agregar_arista(nueva_arista);
-	}
+    if (origen != NULL && destino != NULL) {
+        Arista* nueva_arista = new Arista(destino, peso);
+        origen->agregar_arista(nueva_arista);
+    }
 }
 
 void Grafo::eliminar_nodo(Vertice* eliminar) {
@@ -84,11 +84,11 @@ Vertice* Grafo::obtener_vertice_por_indice(unsigned int indice) {
 }
 
 Grafo::~Grafo() {
-	this->vertices->iniciar_cursor();
-	while (vertices->avanzar_cursor()) {
-		delete this->vertices->obtener_cursor();
-	}
-	delete vertices;
+    this->vertices->iniciar_cursor();
+    while (vertices->avanzar_cursor()) {
+        delete this->vertices->obtener_cursor();
+    }
+    delete vertices;
 }
 
 Lista<Vertice*>* Grafo::obtener_camino_minimo(Vertice* origen, Vertice* destino) {

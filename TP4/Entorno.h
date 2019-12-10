@@ -103,15 +103,15 @@ class Entorno
         //PRE:
         //POST:
         void animar_trayecto_nanobot();
-		//PRE:
-		//POST:
-		void inyectar_dosis(TipoDosis tipo_dosis);
-		//PRE:
-		//POST:
-		void atrapar_anticuerpo();
-		//PRE:
-		//POST:
-		void disparar_anticuerpo();
+        //PRE:
+        //POST:
+        void inyectar_dosis(TipoDosis tipo_dosis);
+        //PRE:
+        //POST:
+        void atrapar_anticuerpo();
+        //PRE:
+        //POST:
+        void disparar_anticuerpo();
         //PRE:
         //POST:
         float obtener_nanobot_pos_x();
@@ -138,20 +138,20 @@ class Entorno
         bool hay_colision(float pos_x1, float pos_y1, float pos_x2, float pos_y2, int ancho_objeto1, int ancho_objeto2);
         //PRE:
         //POST:
-		bool inyectando_dosis();
+        bool inyectando_dosis();
         //PRE:
         //POST:
-		bool atrapando_anticuerpo();
-		//PRE:
-		//POST:
-		bool realizando_trayecto_nanobot();
-		//PRE:
-		//POST:
+        bool atrapando_anticuerpo();
+        //PRE:
+        //POST:
+        bool realizando_trayecto_nanobot();
+        //PRE:
+        //POST:
         std::string estado_juego();
-		//PRE:
-		//POST:
-		void dibujar_texto_informativo();
-		// PRE:
+        //PRE:
+        //POST:
+        void dibujar_texto_informativo();
+        // PRE:
         // POST:
         void calcular_trayecto_a_celula(unsigned int indice_celula);
         // PRE:

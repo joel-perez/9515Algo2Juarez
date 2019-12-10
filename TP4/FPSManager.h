@@ -5,20 +5,20 @@
 
 class FPSManager {
 public:
-	FPSManager(int screenFPS);
+    FPSManager(int screenFPS);
 
-	void start();
-	void stop();
+    void start();
+    void stop();
 
-	Uint32 obtener_milisegundos_actuales();
+    Uint32 obtener_milisegundos_actuales();
 
 private:
-	Uint32 t1;
-	Uint32 t2;
-	Uint32 s;
-	Uint32 delta;
-	Uint32 elapsedTime;
-	Uint32 delayTime;
+    Uint32 t1;
+    Uint32 t2;
+    Uint32 s;
+    Uint32 delta;
+    Uint32 elapsedTime;
+    Uint32 delayTime;
 };
 
 

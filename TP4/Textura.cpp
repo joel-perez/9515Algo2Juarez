@@ -66,18 +66,18 @@ void Textura::free() {
 
 void Textura::render(int x, int y, int renderWidth, int renderHeight, SDL_Renderer *renderer, SDL_Rect* clip, double angle, SDL_Point* center, SDL_RendererFlip flip )
 {
-	//SDL_Rect renderQuad = { x, y, width+100, height };
-	SDL_Rect renderQuad = { x, y, renderWidth, renderHeight };
+    //SDL_Rect renderQuad = { x, y, width+100, height };
+    SDL_Rect renderQuad = { x, y, renderWidth, renderHeight };
 
-	//Set clip rendering dimensions
-	if( clip != NULL )
-	{
-		renderQuad.w = clip->w;
-		renderQuad.h = clip->h;
-	}
+    //Set clip rendering dimensions
+    if( clip != NULL )
+    {
+        renderQuad.w = clip->w;
+        renderQuad.h = clip->h;
+    }
 
-	//Render to screen
-	SDL_RenderCopyEx( renderer, textura, clip, &renderQuad, angle, center, flip );
+    //Render to screen
+    SDL_RenderCopyEx( renderer, textura, clip, &renderQuad, angle, center, flip );
 }
 
 int Textura::getWidth() {
@@ -90,6 +90,6 @@ int Textura::getHeight() {
 
 void Textura::setColor( Uint8 red, Uint8 green, Uint8 blue )
 {
-	//Modulate texture
-	SDL_SetTextureColorMod( textura, red, green, blue );
+    //Modulate texture
+    SDL_SetTextureColorMod( textura, red, green, blue );
 }

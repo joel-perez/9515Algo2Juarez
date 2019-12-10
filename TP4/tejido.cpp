@@ -163,7 +163,7 @@ void Tejido::impacto_constructivo(Vertice* vertice_actual) {
 
 void Tejido::empeorar_estado(Vertice* vertice_actual) {
     if (vertice_actual != NULL) {
-	    Elemento* elemento_actual = vertice_actual->obtener_elemento();
+        Elemento* elemento_actual = vertice_actual->obtener_elemento();
         if (elemento_actual->obtener_tipo() == TIPO_CELULA_S) {
             Elemento* nuevo = new CelulaInflamada(TIPO_CELULA_X,
                                                   elemento_actual->obtener_posicion_x(),

@@ -15,11 +15,11 @@ template <class T> class Nodo {
       this->siguiente = NULL;
       this->prioridad = 0;
     }
-	Nodo(T dato, unsigned int prioridad) {
-		this->dato = dato;
-		this->siguiente = NULL;
-		this->prioridad = prioridad;
-	}
+    Nodo(T dato, unsigned int prioridad) {
+        this->dato = dato;
+        this->siguiente = NULL;
+        this->prioridad = prioridad;
+    }
 
     // POST: Devuelve el valor del dato.
     T obtener_dato() {
@@ -42,15 +42,15 @@ template <class T> class Nodo {
     }
 
     // PRE:  La prioridad nueva deberia ser mayor o igual a cero
-	// POST: Asigna un nuevo valor a la prioridad.
-	void cambiar_prioridad(unsigned int prioridad_nueva) {
-		this->prioridad = prioridad_nueva;
-	}
+    // POST: Asigna un nuevo valor a la prioridad.
+    void cambiar_prioridad(unsigned int prioridad_nueva) {
+        this->prioridad = prioridad_nueva;
+    }
 
-	// POST: Devuelve la prioridad del nodo.
-	unsigned int obtener_prioridad() {
-		return this->prioridad;
-	}
+    // POST: Devuelve la prioridad del nodo.
+    unsigned int obtener_prioridad() {
+        return this->prioridad;
+    }
 };
 
 #endif
