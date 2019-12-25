@@ -29,10 +29,6 @@
 #define SECONDARY_GREEN     200
 #define SECONDARY_RED       255
 
-const unsigned int INFINITO = 99999999;
-const int TOTAL_FRAMES_INYECCION = 30;
-const int TOTAL_FRAMES_ATRAPADA = 15;
-const int TOTAL_FRAMES_TRAYECTO_NANOBOT = 20;
 const char CARACTER_SEPARADOR = ' ';
 const int ACCION_MOSTRAR_TODOS = 1;
 const int ACCION_MOSTRAR_UN_ELEMENTO = 2;
@@ -42,8 +38,11 @@ const int INTERVALO_MUTACION = 30;
 const int MAX_ELEMENTOS = 100;
 const int SCREEN_FPS = 30;
 const int TAMANIO_CELULA = 60;
+const int TOTAL_FRAMES_ATRAPADA = 15;
+const int TOTAL_FRAMES_INYECCION = 30;
+const int TOTAL_FRAMES_TRAYECTO_NANOBOT = 20;
 const std::string ARCHIVO_DATOS = "entrada.txt";
-const std::string PATHS[7] = {FONDO_PATH,NANOBOT_PATH,CELULA_S_PATH,CELULA_X_PATH,CELULA_Y_PATH,CELULA_Z_PATH,ANTICUERPO_PATH};
+const std::string PATHS[7] = { FONDO_PATH, NANOBOT_PATH, CELULA_S_PATH, CELULA_X_PATH, CELULA_Y_PATH, CELULA_Z_PATH, ANTICUERPO_PATH };
 const std::string TIPO_CELULA_DESCONOCIDO = "desconocido";
 const std::string TIPO_CELULA_S = "S";
 const std::string TIPO_CELULA_X = "X";
@@ -56,5 +55,6 @@ const std::string TIPO_ELEMENTO_ANTICUERPO = "anticuerpo";
 const std::string TIPO_ELEMENTO_CELULA = "celula";
 const std::string TIPO_ELEMENTO_DOSIS = "dosis";
 const std::string TIPO_ELEMENTO_FILAMENTO = "filamento";
+const unsigned int INFINITO = 99999999;
 
 #endif // CONSTANTES_H_INCLUDED
